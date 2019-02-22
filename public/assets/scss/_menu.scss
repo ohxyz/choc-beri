@@ -13,7 +13,7 @@
     position: relative;
     width: 240px;
     z-index: 1;
-    background-color: #c20075;
+    background-color: #bb247f;
     max-height: 70px;
   }
   .topbar-left-sm {
@@ -45,7 +45,7 @@
 }
 
 .navbar-custom {
-  background-color: #c20075;
+  background-color: #bb247f;
   border-radius: 0;
   margin-bottom: 0;
   padding: 0 10px 0 0;
@@ -190,7 +190,7 @@
 }
 
 .side-menu.left {
-  background: #130b00;
+  background: #1f1f1f;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 70px;
@@ -224,7 +224,7 @@ body.fixed-left {
   display: inline-block;
   height: 70px;
   width: 60px;
-  background-color: #ec0099;
+  background-color: #d6258f;
   font-size: 24px;
   z-index: 1;
 }
@@ -236,7 +236,7 @@ body.fixed-left {
 #sidebar-menu, #sidebar-menu ul, #sidebar-menu li, #sidebar-menu a {
   border: 0;
   font-weight: normal;
-  line-height: 3;
+  line-height: 1;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -300,7 +300,7 @@ body.fixed-left {
 }
 
 #sidebar-menu > ul > li > a {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.7);
   display: block;
   padding: 12px 20px;
   margin: 4px 0;
