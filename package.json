@@ -1,0 +1,25 @@
+{
+  "name": "new-layout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "sass --watch ./public/new/assets/scss/main.scss ./public/new/assets/styles.css",
+    "dev": "http-server ./public -c-1 & npm run watch:sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohxyz/choc-beri.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohxyz/choc-beri/issues"
+  },
+  "homepage": "https://github.com/ohxyz/choc-beri#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "sass": "^1.17.2"
+  }
+}
