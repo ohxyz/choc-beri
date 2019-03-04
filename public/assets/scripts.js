@@ -6,6 +6,6 @@
     $mobileMenuButton.click( () => { 
 
         $container.toggleClass( 'container--mobile' );
-    } )
+    } );
 
 } )();

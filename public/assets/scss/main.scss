@@ -1,3 +1,4 @@
+@import "./scrollbar";
 @import "./feature-status-lab";
 
 $main-color: #bb247f;
@@ -6,6 +7,44 @@ html, body {
 
     margin: 0;
     padding: 0;
+}
+
+@mixin mobile-menu {
+
+    grid-template-columns: 68px auto;
+
+    .logo {
+
+        &__link {
+
+            display: none;
+        }
+    }
+
+    .menu {
+
+        &__link {
+
+            padding: 16px 20px;
+        }
+
+        &__title {
+
+            display: none;
+        }
+
+        &__icon {
+
+            font-size: 20px;
+            width: 28px;
+        }
+
+        &__label {
+
+            display: none;
+        }
+    }
+
 }
 
 .container {
@@ -19,41 +58,14 @@ html, body {
     height: 100vh;
     color: #333333;
 
+    @media screen and ( max-width: 640px ) {
+
+        @include mobile-menu;
+    }
+
     &--mobile {
 
-        grid-template-columns: 68px auto;
-
-        .logo {
-
-            &__link {
-
-                display: none;
-            }
-        }
-
-        .menu {
-
-            &__link {
-
-                padding: 16px 20px;
-            }
-
-            &__title {
-
-                display: none;
-            }
-
-            &__icon {
-
-                font-size: 20px;
-                width: 28px;
-            }
-
-            &__label {
-
-                display: none;
-            }
-        }
+        @include mobile-menu;
     }
 }
 

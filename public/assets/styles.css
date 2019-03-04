@@ -1,3 +1,16 @@
+.side-bar::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+}
+
+.side-bar::-webkit-scrollbar {
+  width: 7px;
+  background-color: #F5F5F5;
+}
+
+.side-bar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .main {
   background-color: pink;
 }
@@ -16,6 +29,27 @@ html, body {
   width: 100vw;
   height: 100vh;
   color: #333333;
+}
+@media screen and (max-width: 640px) {
+  .container {
+    grid-template-columns: 68px auto;
+  }
+  .container .logo__link {
+    display: none;
+  }
+  .container .menu__link {
+    padding: 16px 20px;
+  }
+  .container .menu__title {
+    display: none;
+  }
+  .container .menu__icon {
+    font-size: 20px;
+    width: 28px;
+  }
+  .container .menu__label {
+    display: none;
+  }
 }
 .container--mobile {
   grid-template-columns: 68px auto;
