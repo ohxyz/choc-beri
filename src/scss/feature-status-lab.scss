@@ -1,0 +1,32 @@
+
+.feature-status {
+
+    &__header {
+
+        color: #aaaaaa;
+        font-weight: bold;
+    }
+
+    &__content {
+
+        padding: 12px 0;
+    }
+
+    &__feature-store-name {
+
+        display: inline-block;
+        border: 1px solid #cccccc;
+        border-radius: 100px;
+        padding: 4px 8px;
+        margin-right: 8px;
+        cursor: pointer;
+        font-size: 13px;
+
+        &--active {
+
+            background-color: $main-color;
+            color: white;
+            border-color: $main-color;
+        }
+    }
+}

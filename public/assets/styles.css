@@ -11,8 +11,26 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.main {
-  background-color: pink;
+.feature-status__header {
+  color: #aaaaaa;
+  font-weight: bold;
+}
+.feature-status__content {
+  padding: 12px 0;
+}
+.feature-status__feature-store-name {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 100px;
+  padding: 4px 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.feature-status__feature-store-name--active {
+  background-color: #bb247f;
+  color: white;
+  border-color: #bb247f;
 }
 
 html, body {
@@ -25,7 +43,7 @@ html, body {
   grid-template-columns: 240px auto;
   grid-template-rows: 66px auto;
   font-size: 14px;
-  font-family: "Open Sans", sans-serif, arial;
+  font-family: "Segoe UI", "Open Sans", sans-serif, arial;
   width: 100vw;
   height: 100vh;
   color: #333333;
@@ -128,12 +146,19 @@ html, body {
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
+  border-bottom: 1px solid #dddddd;
+}
+.main .page__content {
+  padding: 20px;
 }
 .main .page__title {
   font-size: 16px;
 }
 .main .page__breadcrumb {
   font-size: 14px;
+}
+.main .page__breadcrumb span {
+  margin: 0 4px;
 }
 .main .page__breadcrumb a {
   color: #bb247f;

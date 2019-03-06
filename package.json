@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass --watch ./public/assets/scss/main.scss ./public/assets/styles.css",
-    "dev": "http-server ./public -c-1 & npm run watch:sass"
+    "watch:sass": "sass --watch ./src/scss/main.scss ./public/assets/styles.css",
+    "pug": "pug ./src/pug/[^_]*.pug --out ./public --watch --pretty",
+    "dev": "http-server ./public -c-1 & npm run watch:sass & npm run pug"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/ohxyz/choc-beri#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
+    "pug-cli": "^1.0.0-alpha6",
     "sass": "^1.17.2"
   }
 }

@@ -1,0 +1,25 @@
+//- layout.pug
+doctype html
+head
+    title Choc BERI
+    meta(charset="utf-8")
+    meta(name="description" content="Basic HTML5 template")
+    meta(name="author" content="My Name")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(rel="stylesheet" type="text/css" href="./assets/styles.css")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet")
+    link(rel="stylesheet" 
+         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+         crossorigin="anonymous")
+    script(
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        crossorigin="anonymous")
+body
+    .container
+        include _logo.pug
+        include _side-bar.pug
+        include _top-bar.pug
+        .main
+            block main
