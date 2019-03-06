@@ -1,15 +1,18 @@
 
-.feature-status {
+.strip {
+
+    margin-bottom: 20px;
 
     &__header {
 
         color: #aaaaaa;
         font-weight: bold;
+        padding: 4px 0;
     }
 
     &__content {
 
-        padding: 12px 0;
+        padding: 8px 0;
     }
 
     &__feature-store-name {
@@ -28,5 +31,82 @@
             color: white;
             border-color: $main-color;
         }
+    }
+}
+
+.feature-store {
+
+    &__header {
+
+        font-size: 18px;
+        padding-bottom: 20px;
+        color: $main-color;
+        font-weight: bold;
+    }
+
+    &__content {
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+}
+
+.feature-status {
+
+    flex-grow: 1;
+    flex-basis: 220px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background-color: white;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+
+    &__header {
+
+        font-weight: bold;
+        color: #999999;
+        padding: 15px 20px;
+        display: flex;
+    }
+
+    &__title {
+
+        flex-basis: 100%;
+        margin-left: 20px;
+    }
+
+    &__icon-title {
+
+        font-size: 16px;
+        margin-top: 2px;
+        flex-basis: 20px;
+    }
+
+    &__icon-expand {
+
+        font-size: 10px;
+        margin-top: 5px;
+        flex-basis: 20px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+
+            color: $main-color;
+        }
+    }
+
+    &__content {
+
+
+    }
+
+    &__list-item {
+
+        padding: 10px 20px;
+        border-top: 1px solid #dddddd;
     }
 }

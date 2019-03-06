@@ -1,20 +1,68 @@
-//- feature-status-lab
+//- feature-lab
 extends _layout.pug
 
 block main
     .page
         .page__header
-            .page__titleFeature Status - Laboratory
+            .page__title Feature Status - Laboratory
             .page__breadcrumb
-                <span>Choc-BERI</span>
-                <span>/</span>
-                <a href="/">Feature Status - Lab</a>
+                span Choc-BERI
+                span /
+                a(href="/") Feature Status - Lab
         .page__content
-            .feature-status
-                .feature-status__header
-                    span.feature-status__title FEATURE STORES
-                .feature-status__content
-                    span.feature-status__feature-store-name all
-                    span.feature-status__feature-store-name
-                        .feature-status__feature-store-name--active fixedservices
-                    span.feature-status__feature-store-name mobile
+            .strip
+                .strip__header
+                    span.strip__title FEATURE STORES
+                .strip__content
+                    span.strip__feature-store-name.strip__feature-store-name--active all
+                    span.strip__feature-store-name fixedservices
+                    span.strip__feature-store-name mobile
+            #fixedservices.feature-store
+                .feature-store__header Feature store - fixedservices
+                .feature-store__content
+                    - var status_group1 = [ 'PROMOTED', 'MARKED FOR PROMOTION', 'BUILT', 'BUILDING', 'PENDING', 'READY' ]
+                    - var status_group2 = [ 'VALIDATED', 'VALIDATING', 'FAILD' ]
+                    each title in status_group1.concat(status_group2)
+                        .feature-status
+                            .feature-status__header
+                                i.feature-status__icon-title.fas.fa-medal
+                                span.feature-status__title= title
+                                i.feature-status__icon-expand.fas.fa-plus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+            #mobile.feature-store
+                .feature-store__header Feature store - mobile
+                .feature-store__content
+                    - var status_group3 = [ 'MARKED FOR DECOMMISION', 'DECOMMISSIONING', 'DECOMMISIONED', 'UNCATEGORISED']
+                    each title in status_group3
+                        .feature-status
+                            .feature-status__header
+                                i.feature-status__icon-title.fas.fa-check
+                                span.feature-status__title= title
+                                i.feature-status__icon-expand.fas.fa-plus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
