@@ -1,5 +1,7 @@
 ( function () {
 
+/* Mobile view toggle *****************************************************************************/
+
     var $mobileMenuButton = $( '.mobile-menu__button' );
     var $container = $( '.container' );
 
@@ -8,6 +10,8 @@
         $container.toggleClass( 'container--mobile' );
     } );
 
+/* Feature store header toggle ********************************************************************/
+    
     $( '.feature-status__icon-expand' ).click( function () {
 
         var $icon = $( this );
@@ -25,6 +29,8 @@
         }
         
     } );
+
+/* Feature store toggle, all fixedservices, mobile, etc *******************************************/
 
     $( '.strip__feature-store-name' ).click( function () { 
 
@@ -45,8 +51,6 @@
             $button.addClass( 'strip__feature-store-name--active' );
             $( '#' + text ).show();
         }
-
-
     } );
 
 } )();

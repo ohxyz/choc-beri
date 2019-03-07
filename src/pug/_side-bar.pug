@@ -1,55 +1,76 @@
-#side-bar.side-bar
+- var active_class = 'menu__link--active'
+block link
+
+.side-bar
     .menu
         .menu__item
-            a.menu__link(title="Dashboard" class="menu__link menu__link--active" href="/")
+            a.menu__link( title="Dashboard" 
+                          class=( path === 'dashboard' ? active_class : '' ) 
+                          href="/" )
+
                 i.fas.fa-tachometer-alt.menu__icon
                 .menu__label Dashboard
         .menu__item
             .menu__title Exploratory
+        
         .menu__item
             a.menu__link(title="Browse File - Exp" href="/")
                 i.fas.fa-folder-open.menu__icon
                 .menu__label Browse Files
+        
         .menu__item
             a.menu__link(title="Upload Files - Exp" href="/")
                 i.fas.fa-file-upload.menu__icon
                 .menu__label Upload Files
+        
         .menu__item
             .menu__title Laboratory
+        
         .menu__item
-            a.menu__link(title="Feature Status - Lab" href="/feature-status-lab")
+            a.menu__link( title="Feature Status - Lab" 
+                          class=( path === 'feature-status-lab' ? active_class : '' ) 
+                          href="/feature-status-lab" )
                 i.fas.fa-list-ul.menu__icon
                 .menu__label Feature Status - Lab
+        
         .menu__item
             a.menu__link(title="Upload Scripts - Lab" href="/")
                 i.fas.fa-upload.menu__icon
                 .menu__label Upload Scripts - Lab
+        
         .menu__item
             .menu__title Factory
+        
         .menu__item
             a.menu__link(title="Feature Status - Fac" href="/")
                 i.fas.fa-th.menu__icon
                 .menu__label Feature Status - Fac
+        
         .menu__item
             a.menu__link(title="Upload Scripts - Fac" href="/")
                 i.fas.fa-cloud-upload-alt.menu__icon
                 .menu__label Upload Scripts - Fac
         .menu__item
             .menu__title Feature
+        
         .menu__item
             a.menu__link(title="Predictive Feature Metrics" href="/")
                 i.fas.fa-chart-line.menu__icon
                 .menu__label Predictive Feature Metrics
+        
         .menu__item
             a.menu__link(title="Create Feature Store" href="/")
                 i.fas.fa-plus.menu__icon
                 .menu__label Create Feature Store
+        
         .menu__item
             .menu__title Batch Management
+        
         .menu__item
             a.menu__link(title="Laboratory Management" href="/")
                 i.fas.fa-flask.menu__icon
                 .menu__label Laboratory Management
+        
         .menu__item
             a.menu__link(title="Factory Management" href="/")
                 i.fas.fa-city.menu__icon

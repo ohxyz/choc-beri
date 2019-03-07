@@ -15,9 +15,9 @@
     <div class="logo"><a class="logo__link" href="/"></a>
       <div class="mobile-menu__button"><i class="fas fa-bars mobile-menu__icon"></i></div>
     </div>
-    <div class="side-bar" id="side-bar">
+    <div class="side-bar">
       <div class="menu">
-        <div class="menu__item"><a class="menu__link menu__link menu__link--active" title="Dashboard" href="/"><i class="fas fa-tachometer-alt menu__icon"></i>
+        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/"><i class="fas fa-tachometer-alt menu__icon"></i>
             <div class="menu__label">Dashboard</div></a></div>
         <div class="menu__item">
           <div class="menu__title">Exploratory</div>
@@ -29,7 +29,7 @@
         <div class="menu__item">
           <div class="menu__title">Laboratory</div>
         </div>
-        <div class="menu__item"><a class="menu__link" title="Feature Status - Lab" href="/feature-status-lab"><i class="fas fa-list-ul menu__icon"></i>
+        <div class="menu__item"><a class="menu__link menu__link--active" title="Feature Status - Lab" href="/feature-status-lab"><i class="fas fa-list-ul menu__icon"></i>
             <div class="menu__label">Feature Status - Lab</div></a></div>
         <div class="menu__item"><a class="menu__link" title="Upload Scripts - Lab" href="/"><i class="fas fa-upload menu__icon"></i>
             <div class="menu__label">Upload Scripts - Lab</div></a></div>
@@ -71,20 +71,40 @@
           <div class="feature-store" id="fixedservices">
             <div class="feature-store__header">Feature store - fixedservices</div>
             <div class="feature-store__content">
-              <div class="feature-status">
+              <div class="feature-status feature-status--promoted">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">PROMOTED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-status feature-status--built">
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check-circle"></i><span class="feature-status__title">BUILT</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__content">
+                  <div class="feature-status__list">
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="feature-status feature-status--failed">
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-times-circle"></i><span class="feature-status__title">FAILED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__content">
+                  <div class="feature-status__list">
+                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                   </div>
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">MARKED FOR PROMOTION</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">MARKED FOR PROMOTION</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -96,7 +116,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">BUILT</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">BUILDING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -108,7 +128,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">BUILDING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">PENDING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -120,7 +140,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">PENDING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">READY</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -132,7 +152,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">READY</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">VALIDATED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -144,7 +164,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">VALIDATED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">VALIDATING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -156,19 +176,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">VALIDATING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">FAILD</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">FAILD</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -185,7 +193,7 @@
             <div class="feature-store__header">Feature store - mobile</div>
             <div class="feature-store__content">
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check"></i><span class="feature-status__title">MARKED FOR DECOMMISION</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">MARKED FOR DECOMMISION</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -199,7 +207,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -213,7 +221,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check"></i><span class="feature-status__title">DECOMMISIONED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">DECOMMISIONED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
@@ -227,7 +235,7 @@
                 </div>
               </div>
               <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check"></i><span class="feature-status__title">UNCATEGORISED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">UNCATEGORISED</span><i class="feature-status__icon-expand fas fa-plus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
