@@ -198,4 +198,34 @@
             }
         }
     }
+
+
+    &--decommissioned {
+
+        $promoted-color: #444444;
+
+        border: 1px solid $promoted-color;
+
+        .feature-status {
+
+            &__header {
+
+                color: white;
+                background-color: $promoted-color;
+            }
+
+            &__list-item {
+
+                border-top: 1px solid $promoted-color;
+            }
+
+            &__icon-expand {
+
+                &:hover {
+
+                    color: white;
+                }
+            }
+        }
+    }
 }

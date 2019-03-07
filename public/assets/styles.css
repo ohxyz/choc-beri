@@ -129,6 +129,19 @@
 .feature-status--failed .feature-status__icon-expand:hover {
   color: white;
 }
+.feature-status--decommissioned {
+  border: 1px solid #444444;
+}
+.feature-status--decommissioned .feature-status__header {
+  color: white;
+  background-color: #444444;
+}
+.feature-status--decommissioned .feature-status__list-item {
+  border-top: 1px solid #444444;
+}
+.feature-status--decommissioned .feature-status__icon-expand:hover {
+  color: white;
+}
 
 html, body {
   margin: 0;

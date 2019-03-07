@@ -7,8 +7,8 @@ block link
 block main
     - 
       var status_group1 = [ 'MARKED FOR PROMOTION', 'BUILDING', 'PENDING', 'READY' ]
-      var status_group2 = [ 'VALIDATED', 'VALIDATING', 'FAILD' ]
-      var status_group3 = [ 'MARKED FOR DECOMMISION', 'DECOMMISSIONING', 'DECOMMISIONED', 'UNCATEGORISED']
+      var status_group2 = [ 'VALIDATED', 'VALIDATING' ]
+      var status_group3 = [ 'MARKED FOR DECOMMISION', 'DECOMMISSIONING', 'UNCATEGORISED']
 
     .page
         .page__header
@@ -33,7 +33,7 @@ block main
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-medal
                             span.feature-status__title PROMOTED
-                            i.feature-status__icon-expand.fas.fa-plus
+                            i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
@@ -43,12 +43,11 @@ block main
                                 .feature-status__list-item
                                     span.feature-status__feature-name recd_del_flg_bin (TINYINT)
 
-
                     .feature-status.feature-status--built
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-check-circle
                             span.feature-status__title BUILT
-                            i.feature-status__icon-expand.fas.fa-plus
+                            i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
@@ -66,7 +65,7 @@ block main
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-times-circle
                             span.feature-status__title FAILED
-                            i.feature-status__icon-expand.fas.fa-plus
+                            i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
@@ -81,7 +80,7 @@ block main
                             .feature-status__header
                                 i.feature-status__icon-title.fas.fa-marker
                                 span.feature-status__title= title
-                                i.feature-status__icon-expand.fas.fa-plus
+                                i.feature-status__icon-expand.fas.fa-minus
                             .feature-status__content
                                 .feature-status__list
                                     .feature-status__list-item
@@ -97,12 +96,31 @@ block main
             #mobile.feature-store
                 .feature-store__header Feature store - mobile
                 .feature-store__content
+
+                    .feature-status.feature-status--decommissioned
+                        .feature-status__header
+                            i.feature-status__icon-title.fas.fa-ban
+                            span.feature-status__title DECOMMISSIONED
+                            i.feature-status__icon-expand.fas.fa-minus
+                        .feature-status__content
+                            .feature-status__list
+                                .feature-status__list-item
+                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                .feature-status__list-item
+                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                .feature-status__list-item
+                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                .feature-status__list-item
+                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                .feature-status__list-item
+                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+
                     each title in status_group3
                         .feature-status
                             .feature-status__header
                                 i.feature-status__icon-title.fas.fa-bookmark
                                 span.feature-status__title= title
-                                i.feature-status__icon-expand.fas.fa-plus
+                                i.feature-status__icon-expand.fas.fa-minus
                             .feature-status__content
                                 .feature-status__list
                                     .feature-status__list-item

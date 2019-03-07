@@ -20,12 +20,12 @@
         if ( $icon.hasClass( 'fa-plus') ) {
 
             $icon.removeClass( 'fa-plus' ).addClass( 'fa-minus' );
-            $content.hide();
+            $content.show();
         }
         else if (  $icon.hasClass( 'fa-minus') ) {
 
             $icon.removeClass( 'fa-minus' ).addClass( 'fa-plus' );
-            $content.show();
+            $content.hide();
         }
         
     } );
