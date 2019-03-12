@@ -143,21 +143,21 @@
 
 .strip {
   margin-bottom: 20px;
+  display: flex;
 }
-.strip__header {
+.strip__title {
   color: #aaaaaa;
   font-weight: bold;
-  margin-bottom: 8px;
-}
-.strip__content {
-  padding: 8px 0;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
 }
 .strip__feature-store-name {
   display: inline-block;
   border: 1px solid #cccccc;
   border-radius: 100px;
   padding: 4px 8px;
-  margin-right: 8px;
+  margin-right: 10px;
   cursor: pointer;
   font-size: 13px;
 }
@@ -232,9 +232,6 @@
 .feature-status--promoted .feature-status__header {
   color: #ff9800;
 }
-.feature-status--promoted .feature-status__icon-title {
-  color: #ff9800;
-}
 .feature-status--promoted .feature-status__list-item {
   border-top: 1px solid #ffe2b6;
 }
@@ -242,9 +239,6 @@
   border: 1px solid #42a246;
 }
 .feature-status--built .feature-status__header {
-  color: #42a246;
-}
-.feature-status--built .feature-status__icon-title {
   color: #42a246;
 }
 .feature-status--built .feature-status__list-item {
@@ -256,9 +250,6 @@
 .feature-status--failed .feature-status__header {
   color: #de1a0b;
 }
-.feature-status--failed .feature-status__icon-title {
-  color: #de1a0b;
-}
 .feature-status--failed .feature-status__list-item {
   border-top: 1px solid #ffb9b3;
 }
@@ -266,9 +257,6 @@
   border: 1px solid #444444;
 }
 .feature-status--decommissioned .feature-status__header {
-  color: #444444;
-}
-.feature-status--decommissioned .feature-status__icon-title {
   color: #444444;
 }
 .feature-status--decommissioned .feature-status__list-item {

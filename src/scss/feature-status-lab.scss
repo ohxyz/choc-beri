@@ -3,17 +3,15 @@
 .strip {
 
     margin-bottom: 20px;
+    display: flex;
 
-    &__header {
+    &__title {
 
         color: #aaaaaa;
         font-weight: bold;
-        margin-bottom: 8px;
-    }
-
-    &__content {
-
-        padding: 8px 0;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
     }
 
     &__feature-store-name {
@@ -22,7 +20,7 @@
         border: 1px solid #cccccc;
         border-radius: 100px;
         padding: 4px 8px;
-        margin-right: 8px;
+        margin-right: 10px;
         cursor: pointer;
         font-size: 13px;
 
@@ -134,11 +132,6 @@
                 color: $promoted-color;
             }
 
-            &__icon-title {
-
-                color: $promoted-color;
-            }
-
             &__list-item {
 
                 border-top: 1px solid #ffe2b6;
@@ -156,11 +149,6 @@
         .feature-status {
 
             &__header {
-
-                color: $promoted-color;
-            }
-
-            &__icon-title {
 
                 color: $promoted-color;
             }
@@ -185,11 +173,6 @@
                 color: $promoted-color;
             }
 
-            &__icon-title {
-
-                color: $promoted-color;
-            }
-
             &__list-item {
 
                 border-top: 1px solid #ffb9b3;
@@ -207,11 +190,6 @@
         .feature-status {
 
             &__header {
-
-                color: $promoted-color;
-            }
-
-            &__icon-title {
 
                 color: $promoted-color;
             }
