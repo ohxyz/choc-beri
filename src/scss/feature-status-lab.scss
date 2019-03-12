@@ -131,16 +131,21 @@
 
             &__header {
 
-                color: white;
-                background-color: $promoted-color;
+                color: $promoted-color;
+            }
+
+            &__icon-title {
+
+                color: $promoted-color;
             }
 
             &__list-item {
 
-                border-top: 1px solid $promoted-color;
+                border-top: 1px solid #ffe2b6;
             }
         }
     }
+
 
     &--built {
 
@@ -152,13 +157,17 @@
 
             &__header {
 
-                color: white;
-                background-color: $promoted-color;
+                color: $promoted-color;
+            }
+
+            &__icon-title {
+
+                color: $promoted-color;
             }
 
             &__list-item {
 
-                border-top: 1px solid $promoted-color;
+                border-top: 1px solid #a7deaa;
             }
         }
     }
@@ -173,13 +182,17 @@
 
             &__header {
 
-                color: white;
-                background-color: $promoted-color;
+                color: $promoted-color;
+            }
+
+            &__icon-title {
+
+                color: $promoted-color;
             }
 
             &__list-item {
 
-                border-top: 1px solid $promoted-color;
+                border-top: 1px solid #ffb9b3;
             }
         }
     }
@@ -195,14 +208,19 @@
 
             &__header {
 
-                color: white;
-                background-color: $promoted-color;
+                color: $promoted-color;
+            }
+
+            &__icon-title {
+
+                color: $promoted-color;
             }
 
             &__list-item {
 
-                border-top: 1px solid $promoted-color;
+                border-top: 1px solid #dddddd;
             }
         }
     }
+
 }

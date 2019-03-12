@@ -29,16 +29,15 @@
 }
 .page__content .feature-panel__header {
   height: 50px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: relative;
 }
 .page__content .feature-panel__close-icon {
+  position: absolute;
   font-size: 20px;
-  text-align: center;
-  margin-right: 30px;
   cursor: pointer;
   color: #aaaaaa;
+  top: 20px;
+  right: 30px;
 }
 .page__content .feature-panel__close-icon:hover {
   color: #444444;
@@ -231,41 +230,49 @@
   border: 1px solid #ff9800;
 }
 .feature-status--promoted .feature-status__header {
-  color: white;
-  background-color: #ff9800;
+  color: #ff9800;
+}
+.feature-status--promoted .feature-status__icon-title {
+  color: #ff9800;
 }
 .feature-status--promoted .feature-status__list-item {
-  border-top: 1px solid #ff9800;
+  border-top: 1px solid #ffe2b6;
 }
 .feature-status--built {
   border: 1px solid #42a246;
 }
 .feature-status--built .feature-status__header {
-  color: white;
-  background-color: #42a246;
+  color: #42a246;
+}
+.feature-status--built .feature-status__icon-title {
+  color: #42a246;
 }
 .feature-status--built .feature-status__list-item {
-  border-top: 1px solid #42a246;
+  border-top: 1px solid #a7deaa;
 }
 .feature-status--failed {
   border: 1px solid #de1a0b;
 }
 .feature-status--failed .feature-status__header {
-  color: white;
-  background-color: #de1a0b;
+  color: #de1a0b;
+}
+.feature-status--failed .feature-status__icon-title {
+  color: #de1a0b;
 }
 .feature-status--failed .feature-status__list-item {
-  border-top: 1px solid #de1a0b;
+  border-top: 1px solid #ffb9b3;
 }
 .feature-status--decommissioned {
   border: 1px solid #444444;
 }
 .feature-status--decommissioned .feature-status__header {
-  color: white;
-  background-color: #444444;
+  color: #444444;
+}
+.feature-status--decommissioned .feature-status__icon-title {
+  color: #444444;
 }
 .feature-status--decommissioned .feature-status__list-item {
-  border-top: 1px solid #444444;
+  border-top: 1px solid #dddddd;
 }
 
 html, body {
