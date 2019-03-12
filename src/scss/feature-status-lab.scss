@@ -1,3 +1,4 @@
+@import "./feature-panel";
 
 .strip {
 
@@ -7,7 +8,7 @@
 
         color: #aaaaaa;
         font-weight: bold;
-        padding: 4px 0;
+        margin-bottom: 8px;
     }
 
     &__content {
@@ -41,7 +42,7 @@
     &__header {
 
         font-size: 18px;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
         color: $main-color;
         font-weight: bold;
     }
@@ -51,8 +52,8 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+        margin: 0 -10px;
     }
-
 }
 
 .feature-status {
@@ -62,22 +63,36 @@
     border: 1px solid #dddddd;
     border-radius: 4px;
     background-color: white;
-    margin-right: 20px;
-    margin-bottom: 20px;
-
+    margin: 10px;
 
     &__header {
 
         font-weight: bold;
         color: #999999;
-        padding: 15px 20px;
+        padding: 12px 20px;
         display: flex;
+
+        &:hover {
+
+            cursor: pointer;
+        }
     }
 
     &__title {
 
         flex-basis: 100%;
         margin-left: 20px;
+    }
+
+    &__feature-name {
+
+        cursor: pointer;
+        color: #666666;
+
+        &:hover {
+
+            color: black;
+        }
     }
 
     &__icon-title {
@@ -93,12 +108,6 @@
         margin-top: 4px;
         flex-basis: 20px;
         text-align: center;
-        cursor: pointer;
-
-        &:hover {
-
-            color: #333333;
-        }
     }
 
     &__content {
@@ -130,14 +139,6 @@
 
                 border-top: 1px solid $promoted-color;
             }
-
-            &__icon-expand {
-
-                &:hover {
-
-                    color: white;
-                }
-            }
         }
     }
 
@@ -158,14 +159,6 @@
             &__list-item {
 
                 border-top: 1px solid $promoted-color;
-            }
-
-            &__icon-expand {
-
-                &:hover {
-
-                    color: white;
-                }
             }
         }
     }
@@ -188,14 +181,6 @@
 
                 border-top: 1px solid $promoted-color;
             }
-
-            &__icon-expand {
-
-                &:hover {
-
-                    color: white;
-                }
-            }
         }
     }
 
@@ -217,14 +202,6 @@
             &__list-item {
 
                 border-top: 1px solid $promoted-color;
-            }
-
-            &__icon-expand {
-
-                &:hover {
-
-                    color: white;
-                }
             }
         }
     }

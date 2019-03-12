@@ -12,10 +12,10 @@
 
 /* Feature store header toggle ********************************************************************/
     
-    $( '.feature-status__icon-expand' ).click( function () {
+    $( '.feature-status__header' ).click( function () {
 
-        var $icon = $( this );
-        var $content = $icon.parent().next();
+        var $icon = $( '.feature-status__icon-expand', this );
+        var $content = $( this ).next();
 
         if ( $icon.hasClass( 'fa-plus') ) {
 
@@ -46,11 +46,25 @@
 
             $( '.feature-store' ).hide();
             $( '.feature-store__header' ).hide();
-            $( '.strip__feature-store-name' ).removeClass( 'strip__feature-store-name--active' );
-
-            $button.addClass( 'strip__feature-store-name--active' );
             $( '#' + text ).show();
         }
+        
+        $( '.strip__feature-store-name' ).removeClass( 'strip__feature-store-name--active' );
+        $button.addClass( 'strip__feature-store-name--active' );
+    } );
+
+/* Toggle feature panel ***************************************************************************/
+    
+    var $featurePanel = $( '.feature-panel' );
+
+    $( '.feature-status__feature-name' ).click( function () { 
+
+        $featurePanel.toggle();
+    } );
+
+    $( '.feature-panel__close-icon' ).click( function () { 
+
+        $featurePanel.hide();
     } );
 
 } )();
