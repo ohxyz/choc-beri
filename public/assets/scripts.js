@@ -57,9 +57,6 @@
 
     var $main = $( '.main' );
     var $featurePanel = $( '.feature-panel' );
-    var $featurePanelMain = $( '.feature-panel__main', $featurePanel );
-    var $pageContent = $( '.page__content' );
-    var heightOfPageHeader = $( '.page__header' ).height();
 
     $( '.feature-status__feature-name' ).click( function () { 
 

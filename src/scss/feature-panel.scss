@@ -1,12 +1,14 @@
 .main__content {
 
     display: flex;
+    height: calc( 100vh - 121px );
 
     .feature-summary {
 
         flex-grow: 1;
         padding: 30px;
-        flex-basis: 70%;
+        flex-basis: 60%;
+        overflow: auto;
     }
 
     .feature-panel {
@@ -17,11 +19,11 @@
         max-width: 500px;
         position: relative;
         background-color: #efefef;
+        overflow: auto;
 
         &__main {
 
             position: sticky;
-
             top: 0;
         }
 
@@ -48,6 +50,7 @@
         &__content {
 
             padding: 10px 30px;
+
         }
     }
 }

@@ -13,11 +13,13 @@
 
 .main__content {
   display: flex;
+  height: calc( 100vh - 121px );
 }
 .main__content .feature-summary {
   flex-grow: 1;
   padding: 30px;
-  flex-basis: 70%;
+  flex-basis: 60%;
+  overflow: auto;
 }
 .main__content .feature-panel {
   flex-grow: 1;
@@ -26,6 +28,7 @@
   max-width: 500px;
   position: relative;
   background-color: #efefef;
+  overflow: auto;
 }
 .main__content .feature-panel__main {
   position: sticky;
@@ -370,8 +373,7 @@ html, body {
   grid-column: 2;
   grid-row: 2;
   background-color: #f5f5f5;
-  overflow: auto;
-  position: relative;
+  overflow: hidden;
 }
 .main__header {
   display: flex;
