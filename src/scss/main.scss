@@ -131,52 +131,46 @@ html, body {
     grid-row: 2;
     background-color: #f5f5f5;
     overflow: auto;
+    position: relative;
 
-    .page {
+    &__header {
 
-        &__header {
+        display: flex;
+        height: 54px;
+        background-color: white;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-bottom: 1px solid #dddddd;
+    }
 
-            display: flex;
-            height: 54px;
-            background-color: white;
-            align-items: center;
-            justify-content: space-between;
-            padding-left: 30px;
-            padding-right: 30px;
-            border-bottom: 1px solid #dddddd;
+    &__title {
+
+        font-size: 16px;
+    }
+
+    &__breadcrumb {
+
+        font-size: 14px;
+
+        span {
+
+            margin-left: 8px;
         }
 
-        &__content {
+        a {
+            color: $main-color;
+            text-decoration: none;
+            margin-left: 8px;
 
-            // padding: 20px;
-        }
+            &:hover {
 
-        &__title {
-
-            font-size: 16px;
-        }
-
-        &__breadcrumb {
-
-            font-size: 14px;
-
-            span {
-
-                margin-left: 8px;
-            }
-
-            a {
-                color: $main-color;
-                text-decoration: none;
-                margin-left: 8px;
-
-                &:hover {
-
-                    text-decoration: underline;
-                }
+                text-decoration: underline;
             }
         }
     }
+
 }
 
 .mobile-menu {

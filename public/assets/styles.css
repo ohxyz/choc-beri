@@ -11,27 +11,30 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.page__content {
+.main__content {
   display: flex;
 }
-.page__content .feature-summary {
+.main__content .feature-summary {
   flex-grow: 1;
   padding: 30px;
   flex-basis: 70%;
 }
-.page__content .feature-panel {
+.main__content .feature-panel {
   flex-grow: 1;
-  background-color: white;
   flex-basis: 40%;
   min-width: 350px;
   max-width: 500px;
+  position: relative;
   background-color: #efefef;
 }
-.page__content .feature-panel__header {
-  height: 50px;
-  position: relative;
+.main__content .feature-panel__main {
+  position: sticky;
+  top: 0;
 }
-.page__content .feature-panel__close-icon {
+.main__content .feature-panel__header {
+  height: 40px;
+}
+.main__content .feature-panel__close-icon {
   position: absolute;
   font-size: 20px;
   cursor: pointer;
@@ -39,11 +42,11 @@
   top: 20px;
   right: 30px;
 }
-.page__content .feature-panel__close-icon:hover {
+.main__content .feature-panel__close-icon:hover {
   color: #444444;
 }
-.page__content .feature-panel__content {
-  padding: 0 30px;
+.main__content .feature-panel__content {
+  padding: 10px 30px;
 }
 
 .feature-heading {
@@ -368,8 +371,9 @@ html, body {
   grid-row: 2;
   background-color: #f5f5f5;
   overflow: auto;
+  position: relative;
 }
-.main .page__header {
+.main__header {
   display: flex;
   height: 54px;
   background-color: white;
@@ -379,21 +383,21 @@ html, body {
   padding-right: 30px;
   border-bottom: 1px solid #dddddd;
 }
-.main .page__title {
+.main__title {
   font-size: 16px;
 }
-.main .page__breadcrumb {
+.main__breadcrumb {
   font-size: 14px;
 }
-.main .page__breadcrumb span {
+.main__breadcrumb span {
   margin-left: 8px;
 }
-.main .page__breadcrumb a {
+.main__breadcrumb a {
   color: #bb247f;
   text-decoration: none;
   margin-left: 8px;
 }
-.main .page__breadcrumb a:hover {
+.main__breadcrumb a:hover {
   text-decoration: underline;
 }
 

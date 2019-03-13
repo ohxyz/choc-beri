@@ -1,4 +1,4 @@
-.page__content {
+.main__content {
 
     display: flex;
 
@@ -12,16 +12,22 @@
     .feature-panel {
 
         flex-grow: 1;
-        background-color: white;
         flex-basis: 40%;
         min-width: 350px;
         max-width: 500px;
+        position: relative;
         background-color: #efefef;
+
+        &__main {
+
+            position: sticky;
+
+            top: 0;
+        }
 
         &__header {
 
-            height: 50px;
-            position: relative;
+            height: 40px;
         }
 
         &__close-icon {
@@ -41,7 +47,7 @@
 
         &__content {
 
-            padding: 0 30px;
+            padding: 10px 30px;
         }
     }
 }
