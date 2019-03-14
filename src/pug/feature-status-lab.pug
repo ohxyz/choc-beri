@@ -11,16 +11,18 @@ block main
       var status_group3 = [ 'MARKED FOR DECOMMISION', 'DECOMMISSIONING', 'UNCATEGORISED']
 
     .main__header
+        .main__zone.main__zone--lab
+            .zone-icon.i.fas.fa-flask
+            .zone-name Laboratory
         .main__title Display feature's status by feature store's name
         .main__breadcrumb
             span Feature Status - Lab
             span /
             a(href="/") Choc-BERI
-    .main__content
+    .main__content.main__content--feature-status
         .feature-summary
             .strip
-                .strip__title
-                    span.strip__title FEATURE STORES
+                .strip__title FEATURE STORES
                 .strip__content
                     span.strip__feature-store-name.strip__feature-store-name--active all
                     span.strip__feature-store-name fixedservices

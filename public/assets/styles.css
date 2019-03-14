@@ -11,17 +11,95 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.main__content {
+.strip {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.strip__title {
+  color: #aaaaaa;
+  font-weight: bold;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+.strip__item {
+  display: inline-block;
+  border: 1px solid #cccccc;
+  border-radius: 100px;
+  padding: 4px 8px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.strip__item--active {
+  background-color: #bb247f;
+  color: white;
+  border-color: #bb247f;
+}
+
+.side-bar .menu {
+  padding: 24px 0;
+  bottom: 0;
+}
+.side-bar .menu__label {
+  margin-left: 20px;
+}
+.side-bar .menu__title {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+.side-bar .menu__link {
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  display: flex;
+}
+.side-bar .menu__link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: #333333;
+}
+.side-bar .menu__link--active {
+  background-color: #0f3984;
+}
+.side-bar .menu__icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.mobile-menu__button {
+  position: absolute;
+  right: -54px;
+  top: 0;
+  bottom: 0;
+  width: 54px;
+  background-color: #d6258f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+.mobile-menu__icon {
+  font-size: 20px;
+  color: white;
+}
+
+/* Feature status styles for both Lab and Fac */
+.main__content--feature-status {
   display: flex;
   height: calc( 100vh - 121px );
 }
-.main__content .feature-summary {
+.main__content--feature-status .feature-summary {
   flex-grow: 1;
-  padding: 30px;
+  padding: 25px 30px;
   flex-basis: 60%;
   overflow: auto;
 }
-.main__content .feature-panel {
+.main__content--feature-status .feature-panel {
   flex-grow: 1;
   flex-basis: 40%;
   min-width: 350px;
@@ -30,14 +108,10 @@
   background-color: #efefef;
   overflow: auto;
 }
-.main__content .feature-panel__main {
-  position: sticky;
-  top: 0;
-}
-.main__content .feature-panel__header {
+.main__content--feature-status .feature-panel__header {
   height: 40px;
 }
-.main__content .feature-panel__close-icon {
+.main__content--feature-status .feature-panel__close-icon {
   position: absolute;
   font-size: 20px;
   cursor: pointer;
@@ -45,10 +119,10 @@
   top: 20px;
   right: 30px;
 }
-.main__content .feature-panel__close-icon:hover {
+.main__content--feature-status .feature-panel__close-icon:hover {
   color: #444444;
 }
-.main__content .feature-panel__content {
+.main__content--feature-status .feature-panel__content {
   padding: 10px 30px;
 }
 
@@ -147,30 +221,39 @@
   width: 12px;
 }
 
-.strip {
-  margin-bottom: 20px;
-  display: flex;
-}
-.strip__title {
-  color: #aaaaaa;
-  font-weight: bold;
-  margin-right: 12px;
-  display: flex;
-  align-items: center;
-}
-.strip__feature-store-name {
+.main__content--feature-status .strip__feature-store-name {
   display: inline-block;
   border: 1px solid #cccccc;
   border-radius: 100px;
   padding: 4px 8px;
-  margin-right: 10px;
+  margin: 5px;
   cursor: pointer;
   font-size: 13px;
 }
-.strip__feature-store-name--active {
+.main__content--feature-status .strip__feature-store-name--active {
   background-color: #bb247f;
   color: white;
   border-color: #bb247f;
+}
+
+.main__zone {
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+}
+.main__zone .zone-icon {
+  margin-right: 10px;
+}
+.main__zone--lab {
+  background-color: #ff2b2b;
+  color: white;
+}
+.main__zone--fac {
+  background-color: #42a246;
+  color: white;
 }
 
 .feature-store {
@@ -267,6 +350,25 @@
 }
 .feature-status--decommissioned .feature-status__list-item {
   border-top: 1px solid #dddddd;
+}
+
+.main__content--upload-scripts {
+  padding: 25px 30px;
+}
+.main__content--upload-scripts .strip__item--active {
+  background-color: #1685dd;
+  border-color: #1685dd;
+}
+
+.main__content--create-feature-store {
+  padding: 25px 30px;
+}
+.main__content--create-feature-store .strip__item--active {
+  background-color: #1685dd;
+  border-color: #1685dd;
+}
+.main__content--create-feature-store .container-1 .editor__main {
+  height: 500px;
 }
 
 html, body {
@@ -380,13 +482,13 @@ html, body {
   height: 54px;
   background-color: white;
   align-items: center;
-  justify-content: space-between;
   padding-left: 30px;
   padding-right: 30px;
   border-bottom: 1px solid #dddddd;
 }
 .main__title {
   font-size: 16px;
+  flex-grow: 1;
 }
 .main__breadcrumb {
   font-size: 14px;
@@ -403,60 +505,11 @@ html, body {
   text-decoration: underline;
 }
 
-.mobile-menu__button {
-  position: absolute;
-  right: -54px;
-  top: 0;
-  bottom: 0;
-  width: 54px;
-  background-color: #d6258f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1;
-}
-.mobile-menu__icon {
-  font-size: 20px;
-  color: white;
-}
-
 .side-bar {
   grid-row: 2;
   grid-column: 1;
   background-color: #1f1f1f;
   overflow-y: auto;
-}
-
-.menu {
-  padding: 24px 0;
-  bottom: 0;
-}
-.menu__label {
-  margin-left: 20px;
-}
-.menu__title {
-  padding: 8px 20px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
-}
-.menu__link {
-  padding: 12px 24px;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  display: flex;
-}
-.menu__link:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-.menu__link--active {
-  background-color: #0f3984;
-}
-.menu__icon {
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
-  margin-top: 2px;
 }
 
 /*# sourceMappingURL=styles.css.map */

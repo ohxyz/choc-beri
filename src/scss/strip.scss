@@ -1,0 +1,33 @@
+.strip {
+
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    &__title {
+
+        color: #aaaaaa;
+        font-weight: bold;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+
+        display: inline-block;
+        border: 1px solid #cccccc;
+        border-radius: 100px;
+        padding: 4px 8px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 13px;
+
+        &--active {
+
+            background-color: $main-color;
+            color: white;
+            border-color: $main-color;
+        }
+    }
+}

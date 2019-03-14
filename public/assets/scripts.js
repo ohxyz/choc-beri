@@ -68,4 +68,15 @@
         $featurePanel.hide();
     } );
 
+/* Sementic UI ************************************************************************************/
+    
+    $( '.ui.dropdown' ).dropdown();
+
+/* ACE Code editor ********************************************************************************/
+    
+    var editor = ace.edit( "code-editor" );
+    
+    editor.setTheme( "ace/theme/monokai" );
+    editor.session.setMode( "ace/mode/javascript" );
+
 } )();

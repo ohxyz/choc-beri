@@ -1,4 +1,4 @@
-.main__content {
+.main__content--feature-status {
 
     display: flex;
     height: calc( 100vh - 121px );
@@ -6,7 +6,7 @@
     .feature-summary {
 
         flex-grow: 1;
-        padding: 30px;
+        padding: 25px 30px;
         flex-basis: 60%;
         overflow: auto;
     }
@@ -20,12 +20,6 @@
         position: relative;
         background-color: #efefef;
         overflow: auto;
-
-        &__main {
-
-            position: sticky;
-            top: 0;
-        }
 
         &__header {
 

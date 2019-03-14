@@ -34,7 +34,9 @@ block link
                 .menu__label Feature Status - Lab
         
         .menu__item
-            a.menu__link(title="Upload Scripts - Lab" href="/")
+            a.menu__link( title="Upload Scripts - Lab" 
+                          class=( path === 'upload-scripts-lab' ? active_class : '' ) 
+                          href="/upload-scripts-lab" )
                 i.fas.fa-upload.menu__icon
                 .menu__label Upload Scripts - Lab
         
@@ -42,7 +44,9 @@ block link
             .menu__title Factory
         
         .menu__item
-            a.menu__link(title="Feature Status - Fac" href="/")
+            a.menu__link( title="Feature Status - Fac" 
+                          class=( path === 'feature-status-fac' ? active_class : '' ) 
+                          href="/feature-status-fac" )
                 i.fas.fa-th.menu__icon
                 .menu__label Feature Status - Fac
         
@@ -59,7 +63,9 @@ block link
                 .menu__label Predictive Feature Metrics
         
         .menu__item
-            a.menu__link(title="Create Feature Store" href="/")
+            a.menu__link( title="Create Feature Store" 
+                          class=( path === 'create-feature-store' ? active_class : '' ) 
+                          href="/create-feature-store" )
                 i.fas.fa-plus.menu__icon
                 .menu__label Create Feature Store
         

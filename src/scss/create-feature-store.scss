@@ -1,0 +1,21 @@
+.main__content--create-feature-store {
+
+    padding: 25px 30px;
+
+    .strip__item {
+
+        &--active {
+
+            background-color: #1685dd;
+            border-color: #1685dd;
+        }
+    }
+
+    .container-1 {
+
+        .editor__main {
+
+            height: 500px;
+        }
+    }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+  <title>Choc BERI</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Basic HTML5 template">
+  <meta name="author" content="My Name">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="./assets/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="./assets/semantic/semantic.min.js"></script>
+  <script src="./assets/ace/ace.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><a class="logo__link" href="/"></a>
+      <div class="mobile-menu__button"><i class="fas fa-bars mobile-menu__icon"></i></div>
+    </div>
+    <div class="side-bar">
+      <div class="menu">
+        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/"><i class="fas fa-tachometer-alt menu__icon"></i>
+            <div class="menu__label">Dashboard</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Exploratory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Browse File - Exp" href="/"><i class="fas fa-folder-open menu__icon"></i>
+            <div class="menu__label">Browse Files</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Upload Files - Exp" href="/"><i class="fas fa-file-upload menu__icon"></i>
+            <div class="menu__label">Upload Files</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Laboratory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Feature Status - Lab" href="/feature-status-lab"><i class="fas fa-list-ul menu__icon"></i>
+            <div class="menu__label">Feature Status - Lab</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Upload Scripts - Lab" href="/upload-scripts-lab"><i class="fas fa-upload menu__icon"></i>
+            <div class="menu__label">Upload Scripts - Lab</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Factory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Feature Status - Fac" href="/feature-status-fac"><i class="fas fa-th menu__icon"></i>
+            <div class="menu__label">Feature Status - Fac</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Upload Scripts - Fac" href="/"><i class="fas fa-cloud-upload-alt menu__icon"></i>
+            <div class="menu__label">Upload Scripts - Fac</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Feature</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Predictive Feature Metrics" href="/"><i class="fas fa-chart-line menu__icon"></i>
+            <div class="menu__label">Predictive Feature Metrics</div></a></div>
+        <div class="menu__item"><a class="menu__link menu__link--active" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-plus menu__icon"></i>
+            <div class="menu__label">Create Feature Store</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Batch Management</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Laboratory Management" href="/"><i class="fas fa-flask menu__icon"></i>
+            <div class="menu__label">Laboratory Management</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Factory Management" href="/"><i class="fas fa-city menu__icon"></i>
+            <div class="menu__label">Factory Management</div></a></div>
+      </div>
+    </div>
+    <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
+    <div class="main">
+      <div class="main__header">
+        <div class="main__title">Create a feature store by SQL</div>
+        <div class="main__breadcrumb"><span>Create Feature Store</span><span>/</span><a href="/">Choc-BERI</a></div>
+      </div>
+      <div class="main__content main__content--create-feature-store">
+        <div class="container-1">
+          <div class="fields ui form">
+            <div class="field">
+              <label class="field__title" for="feature-store-name">Feature Store Name</label>
+              <div class="field__content ui input">
+                <input id="feature-store-name" type="text" name="feature-store-name" placeholder="Feature">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title" for="feature-store-description">Feature Store Description</label>
+              <div class="field__content ui input">
+                <textarea id="feature-store-description" rows="2" name="feature-store-description" placeholder="Description"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title" for="table-dependencie">BERI Table Dependencies</label>
+              <div class="field__content ui fluid search dropdown selection multiple">
+                <input id="table-dependencies" type="hidden" name="table-dependencies"><i class="dropdown icon"></i>
+                <div class="default text">Table</div>
+                <div class="menu">
+                  <div class="item" data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16">beri2-parquetaggregation-spike.bnd2_asg_001_192_16</div>
+                  <div class="item" data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403">beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403</div>
+                  <div class="item" data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest">d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest</div>
+                  <div class="item" data-value="idv_bkp_pii.s_adob_detl_forcp2">idv_bkp_pii.s_adob_detl_forcp2</div>
+                  <div class="item" data-value="ingestion-sftp-erroneous-session-data.allot">ingestion-sftp-erroneous-session-data.allot</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="editor">
+            <div class="editor__title">Script Editor</div>
+            <div class="editor__function-bar"></div>
+            <div class="editor__main" id="code-editor"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/scripts.js"></script>
+</body>

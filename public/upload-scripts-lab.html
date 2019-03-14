@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+  <title>Choc BERI</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Basic HTML5 template">
+  <meta name="author" content="My Name">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="./assets/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+  <script src="./assets/semantic/semantic.min.js"></script>
+  <script src="./assets/ace/ace.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><a class="logo__link" href="/"></a>
+      <div class="mobile-menu__button"><i class="fas fa-bars mobile-menu__icon"></i></div>
+    </div>
+    <div class="side-bar">
+      <div class="menu">
+        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/"><i class="fas fa-tachometer-alt menu__icon"></i>
+            <div class="menu__label">Dashboard</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Exploratory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Browse File - Exp" href="/"><i class="fas fa-folder-open menu__icon"></i>
+            <div class="menu__label">Browse Files</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Upload Files - Exp" href="/"><i class="fas fa-file-upload menu__icon"></i>
+            <div class="menu__label">Upload Files</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Laboratory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Feature Status - Lab" href="/feature-status-lab"><i class="fas fa-list-ul menu__icon"></i>
+            <div class="menu__label">Feature Status - Lab</div></a></div>
+        <div class="menu__item"><a class="menu__link menu__link--active" title="Upload Scripts - Lab" href="/upload-scripts-lab"><i class="fas fa-upload menu__icon"></i>
+            <div class="menu__label">Upload Scripts - Lab</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Factory</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Feature Status - Fac" href="/feature-status-fac"><i class="fas fa-th menu__icon"></i>
+            <div class="menu__label">Feature Status - Fac</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Upload Scripts - Fac" href="/"><i class="fas fa-cloud-upload-alt menu__icon"></i>
+            <div class="menu__label">Upload Scripts - Fac</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Feature</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Predictive Feature Metrics" href="/"><i class="fas fa-chart-line menu__icon"></i>
+            <div class="menu__label">Predictive Feature Metrics</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-plus menu__icon"></i>
+            <div class="menu__label">Create Feature Store</div></a></div>
+        <div class="menu__item">
+          <div class="menu__title">Batch Management</div>
+        </div>
+        <div class="menu__item"><a class="menu__link" title="Laboratory Management" href="/"><i class="fas fa-flask menu__icon"></i>
+            <div class="menu__label">Laboratory Management</div></a></div>
+        <div class="menu__item"><a class="menu__link" title="Factory Management" href="/"><i class="fas fa-city menu__icon"></i>
+            <div class="menu__label">Factory Management</div></a></div>
+      </div>
+    </div>
+    <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
+    <div class="main">
+      <div class="main__header">
+        <div class="main__zone main__zone--lab">
+          <div class="zone-icon i fas fa-flask"></div>
+          <div class="zone-name">Laboratory</div>
+        </div>
+        <div class="main__title">Upload feature scripts</div>
+        <div class="main__breadcrumb"><span>Upload Scripts - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
+      </div>
+      <div class="main__content main__content--upload-scripts">
+        <div class="strip">
+          <div class="strip__title">SELECT LANGUAGE</div>
+          <div class="strip__content"><span class="strip__item strip__item--active">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PyShark</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./assets/scripts.js"></script>
+</body>

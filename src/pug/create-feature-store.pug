@@ -1,0 +1,40 @@
+extends _layout.pug
+
+block link
+    - var path = 'create-feature-store'
+
+block main
+    .main__header
+        .main__title Create a feature store by SQL
+        .main__breadcrumb
+            span Create Feature Store
+            span /
+            a(href="/") Choc-BERI
+    .main__content.main__content--create-feature-store
+        .container-1
+            .fields.ui.form
+                .field
+                    label.field__title(for="feature-store-name") Feature Store Name
+                    .field__content.ui.input
+                        input#feature-store-name(type="text" name="feature-store-name" placeholder="Feature")
+                .field
+                    label.field__title(for="feature-store-description") Feature Store Description
+                    .field__content.ui.input
+                        textarea#feature-store-description(rows="2" name="feature-store-description" placeholder="Description")
+                .field
+                    label.field__title(for="table-dependencie") BERI Table Dependencies
+                    .field__content.ui.fluid.search.dropdown.selection.multiple
+                        input#table-dependencies(type="hidden" name="table-dependencies")
+                        i.dropdown.icon
+                        .default.text Table
+                        .menu
+                            .item(data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16") beri2-parquetaggregation-spike.bnd2_asg_001_192_16
+                            .item(data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403") beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403
+                            .item(data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest") d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest
+                            .item(data-value="idv_bkp_pii.s_adob_detl_forcp2") idv_bkp_pii.s_adob_detl_forcp2
+                            .item(data-value="ingestion-sftp-erroneous-session-data.allot") ingestion-sftp-erroneous-session-data.allot
+            .editor
+                .editor__title Script Editor
+                .editor__function-bar
+                #code-editor.editor__main
+

@@ -1,0 +1,23 @@
+extends _layout.pug
+
+block link
+    - var path = 'upload-scripts-lab'
+
+block main
+    .main__header
+        .main__zone.main__zone--lab
+            .zone-icon.i.fas.fa-flask
+            .zone-name Laboratory
+        .main__title Upload feature scripts
+        .main__breadcrumb
+            span Upload Scripts - Lab
+            span /
+            a(href="/") Choc-BERI
+    .main__content.main__content--upload-scripts
+        .strip
+            .strip__title SELECT LANGUAGE
+            .strip__content
+                span.strip__item.strip__item--active SQL
+                span.strip__item MOJO
+                span.strip__item PyShark
+

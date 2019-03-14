@@ -1,0 +1,13 @@
+.main__content--upload-scripts {
+
+    padding: 25px 30px;
+
+    .strip__item {
+
+        &--active {
+
+            background-color: #1685dd;
+            border-color: #1685dd;
+        }
+    }
+}

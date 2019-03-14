@@ -1,48 +1,15 @@
 @import "./variables";
 @import "./scrollbar";
-@import "./feature-status-lab";
+@import "./strip";
+@import "./menu";
+@import "./feature-status";
+@import "./upload-scripts";
+@import "./create-feature-store";
 
 html, body {
-
+    
     margin: 0;
     padding: 0;
-}
-
-@mixin mobile-menu {
-
-    grid-template-columns: 68px auto;
-
-    .logo {
-
-        &__link {
-
-            display: none;
-        }
-    }
-
-    .menu {
-
-        &__link {
-
-            padding: 16px 20px;
-        }
-
-        &__title {
-
-            display: none;
-        }
-
-        &__icon {
-
-            font-size: 20px;
-            width: 28px;
-        }
-
-        &__label {
-
-            display: none;
-        }
-    }
 }
 
 .container {
@@ -58,12 +25,12 @@ html, body {
 
     @media screen and ( max-width: 980px ) {
 
-        @include mobile-menu;
+        @include mobile-view;
     }
 
     &--mobile {
 
-        @include mobile-menu;
+        @include mobile-view;
     }
 }
 
@@ -138,7 +105,6 @@ html, body {
         height: 54px;
         background-color: white;
         align-items: center;
-        justify-content: space-between;
         padding-left: 30px;
         padding-right: 30px;
         border-bottom: 1px solid #dddddd;
@@ -147,6 +113,7 @@ html, body {
     &__title {
 
         font-size: 16px;
+        flex-grow: 1;
     }
 
     &__breadcrumb {
@@ -169,31 +136,6 @@ html, body {
             }
         }
     }
-
-}
-
-.mobile-menu {
-
-    &__button {
-
-        position: absolute;
-        right: -54px;
-        top: 0;
-        bottom: 0;
-        width: 54px;
-        background-color: #d6258f;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 1;
-    }
-
-    &__icon {
-
-        font-size: 20px;
-        color: white;
-    }
 }
 
 .side-bar {
@@ -204,47 +146,4 @@ html, body {
     overflow-y: auto;
 }
 
-.menu {
-
-    padding: 24px 0;
-    bottom: 0;
-
-    &__label {
-
-        margin-left: 20px;
-    }
-
-    &__title {
-
-        padding: 8px 20px;
-        font-size: 12px;
-        color: rgba( 255, 255, 255, 0.3 );
-    }
-
-    &__link {
-
-        padding: 12px 24px;
-        color: rgba( 255, 255, 255, 0.7 );
-        text-decoration: none;
-        display: flex;
-
-        &:hover {
-
-            color: rgba( 255, 255, 255, 0.9 );
-        }
-
-        &--active {
-
-            background-color: #0f3984;
-        }
-    }
-
-    &__icon {
-
-        font-size: 16px;
-        width: 20px;
-        text-align: center;
-        margin-top: 2px;
-    }
-}
 

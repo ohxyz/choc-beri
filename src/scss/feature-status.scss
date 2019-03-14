@@ -1,26 +1,16 @@
+/* Feature status styles for both Lab and Fac */
+
 @import "./feature-panel";
 
-.strip {
+.main__content--feature-status {
 
-    margin-bottom: 20px;
-    display: flex;
-
-    &__title {
-
-        color: #aaaaaa;
-        font-weight: bold;
-        margin-right: 12px;
-        display: flex;
-        align-items: center;
-    }
-
-    &__feature-store-name {
+    .strip__feature-store-name {
 
         display: inline-block;
         border: 1px solid #cccccc;
         border-radius: 100px;
         padding: 4px 8px;
-        margin-right: 10px;
+        margin: 5px;
         cursor: pointer;
         font-size: 13px;
 
@@ -30,6 +20,33 @@
             color: white;
             border-color: $main-color;
         }
+    }
+}
+
+.main__zone {
+
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 4px 12px;
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+
+    .zone-icon {
+
+        margin-right: 10px;
+    }
+
+    &--lab {
+
+        background-color: #ff2b2b;
+        color: white;
+    }
+
+    &--fac {
+
+        background-color: #42a246;
+        color: white;
     }
 }
 
