@@ -5,6 +5,8 @@
 @import "./feature-status";
 @import "./upload-scripts";
 @import "./create-feature-store";
+@import "./semantic-override";
+@import "./ace-editor";
 
 html, body {
     
@@ -135,6 +137,11 @@ html, body {
                 text-decoration: underline;
             }
         }
+    }
+
+    &__content {
+
+        height: calc(100% - 55px);
     }
 }
 

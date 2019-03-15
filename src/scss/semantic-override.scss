@@ -1,0 +1,56 @@
+.main .ui {
+
+    &.form .field {
+
+        & > label {
+
+            color: #666666;
+            margin-bottom: 6px;
+        }
+
+        & >.selection.dropdown {
+
+            background-color: $main-background-color;
+            border-radius: 2px;
+
+            .menu {
+
+                border-radius: 2px;
+            }
+        }
+    }
+
+    &.input {
+
+        input {
+
+            background-color: $main-background-color;
+            font-size: 13px;
+            border-radius: 2px;
+            
+            &:focus {
+
+                border-radius: 2px;
+            }
+        }
+
+        textarea {
+
+            background-color: $main-background-color;
+            border-radius: 2px;
+
+            &:focus {
+
+                background-color: white;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .multiple.dropdown > .label {
+
+        font-size: 13px;
+        background-color: $main-background-color;
+        border-radius: 2px;
+    }
+}

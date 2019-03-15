@@ -1,0 +1,52 @@
+.editor {
+
+    flex-grow: 1;
+    margin-right: 15px;
+
+    &__title {
+
+        color: #666666;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    &__bar {
+
+        margin-bottom: 8px;
+        text-align: right;
+    }
+
+    &__icon {
+
+        color: #999999;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 10px;
+        width: 25px;
+        height: 25px;
+        background: #ededed;
+        border-radius: 100px;
+        padding-right: 6px;
+        padding-top: 6px;
+
+        &--decrease-font-size {
+
+            font-size: 11px;
+            padding-right: 9px;
+        }
+
+        &:hover {
+
+            color: white;
+            background-color: #d83e9b;
+        };
+    }
+
+    &__main {
+
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+    }
+
+}

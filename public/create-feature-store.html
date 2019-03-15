@@ -5,13 +5,13 @@
   <meta name="description" content="Basic HTML5 template">
   <meta name="author" content="My Name">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="./assets/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
   <script src="./assets/semantic/semantic.min.js"></script>
   <script src="./assets/ace/ace.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/styles.css">
 </head>
 <body>
   <div class="container">
@@ -62,11 +62,28 @@
     <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
     <div class="main">
       <div class="main__header">
-        <div class="main__title">Create a feature store by SQL</div>
+        <div class="main__title">Create a feature store</div>
         <div class="main__breadcrumb"><span>Create Feature Store</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
       <div class="main__content main__content--create-feature-store">
+        <div class="strip">
+          <div class="strip__title">SCRIPT LANGUAGE</div>
+          <div class="strip__content"><span class="strip__item strip__item--active">SQL</span></div>
+        </div>
         <div class="container-1">
+          <div class="editor">
+            <div class="editor__bar">
+              <div class="editor__functions">
+                <div class="editor__icon editor__icon--decrease-font-size fab fa-amilia"></div>
+                <div class="editor__icon editor__icon--increase-font-size fas fa-font"></div>
+                <div class="editor__icon editor__icon--full-screen fas fa-expand"></div>
+              </div>
+            </div>
+            <div class="editor__main" id="code-editor"></div>
+          </div>
+          <div class="splitter">
+            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
+          </div>
           <div class="fields ui form">
             <div class="field">
               <label class="field__title" for="feature-store-name">Feature Store Name</label>
@@ -78,6 +95,12 @@
               <label class="field__title" for="feature-store-description">Feature Store Description</label>
               <div class="field__content ui input">
                 <textarea id="feature-store-description" rows="2" name="feature-store-description" placeholder="Description"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title" for="feature-store-entity">Feature Store Entity</label>
+              <div class="field__content ui input">
+                <input id="feature-store-name" type="text" name="feature-store-entity" placeholder="Entity">
               </div>
             </div>
             <div class="field">
@@ -94,11 +117,21 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="editor">
-            <div class="editor__title">Script Editor</div>
-            <div class="editor__function-bar"></div>
-            <div class="editor__main" id="code-editor"></div>
+            <div class="field">
+              <label class="field__title">Code Feedback</label>
+              <div class="field__content">
+                <div class="code-feedback code-feedback--error"> 
+                  <div class="code-feedback__icon far fa-frown"></div>
+                  <div class="code-feedback__content">There is an error in your statement.</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="validate-button">
+                <div class="validate-button__icon fas fa-calendar-check"></div>
+                <div class="validate-button__content">Validate</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -5,13 +5,26 @@ block link
 
 block main
     .main__header
-        .main__title Create a feature store by SQL
+        .main__title Create a feature store
         .main__breadcrumb
             span Create Feature Store
             span /
             a(href="/") Choc-BERI
     .main__content.main__content--create-feature-store
+        .strip
+            .strip__title SCRIPT LANGUAGE
+            .strip__content
+                span.strip__item.strip__item--active SQL
         .container-1
+            .editor
+                .editor__bar
+                    .editor__functions
+                        .editor__icon.editor__icon--decrease-font-size.fab.fa-amilia
+                        .editor__icon.editor__icon--increase-font-size.fas.fa-font
+                        .editor__icon.editor__icon--full-screen.fas.fa-expand
+                #code-editor.editor__main
+            .splitter
+                .splitter__handle.fas.fa-grip-lines-vertical
             .fields.ui.form
                 .field
                     label.field__title(for="feature-store-name") Feature Store Name
@@ -21,6 +34,10 @@ block main
                     label.field__title(for="feature-store-description") Feature Store Description
                     .field__content.ui.input
                         textarea#feature-store-description(rows="2" name="feature-store-description" placeholder="Description")
+                .field
+                    label.field__title(for="feature-store-entity") Feature Store Entity
+                    .field__content.ui.input
+                        input#feature-store-name(type="text" name="feature-store-entity" placeholder="Entity")
                 .field
                     label.field__title(for="table-dependencie") BERI Table Dependencies
                     .field__content.ui.fluid.search.dropdown.selection.multiple
@@ -33,8 +50,15 @@ block main
                             .item(data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest") d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest
                             .item(data-value="idv_bkp_pii.s_adob_detl_forcp2") idv_bkp_pii.s_adob_detl_forcp2
                             .item(data-value="ingestion-sftp-erroneous-session-data.allot") ingestion-sftp-erroneous-session-data.allot
-            .editor
-                .editor__title Script Editor
-                .editor__function-bar
-                #code-editor.editor__main
+                .field
+                    label.field__title Code Feedback
+                    .field__content
+                        .code-feedback.code-feedback--error 
+                            .code-feedback__icon.far.fa-frown
+                            .code-feedback__content There is an error in your statement.
+                .field
+                    .validate-button
+                        .validate-button__icon.fas.fa-calendar-check
+                        .validate-button__content Validate
+
 

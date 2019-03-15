@@ -74,9 +74,53 @@
 
 /* ACE Code editor ********************************************************************************/
     
-    var editor = ace.edit( "code-editor" );
+    var editor = ace.edit( 'code-editor' );
     
-    editor.setTheme( "ace/theme/monokai" );
-    editor.session.setMode( "ace/mode/javascript" );
+    editor.setTheme( 'ace/theme/kuroir' );
+    editor.session.setMode( 'ace/mode/javascript' );
+
+    $( '.editor__icon--full-screen' ).click( function () { 
+
+        $( '.editor__main' ).get( 0 ).requestFullscreen();
+    } );
+
+/* Splitter ***************************************************************************************/
+    
+    var startPosition = { x: undefined, y: undefined };
+    var shouldStartSplit = false;
+    var distanceX = 0;
+    var $leftPanel = null;
+    var $rightPanel = null;
+    var $splitterContainer = $( '.splitter' );
+    var currentWidth = 0;
+    
+    $( '.splitter__handle', $splitterContainer ).mousedown( function ( event ) {
+
+        startPosition.x = event.pageX;
+        startPosition.y = event.pageY;
+
+        $leftPanel = $splitterContainer.prev();
+        $rightPanel = $splitterContainer.next();
+        currentWidth = parseFloat( window.getComputedStyle( $rightPanel.get(0) ).width );
+
+        shouldStartSplit = true;
+    } );
+
+    $( document ).mousemove( function ( event ) { 
+
+        if ( shouldStartSplit === false || $leftPanel === null || $rightPanel === null ) {
+
+            return;
+        }
+
+        distanceX = event.pageX - startPosition.x;
+        $rightPanel.width( currentWidth - distanceX );
+    } );
+
+    $( document ).mouseup( function ( event ) { 
+
+        shouldStartSplit = false;
+
+    } );
 
 } )();
