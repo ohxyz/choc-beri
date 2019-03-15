@@ -68,10 +68,6 @@
         $featurePanel.hide();
     } );
 
-/* Sementic UI ************************************************************************************/
-    
-    $( '.ui.dropdown' ).dropdown();
-
 /* ACE Code editor ********************************************************************************/
     
     var editor = ace.edit( 'code-editor' );
@@ -121,6 +117,120 @@
 
         shouldStartSplit = false;
 
+    } );
+
+/* Sementic UI ************************************************************************************/
+    
+    $( '.ui.dropdown' ).dropdown();
+
+/* Semantic UI - customized ***********************************************************************/
+
+    function createModal() {
+
+        let $modal = $( '<div class="ui modal">' );
+        let $header = $( '<div class="header">' );
+        let $content = $( '<div class="content">');
+        let $actions = $( '<div class="actions">' );
+        let $closeButton = $( '<div class="ui cancel button">Close</div>' );
+
+        $modal.append( $header, $content, $actions );
+        $actions.append( $closeButton );
+
+        return {
+
+            $modal,
+            $header,
+            $content,
+            $actions,
+            $closeButton
+        }
+    }
+
+    function showCreateJobSuccssModal( featureStoreName, responseData ) {
+
+        let modal = createModal();
+
+        modal.$header.text( `Success... Feature store - ${featureStoreName} is created.` );
+        modal.$content.text( 'Job ID: ' + responseData );
+        modal.$modal
+             .modal('setting', 'transition', 'fade' )
+             .modal( 'show' );
+    }
+
+    function showValidationSuccessModal( data ) {
+
+        let modal = createModal();
+
+        let $span = $( '<span>Metadata</span>' );
+        let $pre = $( '<pre>' );
+        let $jobId = $( '<div id="job-id">' );
+        let $createJobStatus = $( '<div class="create-job__status">' );
+        let $createJobButton = $( `
+            <div class="create-job__button ui button">
+                Create Job
+            </div>
+         ` );
+
+        $pre.text( JSON.stringify( data , null, 2 ) );
+        $jobId.text( `Job ID: ${data.jobID}` );
+
+        modal.$header.text( 'Code validation has passed.' );
+        modal.$content.append( $span, $pre, $jobId, $createJobStatus );
+        modal.$actions.append( $createJobButton );
+        modal.$modal.modal( 'show' );
+
+        $createJobButton.click( () => { 
+
+           $.post( '/executeScript/lab', { content: JSON.stringify( data ) } )
+            .done( responseData => {
+
+                if ( responseData.errorMessage ) {
+
+                    showCreateJobFailModal( data.featureStore, responseData );
+                }
+                else {
+
+                    showCreateJobSuccssModal( data.featureStore, responseData );
+                }
+             } );
+        } );
+    }
+
+    var data = {
+      "dataSources": {
+        "glue": {
+          "idv": {
+            "s_octf_nbn_srvc": {
+              "database": "idv",
+              "name": "s_octf_nbn_srvc",
+              "service": "glue",
+              "entity": "entity"
+            }
+          }
+        }
+      },
+      "dependencies": {},
+      "features": {
+        "sp1": {
+          "featureName": "sp1",
+          "dataType": "TINYINT"
+        }
+      },
+      "featureStore": "fixedservice",
+      "scriptLanguage": "SQL",
+      "feature_input": "select u.srvc_bk, service_provider as sp1\nfrom s_octf_nbn_srvc u\ninner join\n(select srvc_bk from s_octf_nbn_srvc\n group by srvc_bk having count(srvc_bk)=1) uniquenames\non uniquenames.srvc_bk = u.srvc_bk ",
+      "jobID": "15526284243337060",
+      "jobOutcome": "success",
+      "entity": "srvc_bk"
+    }
+
+    // showValidationSuccessModal( data );
+
+/* Create feature store ***************************************************************************/
+
+    $( '.validate-button' ).click( function () { 
+
+        showValidationSuccessModal( data );
     } );
 
 } )();

@@ -28,8 +28,9 @@ block main
             .fields.ui.form
                 .field
                     label.field__title(for="feature-store-name") Feature Store Name
-                    .field__content.ui.input
-                        input#feature-store-name(type="text" name="feature-store-name" placeholder="Feature")
+                    .field__content.ui.input.labeled
+                        .ui.label.fas.fa-shopping-cart
+                        input#feature-store-name(type="text" name="feature-store-name" placeholder="Feature Store")
                 .field
                     label.field__title(for="feature-store-description") Feature Store Description
                     .field__content.ui.input
@@ -60,5 +61,4 @@ block main
                     .validate-button
                         .validate-button__icon.fas.fa-calendar-check
                         .validate-button__content Validate
-
 

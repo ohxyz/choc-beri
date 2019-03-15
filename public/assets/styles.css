@@ -439,37 +439,52 @@
   font-size: 15px;
 }
 
-.main .ui.form .field > label {
+.container .ui.labeled.input > .label {
+  border: 1px solid #d6d6d6;
+  color: #999999;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.container .ui.form .field > label {
   color: #666666;
   margin-bottom: 6px;
 }
-.main .ui.form .field > .selection.dropdown {
+.container .ui.form .field > .selection.dropdown {
   background-color: #f5f5f5;
   border-radius: 2px;
 }
-.main .ui.form .field > .selection.dropdown .menu {
+.container .ui.form .field > .selection.dropdown .menu {
   border-radius: 2px;
 }
-.main .ui.input input {
+.container .ui.input input {
   background-color: #f5f5f5;
   font-size: 13px;
   border-radius: 2px;
 }
-.main .ui.input input:focus {
+.container .ui.input input:focus {
   border-radius: 2px;
 }
-.main .ui.input textarea {
+.container .ui.input textarea {
   background-color: #f5f5f5;
   border-radius: 2px;
 }
-.main .ui.input textarea:focus {
+.container .ui.input textarea:focus {
   background-color: white;
   border-radius: 2px;
 }
-.main .ui .multiple.dropdown > .label {
+.container .ui .multiple.dropdown > .label {
   font-size: 13px;
   background-color: #f5f5f5;
   border-radius: 2px;
+}
+
+.ui.modal {
+  border-radius: 2px;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 13px;
 }
 
 .editor {
