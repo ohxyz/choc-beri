@@ -1,14 +1,15 @@
-.side-bar::-webkit-scrollbar-track {
-  background-color: #1f1f1f;
+body .container ::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.side-bar::-webkit-scrollbar {
-  width: 7px;
-  background-color: #F5F5F5;
+body .container ::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
 }
 
-.side-bar::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
+body .container ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0;
 }
 
 .strip {
@@ -361,10 +362,11 @@
 }
 
 .main__content--create-feature-store {
-  padding: 25px 30px;
+  padding: 25px 0;
 }
 .main__content--create-feature-store .strip {
   margin-bottom: 0;
+  padding: 0 30px;
 }
 .main__content--create-feature-store .strip__item--active {
   background-color: #1685dd;
@@ -375,7 +377,8 @@
   height: calc( 100% - 70px );
 }
 .main__content--create-feature-store .container-1 .editor {
-  min-width: 200px;
+  min-width: 250px;
+  padding-left: 30px;
 }
 .main__content--create-feature-store .container-1 .splitter {
   display: flex;
@@ -392,9 +395,10 @@
 }
 .main__content--create-feature-store .container-1 .fields {
   margin-left: 15px;
-  max-width: 1000px;
   width: 500px;
-  min-width: 200px;
+  min-width: 250px;
+  padding-right: 30px;
+  overflow: auto;
 }
 .main__content--create-feature-store .container-1 .fields .field {
   margin-bottom: 25px;
@@ -439,6 +443,15 @@
   font-size: 15px;
 }
 
+.ui.modal {
+  border-radius: 2px;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
 .container .ui.labeled.input > .label {
   border: 1px solid #d6d6d6;
   color: #999999;
@@ -476,15 +489,7 @@
   font-size: 13px;
   background-color: #f5f5f5;
   border-radius: 2px;
-}
-
-.ui.modal {
-  border-radius: 2px;
-}
-
-pre {
-  white-space: pre-wrap;
-  font-size: 13px;
+  word-break: break-all;
 }
 
 .editor {
@@ -580,6 +585,9 @@ html, body {
 }
 .container--mobile .menu__label {
   display: none;
+}
+.container--split {
+  user-select: none;
 }
 
 .top-bar {

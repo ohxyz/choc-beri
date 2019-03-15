@@ -1,9 +1,12 @@
 ( function () {
 
+/* Intended for globals ***************************************************************************/
+
+    var $container = $( '.container' );
+
 /* Mobile view toggle *****************************************************************************/
 
     var $mobileMenuButton = $( '.mobile-menu__button' );
-    var $container = $( '.container' );
 
     $mobileMenuButton.click( function () { 
 
@@ -89,6 +92,7 @@
     var $rightPanel = null;
     var $splitterContainer = $( '.splitter' );
     var currentWidth = 0;
+    var $container = $( '.container' );
     
     $( '.splitter__handle', $splitterContainer ).mousedown( function ( event ) {
 
@@ -111,11 +115,13 @@
 
         distanceX = event.pageX - startPosition.x;
         $rightPanel.width( currentWidth - distanceX );
+        $container.addClass( 'container--split' );
     } );
 
     $( document ).mouseup( function ( event ) { 
 
         shouldStartSplit = false;
+        $container.removeClass( 'container--split' );
 
     } );
 

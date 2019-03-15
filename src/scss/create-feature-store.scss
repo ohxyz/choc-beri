@@ -1,10 +1,11 @@
 .main__content--create-feature-store {
 
-    padding: 25px 30px;
+    padding: 25px 0;
 
     .strip {
 
         margin-bottom: 0;
+        padding: 0 30px;
 
         &__item {
 
@@ -23,7 +24,8 @@
 
         .editor {
 
-            min-width: 200px;
+            min-width: 250px;
+            padding-left: 30px;
         }
 
         .splitter {
@@ -48,9 +50,10 @@
         .fields {
 
             margin-left: 15px;
-            max-width: 1000px;
             width: 500px;
-            min-width: 200px;
+            min-width: 250px;
+            padding-right: 30px;
+            overflow: auto;
 
             .field {
 

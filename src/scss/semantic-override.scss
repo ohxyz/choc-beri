@@ -1,3 +1,14 @@
+.ui.modal {
+
+    border-radius: 2px;
+}
+
+pre {
+
+    white-space: pre-wrap;
+    font-size: 13px;
+}
+
 .container .ui {
 
     &.labeled.input > .label {
@@ -60,16 +71,6 @@
         font-size: 13px;
         background-color: $main-background-color;
         border-radius: 2px;
+        word-break: break-all;
     }
-}
-
-.ui.modal {
-
-    border-radius: 2px;
-}
-
-pre {
-
-    white-space: pre-wrap;
-    font-size: 13px;
 }

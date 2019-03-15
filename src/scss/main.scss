@@ -34,6 +34,11 @@ html, body {
 
         @include mobile-view;
     }
+
+    &--split {
+
+        user-select: none;
+    }
 }
 
 .top-bar {

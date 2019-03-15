@@ -1,15 +1,18 @@
-.side-bar::-webkit-scrollbar-track {
+body .container ::-webkit-scrollbar-track {
 
-    background-color: #1f1f1f;
+    background-color: rgba( 0, 0, 0, 0.1 );
+
 }
 
-.side-bar::-webkit-scrollbar {
+body .container ::-webkit-scrollbar {
 
-    width: 7px;
-    background-color: #F5F5F5;
+    width: 6px;
+    background-color: #f5f5f5;
+
 }
 
-.side-bar::-webkit-scrollbar-thumb {
+body .container ::-webkit-scrollbar-thumb {
 
-    background-color: rgba( 255, 255, 255, 0.2 );
+    background-color: rgba( 0, 0, 0, 0.2 );
+    border-radius: 0;
 }
