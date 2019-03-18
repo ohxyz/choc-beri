@@ -37,7 +37,8 @@ block main
                         textarea#feature-store-description(rows="2" name="feature-store-description" placeholder="Description")
                 .field
                     label.field__title(for="feature-store-entity") Feature Store Entity
-                    .field__content.ui.input
+                    .field__content.ui.input.labeled
+                        .ui.label.fas.fa-key
                         input#feature-store-name(type="text" name="feature-store-entity" placeholder="Entity")
                 .field
                     label.field__title(for="table-dependencie") BERI Table Dependencies
@@ -57,6 +58,7 @@ block main
                         .code-feedback.code-feedback--error 
                             .code-feedback__icon.far.fa-frown
                             .code-feedback__content There is an error in your statement.
+                
                 .field
                     .validate-button
                         .validate-button__icon.fas.fa-calendar-check

@@ -74,12 +74,50 @@ block main
                         input#historical-feature(type="checkbox" name="historical-feature")
                         label(for="historical-feature") Historical Feature
 
+                .field-group
+
+                    .field-group__header
+                        span.field-group__title Add feature(s)
+                        i.fas.fa-plus-circle.field-group__icon.field-group__icon--add-feature
+                        i.fas.fa-minus-circle.field-group__icon.field-group__icon--minus-feature
+
+                    .field-group__content
+                        .field
+                            .label.field__title Feature 1
+                            .field__content.ui.input.labeled
+                                i.ui.label.fas.fa-star
+                                input.feature-name(type="text" name="feature-name-1" placeholder="Feature Name")
+                            .field__content.ui.fluid.search.dropdown.selection
+                                input.feature-data-type(type="hidden" name="feature-data-type-1")
+                                i.dropdown.icon
+                                .default.text Data Type
+                                .menu
+                                    .item(data-value="TINYINT") TINYINT
+                                    .item(data-value="SMALLINT") SMALLINT
+                                    .item(data-value="TIMESTAMP") TIMESTAMP
+                                    .item(data-value="VARCHAR") VARCHAR
+
+                        .field
+                            .label.field__title Feature 2
+                            .field__content.ui.input.labeled
+                                i.ui.label.fas.fa-star
+                                input.feature-name(type="text" name="feature-name-2" placeholder="Feature Name")
+                            .field__content.ui.fluid.search.dropdown.selection
+                                input.feature-data-type(type="hidden" name="feature-data-type-2")
+                                i.dropdown.icon
+                                .default.text Data Type
+                                .menu
+                                    .item(data-value="TINYINT") TINYINT
+                                    .item(data-value="SMALLINT") SMALLINT
+                                    .item(data-value="TIMESTAMP") TIMESTAMP
+                                    .item(data-value="VARCHAR") VARCHAR
+
                 .field
                     label.field__title Code Feedback
                     .field__content
-                        .code-feedback.code-feedback--error 
-                            .code-feedback__icon.far.fa-frown
-                            .code-feedback__content There is an error in your statement.
+                        .code-feedback.code-feedback--success 
+                            .code-feedback__icon.far.fa-smile
+                            .code-feedback__content Everthing looks good.
                 .field
                     .validate-button
                         .validate-button__icon.fas.fa-calendar-check

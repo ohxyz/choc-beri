@@ -167,20 +167,38 @@
         ` );
     }
 
-    function showCreateJobSuccssModal( featureStoreName, responseData ) {
+    function showCreateJobSuccessModal( featureStoreName, jobId ) {
 
         var modal = createModal( 'basic modal--create-job-success' );
         var $headerIcon = $( '<i class="far fa-check-circle">' );
         var $headerContent = $( `<div>Feature store <em>${featureStoreName}</em> created successfully</div>`);
 
         modal.$header.append( $headerIcon, $headerContent );
-        modal.$content.text( 'Job ID: ' + responseData );
+        modal.$content.text( 'Job ID: ' + jobId );
         modal.$modal
              .modal('setting', 'transition', 'fade' )
              .modal( 'show' );
     }
 
-    function showValidateSuccessModal( data ) {
+    function showCreateJobWaitModal( headerContent, contentContent ) {
+
+        var modal = createModal( 'basic modal--create-job-wait' );
+        var $headerIcon = $( '<i class="far fa-hourglass">' );
+        var $headerContent = $( `<div>${headerContent}</div>`);
+
+        modal.$header.append( $headerIcon, $headerContent );
+        modal.$content.text( contentContent );
+        modal.$modal
+             .modal('setting', 'transition', 'fade' )
+             .modal( 'show' );
+    }
+
+    function showCreateJobStatusModal( { modalClass, iconClass, headerContent, contentContent } ) {
+
+        // Todo: Create a base function of status of modal, eg. success, wait/pending, fail/error, etc
+    }
+
+    function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} ) {
 
         var modal = createModal( 'modal--validate-success' );
         var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
@@ -211,7 +229,8 @@
 
         $createJobButton.click( function () { 
 
-            showCreateJobSuccssModal( 'fixedservice', 1234567890 );
+            onCreateJobButtonClick();
+            
         } );
     }
 
@@ -246,9 +265,25 @@
 
 /* Create feature store ***************************************************************************/
 
-    $( '.validate-button' ).click( function () { 
+    $( '.validate-button', '.main__content--create-feature-store' ).click( function () { 
 
-        showValidateSuccessModal( data );
+        showValidateSuccessModal( data, function () {
+
+            showCreateJobSuccessModal( 'fixedservice', 1234567890 ); 
+        } );
+    } );
+
+/* Upload scripts *********************************************************************************/
+
+    $( '.validate-button', '.main__content--upload-scripts' ).click( function () { 
+
+        showValidateSuccessModal( data, function () {
+
+            var header = "You job is being created. Please wait...";
+            var content = "Job ID: " + Math.random().toString().slice(2);
+
+            showCreateJobWaitModal( header, content ); 
+        } );
     } );
 
 } )();

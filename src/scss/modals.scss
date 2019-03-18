@@ -19,7 +19,7 @@
         }
     }
 
-    &.modal--create-job-success { 
+    &.modal.basic {
 
         text-align: center;
 
@@ -28,12 +28,10 @@
             font-size: 20px;
             padding: 40px;
 
-
             i {
                 display: block;
                 font-size: 120px;
                 margin-bottom: 20px;
-                color: #48a748;
             }
 
             em {
@@ -46,6 +44,28 @@
         .content {
 
             padding: 0;
+        }
+
+        &.modal--create-job-success {
+
+            .header {
+
+                i {
+
+                    color: #48a748;
+                }
+            }
+        }
+
+        &.modal--create-job-wait {
+
+            .header {
+
+                i {
+
+                    color: #e0b022;
+                }
+            }
         }
     }
 
