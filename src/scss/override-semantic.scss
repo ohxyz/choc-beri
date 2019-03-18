@@ -1,12 +1,19 @@
-.ui.modal {
+/**
+ * Contains overrides of Sematic UI comonents
+ *
+ * NOTE: Check modal component at modals.scss
+ */
 
-    border-radius: 2px;
-}
+.ui {
 
-pre {
+    &.button {
 
-    white-space: pre-wrap;
-    font-size: 13px;
+        border-radius: 2px;
+
+        i {
+            margin-right: 8px;
+        }
+    }
 }
 
 .container .ui {
@@ -19,6 +26,21 @@ pre {
         border-bottom-left-radius: 2px;
     }
 
+    &.checkbox label {
+
+        font-weight: bold;
+        color: #666666;
+
+        &:before {
+
+            background-color: #fbfbfb;
+        }
+
+        &:after {
+            color: red;
+        }
+    }
+    
     &.form .field {
 
         & > label {
@@ -29,8 +51,13 @@ pre {
 
         & >.selection.dropdown {
 
-            background-color: $main-background-color;
+            background-color: $f5;
             border-radius: 2px;
+
+            &.active {
+
+                background-color: white;
+            }
 
             .menu {
 
@@ -43,7 +70,7 @@ pre {
 
         input {
 
-            background-color: $main-background-color;
+            background-color: $f5;
             font-size: 13px;
             border-radius: 2px;
             
@@ -55,7 +82,7 @@ pre {
 
         textarea {
 
-            background-color: $main-background-color;
+            background-color: $f5;
             border-radius: 2px;
 
             &:focus {
@@ -69,8 +96,17 @@ pre {
     .multiple.dropdown > .label {
 
         font-size: 13px;
-        background-color: $main-background-color;
+        background-color: #eeeeee;
         border-radius: 2px;
         word-break: break-all;
+        border: none;
+        box-shadow: none;
+        font-weight: normal;
+        color: black;
     }
+}
+
+.ui.checkbox .box:before, .ui.checkbox label:before {
+
+    border-radius: 2px;
 }

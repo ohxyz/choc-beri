@@ -48,7 +48,7 @@
         </div>
         <div class="menu__item"><a class="menu__link" title="Predictive Feature Metrics" href="/"><i class="fas fa-chart-line menu__icon"></i>
             <div class="menu__label">Predictive Feature Metrics</div></a></div>
-        <div class="menu__item"><a class="menu__link" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-plus menu__icon"></i>
+        <div class="menu__item"><a class="menu__link" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-cart-plus menu__icon"></i>
             <div class="menu__label">Create Feature Store</div></a></div>
         <div class="menu__item">
           <div class="menu__title">Batch Management</div>
@@ -71,8 +71,86 @@
       </div>
       <div class="main__content main__content--upload-scripts">
         <div class="strip">
-          <div class="strip__title">SELECT LANGUAGE</div>
+          <div class="strip__title">SCRIPT LANGUAGE</div>
           <div class="strip__content"><span class="strip__item strip__item--active">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PyShark</span></div>
+        </div>
+        <div class="container-1">
+          <div class="editor">
+            <div class="editor__bar">
+              <div class="editor__functions">
+                <div class="editor__icon editor__icon--decrease-font-size fab fa-amilia"></div>
+                <div class="editor__icon editor__icon--increase-font-size fas fa-font"></div>
+                <div class="editor__icon editor__icon--full-screen fas fa-expand"></div>
+              </div>
+            </div>
+            <div class="editor__main" id="code-editor"></div>
+          </div>
+          <div class="splitter">
+            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
+          </div>
+          <div class="fields ui form">
+            <div class="field">
+              <label class="field__title" for="table-dependencies">BERI Table Dependencies</label>
+              <div class="field__content ui fluid search dropdown selection multiple">
+                <input id="table-dependencies" type="hidden" name="table-dependencies"><i class="dropdown icon"></i>
+                <div class="default text">Table Dependencies</div>
+                <div class="menu">
+                  <div class="item" data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16">beri2-parquetaggregation-spike.bnd2_asg_001_192_16</div>
+                  <div class="item" data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403">beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403</div>
+                  <div class="item" data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest">d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest</div>
+                  <div class="item" data-value="idv_bkp_pii.s_adob_detl_forcp2">idv_bkp_pii.s_adob_detl_forcp2</div>
+                  <div class="item" data-value="ingestion-sftp-erroneous-session-data.allot">ingestion-sftp-erroneous-session-data.allot</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title" for="feature-dependencies">BERI Feature Dependencies</label>
+              <div class="field__content ui fluid search dropdown selection multiple">
+                <input id="feature-dependencies" type="hidden" name="feature-dependencies"><i class="dropdown icon"></i>
+                <div class="default text">Feature Dependencies</div>
+                <div class="menu">
+                  <div class="item" data-value="fixedservice.OctaneID">fixedservice.OctaneID (STRING)</div>
+                  <div class="item" data-value="fixedservice.NetworkElement">fixedservice.NetworkElement (STRING)</div>
+                  <div class="item" data-value="fixedservice.plan_name">fixedservice.plan_name (STRING)</div>
+                  <div class="item" data-value="fixedservice.Small_hist">fixedservice.Small_hist (FLOAT)</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title" for="feature-store">BERI Feature Store</label>
+              <div class="field__content ui fluid search dropdown selection">
+                <input id="feature-store" type="hidden" name="feature-store"><i class="dropdown icon"></i>
+                <div class="default text">Feature Store</div>
+                <div class="menu">
+                  <div class="item" data-value="fixedservice">fixedservice</div>
+                  <div class="item" data-value="mobile">mobile</div>
+                  <div class="item" data-value="air">air</div>
+                  <div class="item" data-value="earth">earth</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field__content ui checkbox">
+                <input id="historical-feature" type="checkbox" name="historical-feature">
+                <label for="historical-feature">Historical Feature</label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__title">Code Feedback</label>
+              <div class="field__content">
+                <div class="code-feedback code-feedback--error"> 
+                  <div class="code-feedback__icon far fa-frown"></div>
+                  <div class="code-feedback__content">There is an error in your statement.</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="validate-button">
+                <div class="validate-button__icon fas fa-calendar-check"></div>
+                <div class="validate-button__content">Validate</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

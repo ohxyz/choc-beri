@@ -15,9 +15,72 @@ block main
             a(href="/") Choc-BERI
     .main__content.main__content--upload-scripts
         .strip
-            .strip__title SELECT LANGUAGE
+            .strip__title SCRIPT LANGUAGE
             .strip__content
                 span.strip__item.strip__item--active SQL
                 span.strip__item MOJO
                 span.strip__item PyShark
 
+        .container-1
+            .editor
+                .editor__bar
+                    .editor__functions
+                        .editor__icon.editor__icon--decrease-font-size.fab.fa-amilia
+                        .editor__icon.editor__icon--increase-font-size.fas.fa-font
+                        .editor__icon.editor__icon--full-screen.fas.fa-expand
+                #code-editor.editor__main
+            .splitter
+                .splitter__handle.fas.fa-grip-lines-vertical
+            .fields.ui.form
+                .field
+                    label.field__title(for="table-dependencies") BERI Table Dependencies
+                    .field__content.ui.fluid.search.dropdown.selection.multiple
+                        input#table-dependencies(type="hidden" name="table-dependencies")
+                        i.dropdown.icon
+                        .default.text Table Dependencies
+                        .menu
+                            .item(data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16") beri2-parquetaggregation-spike.bnd2_asg_001_192_16
+                            .item(data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403") beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403
+                            .item(data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest") d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest
+                            .item(data-value="idv_bkp_pii.s_adob_detl_forcp2") idv_bkp_pii.s_adob_detl_forcp2
+                            .item(data-value="ingestion-sftp-erroneous-session-data.allot") ingestion-sftp-erroneous-session-data.allot
+                
+                .field
+                    label.field__title(for="feature-dependencies") BERI Feature Dependencies
+                    .field__content.ui.fluid.search.dropdown.selection.multiple
+                        input#feature-dependencies(type="hidden" name="feature-dependencies")
+                        i.dropdown.icon
+                        .default.text Feature Dependencies
+                        .menu
+                            .item(data-value="fixedservice.OctaneID") fixedservice.OctaneID (STRING)
+                            .item(data-value="fixedservice.NetworkElement") fixedservice.NetworkElement (STRING)
+                            .item(data-value="fixedservice.plan_name") fixedservice.plan_name (STRING)
+                            .item(data-value="fixedservice.Small_hist") fixedservice.Small_hist (FLOAT)
+
+                .field
+                    label.field__title(for="feature-store") BERI Feature Store
+                    .field__content.ui.fluid.search.dropdown.selection
+                        input#feature-store(type="hidden" name="feature-store")
+                        i.dropdown.icon
+                        .default.text Feature Store
+                        .menu
+                            .item(data-value="fixedservice") fixedservice
+                            .item(data-value="mobile") mobile
+                            .item(data-value="air") air
+                            .item(data-value="earth") earth
+
+                .field
+                    .field__content.ui.checkbox
+                        input#historical-feature(type="checkbox" name="historical-feature")
+                        label(for="historical-feature") Historical Feature
+
+                .field
+                    label.field__title Code Feedback
+                    .field__content
+                        .code-feedback.code-feedback--error 
+                            .code-feedback__icon.far.fa-frown
+                            .code-feedback__content There is an error in your statement.
+                .field
+                    .validate-button
+                        .validate-button__icon.fas.fa-calendar-check
+                        .validate-button__content Validate

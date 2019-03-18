@@ -131,13 +131,18 @@
 
 /* Semantic UI - customized ***********************************************************************/
 
-    function createModal() {
+    function createModal( className = '' ) {
 
-        let $modal = $( '<div class="ui modal">' );
-        let $header = $( '<div class="header">' );
-        let $content = $( '<div class="content">');
-        let $actions = $( '<div class="actions">' );
-        let $closeButton = $( '<div class="ui cancel button">Close</div>' );
+        var $modal = $( `<div class="ui modal ${className}">` );
+        var $header = $( '<div class="header">' );
+        var $content = $( '<div class="content">');
+        var $actions = $( '<div class="actions">' );
+        var $closeButton = $( `
+            <div class="ui cancel button">
+                <i class="fa fa-times"></i>
+                <span>Close<span>
+            </div>
+        ` );
 
         $modal.append( $header, $content, $actions );
         $actions.append( $closeButton );
@@ -152,53 +157,61 @@
         }
     }
 
+    function $createTag( iconClass = '', content = '' ) {
+
+        return $( `
+            <span class="tag">
+                <i class="tag__icon ${iconClass}"></i>
+                <span class="tag__contnet">${content}</span>
+            </span>
+        ` );
+    }
+
     function showCreateJobSuccssModal( featureStoreName, responseData ) {
 
-        let modal = createModal();
+        var modal = createModal( 'basic modal--create-job-success' );
+        var $headerIcon = $( '<i class="far fa-check-circle">' );
+        var $headerContent = $( `<div>Feature store <em>${featureStoreName}</em> created successfully</div>`);
 
-        modal.$header.text( `Success... Feature store - ${featureStoreName} is created.` );
+        modal.$header.append( $headerIcon, $headerContent );
         modal.$content.text( 'Job ID: ' + responseData );
         modal.$modal
              .modal('setting', 'transition', 'fade' )
              .modal( 'show' );
     }
 
-    function showValidationSuccessModal( data ) {
+    function showValidateSuccessModal( data ) {
 
-        let modal = createModal();
-
-        let $span = $( '<span>Metadata</span>' );
-        let $pre = $( '<pre>' );
-        let $jobId = $( '<div id="job-id">' );
-        let $createJobStatus = $( '<div class="create-job__status">' );
-        let $createJobButton = $( `
+        var modal = createModal( 'modal--validate-success' );
+        var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
+        var $pre = $( '<pre>' );
+        var $jobId = $( '<div id="job-id">' );
+        var $createJobStatus = $( '<div class="create-job__status">' );
+        var $createJobButton = $( `
             <div class="create-job__button ui button">
-                Create Job
+                <i class="fas fa-dumbbell"></i>
+                <span>Create Job</span>
             </div>
          ` );
 
-        $pre.text( JSON.stringify( data , null, 2 ) );
-        $jobId.text( `Job ID: ${data.jobID}` );
+        var $headerIcon = $( '<i class="far fa-smile">' );
+        var $headerContent = $( '<span>' ).text( 'Code validation was successful' );
 
-        modal.$header.text( 'Code validation has passed.' );
-        modal.$content.append( $span, $pre, $jobId, $createJobStatus );
+        $pre.text( JSON.stringify( data , null, 2 ) );
+
+        $jobIdTag = $createTag( 'far fa-id-card', 'Job ID' );
+        $jobIdContent = $( `<span class="job-id__content">${data.jobID}</span>` );
+
+        $jobId.append( $jobIdTag, $jobIdContent );
+
+        modal.$header.append( $headerIcon, $headerContent );
+        modal.$content.append( $metadataTag, $pre, $jobId, $createJobStatus );
         modal.$actions.append( $createJobButton );
         modal.$modal.modal( 'show' );
 
-        $createJobButton.click( () => { 
+        $createJobButton.click( function () { 
 
-           $.post( '/executeScript/lab', { content: JSON.stringify( data ) } )
-            .done( responseData => {
-
-                if ( responseData.errorMessage ) {
-
-                    showCreateJobFailModal( data.featureStore, responseData );
-                }
-                else {
-
-                    showCreateJobSuccssModal( data.featureStore, responseData );
-                }
-             } );
+            showCreateJobSuccssModal( 'fixedservice', 1234567890 );
         } );
     }
 
@@ -230,13 +243,12 @@
       "entity": "srvc_bk"
     }
 
-    // showValidationSuccessModal( data );
 
 /* Create feature store ***************************************************************************/
 
     $( '.validate-button' ).click( function () { 
 
-        showValidationSuccessModal( data );
+        showValidateSuccessModal( data );
     } );
 
 } )();
