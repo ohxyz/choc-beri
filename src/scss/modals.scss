@@ -44,6 +44,7 @@
         .content {
 
             padding: 0;
+
         }
 
         &.modal--create-job-success {
@@ -80,10 +81,13 @@
 
         .header {
 
-            color: #158c15;
+            color: white;
+            background-color: $main-color;
             border-bottom: none;
-            padding: 30px 25px;
+            padding: 18px 25px;
             text-transform: uppercase;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
 
             i {
 
@@ -94,11 +98,23 @@
 
         .content {
 
-            padding: 0 25px;
+            padding: 25px 25px 10px 25px;
+
+            .row {
+
+                margin-bottom: 10px;
+
+                &__content {
+
+                    margin-left: 15px;
+                }
+            }
 
             .tag {
 
+                display: inline-block;
                 background-color: #0e8bee;
+                width: 120px;
                 color: white
             }
         }
@@ -107,7 +123,7 @@
 
             border-top: none;
             background-color: transparent;
-            padding: 30px 25px;
+            padding: 0 25px 25px 25px;
         }
 
         .create-job__button {

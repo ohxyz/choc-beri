@@ -354,7 +354,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 
 .main__content--upload-scripts {
-  padding: 25px 0;
+  padding: 20px 0;
 }
 .main__content--upload-scripts .strip {
   margin-bottom: 0;
@@ -447,7 +447,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 
 .main__content--create-feature-store {
-  padding: 25px 0;
+  padding: 20px 0;
 }
 .main__content--create-feature-store .strip {
   margin-bottom: 0;
@@ -683,26 +683,37 @@ body .container ::-webkit-scrollbar-thumb {
   white-space: pre-wrap;
 }
 .ui.modal.modal--validate-success .header {
-  color: #158c15;
+  color: white;
+  background-color: #bb247f;
   border-bottom: none;
-  padding: 30px 25px;
+  padding: 18px 25px;
   text-transform: uppercase;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .ui.modal.modal--validate-success .header i {
   margin-right: 18px;
   font-size: 25px;
 }
 .ui.modal.modal--validate-success .content {
-  padding: 0 25px;
+  padding: 25px 25px 10px 25px;
+}
+.ui.modal.modal--validate-success .content .row {
+  margin-bottom: 10px;
+}
+.ui.modal.modal--validate-success .content .row__content {
+  margin-left: 15px;
 }
 .ui.modal.modal--validate-success .content .tag {
+  display: inline-block;
   background-color: #0e8bee;
+  width: 120px;
   color: white;
 }
 .ui.modal.modal--validate-success .actions {
   border-top: none;
   background-color: transparent;
-  padding: 30px 25px;
+  padding: 0 25px 25px 25px;
 }
 .ui.modal.modal--validate-success .create-job__button {
   background-color: #87c63e;

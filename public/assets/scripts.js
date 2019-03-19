@@ -125,9 +125,7 @@
 
     } );
 
-/* Sementic UI ************************************************************************************/
-    
-    $( '.ui.dropdown' ).dropdown();
+
 
 /* Semantic UI - customized ***********************************************************************/
 
@@ -202,8 +200,18 @@
 
         var modal = createModal( 'modal--validate-success' );
         var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
+        var $featureTag = $createTag( 'far fa-star', 'Feature' );
         var $pre = $( '<pre>' );
-        var $jobId = $( '<div id="job-id">' );
+
+        var $featureRow = $( '<div class="row">' ).append(
+
+            $featureTag, 
+            $( '<span class="row__content">Sp1</span>') 
+        );
+        
+        var $metadataRow = $( '<div class="row">' ).append( $metadataTag, $pre );
+        var $jobIdRow = $( '<div id="job-id" class="row">' );
+
         var $createJobStatus = $( '<div class="create-job__status">' );
         var $createJobButton = $( `
             <div class="create-job__button ui button">
@@ -218,12 +226,12 @@
         $pre.text( JSON.stringify( data , null, 2 ) );
 
         $jobIdTag = $createTag( 'far fa-id-card', 'Job ID' );
-        $jobIdContent = $( `<span class="job-id__content">${data.jobID}</span>` );
+        $jobIdContent = $( `<span class="row__content">${data.jobID}</span>` );
 
-        $jobId.append( $jobIdTag, $jobIdContent );
+        $jobIdRow.append( $jobIdTag, $jobIdContent );
 
         modal.$header.append( $headerIcon, $headerContent );
-        modal.$content.append( $metadataTag, $pre, $jobId, $createJobStatus );
+        modal.$content.append( $featureRow, $metadataRow, $jobIdRow, $createJobStatus );
         modal.$actions.append( $createJobButton );
         modal.$modal.modal( 'show' );
 
@@ -275,15 +283,70 @@
 
 /* Upload scripts *********************************************************************************/
 
-    $( '.validate-button', '.main__content--upload-scripts' ).click( function () { 
+    var $containerUploadScripts = $( '.main__content--upload-scripts' );
+    var countOfFeatureFields = 1;
+    var $containerOfFeatureFields = $( '.field-group__content', $containerUploadScripts );
+
+    $( '.validate-button', $containerUploadScripts ).click( function () { 
 
         showValidateSuccessModal( data, function () {
 
-            var header = "You job is being created. Please wait...";
+            var header = "You job is being created. Please wait ...";
             var content = "Job ID: " + Math.random().toString().slice(2);
 
             showCreateJobWaitModal( header, content ); 
         } );
     } );
+
+
+    $( '.field-group__icon--add-feature' ).click( function () { 
+
+        var $e = $createFeatureFields( ++ countOfFeatureFields );
+
+        $containerOfFeatureFields.append( $e );
+
+    } );
+
+    $( '.field-group__icon--remove-feature' ).click( function () { 
+
+        if ( countOfFeatureFields <= 1 ) {
+
+            return;
+        }
+
+        $( '.field:last-child', $containerOfFeatureFields ).remove();
+        countOfFeatureFields -- ;
+
+    } );
+
+    function $createFeatureFields( index ) {
+
+        var $elem = $( `
+            <div class="field">
+              <div class="label field__title">Feature ${index}</div>
+              <div class="field__content ui input labeled"><i class="ui label fas fa-star"></i>
+                <input class="feature-name" type="text" name="feature-name-${index}" placeholder="Feature Name">
+              </div>
+              <div class="field__content ui fluid search dropdown selection">
+                <input class="feature-data-type" type="hidden" name="feature-data-type-${index}"><i class="dropdown icon"></i>
+                <input class="search" autocomplete="off" tabindex="0"><div class="default text">Data Type</div>
+                <div class="menu" tabindex="-1">
+                  <div class="item" data-value="TINYINT">TINYINT</div>
+                  <div class="item" data-value="SMALLINT">SMALLINT</div>
+                  <div class="item" data-value="TIMESTAMP">TIMESTAMP</div>
+                  <div class="item" data-value="VARCHAR">VARCHAR</div>
+                </div>
+              </div>
+            </div>
+        `);
+
+        $( '.ui.dropdown', $elem ).dropdown();
+
+        return $elem;
+    }
+
+/* Sementic UI - Place it at last ******************************************************************/
+    
+    $( '.ui.dropdown' ).dropdown();
 
 } )();
