@@ -1,0 +1,26 @@
+
+.logo {
+
+    position: relative;
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #bb247f;
+    display: flex;
+    align-items: center;
+
+    &__link {
+
+        font-family: 'Pacifico', cursive;
+        margin-left: 43px;
+        margin-top: 7px;
+        font-size: 27px;
+        cursor: pointer;
+        color: rgba( 255, 255, 255, 0.95 );
+
+        &:hover {
+
+            color: white;
+        }
+
+    }
+}

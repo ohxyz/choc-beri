@@ -779,7 +779,7 @@ body .container ::-webkit-scrollbar-thumb {
 .login__container {
   min-width: 331px;
   min-height: 331px;
-  border-radius: 45px;
+  border-radius: 55px;
   position: relative;
 }
 .login__row {
@@ -790,7 +790,6 @@ body .container ::-webkit-scrollbar-thumb {
   color: #f5f5f5;
   font-size: 51px;
   margin-bottom: 7px;
-  font-style: normal;
 }
 .login__header {
   height: 100px;
@@ -798,29 +797,30 @@ body .container ::-webkit-scrollbar-thumb {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  border-radius: 45px;
+  border-radius: 55px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-bottom: 7px;
 }
 .login__content {
-  padding: 38px 38px 95px 38px;
+  padding: 38px 38px 110px 38px;
   background-color: #eeeeee;
-  border-radius: 45px;
+  border-radius: 55px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 .login__decor {
   background: url("./choc400.png");
-  background-size: cover;
-  height: 107px;
+  background-size: 125%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 111px;
   position: absolute;
-  border-radius: 45px;
+  border-radius: 55px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  z-index: 1;
-  left: 2px;
-  right: 2px;
+  left: 1px;
+  right: 1px;
   bottom: 0;
   opacity: 0.9;
 }
@@ -835,6 +835,26 @@ body .container ::-webkit-scrollbar-thumb {
 .login .ui.button:hover, .login .ui.button:active, .login .ui.button:focus {
   color: white;
   background-color: #2f6da9;
+}
+
+.logo {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #bb247f;
+  display: flex;
+  align-items: center;
+}
+.logo__link {
+  font-family: "Pacifico", cursive;
+  margin-left: 43px;
+  margin-top: 7px;
+  font-size: 27px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+}
+.logo__link:hover {
+  color: white;
 }
 
 html, body {
@@ -919,25 +939,6 @@ html, body {
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
   font-size: 16px;
-}
-
-.logo {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-  background-color: #bb247f;
-  display: flex;
-  align-items: center;
-}
-.logo__link {
-  margin-left: 58px;
-  width: 105px;
-  height: 50px;
-  background-image: url("./belong.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  cursor: pointer;
 }
 
 .main {

@@ -11,6 +11,7 @@
 @import "./tag";
 @import "./code-feedback";
 @import "./login";
+@import "./logo";
 
 html, body {
     
@@ -81,27 +82,6 @@ html, body {
     }
 }
 
-.logo {
-
-    position: relative;
-    grid-column: 1;
-    grid-row: 1;
-    background-color: #bb247f;
-    display: flex;
-    align-items: center;
-
-    &__link {
-
-        margin-left: 58px;
-        width: 105px;
-        height: 50px;
-        background-image: url( './belong.png' );
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position: center center;
-        cursor: pointer;
-    }
-}
 
 .main {
 
