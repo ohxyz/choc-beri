@@ -10,6 +10,7 @@
 @import "./modals";
 @import "./tag";
 @import "./code-feedback";
+@import "./login";
 
 html, body {
     
@@ -156,12 +157,5 @@ html, body {
     }
 }
 
-.side-bar {
-
-    grid-row: 2;
-    grid-column: 1;
-    background-color: #1f1f1f;
-    overflow-y: auto;
-}
 
 

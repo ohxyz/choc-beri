@@ -1,0 +1,42 @@
+doctype html
+head
+    title Choc BERI
+    meta(charset="utf-8")
+    meta(name="description" content="Basic HTML5 template")
+    meta(name="author" content="My Name")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet")
+    link(rel="stylesheet" 
+         href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+         crossorigin="anonymous")
+    link(rel="stylesheet" type="text/css" href="./assets/semantic/semantic.min.css")
+    script(
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous")
+    script(src="./assets/semantic/semantic.min.js")
+    link(rel="stylesheet" type="text/css" href="./assets/styles.css")
+    link(href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet")
+body
+    .login
+        .login__container
+            .login__header
+                .login__logo Choc-BERi
+            .login__content
+                .ui.form
+                    .login__row
+                        .ui.input.labeled
+                            .ui.label.far.fa-user
+                            input#username(type="text" name="username" placeholder="Username")
+                    .login__row
+                        .ui.input.labeled
+                            .ui.label.fas.fa-lock
+                            input#password(type="password" name="password" placeholder="Password")
+                    .login__row
+                        .ui.checkbox
+                            input#remember-me(type="checkbox" name="remember-me")
+                            label(for="remember-me") Remember me
+                    .login__row.login__button-container
+                        a.ui.button(href="/") LOG IN
+            .login__decor

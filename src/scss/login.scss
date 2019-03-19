@@ -1,0 +1,92 @@
+.login {
+
+    $border-radius: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+
+    &__container {
+
+        min-width: 331px;
+        min-height: 331px;
+        border-radius: $border-radius;
+        position: relative;
+    }
+
+    &__row {
+
+        margin-bottom: 10px;
+    }
+
+    &__logo {
+
+        font-family: 'Pacifico', cursive;
+        color: #f5f5f5;
+        font-size: 51px;
+        margin-bottom: 7px;
+        font-style: normal;
+    }
+
+    &__header {
+
+        height: 100px;
+        background-color: #bb247f;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        border-radius: $border-radius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: 7px;
+
+    }
+
+    &__content {
+
+        padding: 38px 38px 95px 38px;
+        background-color: #eeeeee;
+        border-radius: $border-radius;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &__decor {
+
+        background: url( "./choc400.png" );
+        background-size: cover;
+        height: 107px;
+        position: absolute;
+        border-radius: $border-radius;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        z-index: 1;
+        left: 2px;
+        right: 2px;
+        bottom: 0;
+        opacity: 0.9;
+    }
+
+    &__button-container {
+
+        margin-top: 30px;
+    }
+
+    .ui.button {
+
+        background-color: #4183c4;
+        color: white;
+        border-radius: 100px;
+
+        &:hover,
+        &:active,
+        &:focus {
+
+            color: white;
+            background-color: #2f6da9;
+        };
+    }
+}

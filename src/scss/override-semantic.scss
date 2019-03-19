@@ -3,7 +3,6 @@
  *
  * NOTE: Check modal component at modals.scss
  */
-
 .ui {
 
     &.button {
@@ -14,9 +13,6 @@
             margin-right: 8px;
         }
     }
-}
-
-.container .ui {
 
     &.labeled.input > .label {
 
@@ -34,6 +30,7 @@
         &:before {
 
             background-color: #fbfbfb;
+            border-radius: 2px;
         }
 
         &:after {
@@ -104,9 +101,4 @@
         font-weight: normal;
         color: black;
     }
-}
-
-.ui.checkbox .box:before, .ui.checkbox label:before {
-
-    border-radius: 2px;
 }

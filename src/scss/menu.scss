@@ -1,3 +1,11 @@
+.side-bar {
+
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #104472;
+    overflow-y: auto;
+}
+
 .side-bar .menu {
 
     padding: 24px 0;
@@ -18,19 +26,19 @@
     &__link {
 
         padding: 12px 24px;
-        color: rgba( 255, 255, 255, 0.7 );
+        color: rgba( 255, 255, 255, 0.9 );
         text-decoration: none;
         display: flex;
 
         &:hover {
 
             color: rgba( 255, 255, 255, 0.9 );
-            background-color: #333333;
+            background-color: #b4247b;
         }
 
         &--active {
 
-            background-color: #0f3984;
+            background-color: #386991;
         }
     }
 
