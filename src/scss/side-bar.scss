@@ -11,16 +11,73 @@
     padding: 24px 0;
     bottom: 0;
 
-    &__label {
-
-        margin-left: 20px;
-    }
-
     &__title {
 
         padding: 8px 20px;
         font-size: 12px;
         color: rgba( 255, 255, 255, 0.3 );
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+
+            color: #e5e5e5;
+        };
+    }
+
+    &__group {
+
+        .fa-angle-up:before {
+
+            display: none;
+        }
+
+        .fa-angle-down:before {
+
+            display: block;
+        }
+
+        .menu__item {
+
+            display: none;
+        }
+
+        &--expand {
+
+            .menu__item {
+
+                display: block;
+            }
+
+            .fa-angle-up:before {
+
+                display: block;
+            }
+
+            .fa-angle-down:before {
+
+                display: none;
+            }
+
+        }
+
+
+        &__icon {
+
+            font-size: 12px;
+
+            position: absolute;
+            right: 20px;
+            top: 12px;
+
+
+        }
+
+    }
+
+    &__label {
+
+        margin-left: 20px;
     }
 
     &__link {
@@ -32,13 +89,12 @@
 
         &:hover {
 
-            color: rgba( 255, 255, 255, 0.9 );
-            background-color: #b4247b;
+            background-color: #386991;
         }
 
         &--active {
 
-            background-color: #386991;
+            background-color: #7c4330;
         }
     }
 

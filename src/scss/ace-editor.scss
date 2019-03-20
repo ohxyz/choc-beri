@@ -1,7 +1,10 @@
 .editor {
 
     flex-grow: 1;
+    min-width: 250px;
+    padding-left: 30px;
     margin-right: 15px;
+
 
     &__title {
 
@@ -12,8 +15,13 @@
 
     &__bar {
 
-        margin-bottom: 8px;
-        text-align: right;
+        margin-top: 10px;
+    }
+
+    &__functions {
+
+        display: flex;
+        justify-content: flex-end;
     }
 
     &__icon {
@@ -26,13 +34,15 @@
         height: 25px;
         background: #ededed;
         border-radius: 100px;
-        padding-right: 6px;
+        padding-left: 6px;
         padding-top: 6px;
 
         &--decrease-font-size {
 
-            font-size: 11px;
-            padding-right: 9px;
+            font-size: 9px;
+            padding-left: 9px;
+            padding-top: 9px;
+
         }
 
         &:hover {
@@ -45,7 +55,7 @@
     &__main {
 
         width: 100%;
-        height: 100%;
+        height: 98%;
         border-radius: 2px;
     }
 

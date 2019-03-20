@@ -1,8 +1,24 @@
 ( function () {
 
-/* Intended for globals ***************************************************************************/
+/* Globals ****************************************************************************************/
 
     var $container = $( '.container' );
+
+/* Toggle menu items - Accodion style *************************************************************/
+
+    $( '.menu__title' ).click( function () {  
+
+        var $icon = $( '.menu__group__icon', this );
+        var $currentMenuGroup = $( this ).parent();
+
+        // Accordion Style
+        // $( '.menu__group' ).removeClass( 'menu__group--expand' );
+        // $currentMenuGroup.addClass( 'menu__group--expand' );
+
+        // Normal expand and collapse
+        $currentMenuGroup.toggleClass( 'menu__group--expand' );
+    } );
+
 
 /* Mobile view toggle *****************************************************************************/
 
@@ -124,8 +140,6 @@
         $container.removeClass( 'container--split' );
 
     } );
-
-
 
 /* Semantic UI - customized ***********************************************************************/
 

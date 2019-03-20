@@ -4,7 +4,6 @@
 
     .strip {
 
-        margin-bottom: 10px;
         padding: 0 30px;
 
         &__item {
@@ -21,22 +20,6 @@
 
         display: flex;
         height: calc( 100% - 70px );
-
-        .editor {
-
-            min-width: 250px;
-            padding-left: 30px;
-
-            &__main {
-
-                height: 98%;
-            }
-
-            &__bar {
-
-                margin-top: 10px;
-            }
-        }
 
         .splitter {
 

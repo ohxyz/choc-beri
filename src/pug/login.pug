@@ -37,6 +37,11 @@ body
                         .ui.checkbox
                             input#remember-me(type="checkbox" name="remember-me")
                             label(for="remember-me") Remember me
+                    .login__row
+                        .login__error 
+                            i.login__error__icon.fas.fa-user-times
+                            span.login__error__content Invalid username or password
                     .login__row.login__button-container
                         a.ui.button(href="/") LOG IN
             .login__decor
+        .login__copyright Choc-BERI ver 2.0 © 2017 - 2019
