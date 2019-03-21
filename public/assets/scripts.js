@@ -90,14 +90,27 @@
 /* ACE Code editor ********************************************************************************/
     
     try {
+        
         var editor = ace.edit( 'code-editor' );
+        var fontSize = 14;
         
         editor.setTheme( 'ace/theme/kuroir' );
+        editor.setFontSize( fontSize );
         editor.session.setMode( 'ace/mode/javascript' );
 
         $( '.editor__icon--full-screen' ).click( function () { 
 
             $( '.editor__main' ).get( 0 ).requestFullscreen();
+        } );
+
+        $( '.editor__icon--increase-font-size' ).click( function () { 
+
+            editor.setFontSize( ++ fontSize );
+        } );
+
+        $( '.editor__icon--decrease-font-size' ).click( function () { 
+
+            editor.setFontSize( -- fontSize );
         } );
     }
     catch ( error ) {

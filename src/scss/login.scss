@@ -118,6 +118,8 @@
 
         font-weight: normal;
         color: #f5f5f5;
+        cursor: pointer;
+        user-select: none;
     }
 
     .ui.labeled.input > .label {

@@ -5,109 +5,114 @@ block link
         
 block main
     .main__header
+        .main__zone.main__zone--exp
+            .zone-icon.i.far.fa-map
+            .zone-name Exploratory
         .main__title Explorer environment files
         .main__breadcrumb
                 span Browse Files
                 span /
                 a(href="/") Choc-BERI
     .main__content.main__content--browse-files
-        .strip
-            .strip__title BROWSE FILES
-        .ui.list 
-            .item.item--folder
-                i.item__icon.far.fa-folder
-                i.item__icon.dropdown.icon.item__icon--expand
-                .content 
-                    .header src
-                    .description Source files for project
-                    .list 
-                        .item.item--folder 
-                            i.item__icon.far.fa-folder
-                            i.item__icon.dropdown.icon.item__icon
-                            .content 
-                                .header site
-                                .description Your sites theme
-                        .item.item--folder 
-                            i.item__icon.far.fa-folder
-                            i.item__icon.dropdown.icon.item__icon--expand
-                            .content 
-                                .header themes
-                                .description Packaged theme files
-                                .list 
-                                    .item.item--folder 
-                                        i.item__icon.far.fa-folder
-                                        i.item__icon.dropdown.icon
-                                        .content 
-                                            .header default
-                                            .description Default packaged theme
-                                    .item.item--file
-                                        i.item__icon.far.fa-file
-                                        .content 
-                                            .header my_theme.theme
-                                            .description
-                                                .last-modified
-                                                    .last-modified__title last modified
-                                                    .last-modified__content 2018-10-01 05:17:08
-                                                .file-size
-                                                    .file-size__title size
-                                                    .file-size__content 43.5kb
-                                    .item.item--file
-                                        i.item__icon.far.fa-file
-                                        .content 
-                                            .header your_theme.theme
-                                            .description
-                                                .last-modified
-                                                    .last-modified__title last modified
-                                                    .last-modified__content 2018-10-01 05:17:08
-                                                .file-size
-                                                    .file-size__title size
-                                                    .file-size__content 43.5kb
-                        .item.item--file
-                            i.item__icon.far.fa-file
-                            .content 
-                                .header theme.config
-                                .description
-                                    .last-modified
-                                        .last-modified__title last modified
-                                        .last-modified__content 2018-10-01 05:17:08
-                                    .file-size
-                                        .file-size__title size
-                                        .file-size__content 43.5kb
-            .item.item--folder 
-                i.item__icon.far.fa-folder
-                i.item__icon.dropdown.icon.item__icon--expand
-                .content 
-                    .header dist
-                    .description Compiled CSS and JS files
-                    .list 
-                        .item.item--folder 
-                            i.item__icon.far.fa-folder
-                            i.item__icon.dropdown.icon
-                            .content 
-                                .header components
-                                .description Individual component CSS and JS
-            .item.item--file
-                i.item__icon.far.fa-file
-                .content 
-                    .header semantic.json
-                    .description
-                        .last-modified
-                            .last-modified__title last modified
-                            .last-modified__content 2018-10-01 05:17:08
-                        .file-size
-                            .file-size__title size
-                            .file-size__content 43.5kb
-            .item.item--file
-                i.item__icon.far.fa-file
-                .content 
-                    .header not-semantic.json
-                    .description
-                        .last-modified
-                            .last-modified__title last modified
-                            .last-modified__content 2018-10-01 05:17:08
-                        .file-size
-                            .file-size__title size
-                            .file-size__content 43.5kb
+        .file-browser
+            .file-browser__header
+                .file-browser__title BROWSE FILES
+            .file-browser__content
+                .ui.list 
+                    .item.item--folder
+                        i.item__icon.far.fa-folder
+                        i.item__icon.dropdown.icon.item__icon--expand
+                        .content 
+                            .header src
+                            .description Source files for project
+                            .list 
+                                .item.item--folder 
+                                    i.item__icon.far.fa-folder
+                                    i.item__icon.dropdown.icon.item__icon
+                                    .content 
+                                        .header site
+                                        .description Your sites theme
+                                .item.item--folder 
+                                    i.item__icon.far.fa-folder
+                                    i.item__icon.dropdown.icon.item__icon--expand
+                                    .content 
+                                        .header themes
+                                        .description Packaged theme files
+                                        .list 
+                                            .item.item--folder 
+                                                i.item__icon.far.fa-folder
+                                                i.item__icon.dropdown.icon
+                                                .content 
+                                                    .header default
+                                                    .description Default packaged theme
+                                            .item.item--file
+                                                i.item__icon.far.fa-file
+                                                .content 
+                                                    .header my_theme.theme
+                                                    .description
+                                                        .last-modified
+                                                            .last-modified__title last modified
+                                                            .last-modified__content 2018-10-01 05:17:08
+                                                        .file-size
+                                                            .file-size__title size
+                                                            .file-size__content 43.5kb
+                                            .item.item--file
+                                                i.item__icon.far.fa-file
+                                                .content 
+                                                    .header your_theme.theme
+                                                    .description
+                                                        .last-modified
+                                                            .last-modified__title last modified
+                                                            .last-modified__content 2018-10-01 05:17:08
+                                                        .file-size
+                                                            .file-size__title size
+                                                            .file-size__content 43.5kb
+                                .item.item--file
+                                    i.item__icon.far.fa-file
+                                    .content 
+                                        .header theme.config
+                                        .description
+                                            .last-modified
+                                                .last-modified__title last modified
+                                                .last-modified__content 2018-10-01 05:17:08
+                                            .file-size
+                                                .file-size__title size
+                                                .file-size__content 43.5kb
+                    .item.item--folder 
+                        i.item__icon.far.fa-folder
+                        i.item__icon.dropdown.icon.item__icon--expand
+                        .content 
+                            .header dist
+                            .description Compiled CSS and JS files
+                            .list 
+                                .item.item--folder 
+                                    i.item__icon.far.fa-folder
+                                    i.item__icon.dropdown.icon
+                                    .content 
+                                        .header components
+                                        .description Individual component CSS and JS
+                    .item.item--file
+                        i.item__icon.far.fa-file
+                        .content 
+                            .header semantic.json
+                            .description
+                                .last-modified
+                                    .last-modified__title last modified
+                                    .last-modified__content 2018-10-01 05:17:08
+                                .file-size
+                                    .file-size__title size
+                                    .file-size__content 43.5kb
+                    .item.item--file
+                        i.item__icon.far.fa-file
+                        .content 
+                            .header not-semantic.json
+                            .description
+                                .last-modified
+                                    .last-modified__title last modified
+                                    .last-modified__content 2018-10-01 05:17:08
+                                .file-size
+                                    .file-size__title size
+                                    .file-size__content 43.5kb
+                        
+                    
                 
-            
-        

@@ -1,14 +1,9 @@
-//- feature-status-lab
-extends _layout.pug
-
-block link
-    - var path = 'dashboard'
-    
-block main
-    .main__header
-        .main__title Welcome to Choc-BERI
-        .main__breadcrumb
-            span Dashboard
-            span /
-            a(href="/") Choc-BERI
-   
+doctype html
+head
+    title Choc BERI
+    meta(charset="utf-8")
+    meta(name="description" content="Basic HTML5 template")
+    meta(name="author" content="My Name")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+body
+    script window.location = '/login';

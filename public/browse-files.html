@@ -21,7 +21,7 @@
     </div>
     <div class="side-bar">
       <div class="menu">
-        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/"><i class="fas fa-tachometer-alt menu__icon"></i>
+        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/dashboard"><i class="fas fa-tachometer-alt menu__icon"></i>
             <div class="menu__label">Dashboard</div></a></div>
         <div class="menu__group menu__group--expand">
           <div class="menu__title"><span class="menu__heading">Exploratory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
@@ -60,130 +60,138 @@
         </div>
       </div>
     </div>
-    <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/login.html"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
+    <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
     <div class="main">
       <div class="main__header">
+        <div class="main__zone main__zone--exp">
+          <div class="zone-icon i far fa-map"></div>
+          <div class="zone-name">Exploratory</div>
+        </div>
         <div class="main__title">Explorer environment files</div>
         <div class="main__breadcrumb"><span>Browse Files</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
       <div class="main__content main__content--browse-files">
-        <div class="strip">
-          <div class="strip__title">BROWSE FILES</div>
-        </div>
-        <div class="ui list"> 
-          <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
-            <div class="content"> 
-              <div class="header">src</div>
-              <div class="description">Source files for project</div>
-              <div class="list"> 
-                <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon"></i>
-                  <div class="content"> 
-                    <div class="header">site</div>
-                    <div class="description">Your sites theme</div>
-                  </div>
-                </div>
-                <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
-                  <div class="content"> 
-                    <div class="header">themes</div>
-                    <div class="description">Packaged theme files</div>
-                    <div class="list"> 
-                      <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon"></i>
-                        <div class="content"> 
-                          <div class="header">default</div>
-                          <div class="description">Default packaged theme</div>
-                        </div>
+        <div class="file-browser">
+          <div class="file-browser__header">
+            <div class="file-browser__title">BROWSE FILES</div>
+          </div>
+          <div class="file-browser__content">
+            <div class="ui list"> 
+              <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
+                <div class="content"> 
+                  <div class="header">src</div>
+                  <div class="description">Source files for project</div>
+                  <div class="list"> 
+                    <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon"></i>
+                      <div class="content"> 
+                        <div class="header">site</div>
+                        <div class="description">Your sites theme</div>
                       </div>
-                      <div class="item item--file"><i class="item__icon far fa-file"></i>
-                        <div class="content"> 
-                          <div class="header">my_theme.theme</div>
-                          <div class="description">
-                            <div class="last-modified">
-                              <div class="last-modified__title">last modified</div>
-                              <div class="last-modified__content">2018-10-01 05:17:08</div>
+                    </div>
+                    <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
+                      <div class="content"> 
+                        <div class="header">themes</div>
+                        <div class="description">Packaged theme files</div>
+                        <div class="list"> 
+                          <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon"></i>
+                            <div class="content"> 
+                              <div class="header">default</div>
+                              <div class="description">Default packaged theme</div>
                             </div>
-                            <div class="file-size">
-                              <div class="file-size__title">size</div>
-                              <div class="file-size__content">43.5kb</div>
+                          </div>
+                          <div class="item item--file"><i class="item__icon far fa-file"></i>
+                            <div class="content"> 
+                              <div class="header">my_theme.theme</div>
+                              <div class="description">
+                                <div class="last-modified">
+                                  <div class="last-modified__title">last modified</div>
+                                  <div class="last-modified__content">2018-10-01 05:17:08</div>
+                                </div>
+                                <div class="file-size">
+                                  <div class="file-size__title">size</div>
+                                  <div class="file-size__content">43.5kb</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item item--file"><i class="item__icon far fa-file"></i>
+                            <div class="content"> 
+                              <div class="header">your_theme.theme</div>
+                              <div class="description">
+                                <div class="last-modified">
+                                  <div class="last-modified__title">last modified</div>
+                                  <div class="last-modified__content">2018-10-01 05:17:08</div>
+                                </div>
+                                <div class="file-size">
+                                  <div class="file-size__title">size</div>
+                                  <div class="file-size__content">43.5kb</div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="item item--file"><i class="item__icon far fa-file"></i>
-                        <div class="content"> 
-                          <div class="header">your_theme.theme</div>
-                          <div class="description">
-                            <div class="last-modified">
-                              <div class="last-modified__title">last modified</div>
-                              <div class="last-modified__content">2018-10-01 05:17:08</div>
-                            </div>
-                            <div class="file-size">
-                              <div class="file-size__title">size</div>
-                              <div class="file-size__content">43.5kb</div>
-                            </div>
+                    </div>
+                    <div class="item item--file"><i class="item__icon far fa-file"></i>
+                      <div class="content"> 
+                        <div class="header">theme.config</div>
+                        <div class="description">
+                          <div class="last-modified">
+                            <div class="last-modified__title">last modified</div>
+                            <div class="last-modified__content">2018-10-01 05:17:08</div>
+                          </div>
+                          <div class="file-size">
+                            <div class="file-size__title">size</div>
+                            <div class="file-size__content">43.5kb</div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="item item--file"><i class="item__icon far fa-file"></i>
-                  <div class="content"> 
-                    <div class="header">theme.config</div>
-                    <div class="description">
-                      <div class="last-modified">
-                        <div class="last-modified__title">last modified</div>
-                        <div class="last-modified__content">2018-10-01 05:17:08</div>
-                      </div>
-                      <div class="file-size">
-                        <div class="file-size__title">size</div>
-                        <div class="file-size__content">43.5kb</div>
+              </div>
+              <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
+                <div class="content"> 
+                  <div class="header">dist</div>
+                  <div class="description">Compiled CSS and JS files</div>
+                  <div class="list"> 
+                    <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon"></i>
+                      <div class="content"> 
+                        <div class="header">components</div>
+                        <div class="description">Individual component CSS and JS</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon item__icon--expand"></i>
-            <div class="content"> 
-              <div class="header">dist</div>
-              <div class="description">Compiled CSS and JS files</div>
-              <div class="list"> 
-                <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon dropdown icon"></i>
-                  <div class="content"> 
-                    <div class="header">components</div>
-                    <div class="description">Individual component CSS and JS</div>
+              <div class="item item--file"><i class="item__icon far fa-file"></i>
+                <div class="content"> 
+                  <div class="header">semantic.json</div>
+                  <div class="description">
+                    <div class="last-modified">
+                      <div class="last-modified__title">last modified</div>
+                      <div class="last-modified__content">2018-10-01 05:17:08</div>
+                    </div>
+                    <div class="file-size">
+                      <div class="file-size__title">size</div>
+                      <div class="file-size__content">43.5kb</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="item item--file"><i class="item__icon far fa-file"></i>
-            <div class="content"> 
-              <div class="header">semantic.json</div>
-              <div class="description">
-                <div class="last-modified">
-                  <div class="last-modified__title">last modified</div>
-                  <div class="last-modified__content">2018-10-01 05:17:08</div>
-                </div>
-                <div class="file-size">
-                  <div class="file-size__title">size</div>
-                  <div class="file-size__content">43.5kb</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item item--file"><i class="item__icon far fa-file"></i>
-            <div class="content"> 
-              <div class="header">not-semantic.json</div>
-              <div class="description">
-                <div class="last-modified">
-                  <div class="last-modified__title">last modified</div>
-                  <div class="last-modified__content">2018-10-01 05:17:08</div>
-                </div>
-                <div class="file-size">
-                  <div class="file-size__title">size</div>
-                  <div class="file-size__content">43.5kb</div>
+              <div class="item item--file"><i class="item__icon far fa-file"></i>
+                <div class="content"> 
+                  <div class="header">not-semantic.json</div>
+                  <div class="description">
+                    <div class="last-modified">
+                      <div class="last-modified__title">last modified</div>
+                      <div class="last-modified__content">2018-10-01 05:17:08</div>
+                    </div>
+                    <div class="file-size">
+                      <div class="file-size__title">size</div>
+                      <div class="file-size__content">43.5kb</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

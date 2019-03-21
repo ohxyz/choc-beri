@@ -2,6 +2,16 @@
 
 .main__content--browse-files {
 
+    .file-browser {
+
+        &__title {
+
+            color: #999999;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+
     .ui {
 
         .item,
@@ -34,7 +44,6 @@
 
                 .file-size {
 
-
                     &__title {
 
                         font-weight: bold;
@@ -48,7 +57,7 @@
 
                 flex-basis: 28px;
                 font-size: 20px;
-                color: #888888;
+                color: #737373;
 
                 &.dropdown {
 
@@ -68,6 +77,11 @@
 
                         transform: none;
                         margin-left: 5px;
+
+                        & + .content {
+
+                            margin-left: -5px;
+                        }
                     }
                 }
 

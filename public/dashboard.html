@@ -21,7 +21,7 @@
     </div>
     <div class="side-bar">
       <div class="menu">
-        <div class="menu__item"><a class="menu__link" title="Dashboard" href="/dashboard"><i class="fas fa-tachometer-alt menu__icon"></i>
+        <div class="menu__item"><a class="menu__link menu__link--active" title="Dashboard" href="/dashboard"><i class="fas fa-tachometer-alt menu__icon"></i>
             <div class="menu__label">Dashboard</div></a></div>
         <div class="menu__group menu__group--expand">
           <div class="menu__title"><span class="menu__heading">Exploratory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
@@ -48,7 +48,7 @@
           <div class="menu__title"> <span class="menu__heading">Feature</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
           <div class="menu__item"><a class="menu__link" title="Predictive Feature Metrics" href="/"><i class="fas fa-chart-line menu__icon"></i>
               <div class="menu__label">Predictive Feature Metrics</div></a></div>
-          <div class="menu__item"><a class="menu__link menu__link--active" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-cart-plus menu__icon"></i>
+          <div class="menu__item"><a class="menu__link" title="Create Feature Store" href="/create-feature-store"><i class="fas fa-cart-plus menu__icon"></i>
               <div class="menu__label">Create Feature Store</div></a></div>
         </div>
         <div class="menu__group menu__group--expand">
@@ -63,80 +63,8 @@
     <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="/"><i class="top-bar__icon fas fa-user-circle"></i></a><a class="logout" href="/"><i class="top-bar__icon fas fa-sign-out-alt"></i></a></div>
     <div class="main">
       <div class="main__header">
-        <div class="main__title">Create a feature store</div>
-        <div class="main__breadcrumb"><span>Create Feature Store</span><span>/</span><a href="/">Choc-BERI</a></div>
-      </div>
-      <div class="main__content main__content--create-feature-store">
-        <div class="strip">
-          <div class="strip__title">SCRIPT LANGUAGE</div>
-          <div class="strip__content"><span class="strip__item strip__item--active">SQL</span></div>
-        </div>
-        <div class="container-1">
-          <div class="editor">
-            <div class="editor__main" id="code-editor"></div>
-            <div class="editor__bar">
-              <div class="editor__functions">
-                <div class="editor__icon editor__icon--decrease-font-size fas fa-font"></div>
-                <div class="editor__icon editor__icon--increase-font-size fas fa-font"></div>
-                <div class="editor__icon editor__icon--full-screen fas fa-expand"></div>
-              </div>
-            </div>
-          </div>
-          <div class="splitter">
-            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
-          </div>
-          <div class="fields ui form">
-            <div class="field">
-              <label class="field__title" for="feature-store-name">Feature Store Name</label>
-              <div class="field__content ui input labeled">
-                <div class="ui label fas fa-shopping-cart"></div>
-                <input id="feature-store-name" type="text" name="feature-store-name" placeholder="Name">
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title" for="feature-store-description">Feature Store Description</label>
-              <div class="field__content ui input">
-                <textarea id="feature-store-description" rows="2" name="feature-store-description" placeholder="Description"></textarea>
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title" for="feature-store-entity">Feature Store Entity</label>
-              <div class="field__content ui input labeled">
-                <div class="ui label fas fa-key"></div>
-                <input id="feature-store-name" type="text" name="feature-store-entity" placeholder="Entity">
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title" for="table-dependencie">BERI Table Dependencies</label>
-              <div class="field__content ui fluid search dropdown selection multiple">
-                <input id="table-dependencies" type="hidden" name="table-dependencies"><i class="dropdown icon"></i>
-                <div class="default text">Table</div>
-                <div class="menu">
-                  <div class="item" data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16">beri2-parquetaggregation-spike.bnd2_asg_001_192_16</div>
-                  <div class="item" data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403">beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403</div>
-                  <div class="item" data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest">d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest</div>
-                  <div class="item" data-value="idv_bkp_pii.s_adob_detl_forcp2">idv_bkp_pii.s_adob_detl_forcp2</div>
-                  <div class="item" data-value="ingestion-sftp-erroneous-session-data.allot">ingestion-sftp-erroneous-session-data.allot</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title">Code Feedback</label>
-              <div class="field__content">
-                <div class="code-feedback code-feedback--error"> 
-                  <div class="code-feedback__icon far fa-frown"></div>
-                  <div class="code-feedback__content">There is an error in your statement.</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="validate-button">
-                <div class="validate-button__icon fas fa-calendar-check"></div>
-                <div class="validate-button__content">Validate</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="main__title">Welcome to Choc-BERI</div>
+        <div class="main__breadcrumb"><span>Dashboard</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
     </div>
   </div>

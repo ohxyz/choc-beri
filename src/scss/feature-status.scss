@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         margin-right: 25px;
+        color: white;
 
         .zone-icon {
 
@@ -21,13 +22,18 @@
         &--lab {
 
             background-color: #ff2b2b;
-            color: white;
+
         }
 
         &--fac {
 
             background-color: #42a246;
-            color: white;
+
+        }
+
+        &--exp {
+
+            background-color: #0db5ca;
         }
     }
 
