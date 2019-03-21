@@ -5,6 +5,7 @@
 @import "./feature-status";
 @import "./upload-scripts";
 @import "./create-feature-store";
+@import "./browse-files";
 @import "./override-semantic";
 @import "./ace-editor";
 @import "./modals";
@@ -134,6 +135,7 @@ html, body {
     &__content {
 
         height: calc(100% - #{$main-header-height});
+        padding: 25px 30px;
     }
 }
 

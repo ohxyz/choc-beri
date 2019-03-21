@@ -1,0 +1,111 @@
+/* Include Semantic UI content */
+
+.main__content--browse-files {
+
+    .ui {
+
+        .item,
+        .list .item {
+
+            display: flex;
+            margin-bottom: 8px;
+
+            .header {
+                margin-bottom: 2px;
+            }
+
+            .description {
+
+                display: flex;
+                font-size: 12px;
+                color: #333333;
+
+                .last-modified {
+
+                    width: 130px;
+
+                    &__title {
+
+                        font-weight: bold;
+                        color: #999999;
+                    }
+
+                }
+
+                .file-size {
+
+
+                    &__title {
+
+                        font-weight: bold;
+                        color: #999999;
+                    }
+
+                }
+            }
+
+            &__icon {
+
+                flex-basis: 28px;
+                font-size: 20px;
+                color: #888888;
+
+                &.dropdown {
+
+                    font-size: 12px;
+                    flex-basis: 10px;
+                    color: #cccccc;
+                    cursor: pointer;
+
+                    transform: rotate(-90deg);
+
+                    &:hover {
+
+                        color: #666666;
+                    }
+
+                    &.item__icon--expand {
+
+                        transform: none;
+                        margin-left: 5px;
+                    }
+                }
+
+            }
+
+            &--folder {
+
+                .header {
+
+                    color: #0f76c8;
+                    cursor: pointer;
+                }
+
+                .description {
+
+                    display: none;
+                }
+            }
+
+            &--file {
+
+                .header {
+
+                    color: $main-color;
+                    cursor: pointer;
+
+                    &:hover {
+
+                        text-decoration: underline;
+                    }
+                }
+
+                .description {
+
+                    display: flex;;
+                }
+            }
+        }
+    }
+
+}

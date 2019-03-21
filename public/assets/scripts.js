@@ -11,11 +11,11 @@
         var $icon = $( '.menu__group__icon', this );
         var $currentMenuGroup = $( this ).parent();
 
-        // Accordion Style
+        /* Accordion Style */
         // $( '.menu__group' ).removeClass( 'menu__group--expand' );
         // $currentMenuGroup.addClass( 'menu__group--expand' );
 
-        // Normal expand and collapse
+        /* Normal expand and collapse */
         $currentMenuGroup.toggleClass( 'menu__group--expand' );
     } );
 
@@ -89,15 +89,21 @@
 
 /* ACE Code editor ********************************************************************************/
     
-    var editor = ace.edit( 'code-editor' );
-    
-    editor.setTheme( 'ace/theme/kuroir' );
-    editor.session.setMode( 'ace/mode/javascript' );
+    try {
+        var editor = ace.edit( 'code-editor' );
+        
+        editor.setTheme( 'ace/theme/kuroir' );
+        editor.session.setMode( 'ace/mode/javascript' );
 
-    $( '.editor__icon--full-screen' ).click( function () { 
+        $( '.editor__icon--full-screen' ).click( function () { 
 
-        $( '.editor__main' ).get( 0 ).requestFullscreen();
-    } );
+            $( '.editor__main' ).get( 0 ).requestFullscreen();
+        } );
+    }
+    catch ( error ) {
+
+        console.log( "[OK] " + error );
+    }
 
 /* Splitter ***************************************************************************************/
     
@@ -359,7 +365,19 @@
         return $elem;
     }
 
-/* Sementic UI - Place it at last ******************************************************************/
+/* Browse files ***********************************************************************************/
+
+    $( '.item__icon.dropdown' ).click( function () { 
+
+        $( this )
+            .toggleClass( 'item__icon--expand' )
+            .siblings( '.content' )
+            .find( '.list' )
+            .toggle();
+
+    } );
+
+/* PLACE LAST - Sementic UI ***********************************************************************/
     
     $( '.ui.dropdown' ).dropdown();
 
