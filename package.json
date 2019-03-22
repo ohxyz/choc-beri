@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:sass": "sass --watch ./src/scss/main.scss ./public/assets/styles.css",
     "pug": "pug ./src/pug/[^_]*.pug --out ./public --watch --pretty",
-    "dev": "http-server ./public -c-1 & npm run watch:sass & npm run pug"
+    "dev": "http-server ./public -c-1 & npm run watch:sass & npm run pug",
+    "copy:sass": "cp -a ./src/scss/. ../choc_beri_apps_ui/webui/public/belong/reskin/",
+    "copy:js": "cp -a ./public/assets/scripts.js ../choc_beri_apps_ui/webui/public/belong/",
+    "copy": "npm run copy:sass & npm run copy:js"
   },
   "repository": {
     "type": "git",

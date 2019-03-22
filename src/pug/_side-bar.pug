@@ -1,4 +1,15 @@
 - var active_class = 'menu__link--active'
+- var link_dashboard = '/dashboard'
+- var link_browse_files = '/browse-files'
+- var link_upload_files = '/upload-files'
+- var link_feature_status_lab = '/feature-status-lab'
+- var link_upload_scripts_lab = '/upload-scripts-lab'
+- var link_feature_status_fac = '/feature-status-fac'
+- var link_upload_scripts_fac = '/upload-scripts-fac'
+- var link_predictive_feature_metrics = '/predictive-feature-metrics'
+- var link_create_feature_store = '/create-feature-store'
+- var link_batch_mangement_lab = '/batch-management-lab'
+- var link_batch_mangement_fac = '/batch-management-fac'
 
 block link
 
@@ -7,7 +18,7 @@ block link
         .menu__item
             a.menu__link( title="Dashboard" 
                           class=( path === 'dashboard' ? active_class : '' ) 
-                          href="/dashboard" )
+                          href=link_dashboard )
                 i.fas.fa-tachometer-alt.menu__icon
                 .menu__label Dashboard
 
@@ -19,14 +30,14 @@ block link
             .menu__item
                 a.menu__link( title="Browse Files" 
                               class=( path === 'browse-files' ? active_class : '' ) 
-                              href="/browse-files" )
+                              href=link_browse_files )
                     i.fas.fa-folder-open.menu__icon
                     .menu__label Browse Files
         
             .menu__item
                 a.menu__link( title="Upload Files" 
                               class=( path === 'upload-files' ? active_class : '' ) 
-                              href="/upload-files" )
+                              href=link_upload_files )
                     i.fas.fa-file-upload.menu__icon
                     .menu__label Upload Files
         
@@ -39,14 +50,14 @@ block link
             .menu__item
                 a.menu__link( title="Feature Status - Lab" 
                               class=( path === 'feature-status-lab' ? active_class : '' ) 
-                              href="/feature-status-lab" )
+                              href=link_feature_status_lab )
                     i.fas.fa-list-ul.menu__icon
                     .menu__label Feature Status - Lab
             
             .menu__item
                 a.menu__link( title="Upload Scripts - Lab" 
                               class=( path === 'upload-scripts-lab' ? active_class : '' ) 
-                              href="/upload-scripts-lab" )
+                              href=link_upload_scripts_lab )
                     i.fas.fa-upload.menu__icon
                     .menu__label Upload Scripts - Lab
         
@@ -59,13 +70,15 @@ block link
             .menu__item
                 a.menu__link( title="Feature Status - Fac" 
                               class=( path === 'feature-status-fac' ? active_class : '' ) 
-                              href="/feature-status-fac" )
+                              href=link_feature_status_fac )
                     i.fas.fa-th.menu__icon
                     .menu__label Feature Status - Fac
-            
+
             .menu__item
-                a.menu__link(title="Upload Scripts - Fac" href="/")
-                    i.fas.fa-cloud-upload-alt.menu__icon
+                a.menu__link( title="Upload Scripts - Fac" 
+                              class=( path === 'upload-scripts-fac' ? active_class : '' ) 
+                              href=link_upload_scripts_fac )
+                    i.fas.fa-upload.menu__icon
                     .menu__label Upload Scripts - Fac
 
         .menu__group.menu__group--expand
@@ -75,7 +88,9 @@ block link
                 i.menu__group__icon.fas.fa-angle-down
 
             .menu__item
-                a.menu__link(title="Predictive Feature Metrics" href="/")
+                a.menu__link( title="Predictive Feature Metrics" 
+                              class=( path === 'predictive-feature-metrics' ? active_class : '' ) 
+                              href=link_predictive_feature_metrics )
                     i.fas.fa-chart-line.menu__icon
                     .menu__label Predictive Feature Metrics
             
@@ -93,12 +108,16 @@ block link
                 i.menu__group__icon.fas.fa-angle-down
 
             .menu__item
-                a.menu__link(title="Laboratory Management" href="/")
+                a.menu__link( title="Laboratory Management" 
+                              class=( path === 'batch-management-lab' ? active_class : '' ) 
+                              href=link_batch_mangement_lab )
                     i.fas.fa-flask.menu__icon
                     .menu__label Laboratory Management
             
             .menu__item
-                a.menu__link(title="Factory Management" href="/")
+                a.menu__link( title="Factory Management" 
+                              class=( path === 'batch-management-fac' ? active_class : '' ) 
+                              href=link_batch_mangement_fac )
                     i.fas.fa-city.menu__icon
                     .menu__label Factory Management
         

@@ -2,6 +2,8 @@
 
 .main__content--browse-files {
 
+    overflow-y: auto;
+
     .file-browser {
 
         &__title {
@@ -28,18 +30,20 @@
 
                 display: flex;
                 font-size: 12px;
-                color: #333333;
+                color: #666666;
+                font-style: italic;
 
                 .last-modified {
 
                     width: 130px;
+                    margin-right: 20px;
 
                     &__title {
 
                         font-weight: bold;
                         color: #999999;
+                        margin-right: 8px;
                     }
-
                 }
 
                 .file-size {
@@ -48,16 +52,26 @@
 
                         font-weight: bold;
                         color: #999999;
+                        margin-right: 8px;
                     }
-
                 }
             }
 
             &__icon {
 
-                flex-basis: 28px;
+                flex-basis: 32px;
                 font-size: 20px;
                 color: #737373;
+
+                &.fa-folder-open {
+
+                    display: block;
+                }
+
+                &.fa-folder {
+
+                    display: none;
+                }
 
                 &.dropdown {
 
@@ -66,23 +80,11 @@
                     color: #cccccc;
                     cursor: pointer;
 
-                    transform: rotate(-90deg);
-
                     &:hover {
 
                         color: #666666;
                     }
 
-                    &.item__icon--expand {
-
-                        transform: none;
-                        margin-left: 5px;
-
-                        & + .content {
-
-                            margin-left: -5px;
-                        }
-                    }
                 }
 
             }
@@ -99,11 +101,36 @@
 
                     display: none;
                 }
+
+                &--collapse {
+
+                    .fa-folder-open {
+
+                        display: none;
+                    }
+
+                    .fa-folder {
+
+                        display: block;
+                    }
+
+                    .item__icon.dropdown {
+
+                        transform: none;
+                        transform: rotate(-90deg);
+                        margin-left: -5px;
+
+                        & + .content {
+
+                            margin-left: 5px;
+                        }
+                    }
+                }
             }
 
             &--file {
 
-                .header {
+                .header a {
 
                     color: $main-color;
                     cursor: pointer;
@@ -116,10 +143,9 @@
 
                 .description {
 
-                    display: flex;;
+                    display: block;
                 }
             }
         }
     }
-
 }

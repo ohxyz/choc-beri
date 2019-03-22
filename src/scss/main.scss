@@ -14,6 +14,9 @@
 @import "./login";
 @import "./logo";
 
+// Uncomment following import when copied to choc_beri_apps_ui
+// @import "./OVERRIDES";
+
 html, body {
     
     margin: 0;
@@ -24,7 +27,7 @@ html, body {
 
     display: grid;
     grid-template-columns: 240px auto;
-    grid-template-rows: 60px auto;
+    grid-template-rows: $top-bar-height auto;
     font-size: 14px;
     font-family: "Segoe UI", "Open Sans", sans-serif, arial;
     width: 100vw;
@@ -90,8 +93,6 @@ html, body {
     grid-row: 2;
     background-color: #fbfbfb;
     overflow: hidden;
-
-    $main-header-height: 52px;
 
     &__header {
 

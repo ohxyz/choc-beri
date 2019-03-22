@@ -115,7 +115,7 @@
     }
     catch ( error ) {
 
-        console.log( "[OK] " + error );
+        console.log( "[It's OK] " + error );
     }
 
 /* Splitter ***************************************************************************************/
@@ -382,11 +382,10 @@
 
     $( '.item__icon.dropdown' ).click( function () { 
 
-        $( this )
-            .toggleClass( 'item__icon--expand' )
-            .siblings( '.content' )
-            .find( '.list' )
-            .toggle();
+        var $container = $( this ).parent();
+
+        $container.toggleClass( 'item--folder--collapse' );
+        $( '.content .list', $container ).toggle();
 
     } );
 

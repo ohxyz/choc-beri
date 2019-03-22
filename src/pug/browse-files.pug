@@ -1,7 +1,7 @@
 extends _layout.pug
 
 block link
-        - var path = 'browse-files'
+    - var path = 'browse-files'
         
 block main
     .main__header
@@ -21,26 +21,30 @@ block main
                 .ui.list 
                     .item.item--folder
                         i.item__icon.far.fa-folder
-                        i.item__icon.dropdown.icon.item__icon--expand
+                        i.item__icon.far.fa-folder-open
+                        i.item__icon.dropdown.icon
                         .content 
                             .header src
                             .description Source files for project
                             .list 
-                                .item.item--folder 
+                                .item.item--folder
                                     i.item__icon.far.fa-folder
+                                    i.item__icon.far.fa-folder-open
                                     i.item__icon.dropdown.icon.item__icon
                                     .content 
                                         .header site
                                         .description Your sites theme
-                                .item.item--folder 
+                                .item.item--folder
                                     i.item__icon.far.fa-folder
-                                    i.item__icon.dropdown.icon.item__icon--expand
+                                    i.item__icon.far.fa-folder-open
+                                    i.item__icon.dropdown.icon
                                     .content 
                                         .header themes
                                         .description Packaged theme files
                                         .list 
-                                            .item.item--folder 
+                                            .item.item--folder
                                                 i.item__icon.far.fa-folder
+                                                i.item__icon.far.fa-folder-open
                                                 i.item__icon.dropdown.icon
                                                 .content 
                                                     .header default
@@ -48,45 +52,50 @@ block main
                                             .item.item--file
                                                 i.item__icon.far.fa-file
                                                 .content 
-                                                    .header my_theme.theme
+                                                    .header 
+                                                        a my_theme.theme
                                                     .description
-                                                        .last-modified
-                                                            .last-modified__title last modified
-                                                            .last-modified__content 2018-10-01 05:17:08
-                                                        .file-size
-                                                            .file-size__title size
-                                                            .file-size__content 43.5kb
+                                                        span.last-modified
+                                                            span.last-modified__title last modified
+                                                            span.last-modified__content 2018-10-01 05:17:08
+                                                        span.file-size
+                                                            span.file-size__title size
+                                                            span.file-size__content 43.5kb
                                             .item.item--file
                                                 i.item__icon.far.fa-file
                                                 .content 
-                                                    .header your_theme.theme
+                                                    .header 
+                                                        a GBM_model_python_1535419454879_92.zip
                                                     .description
-                                                        .last-modified
-                                                            .last-modified__title last modified
-                                                            .last-modified__content 2018-10-01 05:17:08
-                                                        .file-size
-                                                            .file-size__title size
-                                                            .file-size__content 43.5kb
+                                                        span.last-modified
+                                                            span.last-modified__title last modified
+                                                            span.last-modified__content Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)
+                                                        span.file-size
+                                                            span.file-size__title size
+                                                            span.file-size__content 43.5kb
                                 .item.item--file
                                     i.item__icon.far.fa-file
                                     .content 
-                                        .header theme.config
+                                        .header 
+                                            a theme.config
                                         .description
-                                            .last-modified
-                                                .last-modified__title last modified
-                                                .last-modified__content 2018-10-01 05:17:08
-                                            .file-size
-                                                .file-size__title size
-                                                .file-size__content 43.5kb
+                                            span.last-modified
+                                                span.last-modified__title last modified
+                                                span.last-modified__content Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)
+                                            span.file-size
+                                                span.file-size__title size
+                                                span.file-size__content 43.5kb
                     .item.item--folder 
                         i.item__icon.far.fa-folder
-                        i.item__icon.dropdown.icon.item__icon--expand
+                        i.item__icon.far.fa-folder-open
+                        i.item__icon.dropdown.icon
                         .content 
                             .header dist
                             .description Compiled CSS and JS files
                             .list 
                                 .item.item--folder 
                                     i.item__icon.far.fa-folder
+                                    i.item__icon.far.fa-folder-open
                                     i.item__icon.dropdown.icon
                                     .content 
                                         .header components
@@ -94,25 +103,27 @@ block main
                     .item.item--file
                         i.item__icon.far.fa-file
                         .content 
-                            .header semantic.json
+                            .header 
+                                a semantic.json
                             .description
-                                .last-modified
-                                    .last-modified__title last modified
-                                    .last-modified__content 2018-10-01 05:17:08
-                                .file-size
-                                    .file-size__title size
-                                    .file-size__content 43.5kb
+                                span.last-modified
+                                    span.last-modified__title last modified
+                                    span.last-modified__content Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)
+                                span.file-size
+                                    span.file-size__title size
+                                    span.file-size__content 43.5kb
                     .item.item--file
                         i.item__icon.far.fa-file
                         .content 
-                            .header not-semantic.json
+                            .header 
+                                a example_folder_2/old stuff/madrid_2001.csv
                             .description
-                                .last-modified
-                                    .last-modified__title last modified
-                                    .last-modified__content 2018-10-01 05:17:08
-                                .file-size
-                                    .file-size__title size
-                                    .file-size__content 43.5kb
+                                span.last-modified
+                                    span.last-modified__title last modified
+                                    span.last-modified__content 2018-10-01 05:17:08
+                                span.file-size
+                                    span.file-size__title size
+                                    span.file-size__content 43.5kb
                         
                     
                 

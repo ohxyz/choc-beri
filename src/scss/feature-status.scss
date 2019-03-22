@@ -40,7 +40,6 @@
     .main__content--feature-status {
 
         display: flex;
-        height: calc( 100vh - 121px );
         padding: 0;
 
         .strip__feature-store-name {
@@ -87,7 +86,7 @@
 
         flex-grow: 1;
         flex-basis: 220px;
-        border: 1px solid #dddddd;
+        border: 1px solid #d8d8d8;
         border-radius: 4px;
         background-color: white;
         margin: 10px;
@@ -144,21 +143,22 @@
 
         &__list-item {
 
-            padding: 10px 20px;
-            border-top: 1px solid #dddddd;
+            margin: 0 20px;
+            padding: 10px 0;
+            border-top: 1px solid #ededed;
         }
 
         &--promoted {
 
-            $promoted-color: #ff9800;
+            $border-color: #ff9800;
 
-            border: 1px solid $promoted-color;
+            border: 1px solid $border-color;
 
             .feature-status {
 
                 &__header {
 
-                    color: $promoted-color;
+                    color: $border-color;
                 }
 
                 &__list-item {
@@ -171,15 +171,15 @@
 
         &--built {
 
-            $promoted-color: #42a246;
+            $border-color: #42a246;
 
-            border: 1px solid $promoted-color;
+            border: 1px solid $border-color;
 
             .feature-status {
 
                 &__header {
 
-                    color: $promoted-color;
+                    color: $border-color;
                 }
 
                 &__list-item {
@@ -191,20 +191,25 @@
 
         &--failed {
 
-            $promoted-color: #de1a0b;
+            $border-color: #de1a0b;
 
-            border: 1px solid $promoted-color;
+            border: 1px solid $border-color;
 
             .feature-status {
 
                 &__header {
 
-                    color: $promoted-color;
+                    color: $border-color;
                 }
 
                 &__list-item {
 
                     border-top: 1px solid #ffb9b3;
+
+                    &:first-child {
+
+                        border-top: 1px solid #ffb9b3;
+                    }
                 }
             }
         }
@@ -212,15 +217,15 @@
 
         &--decommissioned {
 
-            $promoted-color: #444444;
+            $border-color: #444444;
 
-            border: 1px solid $promoted-color;
+            border: 1px solid $border-color;
 
             .feature-status {
 
                 &__header {
 
-                    color: $promoted-color;
+                    color: $border-color;
                 }
 
                 &__list-item {
