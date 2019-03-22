@@ -168,6 +168,25 @@
             }
         }
 
+        &--marked-for-promotion {
+
+            $border-color: #ff9800;
+
+            border: 1px dashed $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px dashed #ffe2b6;
+                }
+            }
+        }
 
         &--built {
 
@@ -185,6 +204,29 @@
                 &__list-item {
 
                     border-top: 1px solid #a7deaa;
+                }
+            }
+        }
+
+        &--building {
+
+            $border-color: #42a246;
+
+            border-top: 1px solid $border-color;
+            border-bottom: 1px dashed $border-color;
+            border-left: 1px dashed $border-color;
+            border-right: 1px dashed $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px dashed #a7deaa;
                 }
             }
         }
@@ -214,7 +256,6 @@
             }
         }
 
-
         &--decommissioned {
 
             $border-color: #444444;
@@ -231,6 +272,93 @@
                 &__list-item {
 
                     border-top: 1px solid #dddddd;
+                }
+            }
+        }
+
+        &--decommissioning {
+
+            $border-color: #444444;
+
+            border-top: 1px solid $border-color;
+            border-bottom: 1px dashed $border-color;
+            border-left: 1px dashed $border-color;
+            border-right: 1px dashed $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px dashed #dddddd;
+                }
+            }
+        }
+
+
+        &--marked-for-decommission {
+
+            $border-color: #444444;
+
+            border: 1px dashed $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px dashed #dddddd;
+                }
+            }
+        }
+
+        &--validated {
+
+            $border-color: #26c7dc;
+
+            border: 1px solid $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px solid #c0eef4;
+                }
+            }
+        }
+
+        &--validating {
+
+            $border-color: #26c7dc;
+
+            border-top: 1px solid $border-color;
+            border-bottom: 1px dashed $border-color;
+            border-left: 1px dashed $border-color;
+            border-right: 1px dashed $border-color;
+
+            .feature-status {
+
+                &__header {
+
+                    color: $border-color;
+                }
+
+                &__list-item {
+
+                    border-top: 1px dashed #c0eef4;
                 }
             }
         }

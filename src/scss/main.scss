@@ -81,11 +81,52 @@ html, body {
             color: rgba(255, 255, 255, 0.7);
             font-weight: bold;
             font-size: 16px;
+            margin-right: 20px;
         }
 
-    }
-}
+        &__avatar {
 
+            width: 32px;
+            height: 32px;
+            background-color: white;
+            border-radius: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+
+                font-size: 30px;
+            }
+        }
+    }
+
+    .logout {
+
+        .fa-door-closed {
+
+            display: block;
+        }
+
+        .fa-door-open {
+
+            display: none;
+        }
+
+        &:hover {
+
+            .fa-door-closed {
+
+                display: none;
+            }
+
+            .fa-door-open {
+
+                display: block;
+            }
+        }
+    }    
+}
 
 .main {
 
