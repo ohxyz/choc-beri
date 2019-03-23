@@ -29,7 +29,7 @@ html, body {
     grid-template-columns: 240px auto;
     grid-template-rows: $top-bar-height auto;
     font-size: 14px;
-    font-family: "Segoe UI", "Open Sans", sans-serif, arial;
+    // font-family: "Assistant", "Segoe UI", arial, sans-serif;
     width: 100vw;
     height: 100vh;
     color: #333333;
@@ -78,7 +78,7 @@ html, body {
 
         &__name {
 
-            color: rgba(255, 255, 255, 0.7);
+            color: white;
             font-weight: bold;
             font-size: 16px;
             margin-right: 20px;
@@ -102,6 +102,11 @@ html, body {
     }
 
     .logout {
+
+        .top-bar__icon {
+
+            font-size: 16px;
+        }
 
         .fa-door-closed {
 

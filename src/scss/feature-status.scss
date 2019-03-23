@@ -97,6 +97,7 @@
             color: #999999;
             padding: 12px 20px;
             display: flex;
+            user-select: none;
 
             &:hover {
 
@@ -108,12 +109,13 @@
 
             flex-basis: 100%;
             margin-left: 20px;
+            line-height: 1.25em;
         }
 
         &__feature-name {
 
             cursor: pointer;
-            color: #666666;
+            color: #333333;
 
             &:hover {
 
@@ -124,7 +126,6 @@
         &__icon-title {
 
             font-size: 16px;
-            margin-top: 2px;
             flex-basis: 20px;
         }
 

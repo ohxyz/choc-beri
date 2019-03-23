@@ -18,6 +18,7 @@
         color: rgba( 255, 255, 255, 0.3 );
         position: relative;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
 
@@ -65,12 +66,9 @@
         &__icon {
 
             font-size: 12px;
-
             position: absolute;
             right: 20px;
             top: 12px;
-
-
         }
 
     }
@@ -106,7 +104,6 @@
         font-size: 16px;
         width: 20px;
         text-align: center;
-        margin-top: 2px;
     }
 }
 
