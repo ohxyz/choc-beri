@@ -99,7 +99,6 @@
 }
 
 
-body,
 .ui.form input:not([type]), 
 .ui.form input[type=date], 
 .ui.form input[type=datetime-local], 
@@ -116,7 +115,6 @@ body,
 .ui.list .list>.item .header,
 .ui.list>.item .header {
 
-    font-family: "Quattrocento Sans", "Segoe UI", arial, sans-serif;
     border-radius: 2px;
     
     &:focus {
