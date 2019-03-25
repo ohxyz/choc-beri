@@ -67,11 +67,46 @@
         }
     }
 
+    .feature-operations {
+
+        
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 34px;
+
+        &__operation {
+
+            flex-basis: 50%;
+            display: flex;
+            line-height: 1.25;
+            margin-bottom: 5px;
+        }
+
+        &__icon {
+
+            width: 25px;
+            margin-top: 1px;
+            color: $main-color;
+        }
+
+        &__name {
+
+            color: $main-color;
+            cursor: pointer;
+            font-size: 12px;
+
+            &:hover {
+
+                text-decoration: underline;
+            }
+        }
+    }
+
     .feature-info {
 
         color: #444444;
         word-wrap: break-word;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         display: flex;
 
         &__icon {
@@ -89,6 +124,8 @@
     }
 
     .feature-details {
+
+        margin-top: 25px;
 
         &__row {
 

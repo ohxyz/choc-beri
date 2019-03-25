@@ -179,10 +179,34 @@ body .container ::-webkit-scrollbar-thumb {
 .main__content--feature-status .feature-heading__name {
   word-break: break-word;
 }
+.main__content--feature-status .feature-operations {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 34px;
+}
+.main__content--feature-status .feature-operations__operation {
+  flex-basis: 50%;
+  display: flex;
+  line-height: 1.25;
+  margin-bottom: 5px;
+}
+.main__content--feature-status .feature-operations__icon {
+  width: 25px;
+  margin-top: 1px;
+  color: #bb247f;
+}
+.main__content--feature-status .feature-operations__name {
+  color: #bb247f;
+  cursor: pointer;
+  font-size: 12px;
+}
+.main__content--feature-status .feature-operations__name:hover {
+  text-decoration: underline;
+}
 .main__content--feature-status .feature-info {
   color: #444444;
   word-wrap: break-word;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   display: flex;
 }
 .main__content--feature-status .feature-info__icon {
@@ -193,6 +217,9 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .main__content--feature-status .feature-info__name {
   word-break: break-word;
+}
+.main__content--feature-status .feature-details {
+  margin-top: 25px;
 }
 .main__content--feature-status .feature-details__row {
   margin-bottom: 30px;
@@ -436,22 +463,22 @@ body .container ::-webkit-scrollbar-thumb {
   border-top: 1px dashed #dddddd;
 }
 .main .feature-status--validated {
-  border: 1px solid #26c7dc;
+  border: 1px solid #18bbd0;
 }
 .main .feature-status--validated .feature-status__header {
-  color: #26c7dc;
+  color: #18bbd0;
 }
 .main .feature-status--validated .feature-status__list-item {
   border-top: 1px solid #c0eef4;
 }
 .main .feature-status--validating {
-  border-top: 1px solid #26c7dc;
-  border-bottom: 1px dashed #26c7dc;
-  border-left: 1px dashed #26c7dc;
-  border-right: 1px dashed #26c7dc;
+  border-top: 1px solid #18bbd0;
+  border-bottom: 1px dashed #18bbd0;
+  border-left: 1px dashed #18bbd0;
+  border-right: 1px dashed #18bbd0;
 }
 .main .feature-status--validating .feature-status__header {
-  color: #26c7dc;
+  color: #18bbd0;
 }
 .main .feature-status--validating .feature-status__list-item {
   border-top: 1px dashed #c0eef4;
@@ -1135,6 +1162,7 @@ body .container ::-webkit-scrollbar-thumb {
 html, body {
   margin: 0;
   padding: 0;
+  line-height: 1.25;
 }
 
 .container {
