@@ -33,6 +33,7 @@
 
     $( '.auto-refresh' ).click( function () {
 
+        $( this ).toggleClass( 'auto-refresh--enable' );
         $( '.auto-refresh__icon', this ).toggle();
     } );
 

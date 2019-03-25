@@ -237,12 +237,12 @@ body .container ::-webkit-scrollbar-thumb {
 .main__content--feature-status .feature-details__icon {
   color: #999999;
   font-size: 12px;
-  margin-right: 10px;
+  min-width: 22px;
   margin-top: 2px;
 }
 .main__content--feature-status .feature-details__name {
   font-size: 12px;
-  color: #666666;
+  color: #4b4b4b;
   font-weight: bold;
   line-height: 1.25em;
 }
@@ -327,20 +327,20 @@ body .container ::-webkit-scrollbar-thumb {
   display: flex;
   cursor: pointer;
   user-select: none;
+  color: #aaaaaa;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh--enable {
+  color: #3c91d5;
 }
 .main .main__content--feature-status .strip__content_2 .auto-refresh__icon {
   font-size: 18px;
   margin-right: 10px;
-  color: #0bb8c0;
 }
-.main .main__content--feature-status .strip__content_2 .auto-refresh__icon.fa-toggle-off {
+.main .main__content--feature-status .strip__content_2 .auto-refresh__icon.fa-toggle-on {
   display: none;
 }
-.main .main__content--feature-status .strip__content_2 .auto-refresh__title {
-  color: #aaaaaa;
-}
-.main .main__content--feature-status .strip__content_2 .auto-refresh:hover .auto-refresh__title {
-  color: #666666;
+.main .main__content--feature-status .strip__content_2 .auto-refresh:hover {
+  color: #3c91d5;
 }
 .main .feature-store {
   margin-bottom: 10px;
@@ -382,7 +382,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .main .feature-status__feature-name {
   cursor: pointer;
-  color: #333333;
+  color: #4b4b4b;
 }
 .main .feature-status__feature-name:hover {
   color: black;

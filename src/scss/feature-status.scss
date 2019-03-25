@@ -75,30 +75,27 @@
                     display: flex;
                     cursor: pointer;
                     user-select: none;
+                    color: #aaaaaa;
+
+                    &--enable {
+
+                         color: #3c91d5;
+                    }
 
                     &__icon {
                         
                         font-size: 18px;
                         margin-right: 10px;
-                        color: #0bb8c0;
-
-                        &.fa-toggle-off {
+                        
+                        &.fa-toggle-on {
 
                             display: none;
                         }
                     }
 
-                    &__title {
-
-                        color: #aaaaaa;
-                    }
-
                     &:hover {
 
-                        .auto-refresh__title {
-
-                            color: #666666;
-                        }
+                        color: #3c91d5;
                         
                     }
                 }
@@ -160,7 +157,7 @@
         &__feature-name {
 
             cursor: pointer;
-            color: #333333;
+            color: #4b4b4b;
 
             &:hover {
 
