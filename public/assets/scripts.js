@@ -29,7 +29,14 @@
         $container.toggleClass( 'container--mobile' );
     } );
 
-/* Feature store header toggle ********************************************************************/
+/* Feature status - toggle auto-refresh  **********************************************************/
+
+    $( '.auto-refresh' ).click( function () {
+
+        $( '.auto-refresh__icon', this ).toggle();
+    } );
+
+/* Feature status - Feature store header toggle ***************************************************/
     
     $( '.feature-status__header' ).click( function () {
 
@@ -49,7 +56,7 @@
         
     } );
 
-/* Feature store toggle, all fixedservices, mobile, etc *******************************************/
+/* Feature status - Feature store toggle, all fixedservices, mobile, etc **************************/
 
     $( '.strip__feature-store-name' ).click( function () { 
 
@@ -72,7 +79,7 @@
         $button.addClass( 'strip__feature-store-name--active' );
     } );
 
-/* Toggle feature panel ***************************************************************************/
+/* Feature status - Toggle feature panel **********************************************************/
 
     var $main = $( '.main' );
     var $featurePanel = $( '.feature-panel' );

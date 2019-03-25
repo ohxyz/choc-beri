@@ -24,7 +24,6 @@ body .container ::-webkit-scrollbar-thumb {
   color: #aaaaaa;
   font-weight: bold;
   margin-right: 10px;
-  display: flex;
   align-items: center;
 }
 .strip__item {
@@ -222,12 +221,12 @@ body .container ::-webkit-scrollbar-thumb {
   margin-top: 25px;
 }
 .main__content--feature-status .feature-details__row {
-  margin-bottom: 30px;
+  margin-bottom: 22px;
   display: flex;
 }
 .main__content--feature-status .feature-details__title {
   padding: 4px 12px;
-  background-color: #dddddd;
+  background-color: #e4e4e4;
   border-radius: 4px;
   margin-right: 15px;
   min-width: 120px;
@@ -320,6 +319,28 @@ body .container ::-webkit-scrollbar-thumb {
   background-color: #bb247f;
   color: white;
   border-color: #bb247f;
+}
+.main .main__content--feature-status .strip__content {
+  flex-grow: 1;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh {
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh__icon {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #0bb8c0;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh__icon.fa-toggle-off {
+  display: none;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh__title {
+  color: #aaaaaa;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh:hover .auto-refresh__title {
+  color: #666666;
 }
 .main .feature-store {
   margin-bottom: 10px;
