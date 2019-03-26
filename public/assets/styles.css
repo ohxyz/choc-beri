@@ -1080,7 +1080,7 @@ body .container ::-webkit-scrollbar-thumb {
   font-family: "Pacifico", cursive;
   color: #fbfbfb;
   font-size: 52px;
-  margin-bottom: 8px;
+  margin-bottom: -16px;
   user-select: none;
 }
 .login__header {
@@ -1095,7 +1095,7 @@ body .container ::-webkit-scrollbar-thumb {
   margin-bottom: 5px;
 }
 .login__content {
-  padding: 50px 38px 105px 38px;
+  padding: 50px 38px 115px 38px;
   background-color: #128cc3;
   border-radius: 60px;
   border-top-left-radius: 0;
