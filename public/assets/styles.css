@@ -318,7 +318,7 @@ body .container ::-webkit-scrollbar-thumb {
   display: block;
 }
 .main .main__content--feature-status .strip__content_2 .auto-refresh--enable {
-  color: #16b7cc;
+  color: #c14d93;
 }
 .main .main__content--feature-status .strip__content_2 .auto-refresh--enable .fa-toggle-on {
   display: block;
@@ -331,7 +331,7 @@ body .container ::-webkit-scrollbar-thumb {
   margin-right: 10px;
 }
 .main .main__content--feature-status .strip__content_2 .auto-refresh:hover {
-  color: #16b7cc;
+  color: #c14d93;
 }
 .main .feature-store {
   margin-bottom: 30px;
@@ -352,6 +352,30 @@ body .container ::-webkit-scrollbar-thumb {
   align-items: flex-start;
   padding: 15px 20px;
   border-bottom: 4px solid #eeeeee;
+}
+.main .feature-store .row:nth-child(1) .feature-status__icon-title {
+  color: #18bbd0;
+}
+.main .feature-store .row:nth-child(1) .feature-status__title {
+  color: #18bbd0;
+}
+.main .feature-store .row:nth-child(2) .feature-status__icon-title {
+  color: #188abd;
+}
+.main .feature-store .row:nth-child(2) .feature-status__title {
+  color: #188abd;
+}
+.main .feature-store .row:nth-child(2) .feature-status--built .feature-status__icon-title {
+  color: #4dad52;
+}
+.main .feature-store .row:nth-child(2) .feature-status--built .feature-status__title {
+  color: #4dad52;
+}
+.main .feature-store .row:nth-child(3) .feature-status__icon-title {
+  color: #084c82;
+}
+.main .feature-store .row:nth-child(3) .feature-status__title {
+  color: #084c82;
 }
 .main .feature-status {
   flex-grow: 1;
@@ -374,7 +398,6 @@ body .container ::-webkit-scrollbar-thumb {
 .main .feature-status__title {
   flex-basis: 100%;
   margin-left: 20px;
-  line-height: 1.25em;
 }
 .main .feature-status__feature-name {
   cursor: pointer;
@@ -398,83 +421,11 @@ body .container ::-webkit-scrollbar-thumb {
   padding: 10px 0;
   border-top: 1px solid #ededed;
 }
-.main .feature-status--promoted .feature-status__icon-title {
-  color: #ff9800;
-}
-.main .feature-status--promoted .feature-status__title {
-  color: #ff9800;
-}
-.main .feature-status--marked-for-promotion {
-  border-style: dashed;
-}
-.main .feature-status--marked-for-promotion .feature-status__icon-title {
-  color: #ff9800;
-}
-.main .feature-status--marked-for-promotion .feature-status__title {
-  color: #ff9800;
-}
-.main .feature-status--built .feature-status__icon-title {
-  color: #42a246;
-}
-.main .feature-status--built .feature-status__title {
-  color: #42a246;
-}
-.main .feature-status--building {
-  border-style: dashed;
-  border-top-style: solid;
-}
-.main .feature-status--building .feature-status__icon-title {
-  color: #42a246;
-}
-.main .feature-status--building .feature-status__title {
-  color: #42a246;
-}
 .main .feature-status--failed .feature-status__icon-title {
   color: #de1a0b;
 }
 .main .feature-status--failed .feature-status__title {
   color: #de1a0b;
-}
-.main .feature-status--decommissioned .feature-status__icon-title {
-  color: #444444;
-}
-.main .feature-status--decommissioned .feature-status__title {
-  color: #444444;
-}
-.main .feature-status--decommissioning {
-  border-style: dashed;
-  border-top-style: solid;
-}
-.main .feature-status--decommissioning .feature-status__icon-title {
-  color: #444444;
-}
-.main .feature-status--decommissioning .feature-status__title {
-  color: #444444;
-}
-.main .feature-status--marked-for-decommission {
-  border-style: dashed;
-}
-.main .feature-status--marked-for-decommission .feature-status__icon-title {
-  color: #444444;
-}
-.main .feature-status--marked-for-decommission .feature-status__title {
-  color: #444444;
-}
-.main .feature-status--validated .feature-status__icon-title {
-  color: #18bbd0;
-}
-.main .feature-status--validated .feature-status__title {
-  color: #18bbd0;
-}
-.main .feature-status--validating {
-  border-style: dashed;
-  border-top-style: solid;
-}
-.main .feature-status--validating .feature-status__icon-title {
-  color: #18bbd0;
-}
-.main .feature-status--validating .feature-status__title {
-  color: #18bbd0;
 }
 
 .main .main__content--upload-scripts {

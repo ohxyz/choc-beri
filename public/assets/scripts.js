@@ -126,6 +126,30 @@
        }
     };
 
+    var $featureNameClicked = null;
+    var $featurePanel = null;
+
+    $( '.feature-status__feature-name' ).click( function () {
+
+        if ( $featurePanel !== null ) {
+
+            $featurePanel.remove();
+        }
+        
+        if ( $( this ).is( $featureNameClicked ) ) {
+
+            $featureNameClicked = null;
+        }
+        else {
+
+            $featurePanel = $createFeaturePanel( feature );
+            $( '.main__content--feature-status' ).append( $featurePanel );
+
+            $featureNameClicked = $( this );
+        }
+
+    } );
+
     function $createFeaturePanel( f ) {
 
         console.log(f);
@@ -297,19 +321,13 @@
 
         $( '.feature-panel__close-icon', $html ).click( function () { 
 
+            $featureNameClicked = null;
             $html.remove();
         } );
     
         return $html;
     }
 
-    $( '.feature-status__feature-name' ).click( function () {
-
-        var $panel = $createFeaturePanel( feature );        
-        $( '.feature-panel' ).remove();
-        $( '.main__content--feature-status' ).append( $panel );
-
-    } );
 
 /* ACE Code editor ********************************************************************************/
     
