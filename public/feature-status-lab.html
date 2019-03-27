@@ -69,7 +69,7 @@
           <div class="zone-name">Laboratory</div>
         </div>
         <div class="main__title">Display feature's status by feature store's name</div>
-        <div class="main__breadcrumb"><span>Feature Status - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
+        <div class="main__breadcrumb"><span>Feature Status - <span class="zone-name">lab</span></span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
       <div class="main__content main__content--feature-status">
         <div class="feature-summary">
@@ -81,105 +81,153 @@
           <div class="feature-store" id="fixedservices">
             <div class="feature-store__header">Feature store - fixedservices</div>
             <div class="feature-store__content">
-              <div class="feature-status feature-status--promoted">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">PROMOTED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+              <div class="row">
+                <div class="feature-status feature-status--validating">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-eye"></i><span class="feature-status__title">VALIDATING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--validated">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-clipboard-check"></i><span class="feature-status__title">VALIDATED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--ready">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-candy-cane"></i><span class="feature-status__title">READY (Fac only)</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--pending">
+                  <div class="feature-status__header"><i class="feature-status__icon-title far fa-meh-blank"></i><span class="feature-status__title">PENDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--marked-for-promotion">
-                <div class="feature-status__header"><i class="feature-status__icon-title far fa-grin-beam"></i><span class="feature-status__title">MARKED FOR PROMOTION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+              <div class="row">
+                <div class="feature-status feature-status--building">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-tools"></i><span class="feature-status__title">BUILDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--built">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check-circle"></i><span class="feature-status__title">BUILT</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--marked-for-promotion">
+                  <div class="feature-status__header"><i class="feature-status__icon-title far fa-grin-beam"></i><span class="feature-status__title">MARKED FOR PROMOTION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--marked-for-decommission">
+                  <div class="feature-status__header"><i class="feature-status__icon-title far fa-meh"></i><span class="feature-status__title">MARKED FOR DECOMMISSION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--decommissioning">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-eye-slash"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--built">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check-circle"></i><span class="feature-status__title">BUILT</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+              <div class="row">
+                <div class="feature-status feature-status--promoted">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">PROMOTED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="feature-status feature-status--decommissioned">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ban"></i><span class="feature-status__title">DECOMMISSIONED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--building">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-tools"></i><span class="feature-status__title">BUILDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+              <div class="row">
+                <div class="feature-status feature-status--failed">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-times-circle"></i><span class="feature-status__title">FAILED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="feature-status feature-status--failed">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-times-circle"></i><span class="feature-status__title">FAILED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">PENDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">READY</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">VALIDATED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-marker"></i><span class="feature-status__title">VALIDATING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                <div class="feature-status feature-status--uncategorised">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ghost"></i><span class="feature-status__title">UNKNOWN STATE</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -188,186 +236,60 @@
           <div class="feature-store" id="mobile">
             <div class="feature-store__header">Feature store - mobile</div>
             <div class="feature-store__content">
-              <div class="feature-status feature-status--decommissioned">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ban"></i><span class="feature-status__title">DECOMMISSIONED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">MARKED FOR DECOMMISION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="feature-status">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">UNCATEGORISED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
-                <div class="feature-status__content">
-                  <div class="feature-status__list">
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                    <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="feature-panel">
-          <div class="feature-panel__main">
-            <div class="feature-panel__header">
-              <div class="feature-panel__close-icon fas fa-times"></div>
-            </div>
-            <div class="feature-panel__content">
-              <div class="feature-heading">
-                <div class="feature-heading__icon far fa-star"></div>
-                <div class="feature-heading__name">barred_for_non_payment_sms_31_60days (TINYINT)</div>
-              </div>
-              <div class="feature-info">
-                <div class="feature-info__icon far fa-bell"></div>
-                <div class="feature-info__content">The feature is marked for decommissioning.</div>
-              </div>
-              <div class="feature-operations"><span class="feature-operations__operation"><i class="feature-operations__icon far fa-pause-circle"></i><span class="feature-operations__name">Pause</span></span><span class="feature-operations__operation"><i class="feature-operations__icon far fa-play-circle"></i><span class="feature-operations__name">Resume</span></span><span class="feature-operations__operation"><i class="feature-operations__icon far fa-grin-beam"></i><span class="feature-operations__name">Mark for promomtion</span></span><span class="feature-operations__operation"><i class="feature-operations__icon far fa-frown-open"></i><span class="feature-operations__name">Unmark promomtion</span></span><span class="feature-operations__operation"><i class="feature-operations__icon fas fa-ban"></i><span class="feature-operations__name">Decommission</span></span><span class="feature-operations__operation"><i class="feature-operations__icon far fa-grin-beam-sweat"></i><span class="feature-operations__name">Unmark decommission</span></span></div>
-              <div class="feature-details">
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-child"></div>
-                    <div class="feature-details__name">Job ID</div>
-                  </div>
-                  <div class="feature-details__content">1234567890</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-sort-numeric-up"></div>
-                    <div class="feature-details__name">Job Status</div>
-                  </div>
-                  <div class="feature-details__content">Built</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-star"></div>
-                    <div class="feature-details__name">Feature</div>
-                  </div>
-                  <div class="feature-details__content">barred_for_non_payment_sms_31_60days (TINYINT)</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-battery-three-quarters"></div>
-                    <div class="feature-details__name">State</div>
-                  </div>
-                  <div class="feature-details__content">Built</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon far fa-calendar-plus"></div>
-                    <div class="feature-details__name">Created at</div>
-                  </div>
-                  <div class="feature-details__content">2019-03-12T10:55:24.677816</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fab fa-amilia"></div>
-                    <div class="feature-details__name">Script Language</div>
-                  </div>
-                  <div class="feature-details__content">SQL</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon far fa-calendar-check"></div>
-                    <div class="feature-details__name">Updated at</div>
-                  </div>
-                  <div class="feature-details__content">2019-03-12T00:17:43.748Z</div>
-                </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-database"></div>
-                    <div class="feature-details__name">External Data Source Dependencies</div>
-                  </div>
-                  <div class="feature-details__content">
-                    <div class="feature-dependencies">
-                      <div class="feature-dependencies__row">
-                        <div class="feature-dependencies__title">Source</div>
-                        <div class="feature-dependencies__content"> 
-                          <div class="feature-dependencies__item">
-                            <div class="feature-dependencies__icon fas fa-book"></div>
-                            <div class="feature-dependencies__name">glue</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="feature-dependencies__row">
-                        <div class="feature-dependencies__title">Origin</div>
-                        <div class="feature-dependencies__content"> 
-                          <div class="feature-dependencies__item">
-                            <div class="feature-dependencies__icon fas fa-cross"></div>
-                            <div class="feature-dependencies__name">idv</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="feature-dependencies__row">
-                        <div class="feature-dependencies__title">Tables</div>
-                        <div class="feature-dependencies__content"> 
-                          <div class="feature-dependencies__item">
-                            <div class="feature-dependencies__icon fas fa-table"></div>
-                            <div class="feature-dependencies__name">idv.s_octf_nbn_srvc</div>
-                          </div>
-                          <div class="feature-dependencies__item"> 
-                            <div class="feature-dependencies__icon fas fa-table"></div>
-                            <div class="feature-dependencies__name">idv.s_sfdc_cse</div>
-                          </div>
-                          <div class="feature-dependencies__item"> 
-                            <div class="feature-dependencies__icon fas fa-table"></div>
-                            <div class="feature-dependencies__name">idv.s_octf_dsl_srvc</div>
-                          </div>
-                        </div>
-                      </div>
+              <div class="row">
+                <div class="feature-status feature-status--decommissioned">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ban"></i><span class="feature-status__title">DECOMMISSIONED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
                     </div>
                   </div>
                 </div>
-                <div class="feature-details__row">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-shopping-cart"></div>
-                    <div class="feature-details__name">Feature Store</div>
+                <div class="feature-status">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">MARKED FOR DECOMMISION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
-                  <div class="feature-details__content">fixedservices</div>
                 </div>
-                <div class="feature-details__row feature-details__row--failure">
-                  <div class="feature-details__title">
-                    <div class="feature-details__icon fas fa-exclamation-circle"></div>
-                    <div class="feature-details__name">Failure Message</div>
+                <div class="feature-status">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
                   </div>
-                  <div class="feature-details__content">Exception: Duplicates exist in the entity rows. Duplicate or incorrect data is created in the Feature Store. Entity count:466934!=466932</div>
+                </div>
+                <div class="feature-status">
+                  <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmark"></i><span class="feature-status__title">UNCATEGORISED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+                  <div class="feature-status__content">
+                    <div class="feature-status__list">
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                      <div class="feature-status__list-item"><span class="feature-status__feature-name">recd_del_flg_bin (TINYINT)</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

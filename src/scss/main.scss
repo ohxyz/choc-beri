@@ -140,6 +140,40 @@ html, body {
     background-color: #fbfbfb;
     overflow: hidden;
 
+
+    &__zone {
+
+        font-size: 13px;
+        border-radius: 4px;
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+        color: white;
+
+        .zone-icon {
+
+            margin-right: 10px;
+        }
+
+        &--lab {
+
+            background-color: #ff2b2b;
+
+        }
+
+        &--fac {
+
+            background-color: #42a246;
+
+        }
+
+        &--exp {
+
+            background-color: #0db5ca;
+        }
+    }
+
     &__header {
 
         display: flex;
@@ -177,6 +211,12 @@ html, body {
                 text-decoration: underline;
             }
         }
+
+        .zone-name {
+
+            text-transform: capitalize;
+        }
+
     }
 
     &__content {

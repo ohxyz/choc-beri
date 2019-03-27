@@ -15,7 +15,8 @@ block main
             .zone-name Factory
         .main__title Display feature's status by feature store's name
         .main__breadcrumb
-            span Feature Status - Fac
+            span Feature Status - 
+                span.zone-name fac
             span /
             a(href="/") Choc-BERI
     .main__content.main__content--feature-status
@@ -139,76 +140,76 @@ block main
             #mobile.feature-store
                 .feature-store__header Feature store - mobile
                 .feature-store__content
+                    .row
+                        .feature-status.feature-status--uncategorised
+                            .feature-status__header
+                                i.feature-status__icon-title.fas.fa-ghost
+                                span.feature-status__title UNCATEGORISED
+                                i.feature-status__icon-expand.fas.fa-minus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
 
-                    .feature-status.feature-status--uncategorised
-                        .feature-status__header
-                            i.feature-status__icon-title.fas.fa-ghost
-                            span.feature-status__title UNCATEGORISED
-                            i.feature-status__icon-expand.fas.fa-minus
-                        .feature-status__content
-                            .feature-status__list
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                        .feature-status.feature-status--decommissioned
+                            .feature-status__header
+                                i.feature-status__icon-title.fas.fa-ban
+                                span.feature-status__title DECOMMISSIONED
+                                i.feature-status__icon-expand.fas.fa-minus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
 
-                    .feature-status.feature-status--decommissioned
-                        .feature-status__header
-                            i.feature-status__icon-title.fas.fa-ban
-                            span.feature-status__title DECOMMISSIONED
-                            i.feature-status__icon-expand.fas.fa-minus
-                        .feature-status__content
-                            .feature-status__list
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                        .feature-status.feature-status--marked-for-decommission
+                            .feature-status__header
+                                i.feature-status__icon-title.far.fa-meh
+                                span.feature-status__title MARKED FOR DECOMMISSION
+                                i.feature-status__icon-expand.fas.fa-minus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
 
-                    .feature-status.feature-status--marked-for-decommission
-                        .feature-status__header
-                            i.feature-status__icon-title.far.fa-meh
-                            span.feature-status__title MARKED FOR DECOMMISSION
-                            i.feature-status__icon-expand.fas.fa-minus
-                        .feature-status__content
-                            .feature-status__list
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-
-                    .feature-status.feature-status--decommissioning
-                        .feature-status__header
-                            i.feature-status__icon-title.fas.fa-eye-slash
-                            span.feature-status__title DECOMMISSIONING
-                            i.feature-status__icon-expand.fas.fa-minus
-                        .feature-status__content
-                            .feature-status__list
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                        .feature-status.feature-status--decommissioning
+                            .feature-status__header
+                                i.feature-status__icon-title.fas.fa-eye-slash
+                                span.feature-status__title DECOMMISSIONING
+                                i.feature-status__icon-expand.fas.fa-minus
+                            .feature-status__content
+                                .feature-status__list
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__list-item
+                                        span.feature-status__feature-name recd_del_flg_bin (TINYINT)
         include _feature-panel.pug

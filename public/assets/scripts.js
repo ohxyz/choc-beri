@@ -3,6 +3,7 @@
 /* Globals ****************************************************************************************/
 
     var $container = $( '.container' );
+    var $main = $( '.main' );
 
 /* Toggle menu items - Accodion style *************************************************************/
 
@@ -34,7 +35,6 @@
     $( '.auto-refresh' ).click( function () {
 
         $( this ).toggleClass( 'auto-refresh--enable' );
-        $( '.auto-refresh__icon', this ).toggle();
     } );
 
 /* Feature status - Feature store header toggle ***************************************************/
@@ -80,19 +80,235 @@
         $button.addClass( 'strip__feature-store-name--active' );
     } );
 
-/* Feature status - Toggle feature panel **********************************************************/
+/* Feature status - Create featue panel ***********************************************************/
 
-    var $main = $( '.main' );
-    var $featurePanel = $( '.feature-panel' );
+    var feature = {
+       "dependencies":{
 
-    $( '.feature-status__feature-name' ).click( function () { 
+       },
+       "entity":"srvc_bk",
+       "featureStore":"fixedservice",
+       "scriptLanguage":"SQL",
+       "status":{
+          "state":"built"
+       },
+       "createdAt":"2019-03-20T05:22:54.284700",
+       "dataSources":{
+          "glue":{
+             "idv":{
+                "s_octf_nbn_srvc":{
+                   "name":"s_octf_nbn_srvc",
+                   "database":"idv",
+                   "service":"glue",
+                   "entity":"entity"
+                }
+             }
+          }
+       },
+       "jobID":"15530593725245125",
+       "features":{
+          "smoke_test_feature":{
+             "featureName":"smoke_test_feature",
+             "dataType":"TINYINT"
+          }
+       },
+       "updatedAt":"2019-03-26T20:26:48.599Z",
+       "markedForPromotion":{
+          "partOf":[
+             "15530593725245125"
+          ],
+          "flag":true
+       },
+       "batch":"built",
+       "scriptLocation":{
+          "bucket":"d00-choc-beri-application",
+          "file":"scripts/lab/fixedservice/smoke_test_feature.sql"
+       }
+    };
 
-        $featurePanel.toggle();
-    } );
+    function $createFeaturePanel( f ) {
 
-    $( '.feature-panel__close-icon' ).click( function () { 
+        console.log(f);
 
-        $featurePanel.hide();
+        var v = Object.values(f.features)[0];
+        var featureName = `${v.featureName} (${v.dataType})`;
+
+        var $html = $(`
+            <div class="feature-panel">
+              <div class="feature-panel__main">
+                <div class="feature-panel__header">
+                  <div class="feature-panel__close-icon fas fa-times"></div>
+                </div>
+                <div class="feature-panel__content">
+                  <div class="feature-heading">
+                    <div class="feature-heading__icon far fa-star"></div>
+                    <div class="feature-heading__name">${featureName}</div>
+                  </div>
+                  <div class="feature-details">
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-child"></div>
+                        <div class="feature-details__name">Job ID</div>
+                      </div>
+                      <div class="feature-details__content">${f.jobID}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-sort-numeric-up"></div>
+                        <div class="feature-details__name">Job Status</div>
+                      </div>
+                      <div class="feature-details__content">${f.batch}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-battery-three-quarters"></div>
+                        <div class="feature-details__name">State</div>
+                      </div>
+                      <div class="feature-details__content">${f.status.state}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon far fa-calendar-plus"></div>
+                        <div class="feature-details__name">Created at</div>
+                      </div>
+                      <div class="feature-details__content">${f.createdAt}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fab fa-amilia"></div>
+                        <div class="feature-details__name">Script Language</div>
+                      </div>
+                      <div class="feature-details__content">${f.scriptLanguage}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon far fa-calendar-check"></div>
+                        <div class="feature-details__name">Updated at</div>
+                      </div>
+                      <div class="feature-details__content">${f.updatedAt}</div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-database"></div>
+                        <div class="feature-details__name">External Data Source Dependencies</div>
+                      </div>
+                      <div class="feature-details__content">
+                        <div class="feature-dependencies">
+                          <div class="feature-dependencies__row">
+                            <div class="feature-dependencies__title">Source</div>
+                            <div class="feature-dependencies__content"> 
+                              <div class="feature-dependencies__item">
+                                <div class="feature-dependencies__icon fas fa-book"></div>
+                                <div class="feature-dependencies__name">glue</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="feature-dependencies__row">
+                            <div class="feature-dependencies__title">Origin</div>
+                            <div class="feature-dependencies__content"> 
+                              <div class="feature-dependencies__item">
+                                <div class="feature-dependencies__icon fas fa-cross"></div>
+                                <div class="feature-dependencies__name">idv</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="feature-dependencies__row">
+                            <div class="feature-dependencies__title">Tables</div>
+                            <div class="feature-dependencies__content"> 
+                              <div class="feature-dependencies__item">
+                                <div class="feature-dependencies__icon fas fa-table"></div>
+                                <div class="feature-dependencies__name">idv.s_octf_nbn_srvc</div>
+                              </div>
+                              <div class="feature-dependencies__item"> 
+                                <div class="feature-dependencies__icon fas fa-table"></div>
+                                <div class="feature-dependencies__name">idv.s_sfdc_cse</div>
+                              </div>
+                              <div class="feature-dependencies__item"> 
+                                <div class="feature-dependencies__icon fas fa-table"></div>
+                                <div class="feature-dependencies__name">idv.s_octf_dsl_srvc</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-shopping-cart"></div>
+                        <div class="feature-details__name">Feature Store</div>
+                      </div>
+                      <div class="feature-details__content">${f.featureStore}</div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+        `)
+
+        var $info = $(`
+
+            <div class="feature-info">
+                <div class="feature-info__icon far fa-bell"></div>
+                <div class="feature-info__content">The feature is marked for decommissioning.</div>
+            </div>
+        `);
+
+        var $operations = $(`
+
+            <div class="feature-operations">
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon far fa-pause-circle"></i>
+                    <span class="feature-operations__name">Pause</span>
+                </span>
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon far fa-play-circle"></i>
+                    <span class="feature-operations__name">Resume</span>
+                </span>
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon far fa-grin-beam"></i>
+                    <span class="feature-operations__name">Mark for promomtion</span>
+                </span>
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon far fa-frown-open"></i>
+                    <span class="feature-operations__name">Unmark promomtion</span>
+                </span>
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon fas fa-ban"></i>
+                    <span class="feature-operations__name">Decommission</span>
+                </span>
+                <span class="feature-operations__operation">
+                    <i class="feature-operations__icon far fa-grin-beam-sweat"></i>
+                    <span class="feature-operations__name">Unmark decommission</span>
+                </span>
+            </div>
+        `)
+
+        var $failure = $( `
+
+            <div class="feature-details__row feature-details__row--failure">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-exclamation-circle"></div>
+                <div class="feature-details__name">Failure Message</div>
+              </div>
+              <div class="feature-details__content">Exception: Duplicates exist in the entity rows. Duplicate or incorrect data is created in the Feature Store. Entity count:466934!=466932</div>
+            </div>
+        `);
+
+        $( '.feature-panel__close-icon', $html ).click( function () { 
+
+            $html.remove();
+        } );
+    
+        return $html;
+    }
+
+    $( '.feature-status__feature-name' ).click( function () {
+
+        var $panel = $createFeaturePanel( feature );        
+        $( '.feature-panel' ).remove();
+        $( '.main__content--feature-status' ).append( $panel );
+
     } );
 
 /* ACE Code editor ********************************************************************************/
@@ -310,7 +526,6 @@
       "jobOutcome": "success",
       "entity": "srvc_bk"
     }
-
 
 /* Create feature store ***************************************************************************/
 

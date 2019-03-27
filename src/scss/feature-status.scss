@@ -4,39 +4,6 @@
 
 .main {
 
-    &__zone {
-
-        font-size: 13px;
-        border-radius: 4px;
-        padding: 4px 12px;
-        display: flex;
-        align-items: center;
-        margin-right: 25px;
-        color: white;
-
-        .zone-icon {
-
-            margin-right: 10px;
-        }
-
-        &--lab {
-
-            background-color: #ff2b2b;
-
-        }
-
-        &--fac {
-
-            background-color: #42a246;
-
-        }
-
-        &--exp {
-
-            background-color: #0db5ca;
-        }
-    }
-
     .main__content--feature-status {
 
         display: flex;
@@ -44,6 +11,7 @@
 
         .strip {
 
+            padding: 0 30px;
 
             &__feature-store-name {
 
@@ -77,25 +45,40 @@
                     user-select: none;
                     color: #aaaaaa;
 
+                    .fa-toggle-on {
+
+                        display: none;
+                    }
+
+                    .fa-toggle-off {
+
+                        display: block;
+                    }
+
                     &--enable {
 
-                         color: #3c91d5;
+                         color: #16b7cc;
+
+                        .fa-toggle-on {
+
+                            display: block;
+                        }
+
+                        .fa-toggle-off {
+
+                            display: none;
+                        }
                     }
 
                     &__icon {
                         
                         font-size: 18px;
                         margin-right: 10px;
-                        
-                        &.fa-toggle-on {
-
-                            display: none;
-                        }
                     }
 
                     &:hover {
 
-                        color: #3c91d5;
+                        color: #16b7cc;
                         
                     }
                 }
@@ -105,7 +88,7 @@
 
     .feature-store {
 
-        margin-bottom: 10px;
+        margin-bottom: 30px;
 
         &__header {
 
@@ -113,13 +96,22 @@
             padding-bottom: 10px;
             color: $main-color;
             font-weight: bold;
+            padding: 0 30px;
         }
 
         &__content {
 
+            margin: 0 0;
+
+        }
+
+        .row {
+
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
+            padding: 15px 30px;
+            border-bottom: 4px solid #eeeeee;
             margin: 0 -10px;
         }
     }
@@ -128,8 +120,8 @@
 
         flex-grow: 1;
         flex-basis: 220px;
-        border: 1px solid #d8d8d8;
-        border-radius: 4px;
+        border: 1px solid #eaeaea;
+        border-radius: 2px;
         background-color: white;
         margin: 10px;
 
@@ -195,18 +187,16 @@
 
             $border-color: #ff9800;
 
-            border: 1px solid $border-color;
-
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px solid #ffe2b6;
+                    color: $border-color;
                 }
             }
         }
@@ -215,18 +205,19 @@
 
             $border-color: #ff9800;
 
-            border: 1px dashed $border-color;
+            border-style: dashed;
 
             .feature-status {
 
-                &__header {
+
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px dashed #ffe2b6;
+                    color: $border-color;
                 }
             }
         }
@@ -235,18 +226,16 @@
 
             $border-color: #42a246;
 
-            border: 1px solid $border-color;
-
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px solid #a7deaa;
+                    color: $border-color;
                 }
             }
         }
@@ -255,21 +244,19 @@
 
             $border-color: #42a246;
 
-            border-top: 1px solid $border-color;
-            border-bottom: 1px dashed $border-color;
-            border-left: 1px dashed $border-color;
-            border-right: 1px dashed $border-color;
-
+            border-style: dashed;
+            border-top-style: solid;
+            
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px dashed #a7deaa;
+                    color: $border-color;
                 }
             }
         }
@@ -278,23 +265,16 @@
 
             $border-color: #de1a0b;
 
-            border: 1px solid $border-color;
-
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px solid #ffb9b3;
-
-                    &:first-child {
-
-                        border-top: 1px solid #ffb9b3;
-                    }
+                    color: $border-color;
                 }
             }
         }
@@ -303,18 +283,16 @@
 
             $border-color: #444444;
 
-            border: 1px solid $border-color;
-
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px solid #dddddd;
+                    color: $border-color;
                 }
             }
         }
@@ -323,42 +301,39 @@
 
             $border-color: #444444;
 
-            border-top: 1px solid $border-color;
-            border-bottom: 1px dashed $border-color;
-            border-left: 1px dashed $border-color;
-            border-right: 1px dashed $border-color;
-
+            border-style: dashed;
+            border-top-style: solid;
+            
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px dashed #dddddd;
+                    color: $border-color;
                 }
             }
         }
-
 
         &--marked-for-decommission {
 
             $border-color: #444444;
 
-            border: 1px dashed $border-color;
-
+            border-style: dashed;
+            
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px dashed #dddddd;
+                    color: $border-color;
                 }
             }
         }
@@ -366,19 +341,17 @@
         &--validated {
 
             $border-color: #18bbd0;
-
-            border: 1px solid $border-color;
-
+            
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px solid #c0eef4;
+                    color: $border-color;
                 }
             }
         }
@@ -387,21 +360,19 @@
 
             $border-color: #18bbd0;
 
-            border-top: 1px solid $border-color;
-            border-bottom: 1px dashed $border-color;
-            border-left: 1px dashed $border-color;
-            border-right: 1px dashed $border-color;
-
+            border-style: dashed;
+            border-top-style: solid;
+            
             .feature-status {
 
-                &__header {
+                &__icon-title {
 
                     color: $border-color;
                 }
 
-                &__list-item {
+                &__title {
 
-                    border-top: 1px dashed #c0eef4;
+                    color: $border-color;
                 }
             }
         }

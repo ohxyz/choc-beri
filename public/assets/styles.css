@@ -132,7 +132,7 @@ body .container ::-webkit-scrollbar-thumb {
 /* Feature status styles for both Lab and Fac */
 .main__content--feature-status .feature-summary {
   flex-grow: 1;
-  padding: 20px 30px;
+  padding: 20px 0;
   flex-basis: 60%;
   overflow: auto;
 }
@@ -281,30 +281,12 @@ body .container ::-webkit-scrollbar-thumb {
   width: 12px;
 }
 
-.main__zone {
-  font-size: 13px;
-  border-radius: 4px;
-  padding: 4px 12px;
-  display: flex;
-  align-items: center;
-  margin-right: 25px;
-  color: white;
-}
-.main__zone .zone-icon {
-  margin-right: 10px;
-}
-.main__zone--lab {
-  background-color: #ff2b2b;
-}
-.main__zone--fac {
-  background-color: #42a246;
-}
-.main__zone--exp {
-  background-color: #0db5ca;
-}
 .main .main__content--feature-status {
   display: flex;
   padding: 0;
+}
+.main .main__content--feature-status .strip {
+  padding: 0 30px;
 }
 .main .main__content--feature-status .strip__feature-store-name {
   display: inline-block;
@@ -329,39 +311,54 @@ body .container ::-webkit-scrollbar-thumb {
   user-select: none;
   color: #aaaaaa;
 }
+.main .main__content--feature-status .strip__content_2 .auto-refresh .fa-toggle-on {
+  display: none;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh .fa-toggle-off {
+  display: block;
+}
 .main .main__content--feature-status .strip__content_2 .auto-refresh--enable {
-  color: #3c91d5;
+  color: #16b7cc;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh--enable .fa-toggle-on {
+  display: block;
+}
+.main .main__content--feature-status .strip__content_2 .auto-refresh--enable .fa-toggle-off {
+  display: none;
 }
 .main .main__content--feature-status .strip__content_2 .auto-refresh__icon {
   font-size: 18px;
   margin-right: 10px;
 }
-.main .main__content--feature-status .strip__content_2 .auto-refresh__icon.fa-toggle-on {
-  display: none;
-}
 .main .main__content--feature-status .strip__content_2 .auto-refresh:hover {
-  color: #3c91d5;
+  color: #16b7cc;
 }
 .main .feature-store {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .main .feature-store__header {
   font-size: 16px;
   padding-bottom: 10px;
   color: #bb247f;
   font-weight: bold;
+  padding: 0 30px;
 }
 .main .feature-store__content {
+  margin: 0 0;
+}
+.main .feature-store .row {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  padding: 15px 30px;
+  border-bottom: 4px solid #eeeeee;
   margin: 0 -10px;
 }
 .main .feature-status {
   flex-grow: 1;
   flex-basis: 220px;
-  border: 1px solid #d8d8d8;
-  border-radius: 4px;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
   background-color: white;
   margin: 10px;
 }
@@ -402,107 +399,83 @@ body .container ::-webkit-scrollbar-thumb {
   padding: 10px 0;
   border-top: 1px solid #ededed;
 }
-.main .feature-status--promoted {
-  border: 1px solid #ff9800;
-}
-.main .feature-status--promoted .feature-status__header {
+.main .feature-status--promoted .feature-status__icon-title {
   color: #ff9800;
 }
-.main .feature-status--promoted .feature-status__list-item {
-  border-top: 1px solid #ffe2b6;
+.main .feature-status--promoted .feature-status__title {
+  color: #ff9800;
 }
 .main .feature-status--marked-for-promotion {
-  border: 1px dashed #ff9800;
+  border-style: dashed;
 }
-.main .feature-status--marked-for-promotion .feature-status__header {
+.main .feature-status--marked-for-promotion .feature-status__icon-title {
   color: #ff9800;
 }
-.main .feature-status--marked-for-promotion .feature-status__list-item {
-  border-top: 1px dashed #ffe2b6;
+.main .feature-status--marked-for-promotion .feature-status__title {
+  color: #ff9800;
 }
-.main .feature-status--built {
-  border: 1px solid #42a246;
-}
-.main .feature-status--built .feature-status__header {
+.main .feature-status--built .feature-status__icon-title {
   color: #42a246;
 }
-.main .feature-status--built .feature-status__list-item {
-  border-top: 1px solid #a7deaa;
+.main .feature-status--built .feature-status__title {
+  color: #42a246;
 }
 .main .feature-status--building {
-  border-top: 1px solid #42a246;
-  border-bottom: 1px dashed #42a246;
-  border-left: 1px dashed #42a246;
-  border-right: 1px dashed #42a246;
+  border-style: dashed;
+  border-top-style: solid;
 }
-.main .feature-status--building .feature-status__header {
+.main .feature-status--building .feature-status__icon-title {
   color: #42a246;
 }
-.main .feature-status--building .feature-status__list-item {
-  border-top: 1px dashed #a7deaa;
+.main .feature-status--building .feature-status__title {
+  color: #42a246;
 }
-.main .feature-status--failed {
-  border: 1px solid #de1a0b;
-}
-.main .feature-status--failed .feature-status__header {
+.main .feature-status--failed .feature-status__icon-title {
   color: #de1a0b;
 }
-.main .feature-status--failed .feature-status__list-item {
-  border-top: 1px solid #ffb9b3;
+.main .feature-status--failed .feature-status__title {
+  color: #de1a0b;
 }
-.main .feature-status--failed .feature-status__list-item:first-child {
-  border-top: 1px solid #ffb9b3;
-}
-.main .feature-status--decommissioned {
-  border: 1px solid #444444;
-}
-.main .feature-status--decommissioned .feature-status__header {
+.main .feature-status--decommissioned .feature-status__icon-title {
   color: #444444;
 }
-.main .feature-status--decommissioned .feature-status__list-item {
-  border-top: 1px solid #dddddd;
+.main .feature-status--decommissioned .feature-status__title {
+  color: #444444;
 }
 .main .feature-status--decommissioning {
-  border-top: 1px solid #444444;
-  border-bottom: 1px dashed #444444;
-  border-left: 1px dashed #444444;
-  border-right: 1px dashed #444444;
+  border-style: dashed;
+  border-top-style: solid;
 }
-.main .feature-status--decommissioning .feature-status__header {
+.main .feature-status--decommissioning .feature-status__icon-title {
   color: #444444;
 }
-.main .feature-status--decommissioning .feature-status__list-item {
-  border-top: 1px dashed #dddddd;
+.main .feature-status--decommissioning .feature-status__title {
+  color: #444444;
 }
 .main .feature-status--marked-for-decommission {
-  border: 1px dashed #444444;
+  border-style: dashed;
 }
-.main .feature-status--marked-for-decommission .feature-status__header {
+.main .feature-status--marked-for-decommission .feature-status__icon-title {
   color: #444444;
 }
-.main .feature-status--marked-for-decommission .feature-status__list-item {
-  border-top: 1px dashed #dddddd;
+.main .feature-status--marked-for-decommission .feature-status__title {
+  color: #444444;
 }
-.main .feature-status--validated {
-  border: 1px solid #18bbd0;
-}
-.main .feature-status--validated .feature-status__header {
+.main .feature-status--validated .feature-status__icon-title {
   color: #18bbd0;
 }
-.main .feature-status--validated .feature-status__list-item {
-  border-top: 1px solid #c0eef4;
+.main .feature-status--validated .feature-status__title {
+  color: #18bbd0;
 }
 .main .feature-status--validating {
-  border-top: 1px solid #18bbd0;
-  border-bottom: 1px dashed #18bbd0;
-  border-left: 1px dashed #18bbd0;
-  border-right: 1px dashed #18bbd0;
+  border-style: dashed;
+  border-top-style: solid;
 }
-.main .feature-status--validating .feature-status__header {
+.main .feature-status--validating .feature-status__icon-title {
   color: #18bbd0;
 }
-.main .feature-status--validating .feature-status__list-item {
-  border-top: 1px dashed #c0eef4;
+.main .feature-status--validating .feature-status__title {
+  color: #18bbd0;
 }
 
 .main .main__content--upload-scripts {
@@ -1298,6 +1271,27 @@ html, body {
   background-color: #fbfbfb;
   overflow: hidden;
 }
+.main__zone {
+  font-size: 13px;
+  border-radius: 4px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  margin-right: 25px;
+  color: white;
+}
+.main__zone .zone-icon {
+  margin-right: 10px;
+}
+.main__zone--lab {
+  background-color: #ff2b2b;
+}
+.main__zone--fac {
+  background-color: #42a246;
+}
+.main__zone--exp {
+  background-color: #0db5ca;
+}
 .main__header {
   display: flex;
   height: 52px;
@@ -1325,6 +1319,9 @@ html, body {
 }
 .main__breadcrumb a:hover {
   text-decoration: underline;
+}
+.main__breadcrumb .zone-name {
+  text-transform: capitalize;
 }
 .main__content {
   height: calc(100% - 52px);
