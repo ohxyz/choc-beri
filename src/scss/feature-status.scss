@@ -101,8 +101,7 @@
 
         &__content {
 
-            margin: 0 0;
-
+            padding: 10px 25px;
         }
 
         .row {
@@ -110,8 +109,6 @@
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
-            padding: 15px 20px;
-            border-bottom: 4px solid #eeeeee;
 
             &:nth-child(1) {
 
@@ -148,25 +145,6 @@
 
                         color: $color;
                     }
-
-                    &--built {
-
-                        $color: #4dad52;
-
-                        .feature-status {
-
-                            &__icon-title {
-
-                                color: $color;
-                            }
-
-                            &__title {
-
-                                color: $color;
-                            }
-
-                        }
-                    }
                 }
             }
 
@@ -192,12 +170,11 @@
 
     .feature-status {
 
-        flex-grow: 1;
-        flex-basis: 220px;
+        flex-basis: 250px;
         border: 1px solid #eaeaea;
         border-radius: 2px;
         background-color: white;
-        margin: 10px;
+        margin: 5px;
 
         &__header {
 

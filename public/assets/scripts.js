@@ -126,6 +126,64 @@
        }
     };
 
+    var feature2 = {
+       "createdAt":"2019-01-24T09:02:23.928107",
+       "dataSources":{
+
+       },
+       "dependencies":{
+          "fixedservice":{
+             "entity":"srvc_bk",
+             "features":{
+                "recd_del_flg":{
+                   "factory":true,
+                   "featureName":"recd_del_flg"
+                },
+                "recd_del_flg_bin":{
+                   "factory":true,
+                   "featureName":"recd_del_flg_bin"
+                }
+             },
+             "featureStore":"fixedservice"
+          }
+       },
+       "entity":"srvc_bk",
+       "features":{
+          "recd_del_decommission_please":{
+             "dataType":"FLOAT",
+             "featureName":"recd_del_decommission_please"
+          }
+       },
+       "featureStore":"fixedservice",
+       "jobID":"15482809327218018",
+       "predictive":{
+          "modelInfo":{
+             "algorithm":"Gradient Boosting Machine",
+             "modelType":"Binomial"
+          },
+          "predictive":"on",
+          "supervised":"true",
+          "targetFeature":{
+             "feature":"recd_del_flg_bin",
+             "featureStore":"fixedservice",
+             "zone":"lab"
+          },
+          "timeDate":{
+
+          }
+       },
+       "scriptLanguage":"MOJO",
+       "scriptLocation":{
+          "bucket":"s-choc-beri-application",
+          "file":"scripts/lab/fixedservice/GBM_model_python_1540786708091_222.zip"
+       },
+       "status":{
+          "message":"dry run failed on Exception: RequestId: 465779e2-a2b6-4bb2-89ba-15e88e6780ee Process exited before completing request",
+          "state":"failed"
+       },
+       "updatedAt":"2019-01-24T09:02:29.444361"
+    }
+
     var $featureNameClicked = null;
     var $featurePanel = null;
 
@@ -142,17 +200,110 @@
         }
         else {
 
-            $featurePanel = $createFeaturePanel( feature );
-            $( '.main__content--feature-status' ).append( $featurePanel );
+            var feat = $( this ).data( 'feature' );
+
+            if ( feat !== undefined && Object.keys( feat ).length )  {
+
+                $featurePanel = $createFeaturePanel( feat );
+                $( '.main__content--feature-status' ).append( $featurePanel );
+            }
+            else {
+
+                console.log( "[It's OK] Feature details are missing." );
+            }
 
             $featureNameClicked = $( this );
         }
 
     } );
 
-    function $createFeaturePanel( f ) {
+    $( '.feature-store' ).each( function () { 
 
-        console.log(f);
+        groupFeatureStatus( $( this ) );
+
+    } );
+   
+    function groupFeatureStatus( $featureStore ) {
+
+        var itemsOfRows = [ [], [], [], [] ];
+        var itemsUnknown = [];
+
+        $( '.feature-status', $featureStore ).each( function () { 
+
+            var $featureStatus = $( this );
+            var title = $( '.feature-status__title ', $featureStatus ).text();
+
+            if ( title === 'VALIDATING' ) {
+
+                itemsOfRows[0][0] = $featureStatus;
+            }
+            else if ( title === 'VALIDATED' ) {
+
+                itemsOfRows[0][1] = $featureStatus;
+            }
+            else if ( title === 'READY' ) {
+
+                itemsOfRows[0][2] = $featureStatus;
+            }
+            else if ( title === 'PENDING' ) {
+
+                itemsOfRows[0][3] = $featureStatus;
+            }
+            else if ( title === 'BUILDING' ) {
+
+                itemsOfRows[1][0] = $featureStatus;
+            }
+            else if ( title === 'BUILT' ) {
+
+                itemsOfRows[1][1] = $featureStatus;
+            }
+            else if ( title === 'MARKED FOR PROMOTION' ) {
+
+                itemsOfRows[1][2] = $featureStatus;
+            }
+            else if ( title === 'MARKED FOR DECOMMISSION' ) {
+
+                itemsOfRows[1][3] = $featureStatus;
+            }
+            else if ( title === 'DECOMMISSIONING' ) {
+
+                itemsOfRows[1][4] = $featureStatus;
+            }
+            else if ( title === 'PROMOTED' ) {
+
+                itemsOfRows[2][0] = $featureStatus;
+            }
+            else if ( title === 'DECOMMISSIONED' ) {
+
+                itemsOfRows[2][1] = $featureStatus;
+            }
+            else if ( title === 'FAILED' ) {
+
+                itemsOfRows[3][0] = $featureStatus;
+            }
+            else {
+
+                itemsUnknown.push( $featureStatus );
+            }
+
+        } );
+
+        itemsOfRows[3].push( itemsUnknown );
+
+        for ( var i = 0; i < itemsOfRows.length; i ++ ) {
+
+            var $row = $( '<div class="row">' );
+
+            for ( var j = 0; j < itemsOfRows[i].length; j ++ ) {
+
+                $row.append( itemsOfRows[i][j] );
+            }
+
+            $( '.feature-store__content', $featureStore ).append( $row );
+        }
+    }
+
+    function $createFeaturePanel( f ) {
 
         var v = Object.values(f.features)[0];
         var featureName = `${v.featureName} (${v.dataType})`;
@@ -165,8 +316,8 @@
                 </div>
                 <div class="feature-panel__content">
                   <div class="feature-heading">
-                    <div class="feature-heading__icon far fa-star"></div>
-                    <div class="feature-heading__name">${featureName}</div>
+                    <i class="feature-heading__icon far fa-star"></i>
+                    <span class="feature-heading__name">${featureName}</span>
                   </div>
                   <div class="feature-details">
                     <div class="feature-details__row">
@@ -175,13 +326,6 @@
                         <div class="feature-details__name">Job ID</div>
                       </div>
                       <div class="feature-details__content">${f.jobID}</div>
-                    </div>
-                    <div class="feature-details__row">
-                      <div class="feature-details__title">
-                        <div class="feature-details__icon fas fa-sort-numeric-up"></div>
-                        <div class="feature-details__name">Job Status</div>
-                      </div>
-                      <div class="feature-details__content">${f.batch}</div>
                     </div>
                     <div class="feature-details__row">
                       <div class="feature-details__title">
@@ -213,62 +357,18 @@
                     </div>
                     <div class="feature-details__row">
                       <div class="feature-details__title">
-                        <div class="feature-details__icon fas fa-database"></div>
-                        <div class="feature-details__name">External Data Source Dependencies</div>
-                      </div>
-                      <div class="feature-details__content">
-                        <div class="feature-dependencies">
-                          <div class="feature-dependencies__row">
-                            <div class="feature-dependencies__title">Source</div>
-                            <div class="feature-dependencies__content"> 
-                              <div class="feature-dependencies__item">
-                                <div class="feature-dependencies__icon fas fa-book"></div>
-                                <div class="feature-dependencies__name">glue</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="feature-dependencies__row">
-                            <div class="feature-dependencies__title">Origin</div>
-                            <div class="feature-dependencies__content"> 
-                              <div class="feature-dependencies__item">
-                                <div class="feature-dependencies__icon fas fa-cross"></div>
-                                <div class="feature-dependencies__name">idv</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="feature-dependencies__row">
-                            <div class="feature-dependencies__title">Tables</div>
-                            <div class="feature-dependencies__content"> 
-                              <div class="feature-dependencies__item">
-                                <div class="feature-dependencies__icon fas fa-table"></div>
-                                <div class="feature-dependencies__name">idv.s_octf_nbn_srvc</div>
-                              </div>
-                              <div class="feature-dependencies__item"> 
-                                <div class="feature-dependencies__icon fas fa-table"></div>
-                                <div class="feature-dependencies__name">idv.s_sfdc_cse</div>
-                              </div>
-                              <div class="feature-dependencies__item"> 
-                                <div class="feature-dependencies__icon fas fa-table"></div>
-                                <div class="feature-dependencies__name">idv.s_octf_dsl_srvc</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="feature-details__row">
-                      <div class="feature-details__title">
                         <div class="feature-details__icon fas fa-shopping-cart"></div>
                         <div class="feature-details__name">Feature Store</div>
                       </div>
                       <div class="feature-details__content">${f.featureStore}</div>
                     </div>
-                    
                   </div>
                 </div>
               </div>
             </div>
         `)
+        
+        var $featureDetails = $( '.feature-details', $html );
 
         var $info = $(`
 
@@ -308,16 +408,251 @@
             </div>
         `)
 
-        var $failure = $( `
+        var $batchRow = $( `
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-sort-numeric-up"></div>
+                <div class="feature-details__name">Batch Status</div>
+              </div>
+              <div class="feature-details__content"></div>
+            </div>
+        `)
+
+        if ( f.batch ) {
+
+            $( '.feature-details__content', $batchRow ).text( f.batch );
+            $featureDetails.prepend( $batchRow );
+        }
+
+        var $predictiveJobRow = $( `
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <i class="feature-details__icon fas fa-glasses"></i>
+                <span class="feature-details__name">Predictive Job</span>
+              </div>
+              <div class="feature-details__content"></div>
+            </div>
+        `);
+
+        if ( f.predictive && f.predictive.timeDate && f.predictive.targetFeature ) {
+
+            var $featureDetailsContent = $( '.feature-details__content', $predictiveJobRow );
+
+            for ( var keyOfTimeDate in Object.keys( f.predictive.timeDate ) ) {
+
+                var $row = $( '<div class="predictive-job__row">');
+                var $title = $( '<span class="predictive-job__title">' ).text( 'Date' );
+                var $content = $( '<span class="predictive-job__content">' ).text( f.predictive.timeDate[keyOfTimeDate] );
+
+                $row.append( $title, $content );
+                $featureDetailsContent.append( $row );
+            }
+
+            for ( var keyOfTargetFeature in f.predictive.targetFeature ) {
+
+                var $row = $( '<div class="predictive-job__row">');
+                var capped = keyOfTargetFeature.charAt(0).toUpperCase() + keyOfTargetFeature.slice(1);
+
+                var $title = $( '<span class="predictive-job__title">' ).text( 
+                    capped.split(/(?=[A-Z])/).join( ' ' )
+                );
+
+                var $content = $( '<span class="predictive-job__content">' ).text( 
+                    f.predictive.targetFeature[keyOfTargetFeature] 
+                );
+
+               $row.append( $title, $content );
+               $featureDetailsContent.append( $row );
+            }
+
+            $featureDetails.append( $predictiveJobRow );
+        }
+
+        var $historyBatchRow = $(`
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-database"></div>
+                <div class="feature-details__name">Historical Batch Status</div>
+              </div>
+              <div class="feature-details__content"></div>
+            </div>
+        `)
+
+        if ( f.historyBatch ) {
+
+            $( '.feature-details__content', $historyBatchRow ).text( f.historyBatch );
+            $featureDetails.append( $historyBatchRow );
+        }
+
+        var $fromDate = $(`
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-database"></div>
+                <div class="feature-details__name">Historical Date (from date)</div>
+              </div>
+              <div class="feature-details__content"></div>
+            </div>
+        `)
+
+        if ( f.fromDate ) {
+
+            $( '.feature-details__content', $fromDate ).text( f.fromDate );
+            $featureDetails.append( $fromDate );
+        }
+
+        var $externalDependenciesRow = $( `
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-database"></div>
+                <div class="feature-details__name">External Data Source Dependencies</div>
+              </div>
+              <div class="feature-details__content">
+                  <div class="external-dependencies"></div>
+              </div>
+            </div>
+        `);
+
+        var $externalDependencies = $( '.external-dependencies', $externalDependenciesRow );
+
+        if ( f.dataSources && Object.keys( f.dataSources ).length ) {
+
+            for ( var eachDataSource in f.dataSources ) {
+
+                var $row = $createDependenciesRow( 'Source', 'fas fa-book', eachDataSource );
+                $externalDependencies.append( $row );
+
+                for ( eachOrigin in f.dataSources[eachDataSource] ) {
+
+                    var $row = $createDependenciesRow( 'Origin', 'fas fa-cross', eachOrigin );
+                    $externalDependencies.append( $row );
+
+                    var $rowOfTables = $( `
+                        <div class="external-dependencies__row">
+                            <div class="external-dependencies__title">Tables</div>
+                            <div class="external-dependencies__content"></div>
+                        </div>
+                    `);
+
+                    for ( eachTable in f.dataSources[eachDataSource][eachOrigin] ) {
+
+                        var $item = $( '<div class="external-dependencies__item">' );
+                        var $icon = $( `<div class="external-dependencies__icon fas fa-table">` );
+                        var $name = $( '<div class="external-dependencies__name">').text( eachTable );
+
+                        $item.append( $icon, $name );
+
+                        $( '.external-dependencies__content', $rowOfTables ).append( $item );
+                    }
+
+                    $externalDependencies.append( $rowOfTables );
+                }
+            }
+
+            $featureDetails.append( $externalDependenciesRow );
+        }
+
+        function $createDependenciesRow( title, iconClass, name, prefix='external' ) {
+
+            var $row = $( `<div class="${prefix}-dependencies__row">` );
+            var $title = $( `<div class="${prefix}-dependencies__title">` ).text( title );
+            var $content = $( `<div class="${prefix}-dependencies__content">` );
+            var $item = $( `<div class="${prefix}-dependencies__item">` );
+            var $icon = $( `<div class="${prefix}-dependencies__icon ${iconClass}">` );
+            var $name = $( `<div class="${prefix}-dependencies__name">`).text( name );
+
+            $item.append( $icon, $name );
+            $row.append( $title, $content.append( $item ) );
+
+            return $row;
+        }
+
+        var $featureDependenciesRow = $( `
+
+            <div class="feature-details__row">
+              <div class="feature-details__title">
+                <div class="feature-details__icon fas fa-database"></div>
+                <div class="feature-details__name">Feature(Choc-BERI) Dependencies</div>
+              </div>
+              <div class="feature-details__content">
+                  <div class="feature-dependencies"></div>
+              </div>
+            </div>
+        `);
+
+        var $featureDependencies = $( '.feature-dependencies', $featureDependenciesRow );
+
+        /** 
+         * Example
+            .feature-dependencies
+                .feature-dependencies__row
+                    .feature-dependencies__title Feature Stores
+                    .feature-dependencies__content 
+                        .feature-dependencies__item
+                            i.feature-dependencies__icon.fas.fa-shopping-cart
+                            span.feature-dependencies__name fixedservice
+                .feature-dependencies__row
+                    .feature-dependencies__title Features
+                    .feature-dependencies__content 
+                        .feature-dependencies__item
+                            i.feature-dependencies__icon.far.fa-star
+                            span.feature-dependencies__name fixedservice.recd_del_flg_bin
+                        .feature-dependencies__item
+                            i.feature-dependencies__icon.far.fa-star
+                            span.feature-dependencies__name fixedservice.recd_del_flg
+        */
+        if ( f.dependencies && Object.keys( f.dependencies ).length ) {
+
+            for ( var featureStoreName in f.dependencies ) {
+
+                var $row = $createDependenciesRow( 'Feature Store', 'fas fa-shopping-cart', featureStoreName, 'feature' );
+                $featureDependencies.append( $row );
+
+                var $rowOfFeatures = $( `
+                    <div class="feature-dependencies__row">
+                        <div class="feature-dependencies__title">Features</div>
+                        <div class="feature-dependencies__content"></div>
+                    </div>
+                `);
+
+                var $featureDependenciesContent = $( '.feature-dependencies__content', $rowOfFeatures );
+
+                for ( featureName in f.dependencies[featureStoreName].features ) {
+
+                    var $item = $( '<div class="feature-dependencies__item">' );
+                    var $icon = $( '<i class="feature-dependencies__icon far fa-star">' );
+                    var $name = $( '<span class="feature-dependencies__name">' ).text( featureName );
+
+                    $item.append( $icon, $name );
+                    $featureDependenciesContent.append( $item );
+                }
+
+                $featureDependencies.append( $rowOfFeatures );
+            }
+
+            $featureDetails.append( $featureDependenciesRow );
+        }
+
+        var $failureRow = $( `
 
             <div class="feature-details__row feature-details__row--failure">
               <div class="feature-details__title">
                 <div class="feature-details__icon fas fa-exclamation-circle"></div>
                 <div class="feature-details__name">Failure Message</div>
               </div>
-              <div class="feature-details__content">Exception: Duplicates exist in the entity rows. Duplicate or incorrect data is created in the Feature Store. Entity count:466934!=466932</div>
+              <div class="feature-details__content"></div>
             </div>
         `);
+
+        if ( f.status && f.status.state === 'failed' ) {
+
+            $( '.feature-details__content', $failureRow ).text( f.status.message );
+            $featureDetails.append( $failureRow );
+        }
 
         $( '.feature-panel__close-icon', $html ).click( function () { 
 

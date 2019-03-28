@@ -196,7 +196,52 @@
 
     }
 
+    .predictive-job {
+
+        &__row {
+
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        &__title {
+
+            margin-right: 10px;
+            min-width: 95px;
+        }
+    }
+
     .feature-dependencies {
+
+        &__row {
+
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        &__title {
+
+            margin-right: 10px;
+            min-width: 95px;
+        }
+
+        &__item {
+
+            display: flex;
+            margin-bottom: 5px;
+        }
+                
+        &__icon {
+
+            font-size: 12px;
+            margin-top: 4px;
+            margin-right: 10px;
+            color: #555555;
+            width: 12px;
+        }
+    }
+
+    .external-dependencies {
 
         &__row {
 

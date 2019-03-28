@@ -1,7 +1,7 @@
 .feature-panel
     .feature-panel__main
         .feature-panel__header
-            .feature-panel__close-icon.fas.fa-times
+            //- .feature-panel__close-icon.fas.fa-times
         .feature-panel__content
             .feature-heading
                 .feature-heading__icon.far.fa-star
@@ -36,7 +36,7 @@
                     .feature-details__content 1234567890
                 .feature-details__row
                     .feature-details__title
-                        .feature-details__icon.fas.fa-sort-numeric-up
+                        .feature-details__icon.fas.fa-mug-hot
                         .feature-details__name Job Status
                     .feature-details__content Built
                 .feature-details__row
@@ -66,34 +66,79 @@
                     .feature-details__content 2019-03-12T00:17:43.748Z
                 .feature-details__row
                     .feature-details__title
+                        .feature-details__icon.fas.fa-glasses
+                        .feature-details__name Predictive Job
+                    .feature-details__content
+                        .predictive-job
+                            .predictive-job__row
+                                span.predictive-job__title Date
+                                span.predictive-job__content 1.0
+                            .predictive-job__row
+                                span.predictive-job__title Feature
+                                span.predictive-job__content recd_del_flg_bin
+                            .predictive-job__row
+                                span.predictive-job__title Zone
+                                span.predictive-job__content lab
+                            .predictive-job__row
+                                span.predictive-job__title Feature Store
+                                span.predictive-job__content fixedservice
+                .feature-details__row
+                    .feature-details__title
+                        .feature-details__icon.far.fa-calendar-minus
+                        .feature-details__name Historic Date (from date)
+                    .feature-details__content 2019-03-17T200000Z
+                .feature-details__row
+                    .feature-details__title
                         .feature-details__icon.fas.fa-database
-                        .feature-details__name External Data Source Dependencies
+                        .feature-details__name Feature(Choc-BERI) Dependencies
                     .feature-details__content
                         .feature-dependencies
                             .feature-dependencies__row
-                                .feature-dependencies__title Source
+                                .feature-dependencies__title Feature Stores
                                 .feature-dependencies__content 
                                     .feature-dependencies__item
-                                        .feature-dependencies__icon.fas.fa-book
-                                        .feature-dependencies__name glue
+                                        i.feature-dependencies__icon.fas.fa-shopping-cart
+                                        span.feature-dependencies__name fixedservice
                             .feature-dependencies__row
-                                .feature-dependencies__title Origin
+                                .feature-dependencies__title Features
                                 .feature-dependencies__content 
                                     .feature-dependencies__item
-                                        .feature-dependencies__icon.fas.fa-cross
-                                        .feature-dependencies__name idv
-                            .feature-dependencies__row
-                                .feature-dependencies__title Tables
-                                .feature-dependencies__content 
+                                        i.feature-dependencies__icon.far.fa-star
+                                        span.feature-dependencies__name fixedservice.recd_del_flg_bin
                                     .feature-dependencies__item
-                                        .feature-dependencies__icon.fas.fa-table
-                                        .feature-dependencies__name idv.s_octf_nbn_srvc
-                                    .feature-dependencies__item 
-                                        .feature-dependencies__icon.fas.fa-table
-                                        .feature-dependencies__name idv.s_sfdc_cse
-                                    .feature-dependencies__item 
-                                        .feature-dependencies__icon.fas.fa-table
-                                        .feature-dependencies__name idv.s_octf_dsl_srvc
+                                        i.feature-dependencies__icon.far.fa-star
+                                        span.feature-dependencies__name fixedservice.recd_del_flg
+
+                .feature-details__row
+                    .feature-details__title
+                        .feature-details__icon.fas.fa-database
+                        .feature-details__name External Data Source Dependencies
+                    .feature-details__content
+                        .external-dependencies
+                            .external-dependencies__row
+                                .external-dependencies__title Source
+                                .external-dependencies__content 
+                                    .external-dependencies__item
+                                        .external-dependencies__icon.fas.fa-book
+                                        .external-dependencies__name glue
+                            .external-dependencies__row
+                                .external-dependencies__title Origin
+                                .external-dependencies__content 
+                                    .external-dependencies__item
+                                        .external-dependencies__icon.fas.fa-cross
+                                        .external-dependencies__name idv
+                            .external-dependencies__row
+                                .external-dependencies__title Tables
+                                .external-dependencies__content 
+                                    .external-dependencies__item
+                                        .external-dependencies__icon.fas.fa-table
+                                        .external-dependencies__name idv.s_octf_nbn_srvc
+                                    .external-dependencies__item 
+                                        .external-dependencies__icon.fas.fa-table
+                                        .external-dependencies__name idv.s_sfdc_cse
+                                    .external-dependencies__item 
+                                        .external-dependencies__icon.fas.fa-table
+                                        .external-dependencies__name idv.s_octf_dsl_srvc
                 .feature-details__row
                     .feature-details__title
                         .feature-details__icon.fas.fa-shopping-cart

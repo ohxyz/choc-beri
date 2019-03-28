@@ -261,19 +261,46 @@ body .container ::-webkit-scrollbar-thumb {
 .main__content--feature-status .feature-details__row--failure .feature-details__content {
   color: #d82121;
 }
+.main__content--feature-status .predictive-job__row {
+  display: flex;
+  margin-bottom: 10px;
+}
+.main__content--feature-status .predictive-job__title {
+  margin-right: 10px;
+  min-width: 95px;
+}
 .main__content--feature-status .feature-dependencies__row {
   display: flex;
   margin-bottom: 10px;
 }
 .main__content--feature-status .feature-dependencies__title {
   margin-right: 10px;
-  min-width: 50px;
+  min-width: 95px;
 }
 .main__content--feature-status .feature-dependencies__item {
   display: flex;
   margin-bottom: 5px;
 }
 .main__content--feature-status .feature-dependencies__icon {
+  font-size: 12px;
+  margin-top: 4px;
+  margin-right: 10px;
+  color: #555555;
+  width: 12px;
+}
+.main__content--feature-status .external-dependencies__row {
+  display: flex;
+  margin-bottom: 10px;
+}
+.main__content--feature-status .external-dependencies__title {
+  margin-right: 10px;
+  min-width: 50px;
+}
+.main__content--feature-status .external-dependencies__item {
+  display: flex;
+  margin-bottom: 5px;
+}
+.main__content--feature-status .external-dependencies__icon {
   font-size: 12px;
   margin-top: 4px;
   margin-right: 10px;
@@ -344,14 +371,12 @@ body .container ::-webkit-scrollbar-thumb {
   padding: 0 30px;
 }
 .main .feature-store__content {
-  margin: 0 0;
+  padding: 10px 25px;
 }
 .main .feature-store .row {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding: 15px 20px;
-  border-bottom: 4px solid #eeeeee;
 }
 .main .feature-store .row:nth-child(1) .feature-status__icon-title {
   color: #18bbd0;
@@ -365,12 +390,6 @@ body .container ::-webkit-scrollbar-thumb {
 .main .feature-store .row:nth-child(2) .feature-status__title {
   color: #188abd;
 }
-.main .feature-store .row:nth-child(2) .feature-status--built .feature-status__icon-title {
-  color: #4dad52;
-}
-.main .feature-store .row:nth-child(2) .feature-status--built .feature-status__title {
-  color: #4dad52;
-}
 .main .feature-store .row:nth-child(3) .feature-status__icon-title {
   color: #084c82;
 }
@@ -378,12 +397,11 @@ body .container ::-webkit-scrollbar-thumb {
   color: #084c82;
 }
 .main .feature-status {
-  flex-grow: 1;
-  flex-basis: 220px;
+  flex-basis: 250px;
   border: 1px solid #eaeaea;
   border-radius: 2px;
   background-color: white;
-  margin: 10px;
+  margin: 5px;
 }
 .main .feature-status__header {
   font-weight: bold;
