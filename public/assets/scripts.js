@@ -305,6 +305,8 @@
 
     function $createFeaturePanel( f ) {
 
+        console.log( 'Feature in panel', f );
+
         var v = Object.values(f.features)[0];
         var featureName = `${v.featureName} (${v.dataType})`;
 
@@ -332,7 +334,7 @@
                         <div class="feature-details__icon fas fa-battery-three-quarters"></div>
                         <div class="feature-details__name">State</div>
                       </div>
-                      <div class="feature-details__content">${f.status.state}</div>
+                      <div class="feature-details__content">${cap(f.status.state)}</div>
                     </div>
                     <div class="feature-details__row">
                       <div class="feature-details__title">
@@ -368,15 +370,44 @@
             </div>
         `)
         
+        var $featureHeading = $( '.feature-heading', $html );
         var $featureDetails = $( '.feature-details', $html );
 
         var $info = $(`
 
             <div class="feature-info">
                 <div class="feature-info__icon far fa-bell"></div>
-                <div class="feature-info__content">The feature is marked for decommissioning.</div>
+                <div class="feature-info__content"></div>
             </div>
         `);
+
+        if ( f.markedForPromotion && f.markedForPromotion.flag === true ) {
+
+            var $info = $(`
+
+                <div class="feature-info">
+                    <div class="feature-info__icon far fa-bell"></div>
+                    <div class="feature-info__content"></div>
+                </div>
+            `);
+
+            $( '.feature-info__content', $info ).text( 'This feature is marked for promotion.' );
+            $featureHeading.after( $info );
+        }
+
+        if ( f.markedForDecommission && f.markedForDecommission.flag === true ) {
+
+            var $info = $(`
+
+                <div class="feature-info">
+                    <div class="feature-info__icon far fa-bell"></div>
+                    <div class="feature-info__content"></div>
+                </div>
+            `);
+
+            $( '.feature-info__content', $info ).text( 'This feature is marked for decommission.' );
+            $featureHeading.after( $info );
+        }
 
         var $operations = $(`
 
@@ -421,7 +452,7 @@
 
         if ( f.batch ) {
 
-            $( '.feature-details__content', $batchRow ).text( f.batch );
+            $( '.feature-details__content', $batchRow ).text( cap(f.batch) );
             $featureDetails.prepend( $batchRow );
         }
 
@@ -453,11 +484,7 @@
             for ( var keyOfTargetFeature in f.predictive.targetFeature ) {
 
                 var $row = $( '<div class="predictive-job__row">');
-                var capped = keyOfTargetFeature.charAt(0).toUpperCase() + keyOfTargetFeature.slice(1);
-
-                var $title = $( '<span class="predictive-job__title">' ).text( 
-                    capped.split(/(?=[A-Z])/).join( ' ' )
-                );
+                var $title = $( '<span class="predictive-job__title">' ).text( cap( keyOfTargetFeature ) );
 
                 var $content = $( '<span class="predictive-job__content">' ).text( 
                     f.predictive.targetFeature[keyOfTargetFeature] 
@@ -969,4 +996,14 @@
     
     $( '.ui.dropdown' ).dropdown();
 
+
 } )();
+
+/* Utils ******************************************************************************************/
+
+function cap( str ) {
+
+    var capped = str.charAt(0).toUpperCase() + str.slice(1);
+
+    return capped.split(/(?=[A-Z])/).join( ' ' );
+}

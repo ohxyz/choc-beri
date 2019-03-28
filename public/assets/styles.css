@@ -420,6 +420,7 @@ body .container ::-webkit-scrollbar-thumb {
 .main .feature-status__feature-name {
   cursor: pointer;
   color: #4b4b4b;
+  word-break: break-all;
 }
 .main .feature-status__feature-name:hover {
   color: black;
