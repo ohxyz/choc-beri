@@ -332,6 +332,16 @@
                       </div>
                       <div class="feature-details__content">${f.jobID}</div>
                     </div>
+                    ${ f.batch 
+                        ? `<div class="feature-details__row">
+                              <div class="feature-details__title">
+                                <div class="feature-details__icon fas fa-sort-numeric-up"></div>
+                                <div class="feature-details__name">Batch Status</div>
+                              </div>
+                              <div class="feature-details__content">${cap(f.batch)}</div>
+                            </div>`
+                        : ''
+                    }
                     <div class="feature-details__row">
                       <div class="feature-details__title">
                         <div class="feature-details__icon fas fa-battery-three-quarters"></div>
@@ -367,6 +377,51 @@
                       </div>
                       <div class="feature-details__content">${f.featureStore}</div>
                     </div>
+                    ${ f.predictive && f.predictive.timeDate && f.predictive.targetFeature
+                        ? `<div class="feature-details__row">
+                          <div class="feature-details__title">
+                            <i class="feature-details__icon fas fa-glasses"></i>
+                            <span class="feature-details__name">Predictive Job</span>
+                          </div>
+                          <div class="feature-details__content">
+                          ${ Object.keys( f.predictive.timeDate ).map( k => `
+                                  <div class="predictive-job__row">
+                                      <span class="predictive-job__title">Date</span>
+                                      <span class="predictive-job__content">${f.predictive.timeDate[k]}</span>
+                                  </div>
+                              `).join( '' )
+                          }
+                          ${ Object.keys( f.predictive.targetFeature ).map( k => `
+                                  <div class="predictive-job__row">
+                                      <span class="predictive-job__title">${cap(k)}</span>
+                                      <span class="predictive-job__content">${f.predictive.targetFeature[k]}</span>
+                                  </div>
+                              `).join( '' )
+                          }
+                          </div>
+                        </div>`
+                        : ``
+                    }
+                    ${ f.historyBatch 
+                        ? `<div class="feature-details__row">
+                              <div class="feature-details__title">
+                                <div class="feature-details__icon fas fa-history"></div>
+                                <div class="feature-details__name">Historical Batch Status</div>
+                              </div>
+                              <div class="feature-details__content">${cap(f.historyBatch)}</div>
+                            </div>`
+                        : ``
+                    }
+                    ${ f.fromDate
+                        ? `<div class="feature-details__row">
+                              <div class="feature-details__title">
+                                <div class="feature-details__icon far fa-calendar-minus"></div>
+                                <div class="feature-details__name">Historical Date (from date)</div>
+                              </div>
+                              <div class="feature-details__content">${f.fromDate}</div>
+                           </div>`
+                        : ``
+                    }
                   </div>
                 </div>
               </div>
@@ -440,99 +495,7 @@
                     <span class="feature-operations__name">Unmark decommission</span>
                 </span>
             </div>
-        `)
-
-        var $batchRow = $( `
-
-            <div class="feature-details__row">
-              <div class="feature-details__title">
-                <div class="feature-details__icon fas fa-sort-numeric-up"></div>
-                <div class="feature-details__name">Batch Status</div>
-              </div>
-              <div class="feature-details__content"></div>
-            </div>
-        `)
-
-        if ( f.batch ) {
-
-            $( '.feature-details__content', $batchRow ).text( cap(f.batch) );
-            $featureDetails.prepend( $batchRow );
-        }
-
-        var $predictiveJobRow = $( `
-
-            <div class="feature-details__row">
-              <div class="feature-details__title">
-                <i class="feature-details__icon fas fa-glasses"></i>
-                <span class="feature-details__name">Predictive Job</span>
-              </div>
-              <div class="feature-details__content"></div>
-            </div>
         `);
-
-        if ( f.predictive && f.predictive.timeDate && f.predictive.targetFeature ) {
-
-            var $featureDetailsContent = $( '.feature-details__content', $predictiveJobRow );
-
-            for ( var keyOfTimeDate in Object.keys( f.predictive.timeDate ) ) {
-
-                var $row = $( '<div class="predictive-job__row">');
-                var $title = $( '<span class="predictive-job__title">' ).text( 'Date' );
-                var $content = $( '<span class="predictive-job__content">' ).text( f.predictive.timeDate[keyOfTimeDate] );
-
-                $row.append( $title, $content );
-                $featureDetailsContent.append( $row );
-            }
-
-            for ( var keyOfTargetFeature in f.predictive.targetFeature ) {
-
-                var $row = $( '<div class="predictive-job__row">');
-                var $title = $( '<span class="predictive-job__title">' ).text( cap( keyOfTargetFeature ) );
-
-                var $content = $( '<span class="predictive-job__content">' ).text( 
-                    f.predictive.targetFeature[keyOfTargetFeature] 
-                );
-
-               $row.append( $title, $content );
-               $featureDetailsContent.append( $row );
-            }
-
-            $featureDetails.append( $predictiveJobRow );
-        }
-
-        var $historyBatchRow = $(`
-
-            <div class="feature-details__row">
-              <div class="feature-details__title">
-                <div class="feature-details__icon fas fa-database"></div>
-                <div class="feature-details__name">Historical Batch Status</div>
-              </div>
-              <div class="feature-details__content"></div>
-            </div>
-        `)
-
-        if ( f.historyBatch ) {
-
-            $( '.feature-details__content', $historyBatchRow ).text( f.historyBatch );
-            $featureDetails.append( $historyBatchRow );
-        }
-
-        var $fromDate = $(`
-
-            <div class="feature-details__row">
-              <div class="feature-details__title">
-                <div class="feature-details__icon fas fa-database"></div>
-                <div class="feature-details__name">Historical Date (from date)</div>
-              </div>
-              <div class="feature-details__content"></div>
-            </div>
-        `)
-
-        if ( f.fromDate ) {
-
-            $( '.feature-details__content', $fromDate ).text( f.fromDate );
-            $featureDetails.append( $fromDate );
-        }
 
         var $externalDependenciesRow = $( `
 
