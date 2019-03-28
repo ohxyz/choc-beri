@@ -108,63 +108,6 @@
 
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-start;
-
-            &:nth-child(1) {
-
-                $color: #18bbd0;
-
-                .feature-status {
-
-                    &__icon-title {
-
-                        color: $color;
-                    }
-
-                    &__title {
-
-                        color: $color;
-                    }
-
-
-                }
-            }
-
-            &:nth-child(2) {
-
-                $color: #188abd;
-
-                .feature-status {
-
-                    &__icon-title {
-
-                        color: $color;
-                    }
-
-                    &__title {
-
-                        color: $color;
-                    }
-                }
-            }
-
-            &:nth-child(3) {
-
-                $color: #084c82;
-
-                .feature-status {
-
-                    &__icon-title {
-
-                        color: $color;
-                    }
-
-                    &__title {
-
-                        color: $color;
-                    }
-                }
-            }
         }
     }
 
@@ -173,13 +116,14 @@
         flex-basis: 250px;
         border: 1px solid #eaeaea;
         border-radius: 2px;
-        background-color: white;
         margin: 5px;
+        flex-grow: 1;
+        background: white;
 
         &__header {
 
             font-weight: bold;
-            color: #999999;
+            color: #666666;
             padding: 12px 20px;
             display: flex;
             user-select: none;
@@ -234,21 +178,38 @@
             border-top: 1px solid #ededed;
         }
 
+        &--built {
 
-        &--failed {
-
-            $border-color: #de1a0b;
+            $color: #429946;
 
             .feature-status {
 
                 &__icon-title {
 
-                    color: $border-color;
+                    color: $color;
                 }
 
                 &__title {
 
-                    color: $border-color;
+                    color: $color;
+                }
+            }
+        }
+
+        &--failed {
+
+            $color: #ed362a;
+            
+            .feature-status {
+
+                &__icon-title {
+
+                    color: $color;
+                }
+
+                &__title {
+
+                    color: $color;
                 }
             }
         }

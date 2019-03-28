@@ -42,16 +42,19 @@
     $( '.feature-status__header' ).click( function () {
 
         var $icon = $( '.feature-status__icon-expand', this );
-        var $content = $( this ).next();
+        var $container = $( this ).parent();
+        var $content = $( '.feature-status__content', $container );
 
         if ( $icon.hasClass( 'fa-plus') ) {
 
             $icon.removeClass( 'fa-plus' ).addClass( 'fa-minus' );
+            $container.css( 'align-self', 'stretch');
             $content.show();
         }
         else if (  $icon.hasClass( 'fa-minus') ) {
 
             $icon.removeClass( 'fa-minus' ).addClass( 'fa-plus' );
+            $container.css( 'align-self', 'flex-start');
             $content.hide();
         }
         
