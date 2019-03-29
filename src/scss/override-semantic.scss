@@ -6,6 +6,27 @@
 
 .ui {
 
+    &.message {
+
+        border-radius: 2px;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+
+        i {
+
+            margin-right: 16px;
+            font-size: 16px;
+        }
+    }
+
+    &.red.message {
+
+        background-color: #fff0ef;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        color: #e72214;
+    }
+
     &.button {
 
         border-radius: 2px;
@@ -121,5 +142,3 @@
         border-radius: 2px;
     }
 }
-
-

@@ -120,6 +120,28 @@
         flex-grow: 1;
         background: white;
 
+        .promote-button {
+
+            font-size: 12px;
+            display: flex;
+            margin-right: 20px;
+            color: #bb247f;
+
+            &__icon {
+
+                margin-top: 2px;
+                margin-right: 6px;
+            }
+
+            &__content {
+
+                &:hover {
+
+                    text-decoration: underline;
+                }
+            }
+        }
+
         &__header {
 
             font-weight: bold;

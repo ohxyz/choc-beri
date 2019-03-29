@@ -4,9 +4,85 @@
 
     border-radius: 2px;
 
-    .actions >.button {
+    & >.icon:first-child+*, 
+    & >:first-child:not(.icon) {
+
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+
+    .step {
+
+        i {
+
+            font-size:  32px;
+            margin-top: 12px;
+        }
+
+        &.active {
+
+            i {
+
+                color: #4183c4;
+            }
+
+            .title {
+
+                color: #4183c4;
+            }
+        }
+    }
+
+    .button {
 
         background-color: #eeeeee;
+        color: #404040;
+    }
+
+    .header {
+
+        color: white;            
+        background-color: #bb247f;
+        border-bottom: none;
+        padding: 18px 25px;
+        text-transform: uppercase;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+
+        i {
+            
+            margin-right: 18px;
+            font-size: 25px;
+        }
+    }
+
+    .content {
+
+        padding: 25px 25px 10px 25px;
+
+        .row {
+
+            margin-bottom: 10px;
+
+            &__content {
+
+                margin-left: 15px;
+            }
+        }
+
+        .text {
+
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .tag {
+
+            display: inline-block;
+            background-color: #0e8bee;
+            min-width: 120px;
+            color: white
+        }
     }
 
     &.basic {
@@ -26,7 +102,7 @@
         .header {
 
             font-size: 20px;
-            padding: 40px;
+            padding: 30px;
 
             i {
                 display: block;
@@ -43,7 +119,8 @@
 
         .content {
 
-            padding: 0;
+            padding: 20px;
+            font-size: 16px;
 
         }
 
@@ -68,6 +145,17 @@
                 }
             }
         }
+
+        &.modal--error {
+
+            .header {
+
+                i {
+
+                    color: #be342a;
+                }
+            }
+        }
     }
 
     &.modal--validate-success {
@@ -77,46 +165,6 @@
             background-color: #f5f5f5;
             padding: 20px;
             white-space: pre-wrap;
-        }
-
-        .header {
-
-            color: white;
-            background-color: $main-color;
-            border-bottom: none;
-            padding: 18px 25px;
-            text-transform: uppercase;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
-
-            i {
-
-                margin-right: 18px;
-                font-size: 25px;
-            }
-        }
-
-        .content {
-
-            padding: 25px 25px 10px 25px;
-
-            .row {
-
-                margin-bottom: 10px;
-
-                &__content {
-
-                    margin-left: 15px;
-                }
-            }
-
-            .tag {
-
-                display: inline-block;
-                background-color: #0e8bee;
-                width: 120px;
-                color: white
-            }
         }
 
         .actions {

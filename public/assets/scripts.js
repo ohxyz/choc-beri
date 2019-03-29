@@ -1,9 +1,22 @@
+/**
+ * Scripts together shipped with Reskin work
+ *
+ * @todo
+ *     1. Check user's previllege to enable/disable operation in feature-status page. 
+ *        - Pause, Resume, Mark for promotion, Unmark promotion, Decommission, Unmark decommission
+ *        Right now, it assumes all users have `admin` right
+ */
+
 ( function () {
 
 /* Globals ****************************************************************************************/
 
     var $container = $( '.container' );
     var $main = $( '.main' );
+    var zone = $( '.main__header' ).data( 'zone' );
+    var user = { admin: true } // Required to be integrated user profile
+
+    console.log( 'zone', zone );
 
 /* Toggle menu items - Accodion style *************************************************************/
 
@@ -39,7 +52,11 @@
 
 /* Feature status - Feature store header toggle ***************************************************/
     
-    $( '.feature-status__header' ).click( function () {
+    $( '.feature-status__header' ).click( function ( event ) {
+
+        if ( $( event.target ).is( '.item.action' ) ) {
+            return;
+        }
 
         var $icon = $( '.feature-status__icon-expand', this );
         var $container = $( this ).parent();
@@ -324,6 +341,96 @@
                     <i class="feature-heading__icon far fa-star"></i>
                     <span class="feature-heading__name">${featureName}</span>
                   </div>
+                  ${ f.status.state === 'built'
+                     ? `<div class="feature-operations">
+                        ${  user.admin === true
+                            ? `${ f.batch === 'paused'
+                                  ?  `<span class="feature-operations__operation">
+                                        <i class="feature-operations__icon far fa-play-circle"></i>
+                                        <span class="feature-operations__name item action"
+                                              value="${f.jobID}" 
+                                              zone="${zone}" 
+                                              action="resume"
+                                              id="resume">Resume</span>
+                                    </span>`
+
+                                  : `<span class="feature-operations__operation">
+                                        <i class="feature-operations__icon far fa-pause-circle"></i>
+                                        <span class="feature-operations__name item action" 
+                                              value="${f.jobID}" 
+                                              zone="${zone}"
+                                              action="pause"
+                                              id="pause">Pause</span>
+                                    </span>`
+                               }`
+
+                            : ``
+                        }
+                        ${  zone === 'lab'
+                            ?  `${  f.markedForPromotion 
+                                        && f.markedForPromotion.flag === true  
+                                        && !( f.markedForDecommission && f.markedForDecommission.flag === true )
+
+                                    ?  `<span class="feature-operations__operation">
+                                            <i class="feature-operations__icon far fa-frown-open"></i>
+                                            <span class="feature-operations__name item action" 
+                                                  value="${f.jobID}" 
+                                                  zone="${zone}" 
+                                                  action="unmark" 
+                                                  id="promoteJob">Unmark promomtion</span>
+                                        </span>`
+
+                                    :   `<span class="feature-operations__operation">
+                                            <i class="feature-operations__icon far fa-grin-beam"></i>
+                                            <span class="feature-operations__name item action" 
+                                                  value="${f.jobID}" 
+                                                  zone="${zone}" 
+                                                  action="mark"
+                                                  id="promoteJob">Mark for promomtion</span>
+                                        </span>`
+                                }
+                                ${  f.markedForDecommission 
+                                        && f.markedForDecommission.flag == true 
+                                        && user.admin == true
+
+                                    ?   `<span class="feature-operations__operation">
+                                            <i class="feature-operations__icon fas fa-ban"></i>
+                                            <span class="feature-operations__name item action" 
+                                                  value="${f.jobID}"
+                                                  zone="${zone}"
+                                                  action="decommission"
+                                                  id="decommissionJob">Decommission</span>
+                                        </span>`
+
+                                    : `` 
+                                }
+                                ${ f.markedForDecommission && f.markedForDecommission.flag === true
+
+                                    ?  `<span class="feature-operations__operation">
+                                            <i class="feature-operations__icon far fa-grin-beam-sweat"></i>
+                                            <span class="feature-operations__name item action"
+                                                  value="${f.jobID}"
+                                                  zone="${zone}"
+                                                  action="unmark"
+                                                  id="decommissionJob">Unmark decommission</span>
+                                        </span>`
+
+                                    :  `<span class="feature-operations__operation">
+                                            <i class="feature-operations__icon far fa-meh"></i>
+                                            <span class="feature-operations__name item action"
+                                                  value="${f.jobID}"
+                                                  zone="${zone}"
+                                                  action="mark"
+                                                  id="decommissionJob">Mark for decommission</span>
+                                        </span>`
+                                }`
+
+                            : ``
+                        }
+                        </div>
+                    `
+                    : ''
+                  }
                   <div class="feature-details">
                     <div class="feature-details__row">
                       <div class="feature-details__title">
@@ -466,36 +573,6 @@
             $( '.feature-info__content', $info ).text( 'This feature is marked for decommission.' );
             $featureHeading.after( $info );
         }
-
-        var $operations = $(`
-
-            <div class="feature-operations">
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon far fa-pause-circle"></i>
-                    <span class="feature-operations__name">Pause</span>
-                </span>
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon far fa-play-circle"></i>
-                    <span class="feature-operations__name">Resume</span>
-                </span>
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon far fa-grin-beam"></i>
-                    <span class="feature-operations__name">Mark for promomtion</span>
-                </span>
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon far fa-frown-open"></i>
-                    <span class="feature-operations__name">Unmark promomtion</span>
-                </span>
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon fas fa-ban"></i>
-                    <span class="feature-operations__name">Decommission</span>
-                </span>
-                <span class="feature-operations__operation">
-                    <i class="feature-operations__icon far fa-grin-beam-sweat"></i>
-                    <span class="feature-operations__name">Unmark decommission</span>
-                </span>
-            </div>
-        `);
 
         var $externalDependenciesRow = $( `
 
@@ -732,31 +809,6 @@
 
 /* Semantic UI - customized ***********************************************************************/
 
-    function createModal( className = '' ) {
-
-        var $modal = $( `<div class="ui modal ${className}">` );
-        var $header = $( '<div class="header">' );
-        var $content = $( '<div class="content">');
-        var $actions = $( '<div class="actions">' );
-        var $closeButton = $( `
-            <div class="ui cancel button">
-                <i class="fa fa-times"></i>
-                <span>Close<span>
-            </div>
-        ` );
-
-        $modal.append( $header, $content, $actions );
-        $actions.append( $closeButton );
-
-        return {
-
-            $modal,
-            $header,
-            $content,
-            $actions,
-            $closeButton
-        }
-    }
 
     function $createTag( iconClass = '', content = '' ) {
 
@@ -972,4 +1024,43 @@ function cap( str ) {
     var capped = str.charAt(0).toUpperCase() + str.slice(1);
 
     return capped.split(/(?=[A-Z])/).join( ' ' );
+}
+
+function createModal( className = '' ) {
+
+    var $modal = $( `<div class="ui modal ${className}">` );
+    var $header = $( '<div class="header">' );
+    var $content = $( '<div class="content">');
+    var $actions = $( '<div class="actions">' );
+    var $closeButton = $( `
+        <div class="ui cancel button">
+            <i class="fa fa-times"></i>
+            <span>Close<span>
+        </div>
+    ` );
+
+    $modal.append( $header, $content, $actions );
+    $actions.append( $closeButton );
+
+    return {
+
+        $modal,
+        $header,
+        $content,
+        $actions,
+        $closeButton
+    }
+}
+
+function showErrorModal( headerContent="Error", contentContent="Something went wrong." ) {
+
+    var modal = createModal( 'basic modal--error' );
+    var $headerIcon = $( '<i class="far fa-times-circle">' );
+    var $headerContent = $( `<div>${headerContent}</div>`);
+
+    modal.$header.append( $headerIcon, $headerContent );
+    modal.$content.text( contentContent );
+    modal.$modal
+         .modal('setting', 'transition', 'fade' )
+         .modal( 'show' );
 }

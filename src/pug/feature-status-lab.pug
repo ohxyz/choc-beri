@@ -12,7 +12,7 @@ block link
     - var path = 'feature-status-lab'
 
 block main
-    .main__header
+    .main__header(data-zone="lab")
         .main__zone.main__zone--lab
             .zone-icon.i.fas.fa-flask
             .zone-name Laboratory
@@ -47,7 +47,7 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name(data-feature='{"dependencies":{},"entity":"srvc_bk","featureStore":"fixedservice","scriptLanguage":"SQL","status":{"state":"building"},"createdAt":"2019-03-20T05:22:54.284700","dataSources":{"glue":{"idv":{"s_octf_nbn_srvc":{"name":"s_octf_nbn_srvc","database":"idv","service":"glue","entity":"entity"}}}},"jobID":"example1","features":{"example1":{"featureName":"example1","dataType":"TINYINT"}},"updatedAt":"2019-03-28T03:33:27.977Z","markedForPromotion":{"partOf":["15530593725245125"],"flag":true},"batch":"errored","scriptLocation":{"bucket":"d00-choc-beri-application","file":"scripts/lab/fixedservice/smoke_test_feature.sql"}}') Click me
+                                    span.feature-status__feature-name(data-feature='{"dependencies":{},"entity":"srvc_bk","featureStore":"fixedservice","scriptLanguage":"SQL","status":{"state":"built"},"createdAt":"2019-03-20T05:22:54.284700","dataSources":{"glue":{"idv":{"s_octf_nbn_srvc":{"name":"s_octf_nbn_srvc","database":"idv","service":"glue","entity":"entity"}}}},"jobID":"example1","features":{"example1":{"featureName":"example1","dataType":"TINYINT"}},"updatedAt":"2019-03-28T03:33:27.977Z","markedForPromotion":{"partOf":["15530593725245125"],"flag":true},"batch":"errored","scriptLocation":{"bucket":"d00-choc-beri-application","file":"scripts/lab/fixedservice/smoke_test_feature.sql"}}') Click me
                                 .feature-status__list-item
                                     span.feature-status__feature-name(data-feature='{"createdAt":"2019-01-24T09:02:23.928107","dataSources":{},"dependencies":{"fixedservice":{"entity":"srvc_bk","features":{"recd_del_flg":{"factory":true,"featureName":"recd_del_flg"},"recd_del_flg_bin":{"factory":true,"featureName":"recd_del_flg_bin"}},"featureStore":"fixedservice"}},"entity":"srvc_bk","features":{"recd_del_decommission_please":{"dataType":"FLOAT","featureName":"recd_del_decommission_please"}},"featureStore":"fixedservice","jobID":"15482809327218018","predictive":{"modelInfo":{"algorithm":"Gradient Boosting Machine","modelType":"Binomial"},"predictive":"on","supervised":"true","targetFeature":{"feature":"recd_del_flg_bin","featureStore":"fixedservice","zone":"lab"},"timeDate":{}},"scriptLanguage":"MOJO","scriptLocation":{"bucket":"s-choc-beri-application","file":"scripts/lab/fixedservice/GBM_model_python_1540786708091_222.zip"},"status":{"message":"dry run failed on Exception: RequestId: 465779e2-a2b6-4bb2-89ba-15e88e6780ee Process exited before completing request","state":"failed"},"updatedAt":"2019-01-24T09:02:29.444361"}') Click me 2
                                 .feature-status__list-item
@@ -86,6 +86,9 @@ block main
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-candy-cane
                             span.feature-status__title READY
+                            span.promote-button 
+                                i.promote-button__icon.fas.fa-medal
+                                span.promote-button__content Promote 
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
