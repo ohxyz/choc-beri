@@ -2,12 +2,6 @@
 //- TODO: Display a message when there is no features or feature stores are found
 extends _layout.pug
 
-mixin renderListItem(f)
-    .feature-status__list-item
-        - item = Object.values(f.features)[0]
-        - attributes = { 'data-feature': f }
-        span.feature-status__feature-name&attributes(attributes) #{item.featureName} #{item.dataType}
-
 block link
     - var path = 'feature-status-lab'
 
@@ -47,11 +41,34 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name(data-feature='{"dependencies":{},"entity":"srvc_bk","featureStore":"fixedservice","scriptLanguage":"SQL","status":{"state":"built"},"createdAt":"2019-03-20T05:22:54.284700","dataSources":{"glue":{"idv":{"s_octf_nbn_srvc":{"name":"s_octf_nbn_srvc","database":"idv","service":"glue","entity":"entity"}}}},"jobID":"example1","features":{"example1":{"featureName":"example1","dataType":"TINYINT"}},"updatedAt":"2019-03-28T03:33:27.977Z","markedForPromotion":{"partOf":["15530593725245125"],"flag":true},"batch":"errored","scriptLocation":{"bucket":"d00-choc-beri-application","file":"scripts/lab/fixedservice/smoke_test_feature.sql"}}') Click me
+                                    .feature-status__job(data-feature='{"dependencies":{},"entity":"srvc_bk","featureStore":"fixedservice","scriptLanguage":"SQL","status":{"state":"built"},"createdAt":"2019-03-20T05:22:54.284700","dataSources":{"glue":{"idv":{"s_octf_nbn_srvc":{"name":"s_octf_nbn_srvc","database":"idv","service":"glue","entity":"entity"}}}},"jobID":"example1","features":{"example1":{"featureName":"example1","dataType":"TINYINT"}},"updatedAt":"2019-03-28T03:33:27.977Z","markedForPromotion":{"partOf":["15530593725245125"],"flag":true},"batch":"errored","scriptLocation":{"bucket":"d00-choc-beri-application","file":"scripts/lab/fixedservice/smoke_test_feature.sql"}}')
+                                        .feature-status__job-id Job ID : Click me
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+
                                 .feature-status__list-item
-                                    span.feature-status__feature-name(data-feature='{"createdAt":"2019-01-24T09:02:23.928107","dataSources":{},"dependencies":{"fixedservice":{"entity":"srvc_bk","features":{"recd_del_flg":{"factory":true,"featureName":"recd_del_flg"},"recd_del_flg_bin":{"factory":true,"featureName":"recd_del_flg_bin"}},"featureStore":"fixedservice"}},"entity":"srvc_bk","features":{"recd_del_decommission_please":{"dataType":"FLOAT","featureName":"recd_del_decommission_please"}},"featureStore":"fixedservice","jobID":"15482809327218018","predictive":{"modelInfo":{"algorithm":"Gradient Boosting Machine","modelType":"Binomial"},"predictive":"on","supervised":"true","targetFeature":{"feature":"recd_del_flg_bin","featureStore":"fixedservice","zone":"lab"},"timeDate":{}},"scriptLanguage":"MOJO","scriptLocation":{"bucket":"s-choc-beri-application","file":"scripts/lab/fixedservice/GBM_model_python_1540786708091_222.zip"},"status":{"message":"dry run failed on Exception: RequestId: 465779e2-a2b6-4bb2-89ba-15e88e6780ee Process exited before completing request","state":"failed"},"updatedAt":"2019-01-24T09:02:29.444361"}') Click me 2
+                                    .feature-status__job(data-feature='{"createdAt":"2019-01-24T09:02:23.928107","dataSources":{},"dependencies":{"fixedservice":{"entity":"srvc_bk","features":{"recd_del_flg":{"factory":true,"featureName":"recd_del_flg"},"recd_del_flg_bin":{"factory":true,"featureName":"recd_del_flg_bin"}},"featureStore":"fixedservice"}},"entity":"srvc_bk","features":{"recd_del_decommission_please":{"dataType":"FLOAT","featureName":"recd_del_decommission_please"}},"featureStore":"fixedservice","jobID":"15482809327218018","predictive":{"modelInfo":{"algorithm":"Gradient Boosting Machine","modelType":"Binomial"},"predictive":"on","supervised":"true","targetFeature":{"feature":"recd_del_flg_bin","featureStore":"fixedservice","zone":"lab"},"timeDate":{}},"scriptLanguage":"MOJO","scriptLocation":{"bucket":"s-choc-beri-application","file":"scripts/lab/fixedservice/GBM_model_python_1540786708091_222.zip"},"status":{"message":"dry run failed on Exception: RequestId: 465779e2-a2b6-4bb2-89ba-15e88e6780ee Process exited before completing request","state":"failed"},"updatedAt":"2019-01-24T09:02:29.444361"}')
+                                        .feature-status__job-id Job ID : Click me, too
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--mystery
                         .feature-status__header
@@ -61,7 +78,15 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
 
 
                     .feature-status.feature-status--validated
@@ -72,15 +97,46 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
-                                .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
+
+
 
                     .feature-status.feature-status--ready
                         .feature-status__header
@@ -93,25 +149,91 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--pending
                         .feature-status__header
-                            i.feature-status__icon-title.far.fa-meh-blank
+                            i.feature-status__icon-title.fas.fa-circle-notch
                             span.feature-status__title PENDING
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                     .feature-status.feature-status--building
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-tools
@@ -120,15 +242,70 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--built
                         .feature-status__header
@@ -138,47 +315,190 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--marked-for-promotion
                         .feature-status__header
-                            i.feature-status__icon-title.far.fa-grin-beam
+                            i.feature-status__icon-title.far.fa-arrow-alt-circle-up
                             span.feature-status__title MARKED FOR PROMOTION
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--marked-for-decommission
                         .feature-status__header
-                            i.feature-status__icon-title.far.fa-meh
+                            i.feature-status__icon-title.far.fa-arrow-alt-circle-down
                             span.feature-status__title MARKED FOR DECOMMISSION
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--decommissioning
                         .feature-status__header
@@ -188,15 +508,70 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--promoted
                         .feature-status__header
@@ -206,11 +581,44 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--decommissioned
                         .feature-status__header
@@ -220,15 +628,70 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--failed
                         .feature-status__header
@@ -238,11 +701,44 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status.feature-status--uncategorised
                         .feature-status__header
@@ -252,15 +748,70 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
             #mobile.feature-store
                 .feature-store__header Feature store - mobile
@@ -274,15 +825,70 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
 
                     .feature-status
                         .feature-status__header
@@ -292,17 +898,94 @@ block main
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
                                 .feature-status__list-item
-                                    span.feature-status__feature-name recd_del_flg_bin (TINYINT)
+                                    .feature-status__job
+                                        .feature-status__job-id Job ID : 13247931740143
+                                        span.feature-status__features
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content NetworkElement (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content SubscriberID (STRING)
+                                            span.tag
+                                                i.tag__icon.far.fa-star
+                                                span.tag__content OctaneID (STRING)
         //- include _feature-panel.pug

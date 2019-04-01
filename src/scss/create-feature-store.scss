@@ -55,30 +55,7 @@
         }
     }
 
-    .code-feedback {
 
-        background-color: #eeeeee;
-        min-height: 80px;
-        padding: 9px 13px;
-        border-radius: 2px;
-        font-weight: bold;
-        display: flex;
-
-        &__icon {
-
-            flex-basis: 24px;
-            margin-top: 3px;
-            font-size: 14px;
-        }
-
-        &--error {
-
-            color: #d82121;
-            background-color: #ffe9e9;
-            border: 1px solid #ffdbdb;
-            font-size: 12px;
-        }
-    }
 
     .validate-button {
 

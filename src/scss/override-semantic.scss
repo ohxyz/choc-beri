@@ -6,6 +6,16 @@
 
 .ui {
 
+    &.table {
+
+        border-radius: 2px;
+
+        td {
+
+            word-break: break-all;
+        }
+    }
+
     &.message {
 
         border-radius: 2px;
@@ -141,4 +151,14 @@
     &:focus {
         border-radius: 2px;
     }
+}
+
+.ui.table thead tr:first-child > th:first-child {
+
+    border-radius: 0;
+}
+
+.ui.table thead tr:first-child > th:last-child {
+
+    border-radius: 0;
 }

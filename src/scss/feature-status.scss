@@ -142,6 +142,7 @@
             }
         }
 
+
         &__header {
 
             font-weight: bold;
@@ -162,7 +163,7 @@
             margin-left: 20px;
         }
 
-        &__feature-name {
+        &__job {
 
             cursor: pointer;
             color: #4b4b4b;
@@ -170,8 +171,34 @@
 
             &:hover {
 
-                color: black;
+                background-color: #f5f5f5;
             }
+
+            .tag {
+
+                margin-right: 20px;
+                background: transparent;
+                padding: 0;
+                color: #666666;
+
+                &__content {
+
+                    word-break: normal;
+                }
+            }
+        }
+
+        &__job-id {
+
+            margin-bottom: 5px;
+            color: #bb247f;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        &__features {
+
+            display: flex;
         }
 
         &__icon-title {

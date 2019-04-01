@@ -4,7 +4,7 @@
  * @todo
  *     1. Check user's previllege to enable/disable operation in feature-status page. 
  *        - Pause, Resume, Mark for promotion, Unmark promotion, Decommission, Unmark decommission
- *        Right now, it assumes all users have `admin` right
+ *        Right now, only `admin` is identified
  */
 
 ( function () {
@@ -207,7 +207,7 @@
     var $featureNameClicked = null;
     var $featurePanel = null;
 
-    $( '.feature-status__feature-name' ).click( function () {
+    $( '.feature-status__job' ).click( function () {
 
         if ( $featurePanel !== null ) {
 
@@ -229,7 +229,7 @@
             }
             else {
 
-                console.log( "[It's OK] Feature details are missing." );
+                console.warn( '[Choc] Feature details are missing.' );
             }
 
             $featureNameClicked = $( this );
@@ -325,7 +325,7 @@
 
     function $createFeaturePanel( f ) {
 
-        console.log( 'Feature in panel', f );
+        console.log( 'Feature panel', f );
 
         var v = Object.values(f.features)[0];
         var featureName = `${v.featureName} (${v.dataType})`;
@@ -372,7 +372,7 @@
                                         && !( f.markedForDecommission && f.markedForDecommission.flag === true )
 
                                     ?  `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon far fa-frown-open"></i>
+                                            <i class="feature-operations__icon far fa-meh-blank""></i>
                                             <span class="feature-operations__name item action" 
                                                   value="${f.jobID}" 
                                                   zone="${zone}" 
@@ -381,7 +381,7 @@
                                         </span>`
 
                                     :   `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon far fa-grin-beam"></i>
+                                            <i class="feature-operations__icon far fa-arrow-alt-circle-up"></i>
                                             <span class="feature-operations__name item action" 
                                                   value="${f.jobID}" 
                                                   zone="${zone}" 
@@ -407,7 +407,7 @@
                                 ${ f.markedForDecommission && f.markedForDecommission.flag === true
 
                                     ?  `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon far fa-grin-beam-sweat"></i>
+                                            <i class="feature-operations__icon far fa-meh"></i>
                                             <span class="feature-operations__name item action"
                                                   value="${f.jobID}"
                                                   zone="${zone}"
@@ -416,7 +416,7 @@
                                         </span>`
 
                                     :  `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon far fa-meh"></i>
+                                            <i class="feature-operations__icon far fa-arrow-alt-circle-down"></i>
                                             <span class="feature-operations__name item action"
                                                   value="${f.jobID}"
                                                   zone="${zone}"
@@ -434,7 +434,7 @@
                   <div class="feature-details">
                     <div class="feature-details__row">
                       <div class="feature-details__title">
-                        <div class="feature-details__icon fas fa-child"></div>
+                        <div class="feature-details__icon far fa-id-card"></div>
                         <div class="feature-details__name">Job ID</div>
                       </div>
                       <div class="feature-details__content">${f.jobID}</div>
@@ -496,14 +496,14 @@
                                       <span class="predictive-job__title">Date</span>
                                       <span class="predictive-job__content">${f.predictive.timeDate[k]}</span>
                                   </div>
-                              `).join( '' )
+                             `).join( '' )
                           }
                           ${ Object.keys( f.predictive.targetFeature ).map( k => `
                                   <div class="predictive-job__row">
                                       <span class="predictive-job__title">${cap(k)}</span>
                                       <span class="predictive-job__content">${f.predictive.targetFeature[k]}</span>
                                   </div>
-                              `).join( '' )
+                             `).join( '' )
                           }
                           </div>
                         </div>`
@@ -762,7 +762,7 @@
     }
     catch ( error ) {
 
-        console.log( "[It's OK] " + error );
+        console.warn( "[Choc] " + error );
     }
 
 /* Splitter ***************************************************************************************/
@@ -808,7 +808,6 @@
     } );
 
 /* Semantic UI - customized ***********************************************************************/
-
 
     function $createTag( iconClass = '', content = '' ) {
 
@@ -869,8 +868,8 @@
 
         var $createJobStatus = $( '<div class="create-job__status">' );
         var $createJobButton = $( `
-            <div class="create-job__button ui button">
-                <i class="fas fa-dumbbell"></i>
+            <div class="create-job__button yellow ui button">
+                <i class="fas fa-hammer"></i>
                 <span>Create Job</span>
             </div>
          ` );
@@ -945,7 +944,7 @@
 
         showValidateSuccessModal( data, function () {
 
-            var header = "You job is being created. Please wait ...";
+            var header = "Job being created. Please wait ...";
             var content = "Job ID: " + Math.random().toString().slice(2);
 
             showCreateJobWaitModal( header, content ); 
@@ -1001,12 +1000,21 @@
 
 /* Browse files ***********************************************************************************/
 
-    $( '.item__icon.dropdown' ).click( function () { 
+    $( '.item--folder .item__icon' ).click( function () { 
 
         var $container = $( this ).parent();
 
         $container.toggleClass( 'item--folder--collapse' );
         $( '.content .list', $container ).toggle();
+
+    } );
+
+    $( '.item--folder .header' ).click( function () { 
+
+        var $container = $( this ).parent().parent();
+
+        $container.toggleClass( 'item--folder--collapse' );
+        $( '.list', $container ).toggle();
 
     } );
 
@@ -1061,6 +1069,6 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.text( contentContent );
     modal.$modal
-         .modal('setting', 'transition', 'fade' )
+         .modal( 'setting', 'transition', 'fade' )
          .modal( 'show' );
 }

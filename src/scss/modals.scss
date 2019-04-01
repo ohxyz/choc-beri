@@ -33,11 +33,6 @@
         }
     }
 
-    .button {
-
-        background-color: #eeeeee;
-        color: #404040;
-    }
 
     .header {
 
@@ -64,9 +59,15 @@
 
             margin-bottom: 10px;
 
+            &__title {
+
+                margin-bottom: 10px;
+            }
+
             &__content {
 
-                margin-left: 15px;
+                margin-bottom: 10px;
+                
             }
         }
 
@@ -81,7 +82,20 @@
             display: inline-block;
             background-color: #0e8bee;
             min-width: 120px;
-            color: white
+            color: white;
+            margin-right: 10px;
+        }
+    }
+
+    & >.actions {
+
+        border-top: none;
+        padding-left: 25px;
+        padding-right: 25px;
+
+        & > .button {
+
+            margin-right: 0;
         }
     }
 
@@ -102,7 +116,7 @@
         .header {
 
             font-size: 20px;
-            padding: 30px;
+            padding: 10px;
 
             i {
                 display: block;
@@ -130,7 +144,7 @@
 
                 i {
 
-                    color: #48a748;
+                    color: #38a538;
                 }
             }
         }
@@ -172,12 +186,6 @@
             border-top: none;
             background-color: transparent;
             padding: 0 25px 25px 25px;
-        }
-
-        .create-job__button {
-
-            background-color: #87c63e;
-            color: white;
         }
 
         .job-id__content {

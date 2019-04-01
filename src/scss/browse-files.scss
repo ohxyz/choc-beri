@@ -62,6 +62,7 @@
                 flex-basis: 32px;
                 font-size: 20px;
                 color: #737373;
+                cursor: pointer;
 
                 &.fa-folder-open {
 
@@ -78,7 +79,6 @@
                     font-size: 12px;
                     flex-basis: 10px;
                     color: #cccccc;
-                    cursor: pointer;
 
                     &:hover {
 
@@ -94,6 +94,7 @@
                 .header {
 
                     color: #0f76c8;
+                    cursor: pointer;
                 }
 
                 .description {
