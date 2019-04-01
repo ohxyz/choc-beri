@@ -432,7 +432,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .main .feature-status__job-id {
   margin-bottom: 5px;
-  color: #bb247f;
+  color: #272727;
   font-size: 12px;
   font-weight: bold;
 }
@@ -453,6 +453,9 @@ body .container ::-webkit-scrollbar-thumb {
   margin: 0 20px;
   padding: 10px 0;
   border-top: 1px solid #ededed;
+}
+.main .feature-status--built {
+  border-color: #a7d176;
 }
 .main .feature-status--built .feature-status__icon-title {
   color: #429946;

@@ -191,7 +191,7 @@
         &__job-id {
 
             margin-bottom: 5px;
-            color: #bb247f;
+            color: #272727;
             font-size: 12px;
             font-weight: bold;
         }
@@ -230,6 +230,7 @@
         &--built {
 
             $color: #429946;
+            border-color: #a7d176;
 
             .feature-status {
 
