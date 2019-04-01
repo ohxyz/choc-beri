@@ -743,7 +743,7 @@
         
         editor.setTheme( 'ace/theme/kuroir' );
         editor.setFontSize( fontSize );
-        editor.session.setMode( 'ace/mode/javascript' );
+        editor.session.setMode( 'ace/mode/sql' );
 
         $( '.editor__icon--full-screen' ).click( function () { 
 
@@ -809,93 +809,6 @@
 
 /* Semantic UI - customized ***********************************************************************/
 
-    function $createTag( iconClass = '', content = '' ) {
-
-        return $( `
-            <span class="tag">
-                <i class="tag__icon ${iconClass}"></i>
-                <span class="tag__contnet">${content}</span>
-            </span>
-        ` );
-    }
-
-    function showCreateJobSuccessModal( featureStoreName, jobId ) {
-
-        var modal = createModal( 'basic modal--create-job-success' );
-        var $headerIcon = $( '<i class="far fa-check-circle">' );
-        var $headerContent = $( `<div>Feature store <em>${featureStoreName}</em> created successfully</div>`);
-
-        modal.$header.append( $headerIcon, $headerContent );
-        modal.$content.text( 'Job ID: ' + jobId );
-        modal.$modal
-             .modal('setting', 'transition', 'fade' )
-             .modal( 'show' );
-    }
-
-    function showCreateJobWaitModal( headerContent, contentContent ) {
-
-        var modal = createModal( 'basic modal--create-job-wait' );
-        var $headerIcon = $( '<i class="far fa-hourglass">' );
-        var $headerContent = $( `<div>${headerContent}</div>`);
-
-        modal.$header.append( $headerIcon, $headerContent );
-        modal.$content.text( contentContent );
-        modal.$modal
-             .modal('setting', 'transition', 'fade' )
-             .modal( 'show' );
-    }
-
-    function showCreateJobStatusModal( { modalClass, iconClass, headerContent, contentContent } ) {
-
-        // Todo: Create a base function of status of modal, eg. success, wait/pending, fail/error, etc
-    }
-
-    function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} ) {
-
-        var modal = createModal( 'modal--validate-success' );
-        var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
-        var $featureTag = $createTag( 'far fa-star', 'Feature' );
-        var $pre = $( '<pre>' );
-
-        var $featureRow = $( '<div class="row">' ).append(
-
-            $featureTag, 
-            $( '<span class="row__content">Sp1</span>') 
-        );
-        
-        var $metadataRow = $( '<div class="row">' ).append( $metadataTag, $pre );
-        var $jobIdRow = $( '<div id="job-id" class="row">' );
-
-        var $createJobStatus = $( '<div class="create-job__status">' );
-        var $createJobButton = $( `
-            <div class="create-job__button yellow ui button">
-                <i class="fas fa-hammer"></i>
-                <span>Create Job</span>
-            </div>
-         ` );
-
-        var $headerIcon = $( '<i class="far fa-smile">' );
-        var $headerContent = $( '<span>' ).text( 'Code validation was successful' );
-
-        $pre.text( JSON.stringify( data , null, 2 ) );
-
-        $jobIdTag = $createTag( 'far fa-id-card', 'Job ID' );
-        $jobIdContent = $( `<span class="row__content">${data.jobID}</span>` );
-
-        $jobIdRow.append( $jobIdTag, $jobIdContent );
-
-        modal.$header.append( $headerIcon, $headerContent );
-        modal.$content.append( $featureRow, $metadataRow, $jobIdRow, $createJobStatus );
-        modal.$actions.append( $createJobButton );
-        modal.$modal.modal( 'show' );
-
-        $createJobButton.click( function () { 
-
-            onCreateJobButtonClick();
-            
-        } );
-    }
-
     var data = {
       "dataSources": {
         "glue": {
@@ -926,7 +839,7 @@
 
 /* Create feature store ***************************************************************************/
 
-    $( '.validate-button', '.main__content--create-feature-store' ).click( function () { 
+    $( '#validate-code', '.main__content--create-feature-store' ).click( function () { 
 
         showValidateSuccessModal( data, function () {
 
@@ -1072,3 +985,92 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
          .modal( 'setting', 'transition', 'fade' )
          .modal( 'show' );
 }
+
+function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} ) {
+
+    var modal = createModal( 'modal--validate-success' );
+    var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
+    var $featureTag = $createTag( 'far fa-star', 'Feature' );
+    var $pre = $( '<pre>' );
+
+    var $featureRow = $( '<div class="row">' ).append(
+
+        $featureTag, 
+        $( '<span class="row__content">Sp1</span>') 
+    );
+    
+    var $metadataRow = $( '<div class="row">' ).append( $metadataTag, $pre );
+    var $jobIdRow = $( '<div id="job-id" class="row">' );
+
+    var $createJobStatus = $( '<div class="create-job__status">' );
+    var $createJobButton = $( `
+        <div class="create-job__button yellow ui button">
+            <i class="fas fa-hammer"></i>
+            <span>Create Job</span>
+        </div>
+     ` );
+
+    var $headerIcon = $( '<i class="far fa-smile">' );
+    var $headerContent = $( '<span>' ).text( 'Code validation was successful' );
+
+    $pre.text( JSON.stringify( data , null, 2 ) );
+
+    $jobIdTag = $createTag( 'far fa-id-card', 'Job ID' );
+    $jobIdContent = $( `<span class="row__content">${data.jobID}</span>` );
+
+    $jobIdRow.append( $jobIdTag, $jobIdContent );
+
+    modal.$header.append( $headerIcon, $headerContent );
+    modal.$content.append( $featureRow, $metadataRow, $jobIdRow, $createJobStatus );
+    modal.$actions.append( $createJobButton );
+    modal.$modal.modal( 'show' );
+
+    $createJobButton.click( function () { 
+
+        onCreateJobButtonClick();
+        
+    } );
+}
+
+function $createTag( iconClass = '', content = '' ) {
+
+    return $( `
+        <span class="tag">
+            <i class="tag__icon ${iconClass}"></i>
+            <span class="tag__contnet">${content}</span>
+        </span>
+    ` );
+}
+
+function showCreateJobSuccessModal( featureStoreName, jobId ) {
+
+    var modal = createModal( 'basic modal--create-job-success' );
+    var $headerIcon = $( '<i class="far fa-check-circle">' );
+    var $headerContent = $( `<div>Feature store <em>${featureStoreName}</em> created successfully</div>`);
+
+    modal.$header.append( $headerIcon, $headerContent );
+    modal.$content.text( 'Job ID: ' + jobId );
+    modal.$modal
+         .modal('setting', 'transition', 'fade' )
+         .modal( 'show' );
+}
+
+function showCreateJobWaitModal( headerContent, contentContent ) {
+
+    var modal = createModal( 'basic modal--create-job-wait' );
+    var $headerIcon = $( '<i class="far fa-hourglass">' );
+    var $headerContent = $( `<div>${headerContent}</div>`);
+
+    modal.$header.append( $headerIcon, $headerContent );
+    modal.$content.text( contentContent );
+    modal.$modal
+         .modal('setting', 'transition', 'fade' )
+         .modal( 'show' );
+}
+
+function showCreateJobStatusModal( { modalClass, iconClass, headerContent, contentContent } ) {
+
+    // Todo: Create a base function of status of modal, eg. success, wait/pending, fail/error, etc
+}
+
+    

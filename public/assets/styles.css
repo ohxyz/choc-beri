@@ -850,6 +850,32 @@ body .container ::-webkit-scrollbar-thumb {
   border-radius: 0;
 }
 
+.ui.form .field.error .input,
+.ui.form .field.error label,
+.ui.form .fields.error .field .input,
+.ui.form .fields.error .field label {
+  color: #d93326;
+}
+
+.ui.attached.error.message, .ui.error.message {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: #ba1e12;
+  background-color: #fff4f4;
+  border: 1px solid #f4c7c7;
+}
+
+.ui.form .field.error input:not([type]), .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=email], .ui.form .field.error input[type=file], .ui.form .field.error input[type=number], .ui.form .field.error input[type=password], .ui.form .field.error input[type=search], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=text], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error select, .ui.form .field.error textarea, .ui.form .fields.error .field input:not([type]), .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=file], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field select, .ui.form .fields.error .field textarea {
+  border-color: #f4c7c7;
+}
+.ui.form .field.error input:not([type])::placeholder, .ui.form .field.error input[type=date]::placeholder, .ui.form .field.error input[type=datetime-local]::placeholder, .ui.form .field.error input[type=email]::placeholder, .ui.form .field.error input[type=file]::placeholder, .ui.form .field.error input[type=number]::placeholder, .ui.form .field.error input[type=password]::placeholder, .ui.form .field.error input[type=search]::placeholder, .ui.form .field.error input[type=tel]::placeholder, .ui.form .field.error input[type=text]::placeholder, .ui.form .field.error input[type=time]::placeholder, .ui.form .field.error input[type=url]::placeholder, .ui.form .field.error select::placeholder, .ui.form .field.error textarea::placeholder, .ui.form .fields.error .field input:not([type])::placeholder, .ui.form .fields.error .field input[type=date]::placeholder, .ui.form .fields.error .field input[type=datetime-local]::placeholder, .ui.form .fields.error .field input[type=email]::placeholder, .ui.form .fields.error .field input[type=file]::placeholder, .ui.form .fields.error .field input[type=number]::placeholder, .ui.form .fields.error .field input[type=password]::placeholder, .ui.form .fields.error .field input[type=search]::placeholder, .ui.form .fields.error .field input[type=tel]::placeholder, .ui.form .fields.error .field input[type=text]::placeholder, .ui.form .fields.error .field input[type=time]::placeholder, .ui.form .fields.error .field input[type=url]::placeholder, .ui.form .fields.error .field select::placeholder, .ui.form .fields.error .field textarea::placeholder {
+  color: #ba1e12;
+}
+
+.ui.form .field.error .ui.dropdown, .ui.form .fields.error .field .ui.dropdown {
+  border-color: #f4c7c7 !important;
+}
+
 .editor {
   flex-grow: 1;
   min-width: 250px;
@@ -1043,8 +1069,8 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .code-feedback--error {
   color: #d82121;
-  background-color: #ffe9e9;
-  border: 1px solid #dff6c5;
+  background-color: #fff4f4;
+  border: 1px solid #f4c7c7;
 }
 
 .login {

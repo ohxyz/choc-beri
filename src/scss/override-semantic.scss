@@ -162,3 +162,35 @@
 
     border-radius: 0;
 }
+
+.ui.form .field.error .input, 
+.ui.form .field.error label, 
+.ui.form .fields.error .field .input, 
+.ui.form .fields.error .field label {
+
+    color: #d93326;
+}
+
+.ui.attached.error.message, .ui.error.message {
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #ba1e12;
+    background-color: #fff4f4;
+    border: 1px solid #f4c7c7;
+}
+
+.ui.form .field.error input:not([type]), .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=email], .ui.form .field.error input[type=file], .ui.form .field.error input[type=number], .ui.form .field.error input[type=password], .ui.form .field.error input[type=search], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=text], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error select, .ui.form .field.error textarea, .ui.form .fields.error .field input:not([type]), .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=file], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field select, .ui.form .fields.error .field textarea {
+
+    border-color: #f4c7c7;
+
+    &::placeholder {
+
+        color: #ba1e12;
+    }
+}
+
+.ui.form .field.error .ui.dropdown, .ui.form .fields.error .field .ui.dropdown {
+
+    border-color: #f4c7c7 !important;
+}
