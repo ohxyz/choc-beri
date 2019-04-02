@@ -71,6 +71,43 @@
         <div class="main__title">Upload files</div>
         <div class="main__breadcrumb"><span>Upload Files</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
+      <div class="main__content main__content--upload-files">
+        <div class="upload-files">
+          <div class="upload-files__heading">SELECT FILES TO UPLOAD</div>
+          <div class="upload-files__main">
+            <div class="upload-files__container">
+              <input id="file" type="file">
+            </div>
+          </div>
+          <input class="upload-files__submit ui button" type="submit" value="Upload files">
+        </div>
+        <div class="guidance">
+          <div class="guidance__heading">INTRODUCTION</div>
+          <div class="guidance__sub-heading">General Guidance</div>
+          <div class="guidance__row">
+            The files you upload, will be a direct like for like copy.
+            These can be accessed from the <em>Exploratory Environment</em> in the uploaded format.
+          </div>
+          <div class="guidance__sub-heading">Uploading Details</div>
+          <div class="guidance__row">
+            <div class="guidance__var"><span class="guidance__var-title"><i class="guidance__var-icon fas fa-tree"></i><span class="guidance__var-name">Environment</span></span><span class="guidance__var-value">d00-choc-beri</span></div>
+            <div class="guidance__var"><span class="guidance__var-title"><i class="guidance__var-icon fas fa-globe-asia"></i><span class="guidance__var-name">Wonka Zone</span></span><span class="guidance__var-value">Exploratory</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="uploading" id="dvLoading">
+        <div class="uploading__bar progress"></div>
+        <div class="uploading__main">
+          <div class="uploading__header">
+            <div class="uploading__icon fas fa-cloud-upload-alt"></div>
+            <div class="uploading__percent percent">99.9%</div>
+          </div>
+          <div class="uploading__info">
+            If this is a large file, please be patient.            
+            Sometimes, oompa loompas get tired too.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="./assets/scripts.js"></script>

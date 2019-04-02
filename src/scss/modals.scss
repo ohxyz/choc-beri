@@ -77,13 +77,23 @@
             padding: 20px;
         }
 
-        .tag {
+        .title {
 
             display: inline-block;
             background-color: #0e8bee;
             min-width: 120px;
             color: white;
             margin-right: 10px;
+            padding: 5px 10px;
+            border-radius: 2px;
+            margin-bottom: 5px;
+
+            &__icon {
+
+                width: 20px;
+                margin-right: 10px;
+                text-align: center;
+            }
         }
     }
 
@@ -122,6 +132,9 @@
                 display: block;
                 font-size: 120px;
                 margin-bottom: 20px;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: center;
             }
 
             em {
@@ -129,13 +142,30 @@
                 padding: 0px 10px;
                 font-size: 120%;
             }
+
+            .heading {
+
+                color: rgba( 255, 255, 255, 0.95 );
+            }
         }
 
         .content {
 
             padding: 20px;
             font-size: 16px;
+            color: rgba( 255, 255, 255, 0.9 );
 
+        }
+
+        &.modal--success {
+
+            .header {
+
+                i {
+
+                    color: #38a538;
+                }
+            }
         }
 
         &.modal--create-job-success {
@@ -146,6 +176,14 @@
 
                     color: #38a538;
                 }
+            }
+
+            .content {
+
+                font-size: 14px;
+                font-style: italic;
+                opacity: 0.3;
+                line-height: 1;
             }
         }
 
@@ -177,7 +215,8 @@
         pre { 
 
             background-color: #f5f5f5;
-            padding: 20px;
+            margin: 0;
+            padding: 10px;
             white-space: pre-wrap;
         }
 

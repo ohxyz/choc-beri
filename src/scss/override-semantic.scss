@@ -168,7 +168,8 @@
 .ui.form .fields.error .field .input, 
 .ui.form .fields.error .field label {
 
-    color: #d93326;
+    // Prevent it from showing red when there is validation error.
+    color: #666666;
 }
 
 .ui.attached.error.message, .ui.error.message {

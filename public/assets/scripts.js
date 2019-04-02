@@ -936,6 +936,30 @@
     $( '.ui.dropdown' ).dropdown();
 
 
+/* Upload files ***********************************************************************************/
+
+    var $uploadingOverlay = $( '.uploading' );
+
+    $( '.upload-files__submit' ).click( function () { 
+
+        $uploadingOverlay.show();
+
+    } );
+
+    $( document ).keyup( function (event ) { 
+
+        if ( event.key === 'Escape' ) {
+
+            $uploadingOverlay.hide();
+            showSuccessModal( 
+                'UPLOAD COMPLETE', 
+                `The files that you have uploaded have been 
+                     successfully saved in the Choc-BERI's storage.` 
+            );
+            
+        }
+    } )
+
 } )();
 
 /* Utils ******************************************************************************************/
@@ -977,7 +1001,7 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
 
     var modal = createModal( 'basic modal--error' );
     var $headerIcon = $( '<i class="far fa-times-circle">' );
-    var $headerContent = $( `<div>${headerContent}</div>`);
+    var $headerContent = $( `<div class="heading">${headerContent}</div>`);
 
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.text( contentContent );
@@ -986,18 +1010,34 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
          .modal( 'show' );
 }
 
+function showSuccessModal( headerContent="Success", contentContent="Done." ) {
+
+    var modal = createModal( 'basic modal--success' );
+    var $headerIcon = $( '<i class="far fa-check-circle">' );
+    var $headerContent = $( `<div class="heading">${headerContent}</div>`);
+
+    modal.$header.append( $headerIcon, $headerContent );
+    modal.$content.text( contentContent );
+    modal.$modal
+         .modal( 'setting', 'transition', 'fade' )
+         .modal( 'show' );
+
+}
+
 function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} ) {
 
     var modal = createModal( 'modal--validate-success' );
-    var $metadataTag = $createTag( 'fas fa-scroll', 'Metadata' );
-    var $featureTag = $createTag( 'far fa-star', 'Feature' );
+    var $metadataTag = $createTitle( 'fas fa-scroll', 'Metadata' );
+    var $featureTag = $createTitle( 'far fa-star', 'Feature' );
     var $pre = $( '<pre>' );
 
-    var $featureRow = $( '<div class="row">' ).append(
+    // Todo: handle creation of a feature.
+    //
+    // var $featureRow = $( '<div class="row">' ).append(
 
-        $featureTag, 
-        $( '<span class="row__content">Sp1</span>') 
-    );
+    //     $featureTag, 
+    //     $( '<span class="row__content">Sp1</span>') 
+    // );
     
     var $metadataRow = $( '<div class="row">' ).append( $metadataTag, $pre );
     var $jobIdRow = $( '<div id="job-id" class="row">' );
@@ -1015,13 +1055,13 @@ function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} 
 
     $pre.text( JSON.stringify( data , null, 2 ) );
 
-    $jobIdTag = $createTag( 'far fa-id-card', 'Job ID' );
+    $jobIdTitle = $createTitle( 'far fa-id-card', 'Job ID' );
     $jobIdContent = $( `<span class="row__content">${data.jobID}</span>` );
 
-    $jobIdRow.append( $jobIdTag, $jobIdContent );
+    $jobIdRow.append( $jobIdTitle, $jobIdContent );
 
     modal.$header.append( $headerIcon, $headerContent );
-    modal.$content.append( $featureRow, $metadataRow, $jobIdRow, $createJobStatus );
+    modal.$content.append( /*$featureRow,*/ $metadataRow, $jobIdRow, $createJobStatus );
     modal.$actions.append( $createJobButton );
     modal.$modal.modal( 'show' );
 
@@ -1032,12 +1072,12 @@ function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} 
     } );
 }
 
-function $createTag( iconClass = '', content = '' ) {
+function $createTitle( iconClass = '', content = '' ) {
 
     return $( `
-        <span class="tag">
-            <i class="tag__icon ${iconClass}"></i>
-            <span class="tag__contnet">${content}</span>
+        <span class="title">
+            <i class="title__icon ${iconClass}"></i>
+            <span class="title__contnet">${content}</span>
         </span>
     ` );
 }
@@ -1046,10 +1086,16 @@ function showCreateJobSuccessModal( featureStoreName, jobId ) {
 
     var modal = createModal( 'basic modal--create-job-success' );
     var $headerIcon = $( '<i class="far fa-check-circle">' );
-    var $headerContent = $( `<div>Feature store <em>${featureStoreName}</em> created successfully</div>`);
+    var $headerContent = $( `<div>A job <em>ID : ${jobId}</em> is added to create feature store <em>${featureStoreName}</em></div>`);
 
     modal.$header.append( $headerIcon, $headerContent );
-    modal.$content.text( 'Job ID: ' + jobId );
+    modal.$content.html( `
+        Oompa loompa doompety doo<br>
+        I'm getting BERI-ies ready for you<br>
+        Oompa loompa doompety dee(t)<br>
+        If your code is good<br>
+        then it will complete<br>
+    `);
     modal.$modal
          .modal('setting', 'transition', 'fade' )
          .modal( 'show' );

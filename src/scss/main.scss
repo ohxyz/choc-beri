@@ -6,6 +6,7 @@
 @import "./upload-scripts";
 @import "./create-feature-store";
 @import "./browse-files";
+@import "./upload-files";
 @import "./override-semantic";
 @import "./ace-editor";
 @import "./modals";
@@ -79,7 +80,6 @@ html, body {
         &__name {
 
             color: white;
-            font-weight: bold;
             font-size: 16px;
             margin-right: 20px;
         }
@@ -227,4 +227,12 @@ html, body {
 }
 
 
+::-webkit-file-upload-button {
+
+    color: transparent;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    width: 0;
+}
 

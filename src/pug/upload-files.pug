@@ -13,4 +13,39 @@ block main
             span Upload Files
             span /
             a(href="/") Choc-BERI
-   
+    .main__content.main__content--upload-files
+        .upload-files
+            .upload-files__heading SELECT FILES TO UPLOAD
+            .upload-files__main
+                .upload-files__container
+                    input#file(type="file")
+            input.upload-files__submit.ui.button(type="submit" value="Upload files")
+            
+        .guidance
+            .guidance__heading INTRODUCTION
+            .guidance__sub-heading General Guidance
+            .guidance__row
+                | The files you upload, will be a direct like for like copy.
+                | These can be accessed from the #[em Exploratory Environment] in the uploaded format.
+            .guidance__sub-heading Uploading Details
+            .guidance__row
+                .guidance__var
+                    span.guidance__var-title
+                        i.guidance__var-icon.fas.fa-tree
+                        span.guidance__var-name Environment
+                    span.guidance__var-value d00-choc-beri
+                .guidance__var
+                    span.guidance__var-title
+                        i.guidance__var-icon.fas.fa-globe-asia
+                        span.guidance__var-name Wonka Zone
+                    span.guidance__var-value Exploratory
+
+    #dvLoading.uploading
+        .uploading__bar.progress
+        .uploading__main
+            .uploading__header
+                .uploading__icon.fas.fa-cloud-upload-alt
+                .uploading__percent.percent 99.9%
+            .uploading__info
+                | If this is a large file, please be patient.            
+                | Sometimes, oompa loompas get tired too.
