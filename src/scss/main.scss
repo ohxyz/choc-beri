@@ -22,6 +22,7 @@ html, body {
     
     margin: 0;
     padding: 0;
+    // Includes styles in the modals created by Semantic UI
     line-height: 1.25;
 }
 
@@ -34,6 +35,7 @@ html, body {
     width: 100vw;
     height: 100vh;
     color: #333333;
+
 
     @media screen and ( max-width: 980px ) {
 
@@ -232,7 +234,6 @@ html, body {
     color: transparent;
     background-color: transparent;
     border: none;
-    position: absolute;
     width: 0;
 }
 

@@ -733,8 +733,6 @@ body .container ::-webkit-scrollbar-thumb {
 .main .main__content--upload-files .upload-files {
   flex-grow: 1;
   padding: 25px 15px 25px 30px;
-  display: flex;
-  flex-flow: column;
   min-width: 300px;
 }
 .main .main__content--upload-files .upload-files__heading {
@@ -743,7 +741,7 @@ body .container ::-webkit-scrollbar-thumb {
   font-weight: bold;
 }
 .main .main__content--upload-files .upload-files__main {
-  height: 190px;
+  height: 170px;
   border: 1px dashed #cccccc;
   margin-bottom: 5px;
 }
@@ -1541,7 +1539,6 @@ html, body {
   color: transparent;
   background-color: transparent;
   border: none;
-  position: absolute;
   width: 0;
 }
 

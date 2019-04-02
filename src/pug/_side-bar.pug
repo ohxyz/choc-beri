@@ -1,15 +1,15 @@
 - var active_class = 'menu__link--active'
-- var link_dashboard = '/dashboard'
-- var link_browse_files = '/browse-files'
-- var link_upload_files = '/upload-files'
-- var link_feature_status_lab = '/feature-status-lab'
-- var link_upload_scripts_lab = '/upload-scripts-lab'
-- var link_feature_status_fac = '/feature-status-fac'
-- var link_upload_scripts_fac = '/upload-scripts-fac'
-- var link_predictive_feature_metrics = '/predictive-feature-metrics'
-- var link_create_feature_store = '/create-feature-store'
-- var link_batch_mangement_lab = '/batch-management-lab'
-- var link_batch_mangement_fac = '/batch-management-fac'
+- var link_dashboard = './dashboard.html'
+- var link_browse_files = './browse-files.html'
+- var link_upload_files = './upload-files.html'
+- var link_feature_status_lab = './feature-status-lab.html'
+- var link_upload_scripts_lab = './upload-scripts-lab.html'
+- var link_feature_status_fac = './feature-status-fac.html'
+- var link_upload_scripts_fac = './upload-scripts-fac.html'
+- var link_predictive_feature_metrics = './predictive-feature-metrics.html'
+- var link_create_feature_store = './create-feature-store.html'
+- var link_batch_mangement_lab = './batch-management-lab.html'
+- var link_batch_mangement_fac = './batch-management-fac.html'
 
 block link
 
@@ -18,7 +18,8 @@ block link
         .menu__item
             a.menu__link( title="Dashboard" 
                           class=( path === 'dashboard' ? active_class : '' ) 
-                          href=link_dashboard )
+                          href=link_dashboard
+                          style="display:none;" )
                 i.fas.fa-tachometer-alt.menu__icon
                 .menu__label Dashboard
 
@@ -77,7 +78,8 @@ block link
             .menu__item
                 a.menu__link( title="Upload Scripts - Fac" 
                               class=( path === 'upload-scripts-fac' ? active_class : '' ) 
-                              href=link_upload_scripts_fac )
+                              href=link_upload_scripts_fac
+                              style="display:none;" )
                     i.fas.fa-file.menu__icon
                     .menu__label Upload Scripts - Fac
 
@@ -90,18 +92,19 @@ block link
             .menu__item
                 a.menu__link( title="Predictive Feature Metrics" 
                               class=( path === 'predictive-feature-metrics' ? active_class : '' ) 
-                              href=link_predictive_feature_metrics )
+                              href=link_predictive_feature_metrics
+                              style="display:none;" )
                     i.fas.fa-chart-line.menu__icon
                     .menu__label Predictive Feature Metrics
             
             .menu__item
                 a.menu__link( title="Create Feature Store" 
                               class=( path === 'create-feature-store' ? active_class : '' ) 
-                              href="/create-feature-store" )
+                              href=link_create_feature_store )
                     i.fas.fa-cart-plus.menu__icon
                     .menu__label Create Feature Store
             
-        .menu__group.menu__group--expand
+        .menu__group.menu__group--expand(style="display:none;")
             .menu__title                
                 span.menu__heading Batch Management
                 i.menu__group__icon.fas.fa-angle-up
