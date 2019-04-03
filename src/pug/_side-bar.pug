@@ -19,7 +19,7 @@ block link
             a.menu__link( title="Dashboard" 
                           class=( path === 'dashboard' ? active_class : '' ) 
                           href=link_dashboard
-                          style="display:none;" )
+                          )
                 i.fas.fa-tachometer-alt.menu__icon
                 .menu__label Dashboard
 
@@ -79,7 +79,7 @@ block link
                 a.menu__link( title="Upload Scripts - Fac" 
                               class=( path === 'upload-scripts-fac' ? active_class : '' ) 
                               href=link_upload_scripts_fac
-                              style="display:none;" )
+                              )
                     i.fas.fa-file.menu__icon
                     .menu__label Upload Scripts - Fac
 
@@ -93,7 +93,7 @@ block link
                 a.menu__link( title="Predictive Feature Metrics" 
                               class=( path === 'predictive-feature-metrics' ? active_class : '' ) 
                               href=link_predictive_feature_metrics
-                              style="display:none;" )
+                              )
                     i.fas.fa-chart-line.menu__icon
                     .menu__label Predictive Feature Metrics
             
@@ -104,7 +104,7 @@ block link
                     i.fas.fa-cart-plus.menu__icon
                     .menu__label Create Feature Store
             
-        .menu__group.menu__group--expand(style="display:none;")
+        .menu__group.menu__group--expand
             .menu__title                
                 span.menu__heading Batch Management
                 i.menu__group__icon.fas.fa-angle-up

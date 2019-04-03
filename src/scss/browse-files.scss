@@ -10,7 +10,7 @@
 
             color: #999999;
             margin-bottom: 20px;
-            font-weight: bold;
+            font-weight: 500;
         }
     }
 
@@ -40,7 +40,7 @@
 
                     &__title {
 
-                        font-weight: bold;
+                        font-weight: 500;
                         color: #999999;
                         margin-right: 8px;
                     }
@@ -50,7 +50,7 @@
 
                     &__title {
 
-                        font-weight: bold;
+                        font-weight: 500;
                         color: #999999;
                         margin-right: 8px;
                     }
@@ -95,6 +95,8 @@
 
                     color: #0f76c8;
                     cursor: pointer;
+                    font-family: "Proxima Nova";
+                    font-weight: 500;
                 }
 
                 .description {
@@ -134,6 +136,8 @@
 
                     color: $main-color;
                     cursor: pointer;
+                    font-family: "Proxima Nova";
+                    font-weight: 500;
 
                     &:hover {
 

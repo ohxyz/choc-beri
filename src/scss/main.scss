@@ -18,12 +18,40 @@
 // Uncomment following import when copied to choc_beri_apps_ui
 // @import "./OVERRIDES";
 
+@font-face {
+
+    font-family: "Proxima Nova";
+    src: url( "./fonts/Proxima Nova.otf" ) format( "opentype" );
+}
+
+@font-face {
+    
+    font-family: "Proxima Nova";
+    font-weight: 500;
+    src: url( "./fonts/Proxima Nova Medium.otf" ) format( "opentype" );
+}
+
+@font-face {
+    
+    font-family: "Proxima Nova";
+    font-weight: 600;
+    src: url( "./fonts/Proxima Nova Semibold.otf" ) format( "opentype" );
+}
+
+@font-face {
+    
+    font-family: "Proxima Nova";
+    font-style: italic;
+    src: local("");
+}
+
 html, body {
     
     margin: 0;
     padding: 0;
     // Includes styles in the modals created by Semantic UI
     line-height: 1.25;
+    font-family: "Proxima Nova";
 }
 
 .container {
