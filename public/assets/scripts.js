@@ -373,7 +373,7 @@
 
                                     ?  `<span class="feature-operations__operation feature-operations__operation--disabled">
                                             <i class="feature-operations__icon far fa-meh-blank"></i>
-                                            <span class="feature-operations__name item action" 
+                                            <span class="feature-operations__name" 
                                                   value="${f.jobID}" 
                                                   zone="${zone}" 
                                                   action="unmark" 
@@ -949,15 +949,9 @@
 
     $( document ).keyup( function (event ) { 
 
-        if ( event.key === 'Escape' ) {
+        if ( event.key === 'Escape' && $uploadingOverlay.css( 'display' ) === 'block' ) {
 
             $uploadingOverlay.hide();
-            showSuccessModal( 
-                'UPLOAD COMPLETE', 
-                `The files that you have uploaded have been 
-                     successfully saved in the Choc-BERI's storage.` 
-            );
-            
         }
     } )
 

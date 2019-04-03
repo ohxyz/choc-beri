@@ -1016,10 +1016,6 @@ body .uploading__info {
   border-color: #f4c7c7 !important;
 }
 
-.ui.steps .disabled.step, .ui.steps .disabled.step .description, .ui.steps .disabled.step .title {
-  background-color: transparent;
-}
-
 .editor {
   flex-grow: 1;
   min-width: 250px;
@@ -1077,12 +1073,20 @@ body .uploading__info {
   font-size: 32px;
   margin-top: 12px;
 }
+.ui.modal .step .content .title {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+}
 .ui.modal .step.active i {
   color: #4183c4;
 }
 .ui.modal .step.active .title {
   color: #4183c4;
   background-color: transparent;
+}
+.ui.modal .step.disabled .content .title {
+  background-color: transparent;
+  color: #aaaaaa;
 }
 .ui.modal .header {
   color: white;

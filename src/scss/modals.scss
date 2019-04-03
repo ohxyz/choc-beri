@@ -19,6 +19,15 @@
             margin-top: 12px;
         }
 
+        .content {
+
+            .title {
+  
+                background-color: transparent;
+                color: rgba(0,0,0,.87);
+            }
+        }
+
         &.active {
 
             i {
@@ -31,6 +40,18 @@
                 color: #4183c4;
                 background-color: transparent;
 
+            }
+        }
+
+        &.disabled {
+
+            .content {
+
+                .title {
+
+                    background-color: transparent;
+                    color: #aaaaaa;
+                } 
             }
         }
     }
