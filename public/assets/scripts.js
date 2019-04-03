@@ -981,6 +981,7 @@ function createModal( className = '' ) {
 
     $modal.append( $header, $content, $actions );
     $actions.append( $closeButton );
+    $modal.modal( { closable: false } );
 
     return {
 
@@ -1092,7 +1093,7 @@ function showCreateJobSuccessModal( featureStoreName, jobId ) {
         then it will complete<br>
     `);
     modal.$modal
-         .modal('setting', 'transition', 'fade' )
+         .modal( 'setting', 'transition', 'fade' )
          .modal( 'show' );
 }
 
@@ -1105,7 +1106,7 @@ function showCreateJobWaitModal( headerContent, contentContent ) {
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.text( contentContent );
     modal.$modal
-         .modal('setting', 'transition', 'fade' )
+         .modal( 'setting', 'transition', 'fade' )
          .modal( 'show' );
 }
 
