@@ -108,7 +108,6 @@ body .container ::-webkit-scrollbar-thumb {
   font-size: 16px;
   width: 20px;
   text-align: center;
-  margin-top: 2px;
 }
 
 .mobile-menu__button {
@@ -189,9 +188,18 @@ body .container ::-webkit-scrollbar-thumb {
   line-height: 1.25;
   margin-bottom: 5px;
 }
+.main__content--feature-status .feature-operations__operation--disabled .feature-operations__icon {
+  color: #cccccc;
+}
+.main__content--feature-status .feature-operations__operation--disabled .feature-operations__name {
+  color: #cccccc;
+  cursor: not-allowed;
+}
+.main__content--feature-status .feature-operations__operation--disabled .feature-operations__name:hover {
+  text-decoration: none;
+}
 .main__content--feature-status .feature-operations__icon {
   width: 25px;
-  margin-top: 1px;
   color: #bb247f;
 }
 .main__content--feature-status .feature-operations__name {
@@ -238,7 +246,7 @@ body .container ::-webkit-scrollbar-thumb {
   color: #999999;
   font-size: 12px;
   min-width: 22px;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 .main__content--feature-status .feature-details__name {
   font-size: 12px;
@@ -249,6 +257,7 @@ body .container ::-webkit-scrollbar-thumb {
 .main__content--feature-status .feature-details__content {
   word-break: break-word;
   font-size: 13px;
+  padding-top: 4px;
 }
 .main__content--feature-status .feature-details__row--failure .feature-details__title {
   background-color: #fbdada;
@@ -438,6 +447,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .main .feature-status__features {
   display: flex;
+  flex-wrap: wrap;
 }
 .main .feature-status__icon-title {
   font-size: 16px;
@@ -1006,6 +1016,10 @@ body .uploading__info {
   border-color: #f4c7c7 !important;
 }
 
+.ui.steps .disabled.step, .ui.steps .disabled.step .description, .ui.steps .disabled.step .title {
+  background-color: transparent;
+}
+
 .editor {
   flex-grow: 1;
   min-width: 250px;
@@ -1068,6 +1082,7 @@ body .uploading__info {
 }
 .ui.modal .step.active .title {
   color: #4183c4;
+  background-color: transparent;
 }
 .ui.modal .header {
   color: white;
@@ -1194,7 +1209,6 @@ body .uploading__info {
   color: #404040;
   border-radius: 2px;
   font-size: 13px;
-  display: inline-block;
   margin-right: 5px;
   margin-bottom: 5px;
   display: flex;
@@ -1203,6 +1217,9 @@ body .uploading__info {
   margin-top: 1px;
   margin-right: 10px;
   text-align: center;
+}
+.tag--feature {
+  display: inline-block;
 }
 
 .code-feedback {

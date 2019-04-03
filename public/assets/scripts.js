@@ -371,13 +371,14 @@
                                         && f.markedForPromotion.flag === true  
                                         && !( f.markedForDecommission && f.markedForDecommission.flag === true )
 
-                                    ?  `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon far fa-meh-blank""></i>
+                                    ?  `<span class="feature-operations__operation feature-operations__operation--disabled">
+                                            <i class="feature-operations__icon far fa-meh-blank"></i>
                                             <span class="feature-operations__name item action" 
                                                   value="${f.jobID}" 
                                                   zone="${zone}" 
                                                   action="unmark" 
-                                                  id="promoteJob">Unmark promomtion</span>
+                                                  id="promoteJob"
+                                                  disabled>Unmark promomtion</span>
                                         </span>`
 
                                     :   `<span class="feature-operations__operation">
