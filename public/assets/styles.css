@@ -771,6 +771,7 @@ body .container ::-webkit-scrollbar-thumb {
 }
 .main .main__content--upload-files .upload-files__submit {
   width: 100%;
+  font-family: "Proxima Nova";
 }
 .main .main__content--upload-files .guidance {
   width: 500px;
@@ -900,6 +901,7 @@ body .uploading__info {
 .ui.form .field > label {
   color: #666666;
   margin-bottom: 6px;
+  font-weight: 500;
 }
 .ui.form .field > .selection.dropdown {
   border-radius: 2px;
@@ -1263,19 +1265,25 @@ body .uploading__info {
 .login__row {
   margin-bottom: 10px;
 }
+.login__brand-logo {
+  position: absolute;
+  top: 21px;
+  left: 97px;
+  width: 118px;
+}
 .login__logo {
   font-family: "Pacifico", cursive;
   color: #fbfbfb;
   font-size: 52px;
-  margin-bottom: -16px;
   user-select: none;
+  position: absolute;
+  left: 29px;
+  top: 53px;
 }
 .login__header {
   height: 102px;
   background-color: #bb247f;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  position: relative;
   border-radius: 60px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -1390,7 +1398,7 @@ html, body {
   margin: 0;
   padding: 0;
   line-height: 1.25;
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .container {

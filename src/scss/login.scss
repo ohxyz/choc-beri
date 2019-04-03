@@ -46,22 +46,30 @@
         margin-bottom: 10px;
     }
 
+    &__brand-logo {
+
+        position: absolute;
+        top: 21px;
+        left: 97px;
+        width: 118px;
+    }
+
     &__logo {
 
         font-family: "Pacifico", cursive;
         color: #fbfbfb;
         font-size: 52px;
-        margin-bottom: -16px;
         user-select: none;
+        position: absolute;
+        left: 29px;
+        top: 53px;
     }
 
     &__header {
 
         height: 102px;
         background-color: #bb247f;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+        position: relative;
         border-radius: $border-radius;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
