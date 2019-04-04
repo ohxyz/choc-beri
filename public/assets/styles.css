@@ -420,7 +420,7 @@ body .container ::-webkit-scrollbar-thumb {
   flex-wrap: wrap;
 }
 .main .feature-status {
-  flex-basis: 300px;
+  flex-basis: 24%;
   border: 1px solid #eaeaea;
   border-radius: 2px;
   margin: 5px;
@@ -594,7 +594,7 @@ body .container ::-webkit-scrollbar-thumb {
   border: 1px solid transparent;
   display: flex;
   cursor: pointer;
-  width: 120px;
+  width: 110px;
 }
 .main .main__content--upload-scripts .upload-scripts--active .validate-button:hover {
   background-color: #0983ba;
