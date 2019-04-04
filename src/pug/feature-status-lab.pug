@@ -31,9 +31,42 @@ block main
                         span.auto-refresh__title Auto Refresh
 
             #fixedservices.feature-store
-                .feature-store__header Feature store - fixedservices
+                .feature-store__header 
+                    span.feature-store__heading Feature store - fixedservices
+                    span.feature-store__filters
+                        span.feature-store__status-filter(title="Validating")
+                            i.feature-store__status-filter-icon.fas.fa-eye
+                        span.feature-store__status-filter(title="Validated")
+                            i.feature-store__status-filter-icon.fas.fa-clipboard-check
+                        span.feature-store__status-filter(title="Ready")
+                            i.feature-store__status-filter-icon.fas.fa-bullhorn
+                        span.feature-store__status-filter(title="Pending")
+                            i.feature-store__status-filter-icon.fas.fa-circle-notch
+                        span.feature-store__status-filter(title="Building")
+                            i.feature-store__status-filter-icon.fas.fa-tools
+                        span.feature-store__status-filter(title="Built")
+                            i.feature-store__status-filter-icon.fas.fa-check-circle
+                        span.feature-store__status-filter(title="Marked for promotion")
+                            i.feature-store__status-filter-icon.far.fa-arrow-alt-circle-up
+                        span.feature-store__status-filter(title="Marked for decommission")
+                            i.feature-store__status-filter-icon.far.fa-arrow-alt-circle-down
+                        span.feature-store__status-filter(title="Decommissioning")
+                            i.feature-store__status-filter-icon.fas.fa-undo
+                        span.feature-store__status-filter(title="Promoted")
+                            i.feature-store__status-filter-icon.fas.fa-medal
+                        span.feature-store__status-filter(title="Decommissioned")
+                            i.feature-store__status-filter-icon.fas.fa-ban
+                        span.feature-store__status-filter(title="Failed")
+                            i.feature-store__status-filter-icon.fas.fa-times-circle
+                        span.feature-store__status-filter(title="Unknown State")
+                            i.feature-store__status-filter-icon.fas.fa-ghost
+
                 .feature-store__content
-                    .feature-status.feature-status--validating
+                    .feature-store__message
+                        i.feature-store__message__icon.fas.fa-exclamation-circle
+                        span.feature-store__message__content No features found with selected status.
+
+                    .feature-status.feature-status--validating(data-status="validating")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-eye
                             span.feature-status__title VALIDATING
@@ -49,7 +82,7 @@ block main
                                         span.feature-status__feature-name Click me, too
 
 
-                    .feature-status.feature-status--mystery
+                    .feature-status.feature-status--mystery(data-status="mystery")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-magic
                             span.feature-status__title MYSTERY
@@ -66,7 +99,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--validated
+                    .feature-status.feature-status--validated(data-status="validated")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-clipboard-check
                             span.feature-status__title VALIDATED
@@ -83,9 +116,9 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--ready
+                    .feature-status.feature-status--ready(data-status="ready")
                         .feature-status__header
-                            i.feature-status__icon-title.fas.fa-candy-cane
+                            i.feature-status__icon-title.fas.fa-bullhorn
                             span.feature-status__title READY
                             span.promote-button 
                                 i.promote-button__icon.fas.fa-medal
@@ -95,8 +128,6 @@ block main
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
@@ -105,7 +136,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--pending
+                    .feature-status.feature-status--pending(data-status="pending")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-circle-notch
                             span.feature-status__title PENDING
@@ -114,8 +145,6 @@ block main
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
@@ -123,15 +152,13 @@ block main
                                 .feature-status__list-item
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
-                    .feature-status.feature-status--building
+                    .feature-status.feature-status--building(data-status="building")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-tools
                             span.feature-status__title BUILDING
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
-                                .feature-status__list-item
-                                    .feature-status__job
                                 .feature-status__list-item
                                     .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
@@ -142,7 +169,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--built
+                    .feature-status.feature-status--built(data-status="built")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-check-circle
                             span.feature-status__title BUILT
@@ -159,7 +186,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--marked-for-promotion
+                    .feature-status.feature-status--marked-for-promotion(data-status="marked-for-promotion")
                         .feature-status__header
                             i.feature-status__icon-title.far.fa-arrow-alt-circle-up
                             span.feature-status__title MARKED FOR PROMOTION
@@ -176,7 +203,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--marked-for-decommission
+                    .feature-status.feature-status--marked-for-decommission(data-status="marked-for-decommission")
                         .feature-status__header
                             i.feature-status__icon-title.far.fa-arrow-alt-circle-down
                             span.feature-status__title MARKED FOR DECOMMISSION
@@ -185,8 +212,6 @@ block main
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
@@ -195,17 +220,15 @@ block main
                                     .feature-status__job
                                             span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--decommissioning
+                    .feature-status.feature-status--decommissioning(data-status="decommissioning")
                         .feature-status__header
-                            i.feature-status__icon-title.fas.fa-eye-slash
+                            i.feature-status__icon-title.fas.fa-undo
                             span.feature-status__title DECOMMISSIONING
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
@@ -214,7 +237,7 @@ block main
                                     .feature-status__job
                                             span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--promoted
+                    .feature-status.feature-status--promoted(data-status="promoted")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-medal
                             span.feature-status__title PROMOTED
@@ -231,7 +254,7 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--decommissioned
+                    .feature-status.feature-status--decommissioned(data-status="decommissioned")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-ban
                             span.feature-status__title DECOMMISSIONED
@@ -240,17 +263,15 @@ block main
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
                                         span.feature-status__feature-name SubscriberID (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
-                                            span.feature-status__feature-name OctaneID (STRING)
+                                        span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--failed
+                    .feature-status.feature-status--failed(data-status="failed")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-times-circle
                             span.feature-status__title FAILED
@@ -267,15 +288,13 @@ block main
                                     .feature-status__job
                                         span.feature-status__feature-name OctaneID (STRING)
 
-                    .feature-status.feature-status--uncategorised
+                    .feature-status.feature-status--uncategorised(data-status="uncategorised")
                         .feature-status__header
                             i.feature-status__icon-title.fas.fa-ghost
                             span.feature-status__title UNKNOWN STATE
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
-                                .feature-status__list-item
-                                    .feature-status__job
                                 .feature-status__list-item
                                     .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
@@ -299,8 +318,6 @@ block main
                             .feature-status__list
                                 .feature-status__list-item
                                     .feature-status__job
-                                .feature-status__list-item
-                                    .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)
                                 .feature-status__list-item
                                     .feature-status__job
@@ -316,8 +333,6 @@ block main
                             i.feature-status__icon-expand.fas.fa-minus
                         .feature-status__content
                             .feature-status__list
-                                .feature-status__list-item
-                                    .feature-status__job
                                 .feature-status__list-item
                                     .feature-status__job
                                         span.feature-status__feature-name NetworkElement (STRING)

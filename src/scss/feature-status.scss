@@ -88,13 +88,25 @@
 
     .feature-store {
 
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+
+        &__message {
+
+            display: none;
+            color: #aaaaaa;
+            padding: 0 5px;
+
+            &__icon {
+
+                margin-right: 10px;
+            }
+        }
 
         &__header {
 
             font-size: 16px;
             padding-bottom: 10px;
-            color: $main-color;
+
             font-weight: 500;
             padding: 0 30px;
         }
@@ -102,6 +114,50 @@
         &__content {
 
             padding: 10px 25px;
+        }
+
+        &__heading {
+
+            color: $main-color;
+            margin-right: 20px;
+        }
+
+        &__filters {
+
+
+        }
+
+        &__status-filter {
+
+            display: inline-block;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &--active {
+
+                .feature-store__status-filter-icon {
+
+                    color: $main-color;
+                }
+            }
+
+            &-icon {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                height: 25px;
+                border-radius: 100px;
+                color: #cccccc;
+
+                &:hover {
+
+                    color: $main-color;
+                    background-color: #eeeeee;
+
+                }
+            }
         }
 
         .row {
@@ -113,12 +169,12 @@
 
     .feature-status {
 
-        flex-basis: 250px;
+        flex-basis: 300px;
         border: 1px solid #eaeaea;
         border-radius: 2px;
         margin: 5px;
-        flex-grow: 1;
         background: white;
+        flex-grow: 1;
 
         .promote-button {
 

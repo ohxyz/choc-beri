@@ -371,29 +371,61 @@ body .container ::-webkit-scrollbar-thumb {
   color: #c14d93;
 }
 .main .feature-store {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+.main .feature-store__message {
+  display: none;
+  color: #aaaaaa;
+  padding: 0 5px;
+}
+.main .feature-store__message__icon {
+  margin-right: 10px;
 }
 .main .feature-store__header {
   font-size: 16px;
   padding-bottom: 10px;
-  color: #bb247f;
   font-weight: 500;
   padding: 0 30px;
 }
 .main .feature-store__content {
   padding: 10px 25px;
 }
+.main .feature-store__heading {
+  color: #bb247f;
+  margin-right: 20px;
+}
+.main .feature-store__status-filter {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main .feature-store__status-filter--active .feature-store__status-filter-icon {
+  color: #bb247f;
+}
+.main .feature-store__status-filter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  color: #cccccc;
+}
+.main .feature-store__status-filter-icon:hover {
+  color: #bb247f;
+  background-color: #eeeeee;
+}
 .main .feature-store .row {
   display: flex;
   flex-wrap: wrap;
 }
 .main .feature-status {
-  flex-basis: 250px;
+  flex-basis: 300px;
   border: 1px solid #eaeaea;
   border-radius: 2px;
   margin: 5px;
-  flex-grow: 1;
   background: white;
+  flex-grow: 1;
 }
 .main .feature-status .promote-button {
   font-size: 12px;
@@ -610,14 +642,14 @@ body .container ::-webkit-scrollbar-thumb {
   border: 1px solid transparent;
   display: flex;
   cursor: pointer;
-  width: 120px;
+  width: 110px;
 }
 .main .main__content--create-feature-store .validate-button:hover {
   background-color: #0983ba;
 }
 .main .main__content--create-feature-store .validate-button__icon {
-  width: 25px;
   font-size: 15px;
+  margin-right: 10px;
 }
 
 /* Include Semantic UI content */

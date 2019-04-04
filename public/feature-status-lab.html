@@ -79,9 +79,10 @@
             <div class="strip__content_2"><span class="auto-refresh"><i class="auto-refresh__icon fas fa-toggle-off"></i><i class="auto-refresh__icon fas fa-toggle-on"></i><span class="auto-refresh__title">Auto Refresh</span></span></div>
           </div>
           <div class="feature-store" id="fixedservices">
-            <div class="feature-store__header">Feature store - fixedservices</div>
+            <div class="feature-store__header"> <span class="feature-store__heading">Feature store - fixedservices</span><span class="feature-store__filters"><span class="feature-store__status-filter" title="Validating"><i class="feature-store__status-filter-icon fas fa-eye"></i></span><span class="feature-store__status-filter" title="Validated"><i class="feature-store__status-filter-icon fas fa-clipboard-check"></i></span><span class="feature-store__status-filter" title="Ready"><i class="feature-store__status-filter-icon fas fa-bullhorn"></i></span><span class="feature-store__status-filter" title="Pending"><i class="feature-store__status-filter-icon fas fa-circle-notch"></i></span><span class="feature-store__status-filter" title="Building"><i class="feature-store__status-filter-icon fas fa-tools"></i></span><span class="feature-store__status-filter" title="Built"><i class="feature-store__status-filter-icon fas fa-check-circle"></i></span><span class="feature-store__status-filter" title="Marked for promotion"><i class="feature-store__status-filter-icon far fa-arrow-alt-circle-up"></i></span><span class="feature-store__status-filter" title="Marked for decommission"><i class="feature-store__status-filter-icon far fa-arrow-alt-circle-down"></i></span><span class="feature-store__status-filter" title="Decommissioning"><i class="feature-store__status-filter-icon fas fa-undo"></i></span><span class="feature-store__status-filter" title="Promoted"><i class="feature-store__status-filter-icon fas fa-medal"></i></span><span class="feature-store__status-filter" title="Decommissioned"><i class="feature-store__status-filter-icon fas fa-ban"></i></span><span class="feature-store__status-filter" title="Failed"><i class="feature-store__status-filter-icon fas fa-times-circle"></i></span><span class="feature-store__status-filter" title="Unknown State"><i class="feature-store__status-filter-icon fas fa-ghost"></i></span></span></div>
             <div class="feature-store__content">
-              <div class="feature-status feature-status--validating">
+              <div class="feature-store__message"><i class="feature-store__message__icon fas fa-exclamation-circle"></i><span class="feature-store__message__content">No features found with selected status.</span></div>
+              <div class="feature-status feature-status--validating" data-status="validating">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-eye"></i><span class="feature-status__title">VALIDATING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -94,7 +95,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--mystery">
+              <div class="feature-status feature-status--mystery" data-status="mystery">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-magic"></i><span class="feature-status__title">MYSTERY</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -110,7 +111,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--validated">
+              <div class="feature-status feature-status--validated" data-status="validated">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-clipboard-check"></i><span class="feature-status__title">VALIDATED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -126,13 +127,10 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--ready">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-candy-cane"></i><span class="feature-status__title">READY</span><span class="promote-button"> <i class="promote-button__icon fas fa-medal"></i><span class="promote-button__content">Promote </span></span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+              <div class="feature-status feature-status--ready" data-status="ready">
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bullhorn"></i><span class="feature-status__title">READY</span><span class="promote-button"> <i class="promote-button__icon fas fa-medal"></i><span class="promote-button__content">Promote </span></span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
-                    <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
                     <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
@@ -145,14 +143,11 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--pending">
+              <div class="feature-status feature-status--pending" data-status="pending">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-circle-notch"></i><span class="feature-status__title">PENDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
-                    <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
                     <div class="feature-status__list-item">
@@ -164,14 +159,11 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--building">
+              <div class="feature-status feature-status--building" data-status="building">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-tools"></i><span class="feature-status__title">BUILDING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
-                    <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
                     <div class="feature-status__list-item">
@@ -183,7 +175,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--built">
+              <div class="feature-status feature-status--built" data-status="built">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-check-circle"></i><span class="feature-status__title">BUILT</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -199,7 +191,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--marked-for-promotion">
+              <div class="feature-status feature-status--marked-for-promotion" data-status="marked-for-promotion">
                 <div class="feature-status__header"><i class="feature-status__icon-title far fa-arrow-alt-circle-up"></i><span class="feature-status__title">MARKED FOR PROMOTION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -215,14 +207,11 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--marked-for-decommission">
+              <div class="feature-status feature-status--marked-for-decommission" data-status="marked-for-decommission">
                 <div class="feature-status__header"><i class="feature-status__icon-title far fa-arrow-alt-circle-down"></i><span class="feature-status__title">MARKED FOR DECOMMISSION</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
-                    <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
                     <div class="feature-status__list-item">
@@ -234,14 +223,11 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--decommissioning">
-                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-eye-slash"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
+              <div class="feature-status feature-status--decommissioning" data-status="decommissioning">
+                <div class="feature-status__header"><i class="feature-status__icon-title fas fa-undo"></i><span class="feature-status__title">DECOMMISSIONING</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
-                    <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
                     <div class="feature-status__list-item">
@@ -253,7 +239,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--promoted">
+              <div class="feature-status feature-status--promoted" data-status="promoted">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-medal"></i><span class="feature-status__title">PROMOTED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -269,13 +255,10 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--decommissioned">
+              <div class="feature-status feature-status--decommissioned" data-status="decommissioned">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ban"></i><span class="feature-status__title">DECOMMISSIONED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
-                    <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
                     <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
@@ -288,7 +271,7 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--failed">
+              <div class="feature-status feature-status--failed" data-status="failed">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-times-circle"></i><span class="feature-status__title">FAILED</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
@@ -304,13 +287,10 @@
                   </div>
                 </div>
               </div>
-              <div class="feature-status feature-status--uncategorised">
+              <div class="feature-status feature-status--uncategorised" data-status="uncategorised">
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-ghost"></i><span class="feature-status__title">UNKNOWN STATE</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
-                    <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
                     <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
@@ -333,9 +313,6 @@
                 <div class="feature-status__content">
                   <div class="feature-status__list">
                     <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
-                    <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>
                     <div class="feature-status__list-item">
@@ -351,9 +328,6 @@
                 <div class="feature-status__header"><i class="feature-status__icon-title fas fa-bookmarks"></i><span class="feature-status__title">UNKNOWN</span><i class="feature-status__icon-expand fas fa-minus"></i></div>
                 <div class="feature-status__content">
                   <div class="feature-status__list">
-                    <div class="feature-status__list-item">
-                      <div class="feature-status__job"></div>
-                    </div>
                     <div class="feature-status__list-item">
                       <div class="feature-status__job"><span class="feature-status__feature-name">NetworkElement (STRING)</span></div>
                     </div>

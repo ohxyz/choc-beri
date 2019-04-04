@@ -16,8 +16,6 @@
     var zone = $( '.main__header' ).data( 'zone' );
     var user = { admin: true } // Required to be integrated user profile
 
-    console.log( 'zone', zone );
-
 /* Toggle menu items - Accodion style *************************************************************/
 
     $( '.menu__title' ).click( function () {  
@@ -77,6 +75,64 @@
         
     } );
 
+/* Feature status - toggle filters of feature's status ********************************************/
+
+    var $filtersOfFeatureStatus = $( '.feature-store__status-filter' );
+
+    $filtersOfFeatureStatus.click( function () {
+
+        var $filter = $( this );
+        var $container = $filter.closest( '.feature-store' );
+        var activeClass = 'feature-store__status-filter--active';
+        var statusOfFilter = $filter.attr( 'title' ).toLowerCase();
+
+        var $lists = $( '.feature-status', $container );
+        var statusOfList = '';
+
+        $lists.hide();
+
+        if ( $filter.hasClass( activeClass ) === false ) {
+
+            $container.find( $filtersOfFeatureStatus ).removeClass( activeClass );
+            $filter.addClass( activeClass );
+
+            $lists.each( function () { 
+
+                var $list = $( this );
+                var statusOfList = $list.data( 'status' );
+
+                if ( statusOfList === statusOfFilter ) {
+
+                    $list.show();
+                }
+                else {
+
+                    $list.hide();
+                }
+
+            } );
+        }
+        else {
+
+            $filter.removeClass( activeClass );
+            $lists.show()
+        }
+
+        var countOfLists = $lists.length;
+        var countOfHiddenLists = $( '.feature-status:hidden', $container ).length;
+        var $message = $( '.feature-store__message', $container );
+
+        if ( countOfLists === countOfHiddenLists ) {
+
+            $message.show();
+        }
+        else {
+
+            $message.hide();
+        }
+
+    } );
+
 /* Feature status - Feature store toggle, all fixedservices, mobile, etc **************************/
 
     $( '.strip__feature-store-name' ).click( function () { 
@@ -87,12 +143,12 @@
         if ( text === 'all' ) {
 
             $( '.feature-store' ).show();
-            $( '.feature-store__header' ).show();
+            $( '.feature-store__heading' ).show();
         }
         else {
 
             $( '.feature-store' ).hide();
-            $( '.feature-store__header' ).hide();
+            $( '.feature-store__heading' ).hide();
             $( '#' + text ).show();
         }
         
@@ -209,22 +265,25 @@
 
     $( '.feature-status__job' ).click( function () {
 
+        var $elemClicked = $( this );
+        var featureName = $( '.feature-status__feature-name', $elemClicked ).text();
+
         if ( $featurePanel !== null ) {
 
             $featurePanel.remove();
         }
-        
-        if ( $( this ).is( $featureNameClicked ) ) {
+
+        if ( $elemClicked.is( $featureNameClicked ) ) {
 
             $featureNameClicked = null;
         }
         else {
 
-            var feat = $( this ).data( 'feature' );
+            var feat = $elemClicked.data( 'feature' );
 
             if ( feat !== undefined && Object.keys( feat ).length )  {
 
-                $featurePanel = $createFeaturePanel( feat );
+                $featurePanel = $createFeaturePanel( featureName, feat );
                 $( '.main__content--feature-status' ).append( $featurePanel );
             }
             else {
@@ -232,7 +291,7 @@
                 console.warn( '[Choc] Feature details are missing.' );
             }
 
-            $featureNameClicked = $( this );
+            $featureNameClicked = $elemClicked;
         }
 
     } );
@@ -323,12 +382,11 @@
         }
     }
 
-    function $createFeaturePanel( f ) {
+    function $createFeaturePanel( fn, f ) {
 
-        console.log( 'Feature panel', f );
+        console.log( 'Panel', f );
 
-        var v = Object.values(f.features)[0];
-        var featureName = `${v.featureName} (${v.dataType})`;
+        var featureName = fn;
 
         var $html = $(`
             <div class="feature-panel">
@@ -395,7 +453,7 @@
                                         && user.admin == true
 
                                     ?   `<span class="feature-operations__operation">
-                                            <i class="feature-operations__icon fas fa-ban"></i>
+                                            <i class="feature-operations__icon fas fa-undo"></i>
                                             <span class="feature-operations__name item action" 
                                                   value="${f.jobID}"
                                                   zone="${zone}"
@@ -440,6 +498,13 @@
                       </div>
                       <div class="feature-details__content">${f.jobID}</div>
                     </div>
+                    <div class="feature-details__row">
+                      <div class="feature-details__title">
+                        <div class="feature-details__icon fas fa-battery-three-quarters"></div>
+                        <div class="feature-details__name">Feature Status</div>
+                      </div>
+                      <div class="feature-details__content">${cap(f.status.state)}</div>
+                    </div>
                     ${ f.batch 
                         ? `<div class="feature-details__row">
                               <div class="feature-details__title">
@@ -450,13 +515,6 @@
                             </div>`
                         : ''
                     }
-                    <div class="feature-details__row">
-                      <div class="feature-details__title">
-                        <div class="feature-details__icon fas fa-battery-three-quarters"></div>
-                        <div class="feature-details__name">State</div>
-                      </div>
-                      <div class="feature-details__content">${cap(f.status.state)}</div>
-                    </div>
                     <div class="feature-details__row">
                       <div class="feature-details__title">
                         <div class="feature-details__icon far fa-calendar-plus"></div>
