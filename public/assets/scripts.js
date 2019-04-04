@@ -1013,6 +1013,39 @@
         }
     } )
 
+/* Upload script LAB ******************************************************************************/
+     
+    var $sctiptLanguages = $( '.main__content--upload-scripts .strip__item' );
+
+    $sctiptLanguages.click( function () {
+
+        var scriptName = $( this ).text().toLowerCase();
+        var $languageSelected = $( this );
+        var activeClass = 'strip__item--active';
+
+        $sctiptLanguages.removeClass( activeClass );
+        $languageSelected.addClass( activeClass );
+
+        $( '.upload-scripts' ).each( function ( index, container ) {
+
+            var $container = $( container );
+            var activeClassNameOfUploadScript = 'upload-scripts--active';
+
+            if ( scriptName === $container.data( 'script' ) ) {
+
+                $container.addClass( activeClassNameOfUploadScript );
+            }
+            else {
+
+                $container.removeClass( activeClassNameOfUploadScript );
+            }
+
+        } );
+    } );
+
+    // Select default script language
+    $sctiptLanguages.first().click();
+
 } )();
 
 /* Utils ******************************************************************************************/

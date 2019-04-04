@@ -514,68 +514,77 @@ body .container ::-webkit-scrollbar-thumb {
   background-color: #1685dd;
   border-color: #1685dd;
 }
-.main .main__content--upload-scripts .container-1 {
+.main .main__content--upload-scripts .upload-scripts {
+  display: none;
+}
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--pyshark {
+  display: block;
+}
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--mojo {
+  display: block;
+}
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql {
   display: flex;
   height: calc( 100% - 70px );
 }
-.main .main__content--upload-scripts .container-1 .editor {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .editor {
   min-width: 250px;
   padding-left: 30px;
 }
-.main .main__content--upload-scripts .container-1 .splitter {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .splitter {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.main .main__content--upload-scripts .container-1 .splitter__handle {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .splitter__handle {
   color: #cccccc;
   font-size: 14px;
   cursor: w-resize;
 }
-.main .main__content--upload-scripts .container-1 .splitter__handle:hover {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .splitter__handle:hover {
   color: #999999;
 }
-.main .main__content--upload-scripts .container-1 .fields {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .fields {
   margin-left: 15px;
   width: 500px;
   min-width: 260px;
   padding-right: 30px;
   overflow: auto;
 }
-.main .main__content--upload-scripts .container-1 .fields .field {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .fields .field {
   margin-bottom: 20px;
 }
-.main .main__content--upload-scripts .container-1 .field-group .field {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group .field {
   margin-bottom: 10px;
 }
-.main .main__content--upload-scripts .container-1 .field-group .field__title {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group .field__title {
   font-size: 13px;
   margin-bottom: 5px;
 }
-.main .main__content--upload-scripts .container-1 .field-group .field__content {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group .field__content {
   margin-bottom: 5px;
 }
-.main .main__content--upload-scripts .container-1 .field-group__header {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group__header {
   margin-bottom: 10px;
   color: #666666;
   font-weight: 500;
   display: flex;
   justify-content: flex-end;
 }
-.main .main__content--upload-scripts .container-1 .field-group__title {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group__title {
   flex-grow: 1;
 }
-.main .main__content--upload-scripts .container-1 .field-group__icon {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group__icon {
   font-size: 16px;
   cursor: pointer;
   margin-top: 2px;
   margin-left: 10px;
   color: #0bb8c0;
 }
-.main .main__content--upload-scripts .container-1 .field-group__icon:hover {
+.main .main__content--upload-scripts .upload-scripts--active.upload-scripts--sql .field-group__icon:hover {
   color: #0a868c;
 }
-.main .main__content--upload-scripts .validate-button {
+.main .main__content--upload-scripts .upload-scripts--active .validate-button {
   background-color: #03a9f4;
   color: white;
   font-size: 14px;
@@ -587,10 +596,10 @@ body .container ::-webkit-scrollbar-thumb {
   cursor: pointer;
   width: 120px;
 }
-.main .main__content--upload-scripts .validate-button:hover {
+.main .main__content--upload-scripts .upload-scripts--active .validate-button:hover {
   background-color: #0983ba;
 }
-.main .main__content--upload-scripts .validate-button__icon {
+.main .main__content--upload-scripts .upload-scripts--active .validate-button__icon {
   width: 25px;
   font-size: 15px;
 }
