@@ -1,0 +1,35 @@
+html {
+
+    .noUi-target {
+
+        border-radius: 2px;
+        height: 6px;
+        background-color: #cdcdcd;
+        border: none;
+    }
+
+    .noUi-horizontal .noUi-handle {
+
+        width: 19px;
+        border-radius: 2px;
+        box-shadow: none;
+        top: -11px;
+
+        &:before {
+
+            left: 7px;
+        }
+
+        &:after {
+
+            left: 10px;
+        }
+    }
+
+    .noUi-connect {
+
+        background-color: #c24590;
+    }
+
+}
+

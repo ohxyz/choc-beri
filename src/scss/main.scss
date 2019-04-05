@@ -1,12 +1,16 @@
 @import "./variables";
 @import "./scrollbar";
+@import "./slider";
 @import "./strip";
 @import "./side-bar";
-@import "./feature-status";
-@import "./upload-scripts";
-@import "./create-feature-store";
 @import "./browse-files";
 @import "./upload-files";
+@import "./feature-status";
+@import "./create-feature-store";
+@import "./upload-scripts";
+@import "./upload-scripts-sql";
+@import "./upload-scripts-mojo";
+@import "./upload-scripts-pyspark";
 @import "./override-semantic";
 @import "./ace-editor";
 @import "./modals";
@@ -14,6 +18,7 @@
 @import "./code-feedback";
 @import "./login";
 @import "./logo";
+
 
 // Uncomment following import when copied to choc_beri_apps_ui
 // @import "./OVERRIDES";

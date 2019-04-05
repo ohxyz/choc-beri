@@ -158,108 +158,6 @@
 
 /* Feature status - Create featue panel ***********************************************************/
 
-    var feature = {
-       "dependencies":{
-
-       },
-       "entity":"srvc_bk",
-       "featureStore":"fixedservice",
-       "scriptLanguage":"SQL",
-       "status":{
-          "state":"built"
-       },
-       "createdAt":"2019-03-20T05:22:54.284700",
-       "dataSources":{
-          "glue":{
-             "idv":{
-                "s_octf_nbn_srvc":{
-                   "name":"s_octf_nbn_srvc",
-                   "database":"idv",
-                   "service":"glue",
-                   "entity":"entity"
-                }
-             }
-          }
-       },
-       "jobID":"15530593725245125",
-       "features":{
-          "smoke_test_feature":{
-             "featureName":"smoke_test_feature",
-             "dataType":"TINYINT"
-          }
-       },
-       "updatedAt":"2019-03-26T20:26:48.599Z",
-       "markedForPromotion":{
-          "partOf":[
-             "15530593725245125"
-          ],
-          "flag":true
-       },
-       "batch":"built",
-       "scriptLocation":{
-          "bucket":"d00-choc-beri-application",
-          "file":"scripts/lab/fixedservice/smoke_test_feature.sql"
-       }
-    };
-
-    var feature2 = {
-       "createdAt":"2019-01-24T09:02:23.928107",
-       "dataSources":{
-
-       },
-       "dependencies":{
-          "fixedservice":{
-             "entity":"srvc_bk",
-             "features":{
-                "recd_del_flg":{
-                   "factory":true,
-                   "featureName":"recd_del_flg"
-                },
-                "recd_del_flg_bin":{
-                   "factory":true,
-                   "featureName":"recd_del_flg_bin"
-                }
-             },
-             "featureStore":"fixedservice"
-          }
-       },
-       "entity":"srvc_bk",
-       "features":{
-          "recd_del_decommission_please":{
-             "dataType":"FLOAT",
-             "featureName":"recd_del_decommission_please"
-          }
-       },
-       "featureStore":"fixedservice",
-       "jobID":"15482809327218018",
-       "predictive":{
-          "modelInfo":{
-             "algorithm":"Gradient Boosting Machine",
-             "modelType":"Binomial"
-          },
-          "predictive":"on",
-          "supervised":"true",
-          "targetFeature":{
-             "feature":"recd_del_flg_bin",
-             "featureStore":"fixedservice",
-             "zone":"lab"
-          },
-          "timeDate":{
-
-          }
-       },
-       "scriptLanguage":"MOJO",
-       "scriptLocation":{
-          "bucket":"s-choc-beri-application",
-          "file":"scripts/lab/fixedservice/GBM_model_python_1540786708091_222.zip"
-       },
-       "status":{
-          "message":"dry run failed on Exception: RequestId: 465779e2-a2b6-4bb2-89ba-15e88e6780ee Process exited before completing request",
-          "state":"failed"
-       },
-       "updatedAt":"2019-01-24T09:02:29.444361"
-    }
-
     var $featureNameClicked = null;
     var $featurePanel = null;
 
@@ -800,7 +698,7 @@
         var editor = ace.edit( 'code-editor' );
         var fontSize = 14;
         
-        editor.setTheme( 'ace/theme/kuroir' );
+        editor.setTheme( 'ace/theme/iplastic' );
         editor.setFontSize( fontSize );
         editor.session.setMode( 'ace/mode/sql' );
 
@@ -831,17 +729,19 @@
     var distanceX = 0;
     var $leftPanel = null;
     var $rightPanel = null;
-    var $splitterContainer = $( '.splitter' );
     var currentWidth = 0;
     var $container = $( '.container' );
     
-    $( '.splitter__handle', $splitterContainer ).mousedown( function ( event ) {
+    $( '.splitter__handle' ).mousedown( function ( event ) {
 
         startPosition.x = event.pageX;
         startPosition.y = event.pageY;
 
+        var $splitterContainer = $( this ).parent();
+
         $leftPanel = $splitterContainer.prev();
         $rightPanel = $splitterContainer.next();
+
         currentWidth = parseFloat( window.getComputedStyle( $rightPanel.get(0) ).width );
 
         shouldStartSplit = true;
@@ -865,36 +765,6 @@
         $container.removeClass( 'container--split' );
 
     } );
-
-/* Semantic UI - customized ***********************************************************************/
-
-    var data = {
-      "dataSources": {
-        "glue": {
-          "idv": {
-            "s_octf_nbn_srvc": {
-              "database": "idv",
-              "name": "s_octf_nbn_srvc",
-              "service": "glue",
-              "entity": "entity"
-            }
-          }
-        }
-      },
-      "dependencies": {},
-      "features": {
-        "sp1": {
-          "featureName": "sp1",
-          "dataType": "TINYINT"
-        }
-      },
-      "featureStore": "fixedservice",
-      "scriptLanguage": "SQL",
-      "feature_input": "select u.srvc_bk, service_provider as sp1\nfrom s_octf_nbn_srvc u\ninner join\n(select srvc_bk from s_octf_nbn_srvc\n group by srvc_bk having count(srvc_bk)=1) uniquenames\non uniquenames.srvc_bk = u.srvc_bk ",
-      "jobID": "15526284243337060",
-      "jobOutcome": "success",
-      "entity": "srvc_bk"
-    }
 
 /* Create feature store ***************************************************************************/
 
@@ -1026,6 +896,7 @@
         $sctiptLanguages.removeClass( activeClass );
         $languageSelected.addClass( activeClass );
 
+        // Following code is ONLY used for UI desgin in `new-layout` folder.
         $( '.upload-scripts' ).each( function ( index, container ) {
 
             var $container = $( container );
@@ -1041,10 +912,231 @@
             }
 
         } );
+
     } );
 
     // Select default script language
-    $sctiptLanguages.first().click();
+    $sctiptLanguages.eq(1).click();
+
+/* Upload script - Mojo ***************************************************************************/
+    
+    var globals = globals || {};
+    var $metricsForm = $( '#metrics-form' );
+
+    globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
+
+    $metricsForm.append( globals.metricsComponent.$elem );
+
+    $( '#select-model-container' ).click( function () {
+
+        globals.metricsComponent.$elem.remove();
+
+        if ( $( '#select-classification' ).is(':checked') ) {
+
+            globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
+        }
+        else if ( $( '#select-regression' ).is(':checked') ) {
+
+            globals.metricsComponent = createMetricsComponent( { modelName: 'Regression' } );
+        }
+
+        $metricsForm.append( globals.metricsComponent.$elem );
+
+    } );
+
+    /**
+     * Create a component that holds DOM elements, slider, inputs and etc
+     */
+    function createMetricsComponent( { modelName = 'Classification' } = {} ) {
+
+        var metrics = {
+
+            "Classification": {
+              "Accuracy": {
+                "description": "Model Accuracy (0.00-1.00 float)",
+                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+              },
+              "AUC": {
+                "description": "Area Under Curve (Numeric float)",
+                "input_pattern": "^(\\d{0,9}(\\.\\d{1,9})?|\\d[1-9](\\.00?)?)$"
+              },
+              "F1": {
+                "description": "Measure of a test's accuracy (0.00-1.00 float)",
+                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+              }
+            },
+            "Regression": {
+              "R2": {
+                "description": "Coefficient of Determination (0.00-1.00 float)",
+                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+              },
+              "MSE": {
+                "description": "Mean Square Error (0.00-1.00 float)",
+                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+              }
+            },
+            "Continuous": {
+              "R2": {
+                "description": "Coefficient of Determination"
+              },
+              "AUC": {
+                "description": "Area Under Curve"
+              },
+              "Accuracy": {
+                "description": "Model Accuracy"
+              }
+            }
+        };
+
+        var $container = $( `
+            <div class="metrics-container">
+                <div id="metricDates" class="metrics-dates">
+                    <div class="strip heading">
+                        <span class="strip__title">Date for Prediction</span>
+                        <span class="strip__content"></span>
+                    </div>
+                    <div id="timeRange" class="time-range slider"></div>
+                    <div class="range-result">
+                        <div class="days">Days(s): 0</div>
+                    </div>
+                </div>
+            </div>
+        ` );
+
+        var $rangeContainer = $( `
+            <span class="ui checkbox range-container">
+                <input id="range" type="checkbox" name="range">
+                <label for="range">Range</label>
+            </span>
+        ` );
+
+        if ( modelName === 'Classification' ) {
+
+            $( '.strip__content', $container ).append( $rangeContainer );
+        }
+
+        var $range = $( '#range', $rangeContainer  );
+        var $modelMetricsForm = $createModelMetricsForm( metrics[ modelName ] );
+        var slider = createSimpleSlider( $container );
+
+        $container.append( $modelMetricsForm );
+
+        $range.change( function ()  {
+
+            slider.noUiSlider.destroy();
+
+            if ( $( this ).is( ':checked' ) ) {
+                slider = createRangeSlider( $container );
+            }
+            else {
+                slider = createSimpleSlider( $container );
+            }
+
+        } );
+
+        return {
+
+            $elem: $container,
+            slider: slider,
+            modelName: modelName.toLowerCase(),
+            $getFields: function () { return $container.find( 'input[type="text"]' ); },
+            $modelMetricsForm: $modelMetricsForm,
+        };
+    }
+
+    function $createModelMetricsForm( data ) {
+
+        var $form = $( `
+            <form id="statistics" class="metrics-statistics">
+            </form>
+        ` );
+
+        for ( var eachProp in data ) {
+
+            var eachField = data[ eachProp ];
+            var $field = $( '<div class="ui labeled input">' );
+            var $label = $( '<div class="ui label">');
+            var $input = $( '<input type="text" class="ui fluid">' );
+
+            $label.text( eachProp ).attr( 'data-content', eachField.description );
+
+            $input.attr( {
+
+                name: eachProp,
+                title: eachField.description,
+                pattern: eachField.input_pattern
+            } );
+
+            $field.append( $label, $input );
+            $form.append( $field );
+        }
+
+        return $form;
+    }
+
+    /**
+     * @returns DOM element of slider
+     */
+    function createSimpleSlider( $container ) {
+
+        var $days = $( '.days', $container );
+        var slider = $( '.slider', $container ).get( 0 );
+
+        noUiSlider.create( slider, {
+
+            start: 1,
+            connect: true,
+            margin: 15,
+            step: 1,
+            orientation: 'horizontal',
+            range: {
+                'min': 1,
+                'max': 100
+            }
+        } );
+
+        slider.noUiSlider.on( 'update',  function ( values ) {
+
+            var days = parseInt( values );
+            $days.text( `Day(s): ${days}`);
+
+        } );
+
+        return slider;
+    }
+
+
+    /**
+     * @returns DOM element of slider
+     */
+    function createRangeSlider( $container ) {
+
+        var $days = $( '.days', $container );
+        var slider = $( '.slider', $container ).get( 0 );
+
+        noUiSlider.create( slider, {
+
+            start: [ 1, 80 ],
+            connect: true,
+            step: 1,
+            orientation: 'horizontal',
+            range: {
+                'min': 1,
+                'max': 100
+            }
+        } );
+
+        slider.noUiSlider.on( 'update',  function ( values ) {
+
+            var min = parseInt( values[ 0 ] );
+            var max = parseInt( values[ 1 ] );
+
+            $days.text( `Day(s): ${min} - ${max}`);
+
+        } );
+
+        return slider;
+    }
 
 } )();
 
@@ -1056,6 +1148,8 @@ function cap( str ) {
 
     return capped.split(/(?=[A-Z])/).join( ' ' );
 }
+
+/* Utils - Semantic UI - customized ***************************************************************/
 
 function createModal( className = '' ) {
 

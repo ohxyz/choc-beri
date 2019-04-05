@@ -1,10 +1,12 @@
 .main .main__content--upload-scripts {
 
     padding: 20px 0;
+    overflow: auto;
 
     .strip {
 
         padding: 0 30px;
+        margin-bottom: 10px;
 
         &__item {
 
@@ -12,6 +14,40 @@
 
                 background-color: #1685dd;
                 border-color: #1685dd;
+            }
+        }
+    }
+
+    .splitter-left {
+
+        min-width: 350px;
+        flex-grow: 1;
+        margin: 0 15px 0 30px;
+    }
+
+    .splitter-right {
+
+        margin-left: 15px;
+        // min-width: 260px;
+        margin-right: 30px;
+        overflow: auto;
+    }
+
+    .splitter {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__handle {
+
+            color: #cccccc;
+            font-size: 14px;
+            cursor: w-resize;
+
+            &:hover {
+
+                color: #999999;
             }
         }
     }
@@ -26,43 +62,12 @@
         &.upload-scripts--pyshark {
 
             display: block;
-
-        }
-
-        &.upload-scripts--mojo {
-
-            display: block;
         }
 
         &.upload-scripts--sql {
 
             display: flex;
             height: calc( 100% - 70px );
-
-            .editor {
-
-                min-width: 250px;
-                padding-left: 30px;
-            }
-
-            .splitter {
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                &__handle {
-
-                    color: #cccccc;
-                    font-size: 14px;
-                    cursor: w-resize;
-
-                    &:hover {
-
-                        color: #999999;
-                    }
-                }
-            }
 
             .fields {
 
@@ -124,31 +129,6 @@
                         color: #0a868c;
                     }
                 }
-            }
-        }
-
-        .validate-button {
-
-            background-color: #03a9f4;
-            color: white;
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 2px;
-            padding: 7px 14px;
-            border: 1px solid transparent;
-            display: flex;
-            cursor: pointer;
-            width: 110px;
-
-            &:hover {
-
-                background-color: #0983ba;
-            }
-
-            &__icon {
-
-                width: 25px;
-                font-size: 15px;
             }
         }
     }   

@@ -13,6 +13,8 @@
   <script src="./assets/ace/ace.js"></script>
   <link rel="stylesheet" type="text/css" href="./assets/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.css" rel="stylesheet">
 </head>
 <body>
   <div class="container">
@@ -73,8 +75,8 @@
       </div>
       <div class="main__content main__content--upload-scripts">
         <div class="strip">
-          <div class="strip__title">SCRIPT LANGUAGE</div>
-          <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PyShark</span></div>
+          <div class="strip__title">FEATURE LANGUAGES</div>
+          <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
         </div>
         <div class="upload-scripts upload-scripts--sql" data-script="sql">
           <div class="editor">
@@ -176,10 +178,105 @@
           </div>
         </div>
         <div class="upload-scripts upload-scripts--mojo" data-script="mojo">
-          <hi>Mojo</hi>
+          <div class="splitter-left">
+            <div class="upload-files">
+              <div class="upload-files__heading">Upload Mojo Scripts</div>
+              <div class="upload-files__main">
+                <div class="upload-files__container">
+                  <input id="file" type="file">
+                </div>
+              </div>
+              <input class="upload-files__submit ui button" type="submit" value="Upload Scripts">
+            </div>
+            <div class="strip">
+              <div class="strip__title">Type</div>
+              <div class="strip__content">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="predictive" id="predictive">
+                  <label for="predictive">Predictive</label>
+                </div>
+              </div>
+            </div>
+            <div class="fields ui form">
+              <div class="field">
+                <label class="field__title">Choc-BERI Target Features</label>
+                <div class="field__content">
+                  <select class="ui fluid search dropdown" id="targetFeatures" size="25">                                               
+                    <option value="fixedservices.example1">fixedservice.example1 (TINYINT)</option>
+                    <option value="fixedservices.example2">fixedservice.example2 (TINYINT)</option>
+                    <option value="fixedservices.example3">fixedservice.example3 (TINYINT)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="ui form" id="select-model-container">
+                <div class="strip">
+                  <div class="strip__title">Model</div>
+                  <div class="strip__content">
+                    <div class="inline fields">
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="model" id="select-classification" checked>
+                          <label for="select-classification">Classification</label>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="model" id="select-regression">
+                          <label for="select-regression">Regression</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="metrics-form"></div>
+            </div>
+          </div>
+          <div class="splitter">
+            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
+          </div>
+          <div class="splitter-right">
+            <div class="fields ui form">
+              <div class="field">
+                <label class="field__title">Creating to Choc-BERI Feature Store</label>
+                <div class="field__content"> 
+                  <select class="ui fluid search dropdown" id="featureStore">
+                    <option value="mobile">mobile</option>
+                    <option value="fixedservice">fixedservice</option>
+                    <option value="test">test</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox fluid" id="historicalCheckbox">
+                  <input class="hidden" tabindex="0" type="checkbox">
+                  <label>Historical feature</label>
+                  <script>
+                    $('#historicalCheckbox')
+                    .checkbox({
+                        onChecked: function() {
+                            $("#historicalDates").show();
+                        },
+                        onUnchecked: function() {
+                            $("#historicalDates").hide();
+                        }
+                    })
+                    
+                  </script>
+                </div>
+              </div>
+              <div class="field historical-dates" id="historicalDates">
+                <div class="ui left icon input">
+                  <input name="fromDate" type="date"><i class="calendar icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="upload-scripts upload-scripts--pyshark" data-script="pyshark">
-          <h1>PyShark</h1>
+        <div class="upload-scripts upload-scripts--pyshark" data-script="pyspark">
+          <div class="strip">
+            <div class="strip__title">Content of PySpark is basically same as the content of SQL.</div>
+          </div>
         </div>
       </div>
     </div>

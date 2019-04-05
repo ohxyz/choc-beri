@@ -1,2 +1,69 @@
 .upload-scripts.upload-scripts--mojo(data-script="mojo")
-    hi Mojo
+    .splitter-left
+        .upload-files
+            .upload-files__heading Upload Mojo Scripts
+            .upload-files__main
+                .upload-files__container
+                    input#file(type="file")
+            input.upload-files__submit.ui.button(type="submit" value="Upload Scripts")
+
+        .strip
+            .strip__title Type
+            .strip__content
+                .ui.checkbox
+                    input(type="checkbox" name="predictive" id="predictive")
+                    label(for="predictive") Predictive
+        .fields.ui.form
+            .field
+                label.field__title Choc-BERI Target Features
+                .field__content
+                    select.ui.fluid.search.dropdown(id='targetFeatures', size=25)                                                
+                        option(value="fixedservices.example1") fixedservice.example1 (TINYINT)
+                        option(value="fixedservices.example2") fixedservice.example2 (TINYINT)
+                        option(value="fixedservices.example3") fixedservice.example3 (TINYINT)
+
+            .ui.form(id="select-model-container")
+                .strip
+                    .strip__title Model
+                    .strip__content
+                        .inline.fields
+                            .field
+                                .ui.radio.checkbox
+                                    input(type="radio" name="model" id="select-classification" checked)
+                                    label(for="select-classification") Classification
+                            .field
+                                .ui.radio.checkbox
+                                    input(type="radio" name="model" id="select-regression" )
+                                    label(for="select-regression") Regression
+            #metrics-form
+
+    .splitter
+        .splitter__handle.fas.fa-grip-lines-vertical
+    .splitter-right
+        .fields.ui.form
+            .field
+                label.field__title Creating to Choc-BERI Feature Store
+                .field__content 
+                    select.ui.fluid.search.dropdown(id='featureStore')
+                        option(value="mobile") mobile
+                        option(value="fixedservice") fixedservice
+                        option(value="test") test
+            .field
+                .ui.checkbox.fluid(id='historicalCheckbox')
+                    input.hidden(tabindex='0', type='checkbox')
+                    label Historical feature
+                    script.
+                        $('#historicalCheckbox')
+                        .checkbox({
+                            onChecked: function() {
+                                $("#historicalDates").show();
+                            },
+                            onUnchecked: function() {
+                                $("#historicalDates").hide();
+                            }
+                        })
+
+            .field(id='historicalDates' class="historical-dates")
+                    .ui.left.icon.input
+                        input(name='fromDate', type='date')
+                        i.calendar.icon
