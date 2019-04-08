@@ -1,0 +1,24 @@
+.validate-button {
+
+    background-color: #03a9f4;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 2px;
+    padding: 7px 14px;
+    border: 1px solid transparent;
+    display: flex;
+    cursor: pointer;
+    width: 110px;
+
+    &:hover {
+
+        background-color: #0983ba;
+    }
+
+    &__icon {
+
+        font-size: 15px;
+        margin-right: 10px;
+    }
+}

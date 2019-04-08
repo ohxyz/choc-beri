@@ -15,6 +15,37 @@
     var $main = $( '.main' );
     var zone = $( '.main__header' ).data( 'zone' );
     var user = { admin: true } // Required to be integrated user profile
+    var env = $container.data( 'env' );
+    
+    var dummyValidatedResult = {
+
+      "dataSources": {
+        "glue": {
+          "idv": {
+            "s_octf_nbn_srvc": {
+              "database": "idv",
+              "name": "s_octf_nbn_srvc",
+              "service": "glue",
+              "entity": "entity"
+            }
+          }
+        }
+      },
+      "dependencies": {},
+      "features": {
+        "sp1": {
+          "featureName": "sp1",
+          "dataType": "TINYINT"
+        }
+      },
+      "featureStore": "fixedservice",
+      "scriptLanguage": "SQL",
+      "feature_input": "select u.srvc_bk, service_provider as sp1\nfrom s_octf_nbn_srvc u\ninner join\n(select srvc_bk from s_octf_nbn_srvc\n group by srvc_bk having count(srvc_bk)=1) uniquenames\non uniquenames.srvc_bk = u.srvc_bk ",
+      "jobID": "15526284243337060",
+      "jobOutcome": "success",
+      "entity": "srvc_bk"
+    };
+
 
 /* Toggle menu items - Accodion style *************************************************************/
 
@@ -613,25 +644,6 @@
 
         var $featureDependencies = $( '.feature-dependencies', $featureDependenciesRow );
 
-        /** 
-         * Example
-            .feature-dependencies
-                .feature-dependencies__row
-                    .feature-dependencies__title Feature Stores
-                    .feature-dependencies__content 
-                        .feature-dependencies__item
-                            i.feature-dependencies__icon.fas.fa-shopping-cart
-                            span.feature-dependencies__name fixedservice
-                .feature-dependencies__row
-                    .feature-dependencies__title Features
-                    .feature-dependencies__content 
-                        .feature-dependencies__item
-                            i.feature-dependencies__icon.far.fa-star
-                            span.feature-dependencies__name fixedservice.recd_del_flg_bin
-                        .feature-dependencies__item
-                            i.feature-dependencies__icon.far.fa-star
-                            span.feature-dependencies__name fixedservice.recd_del_flg
-        */
         if ( f.dependencies && Object.keys( f.dependencies ).length ) {
 
             for ( var featureStoreName in f.dependencies ) {
@@ -731,8 +743,10 @@
     var $rightPanel = null;
     var currentWidth = 0;
     var $container = $( '.container' );
+    var $splitterHandle = $( '.splitter__handle' );
+    var splitterActiveClass = 'splitter__handle--active';
     
-    $( '.splitter__handle' ).mousedown( function ( event ) {
+    $splitterHandle.mousedown( function ( event ) {
 
         startPosition.x = event.pageX;
         startPosition.y = event.pageY;
@@ -745,6 +759,7 @@
         currentWidth = parseFloat( window.getComputedStyle( $rightPanel.get(0) ).width );
 
         shouldStartSplit = true;
+        $splitterHandle.addClass( splitterActiveClass );
     } );
 
     $( document ).mousemove( function ( event ) { 
@@ -763,6 +778,7 @@
 
         shouldStartSplit = false;
         $container.removeClass( 'container--split' );
+        $splitterHandle.removeClass( splitterActiveClass );
 
     } );
 
@@ -776,70 +792,72 @@
         } );
     } );
 
-/* Upload scripts *********************************************************************************/
+/* Create feature store & Upload scripts - Validate code ******************************************/
 
-    var $containerUploadScripts = $( '.main__content--upload-scripts' );
-    var countOfFeatureFields = 1;
-    var $containerOfFeatureFields = $( '.field-group__content', $containerUploadScripts );
+    if ( env === 'dev' ) {
 
-    $( '.validate-button', $containerUploadScripts ).click( function () { 
+        var $containerUploadScripts = $( '.main__content--upload-scripts' );
+        var countOfFeatureFields = 1;
+        var $containerOfFeatureFields = $( '.field-group__content', $containerUploadScripts );
 
-        showValidateSuccessModal( data, function () {
+        $( '.validate-button', $containerUploadScripts ).click( function () { 
 
-            var header = "Job being created. Please wait ...";
-            var content = "Job ID: " + Math.random().toString().slice(2);
+            showValidateSuccessModal( dummyValidatedResult, function () {
 
-            showCreateJobWaitModal( header, content ); 
+                var header = "Job being created. Please wait ...";
+                var content = "Job ID: " + Math.random().toString().slice(2);
+
+                showCreateJobWaitModal( header, content ); 
+            } );
         } );
-    } );
 
 
-    $( '.field-group__icon--add-feature' ).click( function () { 
+        $( '.field-group__icon--add-feature' ).click( function () { 
 
-        var $e = $createFeatureFields( ++ countOfFeatureFields );
+            var $e = $createFeatureFields( ++ countOfFeatureFields );
 
-        $containerOfFeatureFields.append( $e );
+            $containerOfFeatureFields.append( $e );
 
-    } );
+        } );
 
-    $( '.field-group__icon--remove-feature' ).click( function () { 
+        $( '.field-group__icon--remove-feature' ).click( function () { 
 
-        if ( countOfFeatureFields <= 1 ) {
+            if ( countOfFeatureFields <= 1 ) {
 
-            return;
-        }
+                return;
+            }
 
-        $( '.field:last-child', $containerOfFeatureFields ).remove();
-        countOfFeatureFields -- ;
+            $( '.field:last-child', $containerOfFeatureFields ).remove();
+            countOfFeatureFields -- ;
 
-    } );
+        } );
 
-    function $createFeatureFields( index ) {
+        function $createFeatureFields( index ) {
 
-        var $elem = $( `
-            <div class="field">
-              <div class="label field__title">Feature ${index}</div>
-              <div class="field__content ui input labeled"><i class="ui label fas fa-star"></i>
-                <input class="feature-name" type="text" name="feature-name-${index}" placeholder="Feature Name">
-              </div>
-              <div class="field__content ui fluid search dropdown selection">
-                <input class="feature-data-type" type="hidden" name="feature-data-type-${index}"><i class="dropdown icon"></i>
-                <input class="search" autocomplete="off" tabindex="0"><div class="default text">Data Type</div>
-                <div class="menu" tabindex="-1">
-                  <div class="item" data-value="TINYINT">TINYINT</div>
-                  <div class="item" data-value="SMALLINT">SMALLINT</div>
-                  <div class="item" data-value="TIMESTAMP">TIMESTAMP</div>
-                  <div class="item" data-value="VARCHAR">VARCHAR</div>
+            var $elem = $( `
+                <div class="field">
+                  <div class="label field__title">Feature ${index}</div>
+                  <div class="field__content ui input labeled"><i class="ui label fas fa-star"></i>
+                    <input class="feature-name" type="text" name="feature-name-${index}" placeholder="Feature Name">
+                  </div>
+                  <div class="field__content ui fluid search dropdown selection">
+                    <input class="feature-data-type" type="hidden" name="feature-data-type-${index}"><i class="dropdown icon"></i>
+                    <input class="search" autocomplete="off" tabindex="0"><div class="default text">Data Type</div>
+                    <div class="menu" tabindex="-1">
+                      <div class="item" data-value="TINYINT">TINYINT</div>
+                      <div class="item" data-value="SMALLINT">SMALLINT</div>
+                      <div class="item" data-value="TIMESTAMP">TIMESTAMP</div>
+                      <div class="item" data-value="VARCHAR">VARCHAR</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-        `);
+            `);
 
-        $( '.ui.dropdown', $elem ).dropdown();
+            $( '.ui.dropdown', $elem ).dropdown();
 
-        return $elem;
+            return $elem;
+        }
     }
-
 /* Browse files ***********************************************************************************/
 
     $( '.item--folder .item__icon' ).click( function () { 
@@ -897,26 +915,29 @@
         $languageSelected.addClass( activeClass );
 
         // Following code is ONLY used for UI desgin in `new-layout` folder.
-        $( '.upload-scripts' ).each( function ( index, container ) {
 
-            var $container = $( container );
-            var activeClassNameOfUploadScript = 'upload-scripts--active';
+        if ( env === 'dev' ) {
 
-            if ( scriptName === $container.data( 'script' ) ) {
+            $( '.upload-scripts' ).each( function ( index, container ) {
 
-                $container.addClass( activeClassNameOfUploadScript );
-            }
-            else {
+                var $container = $( container );
+                var activeClassNameOfUploadScript = 'upload-scripts--active';
 
-                $container.removeClass( activeClassNameOfUploadScript );
-            }
+                if ( scriptName === $container.data( 'script' ) ) {
 
-        } );
+                    $container.addClass( activeClassNameOfUploadScript );
+                }
+                else {
 
+                    $container.removeClass( activeClassNameOfUploadScript );
+                }
+
+            } );
+        }
     } );
 
     // Select default script language
-    $sctiptLanguages.eq(1).click();
+    $sctiptLanguages.eq(0).click();
 
 /* Upload script - Mojo ***************************************************************************/
     
@@ -1186,9 +1207,10 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
 
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.text( contentContent );
-    modal.$modal
-         .modal( 'setting', 'transition', 'fade' )
-         .modal( 'show' );
+
+    return modal.$modal
+                .modal( 'setting', 'transition', 'fade' )
+                .modal( 'show' );
 }
 
 function showSuccessModal( headerContent="Success", contentContent="Done." ) {
@@ -1199,9 +1221,10 @@ function showSuccessModal( headerContent="Success", contentContent="Done." ) {
 
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.text( contentContent );
-    modal.$modal
-         .modal( 'setting', 'transition', 'fade' )
-         .modal( 'show' );
+    
+    return modal.$modal
+                .modal( 'setting', 'transition', 'fade' )
+                .modal( 'show' );
 
 }
 
@@ -1263,12 +1286,11 @@ function $createTitle( iconClass = '', content = '' ) {
     ` );
 }
 
-function showCreateJobSuccessModal( featureStoreName, jobId ) {
+function showCreateJobSuccessModal( $headerContent ) {
 
     var modal = createModal( 'basic modal--create-job-success' );
     var $headerIcon = $( '<i class="far fa-check-circle">' );
-    var $headerContent = $( `<div>A job <em>ID : ${jobId}</em> is added to create feature store <em>${featureStoreName}</em></div>`);
-
+    
     modal.$header.append( $headerIcon, $headerContent );
     modal.$content.html( `
         Oompa loompa doompety doo<br>

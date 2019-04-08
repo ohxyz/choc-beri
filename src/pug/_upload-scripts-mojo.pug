@@ -5,7 +5,7 @@
             .upload-files__main
                 .upload-files__container
                     input#file(type="file")
-            input.upload-files__submit.ui.button(type="submit" value="Upload Scripts")
+            input.upload-files__submit.ui.button(type="submit" value="Upload scripts")
 
         .strip
             .strip__title Type
@@ -17,7 +17,7 @@
             .field
                 label.field__title Choc-BERI Target Features
                 .field__content
-                    select.ui.fluid.search.dropdown(id='targetFeatures', size=25)                                                
+                    select.ui.fluid.search.dropdown(id='targetFeatures')                                                
                         option(value="fixedservices.example1") fixedservice.example1 (TINYINT)
                         option(value="fixedservices.example2") fixedservice.example2 (TINYINT)
                         option(value="fixedservices.example3") fixedservice.example3 (TINYINT)
@@ -51,7 +51,7 @@
             .field
                 .ui.checkbox.fluid(id='historicalCheckbox')
                     input.hidden(tabindex='0', type='checkbox')
-                    label Historical feature
+                    label Historical Feature
                     script.
                         $('#historicalCheckbox')
                         .checkbox({

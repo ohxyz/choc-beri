@@ -18,9 +18,9 @@ block main
             .upload-files__heading SELECT FILES TO UPLOAD
             .upload-files__main
                 .upload-files__container
-                    input#file(type="file")
+                    i.upload-files__background-icon.fas.fa-cloud-upload-alt
+                    input#file(type="file" name="userFiles" multiple )
             input.upload-files__submit.ui.button(type="submit" value="Upload files")
-            
         .guidance
             .guidance__heading INTRODUCTION
             .guidance__sub-heading General Guidance

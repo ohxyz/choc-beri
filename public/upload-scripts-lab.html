@@ -17,7 +17,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
+  <div class="container" data-env="dev">
     <div class="logo"><a class="logo__link" href="./">Choc-BERi</a>
       <div class="mobile-menu__button"><i class="fas fa-hamburger mobile-menu__icon"></i></div>
     </div>
@@ -79,7 +79,7 @@
           <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
         </div>
         <div class="upload-scripts upload-scripts--sql" data-script="sql">
-          <div class="editor">
+          <div class="editor splitter-left">
             <div class="editor__main" id="code-editor"></div>
             <div class="editor__bar">
               <div class="editor__functions">
@@ -92,7 +92,7 @@
           <div class="splitter">
             <div class="splitter__handle fas fa-grip-lines-vertical"></div>
           </div>
-          <div class="fields ui form">
+          <div class="ui form splitter-right">
             <div class="field">
               <label class="field__title" for="table-dependencies">BERI Table Dependencies</label>
               <div class="field__content ui fluid search dropdown selection multiple">
@@ -186,7 +186,7 @@
                   <input id="file" type="file">
                 </div>
               </div>
-              <input class="upload-files__submit ui button" type="submit" value="Upload Scripts">
+              <input class="upload-files__submit ui button" type="submit" value="Upload scripts">
             </div>
             <div class="strip">
               <div class="strip__title">Type</div>
@@ -201,7 +201,7 @@
               <div class="field">
                 <label class="field__title">Choc-BERI Target Features</label>
                 <div class="field__content">
-                  <select class="ui fluid search dropdown" id="targetFeatures" size="25">                                               
+                  <select class="ui fluid search dropdown" id="targetFeatures">                                               
                     <option value="fixedservices.example1">fixedservice.example1 (TINYINT)</option>
                     <option value="fixedservices.example2">fixedservice.example2 (TINYINT)</option>
                     <option value="fixedservices.example3">fixedservice.example3 (TINYINT)</option>
@@ -250,7 +250,7 @@
               <div class="field">
                 <div class="ui checkbox fluid" id="historicalCheckbox">
                   <input class="hidden" tabindex="0" type="checkbox">
-                  <label>Historical feature</label>
+                  <label>Historical Feature</label>
                   <script>
                     $('#historicalCheckbox')
                     .checkbox({

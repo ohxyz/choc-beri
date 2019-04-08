@@ -31,6 +31,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             input[type=file] {
 
@@ -40,9 +42,16 @@
                 bottom: 0;
                 width: 100%;
                 cursor: pointer;
-                padding-top: 90px;
-                padding-left: calc( 50% - 65px );
+                padding-top: 110px;
+                padding-left: calc( 50% - 62px );
             }
+        }
+
+        &__background-icon {
+
+            font-size: 44px;
+            color: #eaeaea;
+            
         }
 
         &__text {
