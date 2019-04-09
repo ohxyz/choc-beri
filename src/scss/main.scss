@@ -56,7 +56,7 @@ html, body {
     padding: 0;
     // Includes styles in the modals created by Semantic UI
     line-height: 1.25;
-    font-family: "Proxima Nova", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: $font-family;
 }
 
 .container {

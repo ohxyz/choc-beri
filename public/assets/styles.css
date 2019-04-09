@@ -1205,6 +1205,14 @@ body .uploading__info {
   font-size: 13px;
   border: 1px #e8e8e8 solid;
 }
+.ui.modal .job-id {
+  display: flex;
+}
+.ui.modal .job-id__content {
+  margin-left: 10px;
+  margin-top: 5px;
+  display: inline-block;
+}
 .ui.modal .step i {
   font-size: 32px;
   margin-top: 12px;
@@ -1256,7 +1264,7 @@ body .uploading__info {
 .ui.modal .content .a-title {
   display: flex;
   background-color: #0e8bee;
-  width: 110px;
+  width: 120px;
   color: white;
   margin-right: 10px;
   padding: 6px 12px;
@@ -1338,14 +1346,6 @@ body .uploading__info {
   border-top: none;
   background-color: transparent;
   padding: 0 25px 25px 25px;
-}
-.ui.modal.modal--validate-success .job-id {
-  display: flex;
-}
-.ui.modal.modal--validate-success .job-id__content {
-  margin-left: 10px;
-  margin-top: 5px;
-  display: inline-block;
 }
 
 .tag {

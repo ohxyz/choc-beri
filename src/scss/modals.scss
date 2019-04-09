@@ -24,6 +24,18 @@
         border: 1px #e8e8e8 solid;
     }
 
+    .job-id {
+
+        display: flex;
+
+        &__content {
+
+            margin-left: 10px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+    }
+
     .step {
 
         i {
@@ -116,7 +128,7 @@
 
             display: flex;
             background-color: #0e8bee;
-            width: 110px;
+            width: 120px;
             color: white;
             margin-right: 10px;
             padding: 6px 12px;
@@ -262,18 +274,6 @@
             border-top: none;
             background-color: transparent;
             padding: 0 25px 25px 25px;
-        }
-
-        .job-id {
-
-            display: flex;
-
-            &__content {
-
-                margin-left: 10px;
-                margin-top: 5px;
-                display: inline-block;
-            }
         }
     }
 }
