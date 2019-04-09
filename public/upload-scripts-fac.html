@@ -36,14 +36,14 @@
           <div class="menu__title"><span class="menu__heading">Laboratory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
           <div class="menu__item"><a class="menu__link" title="Feature Status - Lab" href="./feature-status-lab.html"><i class="far fa-star menu__icon"></i>
               <div class="menu__label">Feature Status - Lab</div></a></div>
-          <div class="menu__item"><a class="menu__link menu__link--active" title="Upload Scripts - Lab" href="./upload-scripts-lab.html"><i class="far fa-file menu__icon"></i>
+          <div class="menu__item"><a class="menu__link" title="Upload Scripts - Lab" href="./upload-scripts-lab.html"><i class="far fa-file menu__icon"></i>
               <div class="menu__label">Upload Scripts - Lab</div></a></div>
         </div>
         <div class="menu__group menu__group--expand">
           <div class="menu__title"><span class="menu__heading">Factory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
           <div class="menu__item"><a class="menu__link" title="Feature Status - Fac" href="./feature-status-fac.html"><i class="fas fa-star menu__icon menu__icon"></i>
               <div class="menu__label">Feature Status - Fac</div></a></div>
-          <div class="menu__item"><a class="menu__link" title="Upload Scripts - Fac" href="./upload-scripts-fac.html"><i class="fas fa-file menu__icon"></i>
+          <div class="menu__item"><a class="menu__link menu__link--active" title="Upload Scripts - Fac" href="./upload-scripts-fac.html"><i class="fas fa-file menu__icon"></i>
               <div class="menu__label">Upload Scripts - Fac</div></a></div>
         </div>
         <div class="menu__group menu__group--expand">
@@ -76,106 +76,7 @@
       <div class="main__content main__content--upload-scripts">
         <div class="strip">
           <div class="strip__title">FEATURE LANGUAGES</div>
-          <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
-        </div>
-        <div class="upload-scripts upload-scripts--sql" data-script="sql">
-          <div class="editor splitter-left">
-            <div class="editor__main" id="code-editor"></div>
-            <div class="editor__bar">
-              <div class="editor__functions">
-                <div class="editor__icon editor__icon--decrease-font-size fas fa-font"></div>
-                <div class="editor__icon editor__icon--increase-font-size fas fa-font"></div>
-                <div class="editor__icon editor__icon--full-screen fas fa-expand"></div>
-              </div>
-            </div>
-          </div>
-          <div class="splitter">
-            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
-          </div>
-          <div class="ui form splitter-right">
-            <div class="field">
-              <label class="field__title" for="table-dependencies">BERI Table Dependencies</label>
-              <div class="field__content ui fluid search dropdown selection multiple">
-                <input id="table-dependencies" type="hidden" name="table-dependencies"><i class="dropdown icon"></i>
-                <div class="default text">Table Dependencies</div>
-                <div class="menu">
-                  <div class="item" data-value="beri2-parquetaggregation-spike.bnd2_asg_001_192_16">beri2-parquetaggregation-spike.bnd2_asg_001_192_16</div>
-                  <div class="item" data-value="beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403">beri2_parquet_aggregation_spike.conversation_partitioned_bucketed_0403</div>
-                  <div class="item" data-value="d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest">d_choc_beri_data.d_choc_beri_fraudcdr_lab_eavt_latest</div>
-                  <div class="item" data-value="idv_bkp_pii.s_adob_detl_forcp2">idv_bkp_pii.s_adob_detl_forcp2</div>
-                  <div class="item" data-value="ingestion-sftp-erroneous-session-data.allot">ingestion-sftp-erroneous-session-data.allot</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title" for="feature-dependencies">BERI Feature Dependencies</label>
-              <div class="field__content ui fluid search dropdown selection multiple">
-                <input id="feature-dependencies" type="hidden" name="feature-dependencies"><i class="dropdown icon"></i>
-                <div class="default text">Feature Dependencies</div>
-                <div class="menu">
-                  <div class="item" data-value="fixedservice.OctaneID">fixedservice.OctaneID (STRING)</div>
-                  <div class="item" data-value="fixedservice.NetworkElement">fixedservice.NetworkElement (STRING)</div>
-                  <div class="item" data-value="fixedservice.plan_name">fixedservice.plan_name (STRING)</div>
-                  <div class="item" data-value="fixedservice.Small_hist">fixedservice.Small_hist (FLOAT)</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title" for="feature-store">BERI Feature Store</label>
-              <div class="field__content ui fluid search dropdown selection">
-                <input id="feature-store" type="hidden" name="feature-store"><i class="dropdown icon"></i>
-                <div class="default text">Feature Store</div>
-                <div class="menu">
-                  <div class="item" data-value="fixedservice">fixedservice</div>
-                  <div class="item" data-value="mobile">mobile</div>
-                  <div class="item" data-value="air">air</div>
-                  <div class="item" data-value="earth">earth</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="field__content ui checkbox">
-                <input id="historical-feature" type="checkbox" name="historical-feature">
-                <label for="historical-feature">Historical Feature</label>
-              </div>
-            </div>
-            <div class="field-group">
-              <div class="field-group__header"><span class="field-group__title">Add feature(s)</span><i class="fas fa-plus-circle field-group__icon field-group__icon--add-feature"></i><i class="fas fa-minus-circle field-group__icon field-group__icon--remove-feature"></i></div>
-              <div class="field-group__content">
-                <div class="field">
-                  <div class="label field__title">Feature 1</div>
-                  <div class="field__content ui input labeled"><i class="ui label fas fa-star"></i>
-                    <input class="feature-name" type="text" name="feature-name-1" placeholder="Feature Name">
-                  </div>
-                  <div class="field__content ui fluid search dropdown selection">
-                    <input class="feature-data-type" type="hidden" name="feature-data-type-1"><i class="dropdown icon"></i>
-                    <div class="default text">Data Type</div>
-                    <div class="menu">
-                      <div class="item" data-value="TINYINT">TINYINT</div>
-                      <div class="item" data-value="SMALLINT">SMALLINT</div>
-                      <div class="item" data-value="TIMESTAMP">TIMESTAMP</div>
-                      <div class="item" data-value="VARCHAR">VARCHAR</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <label class="field__title">Code Feedback</label>
-              <div class="field__content">
-                <div class="code-feedback code-feedback--success"> 
-                  <div class="code-feedback__icon far fa-smile"></div>
-                  <div class="code-feedback__content">Everthing looks good.</div>
-                </div>
-              </div>
-            </div>
-            <div class="field">
-              <div class="validate-button">
-                <div class="validate-button__icon fas fa-calendar-check"></div>
-                <div class="validate-button__content">Validate</div>
-              </div>
-            </div>
-          </div>
+          <div class="strip__content"><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
         </div>
         <div class="upload-scripts upload-scripts--mojo" data-script="mojo">
           <div class="splitter-left">

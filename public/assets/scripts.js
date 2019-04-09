@@ -46,6 +46,18 @@
       "entity": "srvc_bk"
     };
 
+/* Global jQuery AJAX handler *********************************************************************/
+
+$( document )
+    .ajaxStart( function() {
+    
+        $( 'body' ).css( 'cursor', 'progress' );
+    } )
+    .ajaxComplete( function () {
+
+        $( 'body' ).css( 'cursor', 'auto' );
+    } ) ;
+
 
 /* Toggle menu items - Accodion style *************************************************************/
 
@@ -783,14 +795,22 @@
     } );
 
 /* Create feature store ***************************************************************************/
+    
+    if ( env === 'dev' ) {
 
-    $( '#validate-code', '.main__content--create-feature-store' ).click( function () { 
+        $( '#validate-code', '.main__content--create-feature-store' ).click( function () { 
 
-        showValidateSuccessModal( data, function () {
+            showValidateSuccessModal( dummyValidatedResult, function () {
 
-            showCreateJobSuccessModal( 'fixedservice', 1234567890 ); 
+                var $headerContent = $( 
+                    `<div>A job <em>ID : 1234567890</em>` + 
+                    `is added to create feature store <em>${dummyValidatedResult.featureStore}</em></div>`
+                );
+                showCreateJobSuccessModal( $headerContent );
+            } );
         } );
-    } );
+    }
+
 
 /* Create feature store & Upload scripts - Validate code ******************************************/
 
@@ -941,224 +961,227 @@
 
 /* Upload script - Mojo ***************************************************************************/
     
-    var globals = globals || {};
-    var $metricsForm = $( '#metrics-form' );
+    if ( env === 'dev' ) {
 
-    globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
+        var globals = globals || {};
+        var $metricsForm = $( '#metrics-form' );
 
-    $metricsForm.append( globals.metricsComponent.$elem );
-
-    $( '#select-model-container' ).click( function () {
-
-        globals.metricsComponent.$elem.remove();
-
-        if ( $( '#select-classification' ).is(':checked') ) {
-
-            globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
-        }
-        else if ( $( '#select-regression' ).is(':checked') ) {
-
-            globals.metricsComponent = createMetricsComponent( { modelName: 'Regression' } );
-        }
+        globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
 
         $metricsForm.append( globals.metricsComponent.$elem );
 
-    } );
+        $( '#select-model-container' ).click( function () {
 
-    /**
-     * Create a component that holds DOM elements, slider, inputs and etc
-     */
-    function createMetricsComponent( { modelName = 'Classification' } = {} ) {
+            globals.metricsComponent.$elem.remove();
 
-        var metrics = {
+            if ( $( '#select-classification' ).is(':checked') ) {
 
-            "Classification": {
-              "Accuracy": {
-                "description": "Model Accuracy (0.00-1.00 float)",
-                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
-              },
-              "AUC": {
-                "description": "Area Under Curve (Numeric float)",
-                "input_pattern": "^(\\d{0,9}(\\.\\d{1,9})?|\\d[1-9](\\.00?)?)$"
-              },
-              "F1": {
-                "description": "Measure of a test's accuracy (0.00-1.00 float)",
-                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
-              }
-            },
-            "Regression": {
-              "R2": {
-                "description": "Coefficient of Determination (0.00-1.00 float)",
-                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
-              },
-              "MSE": {
-                "description": "Mean Square Error (0.00-1.00 float)",
-                "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
-              }
-            },
-            "Continuous": {
-              "R2": {
-                "description": "Coefficient of Determination"
-              },
-              "AUC": {
-                "description": "Area Under Curve"
-              },
-              "Accuracy": {
-                "description": "Model Accuracy"
-              }
+                globals.metricsComponent = createMetricsComponent( { modelName: 'Classification' } );
             }
-        };
+            else if ( $( '#select-regression' ).is(':checked') ) {
 
-        var $container = $( `
-            <div class="metrics-container">
-                <div id="metricDates" class="metrics-dates">
-                    <div class="strip heading">
-                        <span class="strip__title">Date for Prediction</span>
-                        <span class="strip__content"></span>
-                    </div>
-                    <div id="timeRange" class="time-range slider"></div>
-                    <div class="range-result">
-                        <div class="days">Days(s): 0</div>
+                globals.metricsComponent = createMetricsComponent( { modelName: 'Regression' } );
+            }
+
+            $metricsForm.append( globals.metricsComponent.$elem );
+
+        } );
+
+        /**
+         * Create a component that holds DOM elements, slider, inputs and etc
+         */
+        function createMetricsComponent( { modelName = 'Classification' } = {} ) {
+
+            var metrics = {
+
+                "Classification": {
+                  "Accuracy": {
+                    "description": "Model Accuracy (0.00-1.00 float)",
+                    "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+                  },
+                  "AUC": {
+                    "description": "Area Under Curve (Numeric float)",
+                    "input_pattern": "^(\\d{0,9}(\\.\\d{1,9})?|\\d[1-9](\\.00?)?)$"
+                  },
+                  "F1": {
+                    "description": "Measure of a test's accuracy (0.00-1.00 float)",
+                    "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+                  }
+                },
+                "Regression": {
+                  "R2": {
+                    "description": "Coefficient of Determination (0.00-1.00 float)",
+                    "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+                  },
+                  "MSE": {
+                    "description": "Mean Square Error (0.00-1.00 float)",
+                    "input_pattern": "^(?:1(?:\\.0)?|[0-1](?:\\.\\d[0-9])?|0?\\.\\d{0,9})$"
+                  }
+                },
+                "Continuous": {
+                  "R2": {
+                    "description": "Coefficient of Determination"
+                  },
+                  "AUC": {
+                    "description": "Area Under Curve"
+                  },
+                  "Accuracy": {
+                    "description": "Model Accuracy"
+                  }
+                }
+            };
+
+            var $container = $( `
+                <div class="metrics-container">
+                    <div id="metricDates" class="metrics-dates">
+                        <div class="strip heading">
+                            <span class="strip__title">Date for Prediction</span>
+                            <span class="strip__content"></span>
+                        </div>
+                        <div id="timeRange" class="time-range slider"></div>
+                        <div class="range-result">
+                            <div class="days">Days(s): 0</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        ` );
+            ` );
 
-        var $rangeContainer = $( `
-            <span class="ui checkbox range-container">
-                <input id="range" type="checkbox" name="range">
-                <label for="range">Range</label>
-            </span>
-        ` );
+            var $rangeContainer = $( `
+                <span class="ui checkbox range-container">
+                    <input id="range" type="checkbox" name="range">
+                    <label for="range">Range</label>
+                </span>
+            ` );
 
-        if ( modelName === 'Classification' ) {
+            if ( modelName === 'Classification' ) {
 
-            $( '.strip__content', $container ).append( $rangeContainer );
-        }
-
-        var $range = $( '#range', $rangeContainer  );
-        var $modelMetricsForm = $createModelMetricsForm( metrics[ modelName ] );
-        var slider = createSimpleSlider( $container );
-
-        $container.append( $modelMetricsForm );
-
-        $range.change( function ()  {
-
-            slider.noUiSlider.destroy();
-
-            if ( $( this ).is( ':checked' ) ) {
-                slider = createRangeSlider( $container );
-            }
-            else {
-                slider = createSimpleSlider( $container );
+                $( '.strip__content', $container ).append( $rangeContainer );
             }
 
-        } );
+            var $range = $( '#range', $rangeContainer  );
+            var $modelMetricsForm = $createModelMetricsForm( metrics[ modelName ] );
+            var slider = createSimpleSlider( $container );
 
-        return {
+            $container.append( $modelMetricsForm );
 
-            $elem: $container,
-            slider: slider,
-            modelName: modelName.toLowerCase(),
-            $getFields: function () { return $container.find( 'input[type="text"]' ); },
-            $modelMetricsForm: $modelMetricsForm,
-        };
-    }
+            $range.change( function ()  {
 
-    function $createModelMetricsForm( data ) {
+                slider.noUiSlider.destroy();
 
-        var $form = $( `
-            <form id="statistics" class="metrics-statistics">
-            </form>
-        ` );
+                if ( $( this ).is( ':checked' ) ) {
+                    slider = createRangeSlider( $container );
+                }
+                else {
+                    slider = createSimpleSlider( $container );
+                }
 
-        for ( var eachProp in data ) {
-
-            var eachField = data[ eachProp ];
-            var $field = $( '<div class="ui labeled input">' );
-            var $label = $( '<div class="ui label">');
-            var $input = $( '<input type="text" class="ui fluid">' );
-
-            $label.text( eachProp ).attr( 'data-content', eachField.description );
-
-            $input.attr( {
-
-                name: eachProp,
-                title: eachField.description,
-                pattern: eachField.input_pattern
             } );
 
-            $field.append( $label, $input );
-            $form.append( $field );
+            return {
+
+                $elem: $container,
+                slider: slider,
+                modelName: modelName.toLowerCase(),
+                $getFields: function () { return $container.find( 'input[type="text"]' ); },
+                $modelMetricsForm: $modelMetricsForm,
+            };
         }
 
-        return $form;
-    }
+        function $createModelMetricsForm( data ) {
 
-    /**
-     * @returns DOM element of slider
-     */
-    function createSimpleSlider( $container ) {
+            var $form = $( `
+                <form id="statistics" class="metrics-statistics">
+                </form>
+            ` );
 
-        var $days = $( '.days', $container );
-        var slider = $( '.slider', $container ).get( 0 );
+            for ( var eachProp in data ) {
 
-        noUiSlider.create( slider, {
+                var eachField = data[ eachProp ];
+                var $field = $( '<div class="ui labeled input">' );
+                var $label = $( '<div class="ui label">');
+                var $input = $( '<input type="text" class="ui fluid">' );
 
-            start: 1,
-            connect: true,
-            margin: 15,
-            step: 1,
-            orientation: 'horizontal',
-            range: {
-                'min': 1,
-                'max': 100
+                $label.text( eachProp ).attr( 'data-content', eachField.description );
+
+                $input.attr( {
+
+                    name: eachProp,
+                    title: eachField.description,
+                    pattern: eachField.input_pattern
+                } );
+
+                $field.append( $label, $input );
+                $form.append( $field );
             }
-        } );
 
-        slider.noUiSlider.on( 'update',  function ( values ) {
+            return $form;
+        }
 
-            var days = parseInt( values );
-            $days.text( `Day(s): ${days}`);
+        /**
+         * @returns DOM element of slider
+         */
+        function createSimpleSlider( $container ) {
 
-        } );
+            var $days = $( '.days', $container );
+            var slider = $( '.slider', $container ).get( 0 );
 
-        return slider;
+            noUiSlider.create( slider, {
+
+                start: 1,
+                connect: true,
+                margin: 15,
+                step: 1,
+                orientation: 'horizontal',
+                range: {
+                    'min': 1,
+                    'max': 100
+                }
+            } );
+
+            slider.noUiSlider.on( 'update',  function ( values ) {
+
+                var days = parseInt( values );
+                $days.text( `Day(s): ${days}`);
+
+            } );
+
+            return slider;
+        }
+
+
+        /**
+         * @returns DOM element of slider
+         */
+        function createRangeSlider( $container ) {
+
+            var $days = $( '.days', $container );
+            var slider = $( '.slider', $container ).get( 0 );
+
+            noUiSlider.create( slider, {
+
+                start: [ 1, 80 ],
+                connect: true,
+                step: 1,
+                orientation: 'horizontal',
+                range: {
+                    'min': 1,
+                    'max': 100
+                }
+            } );
+
+            slider.noUiSlider.on( 'update',  function ( values ) {
+
+                var min = parseInt( values[ 0 ] );
+                var max = parseInt( values[ 1 ] );
+
+                $days.text( `Day(s): ${min} - ${max}`);
+
+            } );
+
+            return slider;
+        }
     }
-
-
-    /**
-     * @returns DOM element of slider
-     */
-    function createRangeSlider( $container ) {
-
-        var $days = $( '.days', $container );
-        var slider = $( '.slider', $container ).get( 0 );
-
-        noUiSlider.create( slider, {
-
-            start: [ 1, 80 ],
-            connect: true,
-            step: 1,
-            orientation: 'horizontal',
-            range: {
-                'min': 1,
-                'max': 100
-            }
-        } );
-
-        slider.noUiSlider.on( 'update',  function ( values ) {
-
-            var min = parseInt( values[ 0 ] );
-            var max = parseInt( values[ 1 ] );
-
-            $days.text( `Day(s): ${min} - ${max}`);
-
-        } );
-
-        return slider;
-    }
-
+    
 } )();
 
 /* Utils ******************************************************************************************/
@@ -1235,16 +1258,8 @@ function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} 
     var $featureTag = $createTitle( 'far fa-star', 'Feature' );
     var $pre = $( '<pre>' );
 
-    // Todo: handle creation of a feature.
-    //
-    // var $featureRow = $( '<div class="row">' ).append(
-
-    //     $featureTag, 
-    //     $( '<span class="row__content">Sp1</span>') 
-    // );
-    
     var $metadataRow = $( '<div class="row">' ).append( $metadataTag, $pre );
-    var $jobIdRow = $( '<div id="job-id" class="row">' );
+    var $jobIdRow = $( '<div class="job-id row">' );
 
     var $createJobStatus = $( '<div class="create-job__status">' );
     var $createJobButton = $( `
@@ -1260,12 +1275,12 @@ function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} 
     $pre.text( JSON.stringify( data , null, 2 ) );
 
     $jobIdTitle = $createTitle( 'far fa-id-card', 'Job ID' );
-    $jobIdContent = $( `<span class="row__content">${data.jobID}</span>` );
+    $jobIdContent = $( `<span class="job-id__content">${data.jobID}</span>` );
 
     $jobIdRow.append( $jobIdTitle, $jobIdContent );
 
     modal.$header.append( $headerIcon, $headerContent );
-    modal.$content.append( /*$featureRow,*/ $metadataRow, $jobIdRow, $createJobStatus );
+    modal.$content.append( $metadataRow, $jobIdRow, $createJobStatus );
     modal.$actions.append( $createJobButton );
     modal.$modal.modal( 'show' );
 
@@ -1279,9 +1294,9 @@ function showValidateSuccessModal( data = {}, onCreateJobButtonClick = () => {} 
 function $createTitle( iconClass = '', content = '' ) {
 
     return $( `
-        <span class="title">
-            <i class="title__icon ${iconClass}"></i>
-            <span class="title__contnet">${content}</span>
+        <span class="a-title">
+            <i class="a-title__icon ${iconClass}"></i>
+            <span class="a-title__content">${content}</span>
         </span>
     ` );
 }
@@ -1321,5 +1336,3 @@ function showCreateJobStatusModal( { modalClass, iconClass, headerContent, conte
 
     // Todo: Create a base function of status of modal, eg. success, wait/pending, fail/error, etc
 }
-
-    

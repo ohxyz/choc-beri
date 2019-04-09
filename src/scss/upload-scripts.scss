@@ -16,6 +16,14 @@
                 border-color: #1685dd;
             }
         }
+
+        &.select-model {
+
+            .inline.fields .field {
+
+                margin-bottom: 0;
+            }
+        }
     }
 
     .upload-scripts {
@@ -45,11 +53,6 @@
         height: calc( 100% - 70px );
 
         .fields {
-
-            margin-left: 15px;
-            min-width: 260px;
-            padding-right: 30px;
-            overflow: auto;
 
             .field {
 

@@ -16,7 +16,7 @@ block main
             .strip__content
                 span.strip__item.strip__item--active SQL
         .container-1
-            .editor
+            .editor.splitter-left
                 #code-editor.editor__main
                 .editor__bar
                     .editor__functions
@@ -25,7 +25,7 @@ block main
                         .editor__icon.editor__icon--full-screen.fas.fa-expand
             .splitter
                 .splitter__handle.fas.fa-grip-lines-vertical
-            .fields.ui.form
+            .splitter-right.fields.ui.form
                 .field
                     label.field__title(for="feature-store-name") Feature Store Name
                     .field__content.ui.input.labeled

@@ -1,17 +1,17 @@
-body .container ::-webkit-scrollbar-track {
+html body ::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.1);
-  margin: 2px 0;
-  border-radius: 5px;
+  margin: 4px 0;
+  border-radius: 0;
 }
 
-body .container ::-webkit-scrollbar {
+html body ::-webkit-scrollbar {
   width: 6px;
   background-color: #f5f5f5;
 }
 
-body .container ::-webkit-scrollbar-thumb {
+html body ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 html .noUi-target {
@@ -74,7 +74,6 @@ html .noUi-connect {
   min-width: 250px;
   width: 500px;
   margin-right: 30px;
-  overflow: auto;
 }
 
 .splitter {
@@ -832,13 +831,6 @@ body .uploading__info {
   display: flex;
   height: calc( 100% - 70px );
 }
-.main .main__content--create-feature-store .container-1 .fields {
-  margin-left: 15px;
-  width: 500px;
-  min-width: 260px;
-  padding-right: 30px;
-  overflow: auto;
-}
 .main .main__content--create-feature-store .container-1 .fields .field {
   margin-bottom: 25px;
 }
@@ -855,6 +847,9 @@ body .uploading__info {
   background-color: #1685dd;
   border-color: #1685dd;
 }
+.main .main__content--upload-scripts .strip.select-model .inline.fields .field {
+  margin-bottom: 0;
+}
 .main .main__content--upload-scripts .upload-scripts {
   display: flex;
   height: calc( 100% - 70px );
@@ -867,12 +862,6 @@ body .uploading__info {
 }
 .main .main__content--upload-scripts .upload-scripts--active.upload-scripts--pyshark {
   display: block;
-}
-.main .main__content--upload-scripts .upload-scripts .fields {
-  margin-left: 15px;
-  min-width: 260px;
-  padding-right: 30px;
-  overflow: auto;
 }
 .main .main__content--upload-scripts .upload-scripts .fields .field {
   margin-bottom: 20px;
@@ -916,74 +905,75 @@ body .uploading__info {
   background-color: #c47154;
 }
 
-.main .main__content--upload-scripts .upload-scripts--mojo {
+.main .main__content--upload-scripts .upload-scripts {
   display: flex;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .ui.labeled.input > .label {
+.main .main__content--upload-scripts .upload-scripts .ui.labeled.input > .label {
   font-size: 12px;
   width: 80px;
   color: #666666;
+  font-weight: 500;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .ui.checkbox label {
+.main .main__content--upload-scripts .upload-scripts .ui.checkbox label {
   font-size: 13px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .strip {
+.main .main__content--upload-scripts .upload-scripts .strip {
   padding: 0;
   margin-bottom: 20px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .strip__title {
+.main .main__content--upload-scripts .upload-scripts .strip__title {
   min-width: 140px;
   color: #c44c94;
   font-size: 13px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .strip__content .fields {
+.main .main__content--upload-scripts .upload-scripts .strip__content .fields {
   margin-bottom: 0;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .time-range {
+.main .main__content--upload-scripts .upload-scripts .time-range {
   margin-bottom: 20px;
   max-width: 300px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .range-result {
+.main .main__content--upload-scripts .upload-scripts .range-result {
   font-size: 13px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .metrics-container .metrics-dates {
+.main .main__content--upload-scripts .upload-scripts .metrics-container .metrics-dates {
   margin-bottom: 20px;
   max-width: 350px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .metrics-container .metrics-statistics {
+.main .main__content--upload-scripts .upload-scripts .metrics-container .metrics-statistics {
   display: flex;
   flex-direction: column;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .metrics-container .metrics-statistics .ui.input {
+.main .main__content--upload-scripts .upload-scripts .metrics-container .metrics-statistics .ui.input {
   margin-bottom: 5px;
   max-width: 220px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .historical-dates {
+.main .main__content--upload-scripts .upload-scripts .historical-dates {
   display: none;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files {
+.main .main__content--upload-scripts .upload-scripts .upload-files {
   margin-bottom: 20px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__heading {
+.main .main__content--upload-scripts .upload-scripts .upload-files__heading {
   color: #666666;
   margin-bottom: 6px;
   font-size: 13px;
   font-weight: 500;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__main {
+.main .main__content--upload-scripts .upload-scripts .upload-files__main {
   height: 170px;
   border: 1px dashed #cccccc;
   margin-bottom: 5px;
   border-radius: 2px;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__container {
+.main .main__content--upload-scripts .upload-scripts .upload-files__container {
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__container input[type=file] {
+.main .main__content--upload-scripts .upload-scripts .upload-files__container input[type=file] {
   position: absolute;
   top: 0;
   left: 0;
@@ -993,10 +983,10 @@ body .uploading__info {
   padding-top: 90px;
   padding-left: calc( 50% - 65px );
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__text {
+.main .main__content--upload-scripts .upload-scripts .upload-files__text {
   color: #666666;
 }
-.main .main__content--upload-scripts .upload-scripts--mojo .upload-files__submit {
+.main .main__content--upload-scripts .upload-scripts .upload-files__submit {
   width: 100%;
   font-family: "Proxima Nova";
 }
@@ -1209,6 +1199,11 @@ body .uploading__info {
   margin: 0;
   padding: 10px;
   white-space: pre-wrap;
+  max-height: 400px;
+  overflow: auto;
+  word-break: break-all;
+  font-size: 13px;
+  border: 1px #e8e8e8 solid;
 }
 .ui.modal .step i {
   font-size: 32px;
@@ -1246,7 +1241,7 @@ body .uploading__info {
   padding: 25px 25px 10px 25px;
 }
 .ui.modal .content .row {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .ui.modal .content .row__title {
   margin-bottom: 10px;
@@ -1258,17 +1253,20 @@ body .uploading__info {
   background-color: #f5f5f5;
   padding: 20px;
 }
-.ui.modal .content .title {
-  display: inline-block;
+.ui.modal .content .a-title {
+  display: flex;
   background-color: #0e8bee;
-  min-width: 120px;
+  width: 110px;
   color: white;
   margin-right: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  word-break: break-all;
+  line-height: 1.1;
 }
-.ui.modal .content .title__icon {
+.ui.modal .content .a-title__icon {
   width: 20px;
   margin-right: 10px;
   text-align: center;
@@ -1284,9 +1282,12 @@ body .uploading__info {
 }
 .ui.modal.basic .actions > .button {
   background-color: transparent;
-  border: 1px solid #eeeeee;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+}
+.ui.modal.basic .actions > .button:hover {
   color: white;
-  font-family: "Proxima Nova";
+  border-color: white;
 }
 .ui.modal.modal.basic {
   text-align: center;
@@ -1338,8 +1339,13 @@ body .uploading__info {
   background-color: transparent;
   padding: 0 25px 25px 25px;
 }
+.ui.modal.modal--validate-success .job-id {
+  display: flex;
+}
 .ui.modal.modal--validate-success .job-id__content {
   margin-left: 10px;
+  margin-top: 5px;
+  display: inline-block;
 }
 
 .tag {
@@ -1559,7 +1565,7 @@ html, body {
 
 .container {
   display: grid;
-  grid-template-columns: 240px auto;
+  grid-template-columns: 230px auto;
   grid-template-rows: 60px auto;
   font-size: 14px;
   width: 100vw;

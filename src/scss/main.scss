@@ -62,13 +62,12 @@ html, body {
 .container {
 
     display: grid;
-    grid-template-columns: 240px auto;
+    grid-template-columns: 230px auto;
     grid-template-rows: $top-bar-height auto;
     font-size: 14px;
     width: 100vw;
     height: 100vh;
     color: #333333;
-
 
     @media screen and ( max-width: 980px ) {
 

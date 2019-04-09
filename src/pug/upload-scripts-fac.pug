@@ -1,0 +1,25 @@
+extends _layout.pug
+
+block link
+    - var path = 'upload-scripts-fac'
+
+block main
+    .main__header
+        .main__zone.main__zone--lab
+            .zone-icon.i.fas.fa-flask
+            .zone-name Laboratory
+        .main__title Upload feature scripts
+        .main__breadcrumb
+            span Upload Scripts - Lab
+            span /
+            a(href="/") Choc-BERI
+    .main__content.main__content--upload-scripts
+        .strip
+            .strip__title FEATURE LANGUAGES
+            .strip__content
+                span.strip__item MOJO
+                span.strip__item PySpark
+
+        include _upload-scripts-mojo.pug
+        include _upload-scripts-pyspark.pug
+
