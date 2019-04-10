@@ -1,0 +1,44 @@
+.auto-refresh {
+
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    color: #aaaaaa;
+
+    .fa-toggle-on {
+
+        display: none;
+    }
+
+    .fa-toggle-off {
+
+        display: block;
+    }
+
+    &--enable {
+
+         color: #c14d93;
+
+        .fa-toggle-on {
+
+            display: block;
+        }
+
+        .fa-toggle-off {
+
+            display: none;
+        }
+    }
+
+    &__icon {
+        
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    &:hover {
+
+        color: #c14d93;
+        
+    }
+}

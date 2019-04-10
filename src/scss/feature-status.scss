@@ -38,50 +38,7 @@
 
             &__content_2 {
 
-                .auto-refresh {
-
-                    display: flex;
-                    cursor: pointer;
-                    user-select: none;
-                    color: #aaaaaa;
-
-                    .fa-toggle-on {
-
-                        display: none;
-                    }
-
-                    .fa-toggle-off {
-
-                        display: block;
-                    }
-
-                    &--enable {
-
-                         color: #c14d93;
-
-                        .fa-toggle-on {
-
-                            display: block;
-                        }
-
-                        .fa-toggle-off {
-
-                            display: none;
-                        }
-                    }
-
-                    &__icon {
-                        
-                        font-size: 18px;
-                        margin-right: 10px;
-                    }
-
-                    &:hover {
-
-                        color: #c14d93;
-                        
-                    }
-                }
+                
             }
         }
     }
@@ -118,7 +75,7 @@
 
         &__heading {
 
-            color: $main-color;
+            color: #bb5a38;
             margin-right: 20px;
         }
 
@@ -176,6 +133,12 @@
         background: white;
         flex-grow: 1;
         min-width: 250px;
+
+        &--highlight {
+
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+            border-color: #e6e6e6;
+        }
 
         .promote-button {
 

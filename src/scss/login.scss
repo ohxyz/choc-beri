@@ -1,7 +1,6 @@
 .login {
 
     $border-radius: 60px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,7 +87,6 @@
     &__decor {
 
         background: url( "./choc400.png" );
-        background-size: 125%;
         background-repeat: no-repeat;
         background-position: center;
         height: 108px;

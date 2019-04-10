@@ -28,6 +28,9 @@
 
     .upload-scripts {
 
+        display: flex;
+        height: calc( 100% - 70px );
+
         &.upload-scripts--sql,
         &.upload-scripts--mojo,
         &.upload-scripts--pyshark {
@@ -49,8 +52,15 @@
             }
         }
 
-        display: flex;
-        height: calc( 100% - 70px );
+
+        &--sql {
+
+            .field__content.ui.labeled.input > .label {
+
+                font-size: 14px;
+                width: auto;
+            }
+        }
 
         .fields {
 

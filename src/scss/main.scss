@@ -5,6 +5,9 @@
 @import "./splitter";
 @import "./side-bar";
 @import "./validate-button";
+@import "./auto-refresh";
+@import "./globals";
+
 @import "./browse-files";
 @import "./upload-files";
 @import "./feature-status";
@@ -18,6 +21,7 @@
 @import "./code-feedback";
 @import "./login";
 @import "./logo";
+@import "./dashboard";
 
 
 // Uncomment following import when copied to choc_beri_apps_ui
@@ -174,7 +178,6 @@ html, body {
     background-color: #fbfbfb;
     overflow: hidden;
 
-
     &__zone {
 
         font-size: 13px;
@@ -184,6 +187,7 @@ html, body {
         align-items: center;
         margin-right: 25px;
         color: white;
+        transform: skewY(-2deg);
 
         .zone-icon {
 

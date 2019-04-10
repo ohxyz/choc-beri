@@ -102,6 +102,19 @@
 
         padding: 25px 25px 10px 25px;
 
+        &__main {
+
+            margin-bottom: 10px;
+        }
+
+        &__sub {
+
+            font-size: 14px;
+            font-style: italic;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
         .row {
 
             margin-bottom: 15px;
@@ -165,8 +178,8 @@
         .actions >.button {
 
             background-color: transparent;
-            border: 1px solid #cccccc;
-            color: #cccccc;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255 ,0.85);
 
             &:hover {
 

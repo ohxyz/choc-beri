@@ -91,6 +91,18 @@ $( document )
         $( this ).toggleClass( 'auto-refresh--enable' );
     } );
 
+/* Dashboard - Create env *************************************************************************/
+    
+    $( '#create-env-button' ).click( function () { 
+
+        var header = "Stack creation successful";
+        var content = `Stack ID : arn:aws:cloudformation:ap-southeast-2:510000124683:stack/d00-choc-beri-d/5d2438f0-5b5a-11e9-9aac-0aefa55feeec`
+        var subContent = `An email will be sent to you when the minions and the oompa loompas have finished their tasks in creating your Exploratory Environment!`
+        showSuccessModal( header, content, subContent  );
+
+    } );
+
+
 /* Feature status - Feature store header toggle ***************************************************/
     
     $( '.feature-status__header' ).click( function ( event ) {
@@ -131,6 +143,7 @@ $( document )
 
         var $lists = $( '.feature-status', $container );
         var statusOfList = '';
+        var highlightClass = 'feature-status--highlight';
 
         $lists.hide();
 
@@ -146,7 +159,7 @@ $( document )
 
                 if ( statusOfList === statusOfFilter ) {
 
-                    $list.show();
+                    $list.addClass( highlightClass ).show();
                 }
                 else {
 
@@ -158,7 +171,7 @@ $( document )
         else {
 
             $filter.removeClass( activeClass );
-            $lists.show()
+            $lists.removeClass( highlightClass ).show();
         }
 
         var countOfLists = $lists.length;
@@ -1236,14 +1249,21 @@ function showErrorModal( headerContent="Error", contentContent="Something went w
                 .modal( 'show' );
 }
 
-function showSuccessModal( headerContent="Success", contentContent="Done." ) {
+function showSuccessModal( headerContent="Success", contentContent="Done.", subContent="" ) {
 
     var modal = createModal( 'basic modal--success' );
     var $headerIcon = $( '<i class="far fa-check-circle">' );
     var $headerContent = $( `<div class="heading">${headerContent}</div>`);
 
     modal.$header.append( $headerIcon, $headerContent );
-    modal.$content.text( contentContent );
+    modal.$content.append( $( '<div class="content__main">' ).append( contentContent ) );
+
+    if ( subContent !== '' ) {
+
+        var $sub = $( '<div class="content__sub">' ).append( subContent );
+
+        modal.$content.append( $sub );
+    }
     
     return modal.$modal
                 .modal( 'setting', 'transition', 'fade' )
