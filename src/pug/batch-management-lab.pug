@@ -1,0 +1,21 @@
+extends _layout.pug
+
+block link
+    - var path = 'batch-management-lab'
+    
+block main
+    .main__header
+        .main__zone.main__zone--lab
+            .zone-icon.i.fas.fa-flask
+            .zone-name Laboratory
+        .main__title Manage batches
+        .main__breadcrumb
+            span Batch Management - Lab
+            span /
+            a(href="/") Choc-BERI
+    .main__content
+        .__batch-mgmt
+            svg#my-svg-2
+
+    script(src="./assets/batches.js")
+    script(src="./assets/batch-mgmt.js")

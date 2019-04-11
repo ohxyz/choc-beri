@@ -46,9 +46,9 @@
           <div class="menu__title"><span class="menu__heading">Factory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
           <div class="menu__item"><a class="menu__link" title="Feature Status - Fac" href="./feature-status-fac.html"><i class="fas fa-star menu__icon menu__icon"></i>
               <div class="menu__label">Fac : Feature Status</div></a></div>
-          <div class="menu__item"><a class="menu__link menu__link--active" title="Upload Scripts - Fac" href="./upload-scripts-fac.html"><i class="fas fa-plus-square menu__icon"></i>
+          <div class="menu__item"><a class="menu__link" title="Upload Scripts - Fac" href="./upload-scripts-fac.html"><i class="fas fa-plus-square menu__icon"></i>
               <div class="menu__label">Fac : Upload Scripts</div></a></div>
-          <div class="menu__item"><a class="menu__link" title="Factory Management" href="./batch-management-fac.html"><i class="fas fa-clipboard menu__icon"></i>
+          <div class="menu__item"><a class="menu__link menu__link--active" title="Factory Management" href="./batch-management-fac.html"><i class="fas fa-clipboard menu__icon"></i>
               <div class="menu__label">Fac : Batch Mgmt </div></a></div>
         </div>
         <div class="menu__group menu__group--expand">
@@ -81,117 +81,15 @@
         <div class="user__avatar"><i class="fas fa-user-circle"></i></div></a><a class="logout" href="./login.html"><i class="top-bar__icon fas fa-door-closed"></i><i class="top-bar__icon fas fa-door-open"></i></a></div>
     <div class="main">
       <div class="main__header">
-        <div class="main__zone main__zone--lab">
-          <div class="zone-icon i fas fa-flask"></div>
-          <div class="zone-name">Laboratory</div>
+        <div class="main__zone main__zone--fac">
+          <div class="zone-icon i fas fa-city"></div>
+          <div class="zone-name">Factory</div>
         </div>
-        <div class="main__title">Upload feature scripts</div>
-        <div class="main__breadcrumb"><span>Upload Scripts - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
+        <div class="main__title">Manage batches</div>
+        <div class="main__breadcrumb"><span>Batch Management - Fac</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
-      <div class="main__content main__content--upload-scripts">
-        <div class="strip">
-          <div class="strip__title">FEATURE LANGUAGES</div>
-          <div class="strip__content"><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
-        </div>
-        <div class="upload-scripts upload-scripts--mojo" data-script="mojo">
-          <div class="splitter-left">
-            <div class="upload-files">
-              <div class="upload-files__heading">Upload Mojo Scripts</div>
-              <div class="upload-files__main">
-                <div class="upload-files__container">
-                  <input id="file" type="file">
-                </div>
-              </div>
-              <input class="upload-files__submit ui button" type="submit" value="Upload scripts">
-            </div>
-            <div class="strip">
-              <div class="strip__title">Type</div>
-              <div class="strip__content">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="predictive" id="predictive">
-                  <label for="predictive">Predictive</label>
-                </div>
-              </div>
-            </div>
-            <div class="fields ui form">
-              <div class="field">
-                <label class="field__title">Choc-BERI Target Features</label>
-                <div class="field__content">
-                  <select class="ui fluid search dropdown" id="targetFeatures">                                               
-                    <option value="fixedservices.example1">fixedservice.example1 (TINYINT)</option>
-                    <option value="fixedservices.example2">fixedservice.example2 (TINYINT)</option>
-                    <option value="fixedservices.example3">fixedservice.example3 (TINYINT)</option>
-                  </select>
-                </div>
-              </div>
-              <div class="ui form" id="select-model-container">
-                <div class="strip select-model">
-                  <div class="strip__title">Model</div>
-                  <div class="strip__content">
-                    <div class="inline fields">
-                      <div class="field">
-                        <div class="ui radio checkbox">
-                          <input type="radio" name="model" id="select-classification" checked>
-                          <label for="select-classification">Classification</label>
-                        </div>
-                      </div>
-                      <div class="field">
-                        <div class="ui radio checkbox">
-                          <input type="radio" name="model" id="select-regression">
-                          <label for="select-regression">Regression</label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div id="metrics-form"></div>
-            </div>
-          </div>
-          <div class="splitter">
-            <div class="splitter__handle fas fa-grip-lines-vertical"></div>
-          </div>
-          <div class="splitter-right">
-            <div class="fields ui form">
-              <div class="field">
-                <label class="field__title">Creating to Choc-BERI Feature Store</label>
-                <div class="field__content"> 
-                  <select class="ui fluid search dropdown" id="featureStore">
-                    <option value="mobile">mobile</option>
-                    <option value="fixedservice">fixedservice</option>
-                    <option value="test">test</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui checkbox fluid" id="historicalCheckbox">
-                  <input class="hidden" tabindex="0" type="checkbox">
-                  <label>Historical Feature</label>
-                  <script>
-                    $('#historicalCheckbox')
-                    .checkbox({
-                        onChecked: function() {
-                            $("#historicalDates").show();
-                        },
-                        onUnchecked: function() {
-                            $("#historicalDates").hide();
-                        }
-                    })
-                    
-                  </script>
-                </div>
-              </div>
-              <div class="field historical-dates" id="historicalDates">
-                <div class="ui left icon input">
-                  <input name="fromDate" type="date"><i class="calendar icon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="upload-scripts upload-scripts--pyshark" data-script="pyspark">
-          <p style="padding: 0 30px;">Content of PySpark is basically same as the content of SQL.</p>
-        </div>
+      <div class="__jobs">
+        <div class="jobs__chart"></div>
       </div>
     </div>
   </div>

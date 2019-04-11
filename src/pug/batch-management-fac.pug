@@ -1,0 +1,18 @@
+extends _layout.pug
+
+block link
+    - var path = 'batch-management-fac'
+    
+block main
+    .main__header
+        .main__zone.main__zone--fac
+            .zone-icon.i.fas.fa-city
+            .zone-name Factory
+        .main__title Manage batches
+        .main__breadcrumb
+            span Batch Management - Fac
+            span /
+            a(href="/") Choc-BERI
+    .__jobs
+        .jobs__chart
+        

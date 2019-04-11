@@ -53,14 +53,21 @@ block link
                               class=( path === 'feature-status-lab' ? active_class : '' ) 
                               href=link_feature_status_lab )
                     i.far.fa-star.menu__icon
-                    .menu__label Feature Status - Lab
+                    .menu__label Lab : Feature Status
             
             .menu__item
                 a.menu__link( title="Upload Scripts - Lab" 
                               class=( path === 'upload-scripts-lab' ? active_class : '' ) 
                               href=link_upload_scripts_lab )
-                    i.far.fa-file.menu__icon
-                    .menu__label Upload Scripts - Lab
+                    i.far.fa-plus-square.menu__icon
+                    .menu__label Lab : Upload Scripts
+            .menu__item
+                a.menu__link( title="Laboratory Management" 
+                              class=( path === 'batch-management-lab' ? active_class : '' ) 
+                              href=link_batch_mangement_lab )
+                    i.far.fa-clipboard.menu__icon
+                    .menu__label Lab : Batch Mgmt
+            
         
         .menu__group.menu__group--expand
             .menu__title
@@ -73,15 +80,21 @@ block link
                               class=( path === 'feature-status-fac' ? active_class : '' ) 
                               href=link_feature_status_fac )
                     i.fas.fa-star.menu__icon.menu__icon
-                    .menu__label Feature Status - Fac
+                    .menu__label Fac : Feature Status
 
             .menu__item
                 a.menu__link( title="Upload Scripts - Fac" 
                               class=( path === 'upload-scripts-fac' ? active_class : '' ) 
                               href=link_upload_scripts_fac
                               )
-                    i.fas.fa-file.menu__icon
-                    .menu__label Upload Scripts - Fac
+                    i.fas.fa-plus-square.menu__icon
+                    .menu__label Fac : Upload Scripts
+            .menu__item
+                a.menu__link( title="Factory Management" 
+                              class=( path === 'batch-management-fac' ? active_class : '' ) 
+                              href=link_batch_mangement_fac )
+                    i.fas.fa-clipboard.menu__icon
+                    .menu__label Fac : Batch Mgmt 
 
         .menu__group.menu__group--expand
             .menu__title 
@@ -104,23 +117,23 @@ block link
                     i.fas.fa-cart-plus.menu__icon
                     .menu__label Create Feature Store
             
-        .menu__group.menu__group--expand
-            .menu__title                
-                span.menu__heading Batch Management
-                i.menu__group__icon.fas.fa-angle-up
-                i.menu__group__icon.fas.fa-angle-down
+        // .menu__group.menu__group--expand
+        //     .menu__title                
+        //         span.menu__heading Batch Management
+        //         i.menu__group__icon.fas.fa-angle-up
+        //         i.menu__group__icon.fas.fa-angle-down
 
-            .menu__item
-                a.menu__link( title="Laboratory Management" 
-                              class=( path === 'batch-management-lab' ? active_class : '' ) 
-                              href=link_batch_mangement_lab )
-                    i.fas.fa-flask.menu__icon
-                    .menu__label Laboratory Management
+        //     .menu__item
+        //         a.menu__link( title="Laboratory Management" 
+        //                       class=( path === 'batch-management-lab' ? active_class : '' ) 
+        //                       href=link_batch_mangement_lab )
+        //             i.fas.fa-flask.menu__icon
+        //             .menu__label Laboratory Management
             
-            .menu__item
-                a.menu__link( title="Factory Management" 
-                              class=( path === 'batch-management-fac' ? active_class : '' ) 
-                              href=link_batch_mangement_fac )
-                    i.fas.fa-city.menu__icon
-                    .menu__label Factory Management
+        //     .menu__item
+        //         a.menu__link( title="Factory Management" 
+        //                       class=( path === 'batch-management-fac' ? active_class : '' ) 
+        //                       href=link_batch_mangement_fac )
+        //             i.fas.fa-city.menu__icon
+        //             .menu__label Factory Management
         

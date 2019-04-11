@@ -1686,6 +1686,21 @@ body .uploading__info {
   margin-right: 10px;
 }
 
+.__batch-mgmt {
+  width: 600px;
+}
+
+circle {
+  stroke: white;
+  fill: #05668D;
+  opacity: 0.3;
+  stroke-width: 0;
+}
+
+text {
+  font-size: 0.75rem;
+}
+
 @font-face {
   font-family: "Proxima Nova";
   src: url("./fonts/Proxima Nova.otf") format("opentype");
