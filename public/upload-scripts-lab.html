@@ -89,9 +89,24 @@
         <div class="main__breadcrumb"><span>Upload Scripts - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
       <div class="main__content main__content--upload-scripts">
-        <div class="strip">
-          <div class="strip__title">FEATURE LANGUAGES</div>
-          <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
+        <div class="__vehicle">
+          <div class="strip __vehicle__lang">
+            <div class="strip__title">LANGUAGE</div>
+            <div class="strip__content"><span class="strip__item">SQL</span><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span><span class="strip__item">Python</span></div>
+          </div>
+          <div class="strip __vehicle__symbol"><i class="__vehicle__icon fas fa-plus"></i></div>
+          <div class="strip __vehicle__cadence">
+            <div class="strip__title">CADENCE</div>
+            <div class="strip__content"><span class="strip__item">5 mins</span><span class="strip__item">1 hr</span><span class="strip__item">24 hrs</span></div>
+          </div>
+          <div class="strip __vehicle__symbol"><i class="__vehicle__icon fas fa-equals"></i></div>
+          <div class="strip __vehicle__type">
+            <div class="strip__title">TYPE</div><i class="__vehicle__icon fas fa-question"></i>
+            <div class="strip__content">
+              <!-- span.strip__item Multiple-->
+              <!-- span.strip__item Single-->
+            </div>
+          </div>
         </div>
         <div class="upload-scripts upload-scripts--sql" data-script="sql">
           <div class="editor splitter-left">
@@ -108,6 +123,9 @@
             <div class="splitter__handle fas fa-grip-lines-vertical"></div>
           </div>
           <div class="ui form splitter-right">
+            <div class="field-group">
+              <div class="field-group__header" style="margin-bottom: 10px;"><span class="field-group__title" style="color: #bb5a38">Dependencies</span></div>
+            </div>
             <div class="field">
               <label class="field__title" for="table-dependencies">BERI Table Dependencies</label>
               <div class="field__content ui fluid search dropdown selection multiple">
@@ -123,7 +141,7 @@
               </div>
             </div>
             <div class="field">
-              <label class="field__title" for="feature-dependencies">BERI Feature Dependencies</label>
+              <label class="field__title" for="feature-dependencies">Choc-BERI Feature Dependencies</label>
               <div class="field__content ui fluid search dropdown selection multiple">
                 <input id="feature-dependencies" type="hidden" name="feature-dependencies"><i class="dropdown icon"></i>
                 <div class="default text">Feature Dependencies</div>
@@ -136,26 +154,37 @@
               </div>
             </div>
             <div class="field">
-              <label class="field__title" for="feature-store">BERI Feature Store</label>
-              <div class="field__content ui fluid search dropdown selection">
-                <input id="feature-store" type="hidden" name="feature-store"><i class="dropdown icon"></i>
-                <div class="default text">Feature Store</div>
+              <label class="field__title" for="events">Events</label>
+              <div class="field__content ui fluid search dropdown selection multiple">
+                <input id="events" type="hidden" name="events"><i class="dropdown icon"></i>
+                <div class="default text">Events</div>
                 <div class="menu">
-                  <div class="item" data-value="fixedservice">fixedservice</div>
-                  <div class="item" data-value="mobile">mobile</div>
-                  <div class="item" data-value="air">air</div>
-                  <div class="item" data-value="earth">earth</div>
+                  <div class="item" data-value="event-a">Event A</div>
+                  <div class="item" data-value="event-b">Event B</div>
                 </div>
               </div>
             </div>
-            <div class="field">
+            <div class="field" style="margin-bottom: 25px;">
               <div class="field__content ui checkbox">
                 <input id="historical-feature" type="checkbox" name="historical-feature">
                 <label for="historical-feature">Historical Feature</label>
               </div>
             </div>
             <div class="field-group">
-              <div class="field-group__header"><span class="field-group__title">Add feature(s)</span><i class="fas fa-plus-circle field-group__icon field-group__icon--add-feature"></i><i class="fas fa-minus-circle field-group__icon field-group__icon--remove-feature"></i></div>
+              <div class="field-group__header" style="margin-bottom: 10px;"><span class="field-group__title" style="color: #bb5a38">Add feature(s)</span><i class="fas fa-plus-circle field-group__icon field-group__icon--add-feature"></i><i class="fas fa-minus-circle field-group__icon field-group__icon--remove-feature"></i></div>
+              <div class="field">
+                <label class="field__title" for="feature-store">Choc-BERI Feature Store</label>
+                <div class="field__content ui fluid search dropdown selection">
+                  <input id="feature-store" type="hidden" name="feature-store"><i class="dropdown icon"></i>
+                  <div class="default text">Feature Store</div>
+                  <div class="menu">
+                    <div class="item" data-value="fixedservice">fixedservice</div>
+                    <div class="item" data-value="mobile">mobile</div>
+                    <div class="item" data-value="air">air</div>
+                    <div class="item" data-value="earth">earth</div>
+                  </div>
+                </div>
+              </div>
               <div class="field-group__content">
                 <div class="field">
                   <div class="label field__title">Feature 1</div>

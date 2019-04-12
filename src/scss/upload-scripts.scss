@@ -3,6 +3,28 @@
     padding: 20px 0;
     overflow: auto;
 
+    .__vehicle {
+
+        display: flex;
+        padding: 0 30px;
+
+        .strip {
+
+            padding: 0;
+            margin-right: 20px;
+
+            &__title {
+
+                font-size: 12px;
+            }
+        }
+
+        &__icon {
+
+            color: #bb5a38;
+        }
+    }
+
     .strip {
 
         padding: 0 30px;

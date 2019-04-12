@@ -9,6 +9,9 @@
     .splitter
         .splitter__handle.fas.fa-grip-lines-vertical
     .ui.form.splitter-right
+        .field-group
+            .field-group__header(style="margin-bottom: 10px;")
+                span.field-group__title(style="color: #bb5a38") Dependencies
         .field
             label.field__title(for="table-dependencies") BERI Table Dependencies
             .field__content.ui.fluid.search.dropdown.selection.multiple
@@ -23,7 +26,7 @@
                     .item(data-value="ingestion-sftp-erroneous-session-data.allot") ingestion-sftp-erroneous-session-data.allot
         
         .field
-            label.field__title(for="feature-dependencies") BERI Feature Dependencies
+            label.field__title(for="feature-dependencies") Choc-BERI Feature Dependencies
             .field__content.ui.fluid.search.dropdown.selection.multiple
                 input#feature-dependencies(type="hidden" name="feature-dependencies")
                 i.dropdown.icon
@@ -35,28 +38,37 @@
                     .item(data-value="fixedservice.Small_hist") fixedservice.Small_hist (FLOAT)
 
         .field
-            label.field__title(for="feature-store") BERI Feature Store
-            .field__content.ui.fluid.search.dropdown.selection
-                input#feature-store(type="hidden" name="feature-store")
+            label.field__title(for="events") Events
+            .field__content.ui.fluid.search.dropdown.selection.multiple
+                input#events(type="hidden" name="events")
                 i.dropdown.icon
-                .default.text Feature Store
+                .default.text Events
                 .menu
-                    .item(data-value="fixedservice") fixedservice
-                    .item(data-value="mobile") mobile
-                    .item(data-value="air") air
-                    .item(data-value="earth") earth
+                    .item(data-value="event-a") Event A
+                    .item(data-value="event-b") Event B
 
-        .field
+        .field(style="margin-bottom: 25px;")
             .field__content.ui.checkbox
                 input#historical-feature(type="checkbox" name="historical-feature")
                 label(for="historical-feature") Historical Feature
 
         .field-group
-
-            .field-group__header
-                span.field-group__title Add feature(s)
+            .field-group__header(style="margin-bottom: 10px;")
+                span.field-group__title(style="color: #bb5a38") Add feature(s)
                 i.fas.fa-plus-circle.field-group__icon.field-group__icon--add-feature
                 i.fas.fa-minus-circle.field-group__icon.field-group__icon--remove-feature
+
+            .field
+                label.field__title(for="feature-store") Choc-BERI Feature Store
+                .field__content.ui.fluid.search.dropdown.selection
+                    input#feature-store(type="hidden" name="feature-store")
+                    i.dropdown.icon
+                    .default.text Feature Store
+                    .menu
+                        .item(data-value="fixedservice") fixedservice
+                        .item(data-value="mobile") mobile
+                        .item(data-value="air") air
+                        .item(data-value="earth") earth
 
             .field-group__content
                 .field

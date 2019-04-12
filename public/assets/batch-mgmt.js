@@ -1,10 +1,11 @@
 console.log( 'Batch MGMT' );
 
-console.log( batches );
+console.log( 'batches', batches );
 
 var data = {
 
     name: 'a',
+    type: 'base',
     children: [
         { name: 'a1', value: 10, children: [ { name: 'a11', value: 3 } ] },
         { name: 'a2', value: 20 },
@@ -15,40 +16,40 @@ var data = {
 var b = {
 
     name: 'batches',
+    type: 'base',
     children: [
 
         { name: '0', type: 'stage', children: [
 
                 { name: '15538177824356391', type: 'job', countOfFeatures: 10, status: 'built' }
-
             ]
         },
 
         { name: '1', type: 'stage', children: [
 
-                { name: '15538178472230601', type: 'job', countOfFeatures: 1, status: 'finished' },
+                { name: '15538178472230601', type: 'job', countOfFeatures: 1, status: 'built' },
                 { name: '15537490165215569', type: 'job', countOfFeatures: 2, status: 'failed' },
-                { name: '15537490165215569', type: 'job', countOfFeatures: 3, status: 'pending', },
-                { name: '15537490165215569', type: 'job', countOfFeatures: 4, status: 'waiting' }, 
-                { name: '15537490165215569', type: 'job', countOfFeatures: 15, status: 'unknown' },
-
+                { name: '15537490165215569', type: 'job', countOfFeatures: 3, status: 'errored', },
+                { name: '15537490165215569', type: 'job', countOfFeatures: 4, status: 'building' }, 
+                { name: '15537490165215569', type: 'job', countOfFeatures: 8, status: 'waiting' },
+                { name: '15537490165215569', type: 'job', countOfFeatures: 15, status: 'aborted' },
             ]
         },
 
         { name: '2', type: 'stage', children: [
 
-                { name: '15535557007171934', type: 'job', countOfFeatures: 1, status: 'done' },
-                { name: '38740494881083431', type: 'job', countOfFeatures: 3, status: 'whoops' },
-                { name: '58749174104841739', type: 'job', countOfFeatures: 5, status: 'banned' },
-                { name: '58749174104841739', type: 'job', countOfFeatures: 6, status: 'built'},
-                { name: '58749174104841739', type: 'job', countOfFeatures: 7, status: 'started' }, 
-                { name: '58749174104841739', type: 'job', countOfFeatures: 8, status: 'stopped'}, 
+                { name: '15535557007171934', type: 'job', countOfFeatures: 1, status: 'paused' },
+                { name: '38740494881083431', type: 'job', countOfFeatures: 3, status: 'promoting' },
+                { name: '58749174104841739', type: 'job', countOfFeatures: 5, status: 'promoted' },
+                { name: '58749174104841739', type: 'job', countOfFeatures: 6, status: 'decommissioning'},
+                { name: '58749174104841739', type: 'job', countOfFeatures: 7, status: 'decommissioned' }, 
+                { name: '58749174104841739', type: 'job', countOfFeatures: 8, status: 'built'}, 
             ]
         },
     ]
 }
 
-var padding = 2;
+var padding = 0;
 
 var root = d3.hierarchy( b ).sum( d => {
     // console.log( d, d.name );
@@ -63,10 +64,11 @@ var nodes = root.descendants();
 
 var width = 500;
 var height = 500;
+var circlePadding = 5;
 
 var pack = d3.pack()
              .size( [ width, height ] )
-             .padding( 5 )
+             .padding( circlePadding )
              ( root );
 
 var viewBoxValue = `0 0 ${width} ${height}`;
@@ -82,50 +84,80 @@ var slices = g.selectAll( 'circle' )
               .enter()
               .append( ( d, i, nodes ) => {
 
-                  var g = document.createElementNS( 'http://www.w3.org/2000/svg', 'g' ); 
-                  var circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
-                  var text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text');
-                  var heading = '';
-                  var textX = d.x;
-                  var textY = d.y;
+                  var g = document.createElementNS( 'http://www.w3.org/2000/svg', 'g' );
+                  var circle = createCircle( { cx: d.x, cy: d.y, r: d.r } );
+
+                  g.classList.add( '__g' );
+                  circle.classList.add( '__g__circle' );
+                  g.append( circle );
 
                   if ( d.data.type === 'stage' ) {
 
-                      heading = 'Stage ' + d.data.name;
-                      textY = d.y - d.r + 20;
+                    g.classList.add( '__g--stage' );
+
+                    var stageText = createText( 'Stage ' + d.data.name, { x: d.x, y: d.y - d.r + 20 } );
+
+                    stageText.classList.add( '__g__stage' );
+                    g.append( stageText );
+
                   }
                   else if ( d.data.type === 'job' ) {
 
-                      heading = shortenJobId( d.data.name );
+                    g.classList.add( '__g--job' );
+
+                    if ( d.data.status ) {
+
+                        g.classList.add( '__g--' + d.data.status );
+                    }
+
+                    var shortId = shortenId( d.data.name );
+                    var jobIdText = createText( shortId , { x: d.x, y: d.y } );
+
+                    jobIdText.classList.add( '__g__job-id');
+
+                    var statusText = createText( d.data.status, { x: d.x, y: d.y + 12 } );
+
+                    statusText.classList.add( '__g__status' );
+
+                    g.append( jobIdText );
+                    g.append( statusText );
+
+                  }
+                  else if ( d.data.type === 'base' ) {
+
+                    g.classList.add( '__g--base' );
+
+                  }
+                  else {
+
+                    console.warn( '[Choc] Cirlce type not found.' );
                   }
 
-                  circle.setAttribute( 'cx', d.x );
-                  circle.setAttribute( 'cy', d.y );
-                  circle.setAttribute( 'r',  d.r );
-
-                  g.append( circle );
-                  g.append( text );
-
-                  text.setAttribute( 'x', textX );
-                  text.setAttribute( 'y', textY );
-                  text.setAttribute( 'text-anchor', 'middle' );
-                  text.textContent = heading;
-
-                  var statusText = createText( d.data.status, { x: textX, y: textY + 12 } );
-
-                  g.append( statusText );
-
                   return g;
-               } )
+               } );
 
-function shortenJobId( jobId ) {
+function shortenId( id ) {
 
-    return jobId.slice( 0,3 ) + '...' + jobId.slice( -3 );
+    return id.slice( 0,3 ) + '...' + id.slice( -3 );
+}
+
+function createCircle( attrs = {} ) {
+
+    var circle = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
+    var defaults = { cx: 100, cy: 100, r: 100 };
+    var o = Object.assign( {}, defaults, attrs );
+
+    for ( var prop in o ) {
+
+        circle.setAttribute( prop, o[ prop ] );
+    }
+
+    return circle;
 }
 
 function createText( content = '', attrs = {} ) {
 
-    var text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text');
+    var text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text' );
     var defaults = { x: 100, y: 100, 'text-anchor': 'middle' };
     var o = Object.assign( {}, defaults, attrs );
 

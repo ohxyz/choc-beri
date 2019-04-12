@@ -242,6 +242,45 @@ html .noUi-connect {
   text-decoration: underline;
 }
 
+text {
+  font-size: 0.75rem;
+}
+
+.__batch-mgmt {
+  width: 600px;
+}
+
+.__g--base .__g__circle {
+  fill: #f1f1f1;
+}
+.__g--stage .__g__circle {
+  fill: #e2e2e2;
+}
+.__g--job .__g__circle {
+  fill: #929292;
+}
+.__g--job .__g__job-id {
+  fill: white;
+}
+.__g--job .__g__status {
+  fill: white;
+}
+.__g--built .__g__circle {
+  fill: #1e9c1e;
+}
+.__g--errored .__g__circle {
+  fill: #ec3c30;
+}
+.__g--failed .__g__circle {
+  fill: #d81507;
+}
+.__g--waiting .__g__circle {
+  fill: #349ccc;
+}
+.__g--building .__g__circle {
+  fill: #8eca4a;
+}
+
 /* Include Semantic UI content */
 .main__content--browse-files {
   overflow-y: auto;
@@ -856,6 +895,20 @@ body .uploading__info {
 .main .main__content--upload-scripts {
   padding: 20px 0;
   overflow: auto;
+}
+.main .main__content--upload-scripts .__vehicle {
+  display: flex;
+  padding: 0 30px;
+}
+.main .main__content--upload-scripts .__vehicle .strip {
+  padding: 0;
+  margin-right: 20px;
+}
+.main .main__content--upload-scripts .__vehicle .strip__title {
+  font-size: 12px;
+}
+.main .main__content--upload-scripts .__vehicle__icon {
+  color: #bb5a38;
 }
 .main .main__content--upload-scripts .strip {
   padding: 0 30px;
@@ -1684,21 +1737,6 @@ body .uploading__info {
 }
 .__create-env__icon {
   margin-right: 10px;
-}
-
-.__batch-mgmt {
-  width: 600px;
-}
-
-circle {
-  stroke: white;
-  fill: #05668D;
-  opacity: 0.3;
-  stroke-width: 0;
-}
-
-text {
-  font-size: 0.75rem;
 }
 
 @font-face {

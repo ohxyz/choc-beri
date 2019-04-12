@@ -1,15 +1,92 @@
-.__batch-mgmt {
-    width: 600px;
-}
-
-circle {
-    stroke: white;
-    fill: #05668D;
-    opacity: 0.3;
-    stroke-width: 0;
-}
-
 text {
 
     font-size: 0.75rem;
 }
+
+.__batch-mgmt {
+
+    width: 600px;
+}
+
+.__g {
+
+    &__circle {
+
+    }
+
+    &--base {
+
+        .__g__circle {
+
+            fill: #f1f1f1;
+        }
+    }
+
+    &--stage {
+
+        .__g__circle {
+
+            fill: #e2e2e2;
+        }
+    }
+
+
+    &--job {
+
+        .__g__circle {
+            
+            fill: #929292;
+        }
+
+        .__g__job-id {
+
+            fill: white;
+        }
+
+        .__g__status {
+
+            fill: white;
+        }
+    }
+
+    &--built {
+
+        .__g__circle {
+            
+            fill: #1e9c1e;
+        }
+    }
+
+    &--errored {
+
+        .__g__circle {
+
+            fill: #ec3c30;
+        }
+    }
+
+    &--failed {
+
+        .__g__circle {
+            
+            fill: #d81507;
+        }
+    }
+
+    &--waiting {
+
+        .__g__circle {
+
+            fill: #349ccc;
+        }
+    }
+
+    &--building {
+
+        .__g__circle {
+
+            fill: #8eca4a;
+        }
+    }
+}
+
