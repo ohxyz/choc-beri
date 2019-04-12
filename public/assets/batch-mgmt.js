@@ -30,7 +30,7 @@ var b = {
                 { name: '15537490165215569', type: 'job', countOfFeatures: 2, status: 'failed' },
                 { name: '15537490165215569', type: 'job', countOfFeatures: 3, status: 'pending', },
                 { name: '15537490165215569', type: 'job', countOfFeatures: 4, status: 'waiting' }, 
-                { name: '15537490165215569', type: 'job', countOfFeatures: 10, status: 'unknown' },
+                { name: '15537490165215569', type: 'job', countOfFeatures: 15, status: 'unknown' },
 
             ]
         },
@@ -48,9 +48,11 @@ var b = {
     ]
 }
 
+var padding = 2;
+
 var root = d3.hierarchy( b ).sum( d => {
     // console.log( d, d.name );
-    return d.countOfFeatures;
+    return d.countOfFeatures + padding;
 } );
 
 // console.log( 'root', root );
@@ -109,7 +111,7 @@ var slices = g.selectAll( 'circle' )
                   text.setAttribute( 'text-anchor', 'middle' );
                   text.textContent = heading;
 
-                  var statusText = createText( d.data.status, textX, textY + 12 );
+                  var statusText = createText( d.data.status, { x: textX, y: textY + 12 } );
 
                   g.append( statusText );
 
@@ -118,17 +120,21 @@ var slices = g.selectAll( 'circle' )
 
 function shortenJobId( jobId ) {
 
-    return jobId.slice(0,3) + '...' + jobId.slice(-3);
+    return jobId.slice( 0,3 ) + '...' + jobId.slice( -3 );
 }
 
-function createText( content, x, y ) {
+function createText( content = '', attrs = {} ) {
 
     var text = document.createElementNS( 'http://www.w3.org/2000/svg', 'text');
+    var defaults = { x: 100, y: 100, 'text-anchor': 'middle' };
+    var o = Object.assign( {}, defaults, attrs );
 
-    text.setAttribute( 'text-anchor', 'middle' );
-    text.setAttribute( 'x', x );
-    text.setAttribute( 'y', y );
-    text.textContent = content || '';
+    for ( var prop in o ) {
+
+        text.setAttribute( prop, o[ prop ] );
+    }
+
+    text.textContent = content;
 
     return text;
 }
