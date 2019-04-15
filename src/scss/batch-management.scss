@@ -1,24 +1,33 @@
 text {
 
-    font-size: 0.75rem;
+    font-size: 0.65rem;
 }
 
 .__batch-mgmt {
 
-    width: 600px;
+    height: 90%;
 }
 
 .__g {
 
     &__circle {
+        
+        &--active {
 
+            opacity: 0.8;
+        }
+    }
+
+    &__stage {
+
+        font-weight: 500;
     }
 
     &--base {
 
         .__g__circle {
 
-            fill: #f1f1f1;
+            fill: #f5f5f5;
         }
     }
 
@@ -30,6 +39,44 @@ text {
         }
     }
 
+    &--stage-0 {
+
+        .__g__circle {
+            
+            fill: #ffdede;
+        }
+
+        .__g__stage {
+
+            fill: #c34c4c;
+        }
+    }
+
+    &--stage-1 {
+
+        .__g__circle {
+            
+            fill: #fbeaca;
+        }
+
+        .__g__stage {
+
+            fill: #a08916;
+        }
+    }
+
+    &--stage-2 {
+
+        .__g__circle {
+            
+            fill: #e8f1de;
+        }
+
+        .__g__stage {
+
+            fill: #568e18;
+        }
+    }
 
     &--job {
 
@@ -53,7 +100,7 @@ text {
 
         .__g__circle {
             
-            fill: #1e9c1e;
+            fill: #39a739;
         }
     }
 
@@ -61,7 +108,7 @@ text {
 
         .__g__circle {
 
-            fill: #ec3c30;
+            fill: #ff3224;
         }
     }
 
@@ -69,7 +116,7 @@ text {
 
         .__g__circle {
             
-            fill: #d81507;
+            fill: #da1204;
         }
     }
 
@@ -85,7 +132,55 @@ text {
 
         .__g__circle {
 
-            fill: #8eca4a;
+            fill: #6bca00;
+        }
+    }
+
+    &--aborted {
+
+        .__g__circle {
+
+            fill: #f7407b;
+        }
+    }
+
+    &--promoted {
+
+        .__g__circle {
+
+            fill: #ff9800;
+        }
+    }
+
+    &--promoting {
+
+        .__g__circle {
+
+            fill: #ffc822;
+        }
+    }
+
+    &--decommissioning {
+
+        .__g__circle {
+
+            fill: #6374ce;
+        }
+    }
+
+    &--decommissioned {
+        
+        .__g__circle {
+
+            fill: #41509e;
+        }
+    }
+
+    &--paused {
+        
+        .__g__circle {
+
+            fill: #ea67bc;
         }
     }
 }

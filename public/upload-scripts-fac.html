@@ -19,7 +19,7 @@
 </head>
 <body>
   <div class="container" data-env="dev">
-    <div class="logo"><a class="logo__link" href="./">Choc-BERi</a>
+    <div class="logo"><a class="logo__link" href="./">Choc Beri</a>
       <div class="mobile-menu__button"><i class="fas fa-hamburger mobile-menu__icon"></i></div>
     </div>
     <div class="side-bar">
@@ -81,17 +81,35 @@
         <div class="user__avatar"><i class="fas fa-user-circle"></i></div></a><a class="logout" href="./login.html"><i class="top-bar__icon fas fa-door-closed"></i><i class="top-bar__icon fas fa-door-open"></i></a></div>
     <div class="main">
       <div class="main__header">
-        <div class="main__zone main__zone--lab">
-          <div class="zone-icon i fas fa-flask"></div>
-          <div class="zone-name">Laboratory</div>
+        <div class="main__zone main__zone--fac">
+          <div class="zone-icon i fas fa-city"></div>
+          <div class="zone-name">Factory</div>
         </div>
         <div class="main__title">Upload feature scripts</div>
         <div class="main__breadcrumb"><span>Upload Scripts - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
       <div class="main__content main__content--upload-scripts">
-        <div class="strip">
-          <div class="strip__title">FEATURE LANGUAGES</div>
-          <div class="strip__content"><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
+        <div class="__vehicle">
+          <div class="strip __vehicle__lang">
+            <div class="strip__title">LANGUAGE</div>
+            <div class="strip__content"><span class="strip__item">MOJO</span><span class="strip__item">PySpark</span></div>
+          </div>
+          <div class="strip __vehicle__symbol"><i class="__vehicle__icon fas fa-plus"></i></div>
+          <div class="strip __vehicle__cadence">
+            <div class="strip__title">CADENCE</div>
+            <div class="strip__content"></div>
+            <!--     span.strip__item 5 mins-->
+            <!--     span.strip__item 1 hr-->
+            <!--     span.strip__item 24 hrs-->
+          </div>
+          <div class="strip __vehicle__symbol"><i class="__vehicle__icon fas fa-equals"></i></div>
+          <div class="strip __vehicle__block">
+            <div class="strip__title">BLOCK</div>
+            <div class="strip__content"><i class="__vehicle__icon fas fa-question"></i>
+              <!-- span.strip__item Multiple-->
+              <!-- span.strip__item Single-->
+            </div>
+          </div>
         </div>
         <div class="upload-scripts upload-scripts--mojo" data-script="mojo">
           <div class="splitter-left">

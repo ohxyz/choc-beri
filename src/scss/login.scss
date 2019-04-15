@@ -1,6 +1,7 @@
 .login {
 
-    $border-radius: 60px;
+    $border-radius: 70px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,34 +46,36 @@
         margin-bottom: 10px;
     }
 
-    &__brand-logo {
-
-        position: absolute;
-        top: 21px;
-        left: 97px;
-        width: 118px;
-    }
-
-    &__logo {
-
-        font-family: "Pacifico", cursive;
-        color: #fbfbfb;
-        font-size: 52px;
-        user-select: none;
-        position: absolute;
-        left: 29px;
-        top: 53px;
-    }
-
     &__header {
 
-        height: 102px;
+        height: 99px;
         background-color: #bb247f;
         position: relative;
         border-radius: $border-radius;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        margin-bottom: 5px;
+        margin-bottom: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__brand-logo {
+
+        width: 104px;
+        margin-top: -27px;
+    }
+
+    &__logo {
+
+        font-family: "Willy Wonka";
+        color: #fbfbfb;
+        font-size: 64px;
+        user-select: none;
+        position: absolute;
+        left: 36px;
+        top: 44px;
+        letter-spacing: 1px;
     }
 
     &__content {

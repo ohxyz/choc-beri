@@ -30,6 +30,12 @@
 // @import "./OVERRIDES";
 
 @font-face {
+    
+    font-family: "Willy Wonka";
+    src: url( "./fonts/Willy Wonka.ttf" ) format( "truetype" ); 
+}
+
+@font-face {
 
     font-family: "Proxima Nova";
     src: url( "./fonts/Proxima Nova.otf" ) format( "opentype" );
@@ -55,6 +61,7 @@
     font-style: italic;
     src: local("");
 }
+
 
 html, body {
     
@@ -182,9 +189,9 @@ html, body {
 
     &__zone {
 
-        font-size: 13px;
+        font-size: 14px;
         border-radius: 4px;
-        padding: 4px 8px;
+        padding: 3px 6px;
         display: flex;
         align-items: center;
         margin-right: 25px;
@@ -193,7 +200,13 @@ html, body {
 
         .zone-icon {
 
-            margin-right: 10px;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .zone-name {
+
+            // font-family: "Willy Wonka";
         }
 
         &--lab {

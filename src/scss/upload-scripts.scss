@@ -23,6 +23,15 @@
 
             color: #bb5a38;
         }
+
+        &__block {
+
+            .strip__item--active {
+
+                background-color: $main-color;
+                border-color: $main-color;
+            }
+        }
     }
 
     .strip {
