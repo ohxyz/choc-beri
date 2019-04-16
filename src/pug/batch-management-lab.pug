@@ -51,9 +51,23 @@ block main
                                     td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
                                     td(data-label="Batch ID") D20190330T1800
                                     td(data-label="Status" ) Built
-
-
         .__batch__drawing
+            .__batch__list
+                .ui.floating.dropdown.labeled.icon.button
+                  i.filter.icon
+                  sapn.text Filter Batches
+                  .menu
+                    .ui.icon.search.input
+                      i.search.icon
+                      input(type="text" placeholder="Search...")
+                    .scrolling.menu
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
             .__batch__operations
                 .__operation
                     i.__operation__icon.fas.fa-redo
@@ -64,27 +78,6 @@ block main
                 .__operation
                     i.__operation__icon.far.fa-play-circle
                     span__operation__name Resume
-
-            .__batch__list
-                .ui.floating.dropdown.labeled.icon.button
-                  i.filter.icon
-                  sapn.text Filter Batches
-                  .menu
-                    .ui.icon.search.input
-                      i.search.icon
-                      input(type="text" placeholder="Search...")
-                    .divider
-                    .header
-                      i.tags.icon
-                      span Tag Label
-                    .scrolling.menu
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
             svg#__batch__circles
 
         .__batch__details

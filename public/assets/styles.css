@@ -276,7 +276,7 @@ text {
 .__batch__list {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
 }
 .__batch__daily-table .ui.table {
   font-size: 13px;
@@ -295,7 +295,7 @@ text {
 .__batch__operations {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   cursor: pointer;
 }
 .__batch__details {
