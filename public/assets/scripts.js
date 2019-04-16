@@ -152,7 +152,7 @@ $( document )
             $container.find( $filtersOfFeatureStatus ).removeClass( activeClass );
             $filter.addClass( activeClass );
 
-            $lists.each( function () { 
+            $lists.each( function () {
 
                 var $list = $( this );
                 var statusOfList = $list.data( 'status' );
@@ -1052,9 +1052,6 @@ $( document )
         isFirstTime = false;
     }
 
-    // Select default script language
-    // $scriptLanguages.eq(0).click();
-
 /* Upload script - Mojo ***************************************************************************/
     
     if ( env === 'dev' ) {
@@ -1275,6 +1272,52 @@ $( document )
             } );
 
             return slider;
+        }
+    }
+
+/* Batch management *******************************************************************************/
+
+/* Google charts **********************************************************************************/
+
+    if ( env === 'dev' ) {
+
+        google.charts.load('current', { 'packages': [ 'corechart', 'line'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable( [
+
+              [ 'Date(UTC)', 'Batch Status'],
+              [ '12/01/19',  1, ],
+              [ '13/01/19',  0, ],
+              [ '14/01/19',  1, ],
+              [ '15/01/19',  0, ],
+              [ '16/01/19',  1, ]
+            ] );
+
+            var options = {
+
+                backgroundColor: '#fbfbfb',
+                fontSize: 14,
+                fontName: 'Proxima Nova',
+                legend: { 
+                    position: 'top'
+                },
+                curveType: 'function',
+                chartArea: { width: '80%' },
+                series: {
+                    0: { 
+                        color: '#aaaaaa',
+                        lineWidth: 1
+                    }
+                }
+            };
+
+            var container = document.getElementById( '__batch__daily-chart' );
+            var chart = new google.visualization.LineChart( container );
+
+            chart.draw( data, options );
         }
     }
     

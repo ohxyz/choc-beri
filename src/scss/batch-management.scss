@@ -1,11 +1,159 @@
 text {
 
-    font-size: 0.65rem;
+    font-size: 0.6rem;
 }
 
-.__batch-mgmt {
+.__batch {
 
-    height: 90%;
+    display: flex;
+
+    &__history {
+
+        // background-color: pink;
+        flex-basis: 250px;
+        min-width: 250px;
+        margin-right: 40px;
+    }
+
+
+    &__row {
+
+        margin-bottom: 40px;
+    }
+
+        &__title {
+
+             font-size: 13px;
+             color: #bb5a38;
+             font-weight: 500;
+             margin-bottom: 5px;
+        }
+
+        &__caption {
+
+             color: #bb5a38;
+             font-weight: 500;
+             margin-bottom: 10px;
+        }
+
+    &__drawing {
+
+        position: relative;
+        flex-basis: 800px;
+        padding-top: 20px;
+    }
+
+        &__list {
+
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+            &__daily-table {
+
+                .ui.table {
+
+                    font-size: 13px;
+                    border: none;
+
+                    thead th  {
+
+                        background-color: #e8e8e8;
+                        border-bottom: none;
+                        color: #333333;
+                    }
+
+                    tr td {
+
+                        border-top: none;
+                        background-color: #f5f5f5;
+                        color: #333333;
+                    }
+                }
+            }
+
+        &__operations {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+    &__details {
+
+        // background-color: lime;
+        flex-basis: 300px;
+        flex-grow: 1;
+        margin-left: 30px;
+    }
+}
+
+.__feature {
+
+    display: flex;
+
+    &__icon {
+
+        font-size: 12px;
+        margin-right: 5px;
+        margin-top: 2px;
+    }
+
+    &__name {
+
+        word-break: break-all;
+    }
+}
+
+.__job {
+
+    // Variables
+    $background-color: rgba( 50, 50, 50, 0.95 );
+    $arrow-size: 10px;
+
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 220px;
+    background-color:  $background-color;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 0px rgba( 0, 0, 0, 0.2 );
+    font-size: 13px;
+    color: white;
+
+    &:before {
+
+        display: block;
+        position: absolute;
+        border-top: $arrow-size solid transparent;
+        border-right: $arrow-size solid  $background-color;
+        border-bottom: $arrow-size solid transparent;
+        content: " ";
+        top: 142px;
+        left: -$arrow-size;
+    }
+
+    &__row {
+
+        margin-bottom: 10px;
+    }
+
+    .__detail {
+
+        &__title {
+
+            color: #ef6b3d;
+            margin-bottom: 3px;
+            font-weight: 500;
+
+        }
+
+        &__content {
+
+        }
+    }
 }
 
 .__g {
@@ -87,12 +235,19 @@ text {
 
         .__g__job-id {
 
-            fill: white;
+            fill: rgba(255,255,255,0.7);
         }
 
         .__g__status {
 
+            fill: rgba(255,255,255,0.7);
+        }
+
+        .__g__runtime {
+
             fill: white;
+            font-style: italic;
+            font-weight: bold;
         }
     }
 

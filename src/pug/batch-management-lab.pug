@@ -13,9 +13,114 @@ block main
             span Batch Management - Lab
             span /
             a(href="/") Choc-BERI
-    .main__content
-        .__batch-mgmt
-            svg#my-svg-2
+    .main__content.__batch
+        .__batch__history
+            .__batch__row
+                .__batch__caption Last 5 Daily Batch Runs
+                .__batch__content
+                    #__batch__daily-chart
+
+            .__batch__row
+                .__batch__caption Nightly Batch Metrics
+                .__batch__content
+                    .__batch__daily-table
+                        table.ui.table
+                            thead
+                                tr 
+                                    th Date
+                                    th ID
+                                    th Status
+                            tbody
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+
+
+        .__batch__drawing
+            .__batch__operations
+                .__operation
+                    i.__operation__icon.fas.fa-redo
+                    span__operation__name Re-run
+                .__operation
+                    i.__operation__icon.far.fa-pause-circle
+                    span__operation__name Pause
+                .__operation
+                    i.__operation__icon.far.fa-play-circle
+                    span__operation__name Resume
+
+            .__batch__list
+                .ui.floating.dropdown.labeled.icon.button
+                  i.filter.icon
+                  sapn.text Filter Batches
+                  .menu
+                    .ui.icon.search.input
+                      i.search.icon
+                      input(type="text" placeholder="Search...")
+                    .divider
+                    .header
+                      i.tags.icon
+                      span Tag Label
+                    .scrolling.menu
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+                      .item D20190330T1800
+            svg#__batch__circles
+
+        .__batch__details
+            .__batch__row
+                .__batch__title Batch Status
+                .__batch__content Complete
+            .__batch__row
+                .__batch__title Feature Stores
+                .__batch__content
+                    .__feature-store
+                        i.__feature-store__icon.fas.fa-shopping-cart
+                        span.__feature-store__name fixedservice
+                    .__feature-store
+                        i.__feature-store__icon.fas.fa-shopping-cart
+                        span.__feature-store__name mobile
+                    .__feature-store
+                        i.__feature-store__icon.fas.fa-shopping-cart
+                        span.__feature-store__name services
+            .__batch__row
+                .__batch__title Execution Details
+                .__batch__content
+                    .__excution__list
+                        .__execution__item
+                            .__execution__title Start at
+                            .__execution__content 2019-03-29T18:52:03.861Z
+                        .__execution__item
+                            .__execution__title End at
+                            .__execution__content 2019-03-29T18:52:03.861Z
+                        .__execution__item
+                            .__execution__title Runtime (milliseconds)
+                            .__execution__content 3741987320 ms
+                        .__execution__item
+                            .__execution__title Runtime (minutes)
+                            .__execution__content 123 mins 26 secs
+
+
 
     script(src="./assets/batches.js")
     script(src="./assets/batch-mgmt.js")

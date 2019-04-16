@@ -161,6 +161,11 @@
         &--button {
 
             text-align: right;
+
+            .ui.button {
+
+                margin-right: 0;
+            }
         }
     }
 

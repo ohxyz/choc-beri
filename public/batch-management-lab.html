@@ -16,6 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.4/nouislider.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
   <div class="container" data-env="dev">
@@ -88,9 +89,129 @@
         <div class="main__title">Manage batches</div>
         <div class="main__breadcrumb"><span>Batch Management - Lab</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
-      <div class="main__content">
-        <div class="__batch-mgmt">
-          <svg id="my-svg-2"></svg>
+      <div class="main__content __batch">
+        <div class="__batch__history">
+          <div class="__batch__row">
+            <div class="__batch__caption">Last 5 Daily Batch Runs</div>
+            <div class="__batch__content">
+              <div id="__batch__daily-chart"></div>
+            </div>
+          </div>
+          <div class="__batch__row">
+            <div class="__batch__caption">Nightly Batch Metrics</div>
+            <div class="__batch__content">
+              <div class="__batch__daily-table">
+                <table class="ui table">
+                  <thead>
+                    <tr> 
+                      <th>Date</th>
+                      <th>ID</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr> 
+                      <td data-label="Batch Date">Sun Mar 31 2019 05:00:00 GMT+1100</td>
+                      <td data-label="Batch ID">D20190330T1800</td>
+                      <td data-label="Status">Built</td>
+                    </tr>
+                    <tr> 
+                      <td data-label="Batch Date">Sun Mar 31 2019 05:00:00 GMT+1100</td>
+                      <td data-label="Batch ID">D20190330T1800</td>
+                      <td data-label="Status">Built</td>
+                    </tr>
+                    <tr> 
+                      <td data-label="Batch Date">Sun Mar 31 2019 05:00:00 GMT+1100</td>
+                      <td data-label="Batch ID">D20190330T1800</td>
+                      <td data-label="Status">Built</td>
+                    </tr>
+                    <tr> 
+                      <td data-label="Batch Date">Sun Mar 31 2019 05:00:00 GMT+1100</td>
+                      <td data-label="Batch ID">D20190330T1800</td>
+                      <td data-label="Status">Built</td>
+                    </tr>
+                    <tr> 
+                      <td data-label="Batch Date">Sun Mar 31 2019 05:00:00 GMT+1100</td>
+                      <td data-label="Batch ID">D20190330T1800</td>
+                      <td data-label="Status">Built</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="__batch__drawing">
+          <div class="__batch__operations">
+            <div class="__operation"><i class="__operation__icon fas fa-redo"></i>
+              <span__operation__name>Re-run</span__operation__name>
+            </div>
+            <div class="__operation"><i class="__operation__icon far fa-pause-circle"></i>
+              <span__operation__name>Pause</span__operation__name>
+            </div>
+            <div class="__operation"><i class="__operation__icon far fa-play-circle"></i>
+              <span__operation__name>Resume</span__operation__name>
+            </div>
+          </div>
+          <div class="__batch__list">
+            <div class="ui floating dropdown labeled icon button"><i class="filter icon"></i>
+              <sapn class="text">Filter Batches</sapn>
+              <div class="menu">
+                <div class="ui icon search input"><i class="search icon"></i>
+                  <input type="text" placeholder="Search...">
+                </div>
+                <div class="divider"></div>
+                <div class="header"><i class="tags icon"></i><span>Tag Label</span></div>
+                <div class="scrolling menu">
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                  <div class="item">D20190330T1800</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <svg id="__batch__circles"></svg>
+        </div>
+        <div class="__batch__details">
+          <div class="__batch__row">
+            <div class="__batch__title">Batch Status</div>
+            <div class="__batch__content">Complete</div>
+          </div>
+          <div class="__batch__row">
+            <div class="__batch__title">Feature Stores</div>
+            <div class="__batch__content">
+              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">fixedservice</span></div>
+              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">mobile</span></div>
+              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">services</span></div>
+            </div>
+          </div>
+          <div class="__batch__row">
+            <div class="__batch__title">Execution Details</div>
+            <div class="__batch__content">
+              <div class="__excution__list">
+                <div class="__execution__item">
+                  <div class="__execution__title">Start at</div>
+                  <div class="__execution__content">2019-03-29T18:52:03.861Z</div>
+                </div>
+                <div class="__execution__item">
+                  <div class="__execution__title">End at</div>
+                  <div class="__execution__content">2019-03-29T18:52:03.861Z</div>
+                </div>
+                <div class="__execution__item">
+                  <div class="__execution__title">Runtime (milliseconds)</div>
+                  <div class="__execution__content">3741987320 ms</div>
+                </div>
+                <div class="__execution__item">
+                  <div class="__execution__title">Runtime (minutes)</div>
+                  <div class="__execution__content">123 mins 26 secs</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <script src="./assets/batches.js"></script>
