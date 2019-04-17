@@ -92,13 +92,13 @@
       <div class="main__content __batch">
         <div class="__batch__history">
           <div class="__batch__row">
-            <div class="__batch__caption">Last 5 Daily Batch Runs</div>
+            <div class="__batch__heading">Last 5 Daily Batch Runs</div>
             <div class="__batch__content">
               <div id="__batch__daily-chart"></div>
             </div>
           </div>
           <div class="__batch__row">
-            <div class="__batch__caption">Nightly Batch Metrics</div>
+            <div class="__batch__heading">Nightly Batch Metrics</div>
             <div class="__batch__content">
               <div class="__batch__daily-table">
                 <table class="ui table">
@@ -142,8 +142,8 @@
           </div>
         </div>
         <div class="__batch__drawing">
-          <div class="__batch__list">
-            <div class="ui floating dropdown labeled icon button"><i class="filter icon"></i>
+          <div class="__batch__filter">
+            <div class="ui floating dropdown"><i class="fas fa-filter"></i>
               <sapn class="text">Filter Batches</sapn>
               <div class="menu">
                 <div class="ui icon search input"><i class="search icon"></i>
@@ -162,22 +162,21 @@
             </div>
           </div>
           <div class="__batch__operations">
-            <div class="__operation"><i class="__operation__icon fas fa-redo"></i>
-              <span__operation__name>Re-run</span__operation__name>
-            </div>
-            <div class="__operation"><i class="__operation__icon far fa-pause-circle"></i>
-              <span__operation__name>Pause</span__operation__name>
-            </div>
-            <div class="__operation"><i class="__operation__icon far fa-play-circle"></i>
-              <span__operation__name>Resume</span__operation__name>
-            </div>
+            <div class="__operation"><i class="__operation__icon fas fa-redo"></i><span class="__operation__name">Re-run</span></div>
+            <div class="__operation"><i class="__operation__icon far fa-pause-circle"></i><span class="__operation__name">Pause</span></div>
+            <div class="__operation"><i class="__operation__icon far fa-play-circle"></i><span class="__operation__name">Resume</span></div>
           </div>
           <svg id="__batch__circles"></svg>
         </div>
         <div class="__batch__details">
+          <div class="__batch__header">
+            <div class="__batch__heading">Batch Details</div><span class="auto-refresh"><i class="auto-refresh__icon fas fa-toggle-off"></i><i class="auto-refresh__icon fas fa-toggle-on"></i><span class="auto-refresh__title">Auto Refresh</span></span>
+          </div>
           <div class="__batch__row">
             <div class="__batch__title">Batch Status</div>
-            <div class="__batch__content">Complete</div>
+            <div class="__batch__content"> 
+              <div class="__batch__status __batch__status--built">Complete</div>
+            </div>
           </div>
           <div class="__batch__row">
             <div class="__batch__title">Feature Stores</div>
@@ -192,20 +191,20 @@
             <div class="__batch__content">
               <div class="__excution__list">
                 <div class="__execution__item">
-                  <div class="__execution__title">Start at</div>
-                  <div class="__execution__content">2019-03-29T18:52:03.861Z</div>
+                  <div class="__execution__title"> <i class="__execution__icon fas fa-stopwatch"></i><span class="__execution__name">Start at</span></div>
+                  <div class="__execution__description">2019-03-29T18:52:03.861Z</div>
                 </div>
                 <div class="__execution__item">
-                  <div class="__execution__title">End at</div>
-                  <div class="__execution__content">2019-03-29T18:52:03.861Z</div>
+                  <div class="__execution__title"> <i class="__execution__icon fas fa-flag-checkered"></i><span class="__execution__name">End at</span></div>
+                  <div class="__execution__description">2019-03-29T18:52:03.861Z</div>
                 </div>
                 <div class="__execution__item">
-                  <div class="__execution__title">Runtime (milliseconds)</div>
-                  <div class="__execution__content">3741987320 ms</div>
+                  <div class="__execution__title"> <i class="__execution__icon fas fa-running"></i><span class="__execution__name">Runtime (ms)</span></div>
+                  <div class="__execution__description">3741987320 ms</div>
                 </div>
                 <div class="__execution__item">
-                  <div class="__execution__title">Runtime (minutes)</div>
-                  <div class="__execution__content">123 mins 26 secs</div>
+                  <div class="__execution__title"> <i class="__execution__icon fas fa-walking"></i><span class="__execution__name">Runtime (min)</span></div>
+                  <div class="__execution__description">123 mins 26 secs</div>
                 </div>
               </div>
             </div>

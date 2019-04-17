@@ -17,7 +17,7 @@
 
     &--enable {
 
-         color: #c14d93;
+         color: $link-color;
 
         .fa-toggle-on {
 
@@ -36,9 +36,14 @@
         margin-right: 10px;
     }
 
+    &__title {
+
+        font-weight: 500;
+    }
+
     &:hover {
 
-        color: #c14d93;
+        color: #de4aa3;
         
     }
 }

@@ -109,7 +109,6 @@
 
                 &__title {
 
-
                     font-size: 13px;
                     margin-bottom: 5px;
                 }
@@ -127,6 +126,11 @@
                 font-weight: 500;
                 display: flex;
                 justify-content: flex-end;
+
+                .field-group__title {
+
+                    color: #bb5a38;
+                }     
             }
 
             &__title {

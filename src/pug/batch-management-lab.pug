@@ -16,12 +16,12 @@ block main
     .main__content.__batch
         .__batch__history
             .__batch__row
-                .__batch__caption Last 5 Daily Batch Runs
+                .__batch__heading Last 5 Daily Batch Runs
                 .__batch__content
                     #__batch__daily-chart
 
             .__batch__row
-                .__batch__caption Nightly Batch Metrics
+                .__batch__heading Nightly Batch Metrics
                 .__batch__content
                     .__batch__daily-table
                         table.ui.table
@@ -52,38 +52,47 @@ block main
                                     td(data-label="Batch ID") D20190330T1800
                                     td(data-label="Status" ) Built
         .__batch__drawing
-            .__batch__list
-                .ui.floating.dropdown.labeled.icon.button
-                  i.filter.icon
-                  sapn.text Filter Batches
-                  .menu
-                    .ui.icon.search.input
-                      i.search.icon
-                      input(type="text" placeholder="Search...")
-                    .scrolling.menu
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
-                      .item D20190330T1800
+            .__batch__filter
+                .ui.floating.dropdown
+                    i.fas.fa-filter
+                    sapn.text Filter Batches
+                    .menu
+                        .ui.icon.search.input
+                          i.search.icon
+                          input(type="text" placeholder="Search...")
+                        .scrolling.menu
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
             .__batch__operations
                 .__operation
                     i.__operation__icon.fas.fa-redo
-                    span__operation__name Re-run
+                    span.__operation__name Re-run
                 .__operation
                     i.__operation__icon.far.fa-pause-circle
-                    span__operation__name Pause
+                    span.__operation__name Pause
                 .__operation
                     i.__operation__icon.far.fa-play-circle
-                    span__operation__name Resume
+                    span.__operation__name Resume
             svg#__batch__circles
 
         .__batch__details
+            .__batch__header
+                .__batch__heading Batch Details
+                span.auto-refresh
+                    i.auto-refresh__icon.fas.fa-toggle-off
+                    i.auto-refresh__icon.fas.fa-toggle-on
+                    span.auto-refresh__title Auto Refresh
+
+
             .__batch__row
                 .__batch__title Batch Status
-                .__batch__content Complete
+                .__batch__content 
+                    .__batch__status.__batch__status--built Complete
             .__batch__row
                 .__batch__title Feature Stores
                 .__batch__content
@@ -101,19 +110,25 @@ block main
                 .__batch__content
                     .__excution__list
                         .__execution__item
-                            .__execution__title Start at
-                            .__execution__content 2019-03-29T18:52:03.861Z
+                            .__execution__title 
+                                i.__execution__icon.fas.fa-stopwatch
+                                span.__execution__name Start at
+                            .__execution__description 2019-03-29T18:52:03.861Z
                         .__execution__item
-                            .__execution__title End at
-                            .__execution__content 2019-03-29T18:52:03.861Z
+                            .__execution__title 
+                                i.__execution__icon.fas.fa-flag-checkered
+                                span.__execution__name End at
+                            .__execution__description 2019-03-29T18:52:03.861Z
                         .__execution__item
-                            .__execution__title Runtime (milliseconds)
-                            .__execution__content 3741987320 ms
+                            .__execution__title 
+                                i.__execution__icon.fas.fa-running
+                                span.__execution__name Runtime (ms)
+                            .__execution__description 3741987320 ms
                         .__execution__item
-                            .__execution__title Runtime (minutes)
-                            .__execution__content 123 mins 26 secs
-
-
+                            .__execution__title 
+                                i.__execution__icon.fas.fa-walking
+                                span.__execution__name Runtime (min)
+                            .__execution__description 123 mins 26 secs
 
     script(src="./assets/batches.js")
     script(src="./assets/batch-mgmt.js")

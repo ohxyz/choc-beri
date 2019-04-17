@@ -943,18 +943,20 @@ $( document )
     var $uploadScripts = $( '.upload-scripts' );
     var isFirstTime = true;
 
-    handleStripItemClick( $scriptLanguages, function ( $selected ) {  
+    handleStripItemClick( $scriptLanguages, function ( $selected ) {
 
-        var $contentOfCadences = $( '.strip__content', $cadenceContainer );
+        if ( env === 'dev' ) {
 
-        $contentOfCadences.empty();
-        resetUploadScripts( $blockContainer );
+            var $contentOfCadences = $( '.strip__content', $cadenceContainer );
 
-        scriptName = $selected.text().toLowerCase();
+            $contentOfCadences.empty();
+            resetUploadScripts( $blockContainer );
 
-        // Replace with AJAX code in Prod    
-        $contentOfCadences.append( $renderCadences );
+            scriptName = $selected.text().toLowerCase();
 
+            // Replace with AJAX code in Prod    
+            $contentOfCadences.append( $renderCadences );
+        } 
     } );
 
     function resetUploadScripts( $container ) {
@@ -1288,7 +1290,7 @@ $( document )
 
             var data = google.visualization.arrayToDataTable( [
 
-              [ 'Date(UTC)', 'Batch Status'],
+              [ 'Date(UTC)', 'BATCH STATUS'],
               [ '12/01/19',  1, ],
               [ '13/01/19',  0, ],
               [ '14/01/19',  1, ],
@@ -1299,8 +1301,7 @@ $( document )
             var options = {
 
                 backgroundColor: '#fbfbfb',
-                fontSize: 14,
-                fontName: 'Proxima Nova',
+                fontSize: 10,
                 legend: { 
                     position: 'top'
                 },
