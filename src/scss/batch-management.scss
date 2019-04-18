@@ -1,7 +1,5 @@
 .__batch {
 
-
-
     display: flex;
 
     &__history {
@@ -13,7 +11,7 @@
 
     &__row {
 
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
         &__title {
@@ -22,6 +20,13 @@
             color: #6d6d6d;
             font-weight: 500;
             margin-bottom: 5px;
+
+        }
+
+        &__content {
+
+            font-size: 13px;
+            color: #333333;
         }
 
         &__heading {
@@ -56,7 +61,6 @@
 
         position: relative;
         flex-basis: 800px;
-        padding-top: 20px;
     }
 
         &__filter {
@@ -216,7 +220,7 @@
             &__name {
 
                 font-size: 12px;
-                color: #4b4b4b;
+                color: #333333;
                 font-weight: 500;
             }
 
@@ -390,6 +394,31 @@
         }
     }
 
+    &--glooping {
+
+        .__g__circle {
+
+            fill: white;
+        }
+
+        .__g__status {
+
+            fill: #333333;
+        }
+
+        .__g__feature-store {
+
+            fill: #333333;
+        }
+
+        .__g__runtime {
+
+            fill: #333333;
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
+
     &--job {
 
         .__g__circle {
@@ -415,92 +444,93 @@
         }
     }
 
+    @mixin coloring( $color ) {
+
+        .__g__circle {
+            
+            fill: $color;
+        }
+
+        &.__g--glooping {
+
+            .__g__circle {
+            
+                fill: white;
+            }
+
+            .__g__status {
+
+                fill: $color;
+            }
+        }
+
+    }
+
     &--built {
 
-        .__g__circle {
-            
-            fill: #39a739;
-        }
-    }
+        $color: #39a739;
+        @include coloring($color);
 
-    &--errored {
-
-        .__g__circle {
-
-            fill: #ff3224;
-        }
-    }
-
-    &--failed {
-
-        .__g__circle {
-            
-            fill: #da1204;
-        }
-    }
-
-    &--waiting {
-
-        .__g__circle {
-
-            fill: #349ccc;
-        }
     }
 
     &--building {
 
-        .__g__circle {
+        $color: #6bca00;
+        @include coloring($color);
+    }
 
-            fill: #6bca00;
-        }
+    &--errored {
+
+        $color: #ff3224;
+        @include coloring($color);
+    }
+
+    &--failed {
+
+        $color: #da1204;
+        @include coloring($color);
+    }
+
+    &--waiting {
+
+        $color: #349ccc;
+        @include coloring($color);
     }
 
     &--aborted {
 
-        .__g__circle {
-
-            fill: #f7407b;
-        }
+        $color: #f7407b;
+        @include coloring($color);
     }
 
     &--promoted {
 
-        .__g__circle {
-
-            fill: #ff9800;
-        }
+        $color: #ff9800;
+        @include coloring($color);
     }
 
     &--promoting {
 
-        .__g__circle {
-
-            fill: #ffc822;
-        }
+        $color: #ffc822;
+        @include coloring($color);
     }
 
     &--decommissioning {
 
-        .__g__circle {
-
-            fill: #6374ce;
-        }
+        $color: #6374ce;
+        @include coloring($color);
     }
 
     &--decommissioned {
         
-        .__g__circle {
-
-            fill: #41509e;
-        }
+        $color: #41509e;
+        @include coloring($color);
     }
 
     &--paused {
-        
-        .__g__circle {
 
-            fill: #ea67bc;
-        }
+        $color: #ea67bc;
+        @include coloring($color);
     }
 }
 

@@ -229,7 +229,7 @@ html .noUi-connect {
   font-weight: 500;
 }
 .auto-refresh:hover {
-  color: #de4aa3;
+  opacity: 0.8;
 }
 
 .__title__ {
@@ -254,13 +254,17 @@ html .noUi-connect {
   margin-right: 40px;
 }
 .__batch__row {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .__batch__title {
   font-size: 13px;
   color: #6d6d6d;
   font-weight: 500;
   margin-bottom: 5px;
+}
+.__batch__content {
+  font-size: 13px;
+  color: #333333;
 }
 .__batch__heading {
   color: #bb5a38;
@@ -282,7 +286,6 @@ html .noUi-connect {
 .__batch__drawing {
   position: relative;
   flex-basis: 800px;
-  padding-top: 20px;
 }
 .__batch__filter {
   position: absolute;
@@ -392,7 +395,7 @@ html .noUi-connect {
 }
 .__execution__name {
   font-size: 12px;
-  color: #4b4b4b;
+  color: #333333;
   font-weight: 500;
 }
 .__execution__description {
@@ -490,6 +493,20 @@ html .noUi-connect {
 .__g--stage-2 .__g__stage {
   fill: #568e18;
 }
+.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--glooping .__g__status {
+  fill: #333333;
+}
+.__g--glooping .__g__feature-store {
+  fill: #333333;
+}
+.__g--glooping .__g__runtime {
+  fill: #333333;
+  font-style: italic;
+  font-weight: bold;
+}
 .__g--job .__g__circle {
   fill: #929292;
 }
@@ -507,34 +524,100 @@ html .noUi-connect {
 .__g--built .__g__circle {
   fill: #39a739;
 }
+.__g--built.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--built.__g--glooping .__g__status {
+  fill: #39a739;
+}
+.__g--building .__g__circle {
+  fill: #6bca00;
+}
+.__g--building.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--building.__g--glooping .__g__status {
+  fill: #6bca00;
+}
 .__g--errored .__g__circle {
+  fill: #ff3224;
+}
+.__g--errored.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--errored.__g--glooping .__g__status {
   fill: #ff3224;
 }
 .__g--failed .__g__circle {
   fill: #da1204;
 }
+.__g--failed.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--failed.__g--glooping .__g__status {
+  fill: #da1204;
+}
 .__g--waiting .__g__circle {
   fill: #349ccc;
 }
-.__g--building .__g__circle {
-  fill: #6bca00;
+.__g--waiting.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--waiting.__g--glooping .__g__status {
+  fill: #349ccc;
 }
 .__g--aborted .__g__circle {
+  fill: #f7407b;
+}
+.__g--aborted.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--aborted.__g--glooping .__g__status {
   fill: #f7407b;
 }
 .__g--promoted .__g__circle {
   fill: #ff9800;
 }
+.__g--promoted.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--promoted.__g--glooping .__g__status {
+  fill: #ff9800;
+}
 .__g--promoting .__g__circle {
+  fill: #ffc822;
+}
+.__g--promoting.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--promoting.__g--glooping .__g__status {
   fill: #ffc822;
 }
 .__g--decommissioning .__g__circle {
   fill: #6374ce;
 }
+.__g--decommissioning.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--decommissioning.__g--glooping .__g__status {
+  fill: #6374ce;
+}
 .__g--decommissioned .__g__circle {
   fill: #41509e;
 }
+.__g--decommissioned.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--decommissioned.__g--glooping .__g__status {
+  fill: #41509e;
+}
 .__g--paused .__g__circle {
+  fill: #ea67bc;
+}
+.__g--paused.__g--glooping .__g__circle {
+  fill: white;
+}
+.__g--paused.__g--glooping .__g__status {
   fill: #ea67bc;
 }
 
@@ -1751,7 +1834,7 @@ body .uploading__info {
   background-color: #fbfbfb;
 }
 .login__container {
-  min-width: 318px;
+  min-width: 303px;
   border-radius: 70px;
   position: relative;
 }
@@ -1798,7 +1881,7 @@ body .uploading__info {
   font-size: 64px;
   user-select: none;
   position: absolute;
-  left: 36px;
+  left: 28px;
   top: 44px;
   letter-spacing: 1px;
 }
