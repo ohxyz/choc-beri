@@ -1,0 +1,155 @@
+extends _layout.pug
+
+block link
+    - var path = 'stacks'
+    
+block main
+    .main__header
+        .main__title Welcome to Choc-BERI
+        .main__breadcrumb
+            span Dashboard
+            span /
+            a(href="/") Choc-BERI
+    .__stacks
+        .__stacks__main
+            .splitter-left
+                .__stack-list
+                    .__stack-list__header
+                        .__stack-list__heading.__title__
+                            | ACTIVE EXPLORATORY STACKS
+                        .auto-refresh
+                            i.auto-refresh__icon.fas.fa-toggle-off
+                            i.auto-refresh__icon.fas.fa-toggle-on
+                            span.auto-refresh__title Auto Refresh
+                    .__stack-list__content
+                        .__stack-item
+                            .__stack-item__header
+                                .__stack-name
+                                    i.__stack-name__icon.fas.fa-layer-group
+                                    span.__stack-name__content d00-choc-beri-1
+                                .__delete-stack.ui.button
+                                    i.__delete-stack__icon.fas.fa-trash-alt
+                                    span.__delete-stack__content Delete
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-calendar-plus
+                                    span.__stack-item__title-content Created at
+                                .__stack-item__content
+                                    | 2019-02-19T01:54:38.241Z
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-envelope
+                                    span.__stack-item__title-content Owner
+                                .__stack-item__content
+                                    | Abhishek.Das@team.telstra.com
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-battery-half
+                                    span.__stack-item__title-content Status
+                                .__stack-item__content
+                                    | Built
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-external-link-alt
+                                    span.__stack-item__title-content ZEPPLIN
+                                .__stack-item__content.__link__
+                                    | Link
+
+                        .__stack-item
+                            .__stack-item__header
+                                .__stack-name
+                                    i.__stack-name__icon.fas.fa-layer-group
+                                    span.__stack-name__content d00-choc-beri-1
+                                .__delete-stack.ui.button
+                                    i.__delete-stack__icon.fas.fa-trash-alt
+                                    span.__delete-stack__content Delete
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-calendar-plus
+                                    span.__stack-item__title-content Created at
+                                .__stack-item__content
+                                    | 2019-02-19T01:54:38.241Z
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-envelope
+                                    span.__stack-item__title-content Owner
+                                .__stack-item__content
+                                    | Abhishek.Das@team.telstra.com
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-battery-half
+                                    span.__stack-item__title-content Status
+                                .__stack-item__content
+                                    | Built
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-external-link-alt
+                                    span.__stack-item__title-content ZEPPLIN
+                                .__stack-item__content.__link__
+                                    | Link
+
+                        .__stack-item
+                            .__stack-item__header
+                                .__stack-name
+                                    i.__stack-name__icon.fas.fa-layer-group
+                                    span.__stack-name__content d00-choc-beri-1
+                                .__delete-stack.ui.button
+                                    i.__delete-stack__icon.fas.fa-trash-alt
+                                    span.__delete-stack__content Delete
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-calendar-plus
+                                    span.__stack-item__title-content Created at
+                                .__stack-item__content
+                                    | 2019-02-19T01:54:38.241Z
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-envelope
+                                    span.__stack-item__title-content Owner
+                                .__stack-item__content
+                                    | Abhishek.Das@team.telstra.com
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-battery-half
+                                    span.__stack-item__title-content Status
+                                .__stack-item__content
+                                    | Built
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-external-link-alt
+                                    span.__stack-item__title-content ZEPPLIN
+                                .__stack-item__content.__link__
+                                    | Link
+
+
+            .splitter
+                .splitter__handle.fas.fa-grip-lines-vertical
+            .splitter-right
+                .__create-stack
+                    .__create-stack__header.__title__
+                        | CREATE NEW EXPLORATORY STACK
+                    .__create-stack__content
+                        .__create-stack__field
+                            .ui.labeled.input.fluid
+                                .ui.label
+                                    i.__create-stack__icon.fas.fa-layer-group
+                                    | d00-choc-beri-
+
+                                input(type="text" name="stackName" placeholder="Stack Name" required)
+
+                        .__create-stack__field
+                            .ui.labeled.input.fluid
+                                .ui.label
+                                    i.__create-stack__icon.fas.fa-envelope
+                                    | Your Email
+                                input(type="text" name="email" placeholder="you@team.telstra.com" required)
+
+                        .__create-stack__field.__create-stack__field--button
+                            #create-stack-button.ui.button.green
+                                i.__create-stack__icon.fas.fa-plus
+                                | Create
+
+
+
+
+

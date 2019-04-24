@@ -324,8 +324,6 @@ function createJobObject( jobOfBatch, jobDetails ){
 
 function $createJobTooltip( job ) {
 
-    console.log( 'job', job );
-
     var $template = $( `
         <div class="__job">
             <div class="__job__header"></div>

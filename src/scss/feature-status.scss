@@ -135,8 +135,8 @@
 
         &--highlight {
 
-            box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-            border-color: #e6e6e6;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-color: #dedede;
         }
 
         .promote-button {
@@ -242,7 +242,13 @@
         &--built {
 
             $color: #429946;
+
             border-color: #a7d176;
+
+            &.feature-status--highlight {
+
+                box-shadow: 0 0 15px rgba( 15,132,42,0.2 );
+            }
 
             .feature-status {
 

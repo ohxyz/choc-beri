@@ -1,33 +1,45 @@
-- var active_class = 'menu__link--active'
-- var link_dashboard = './dashboard.html'
-- var link_browse_files = './browse-files.html'
-- var link_upload_files = './upload-files.html'
-- var link_feature_status_lab = './feature-status-lab.html'
-- var link_upload_scripts_lab = './upload-scripts-lab.html'
-- var link_feature_status_fac = './feature-status-fac.html'
-- var link_upload_scripts_fac = './upload-scripts-fac.html'
-- var link_predictive_feature_metrics = './predictive-feature-metrics.html'
-- var link_create_feature_store = './create-feature-store.html'
-- var link_batch_mangement_lab = './batch-management-lab.html'
-- var link_batch_mangement_fac = './batch-management-fac.html'
+- 
+    var active_class = 'menu__link--active'
+
+    var link_dashboard = './dashboard.html'
+    var link_stacks = './stacks.html'
+    var link_browse_files = './browse-files.html'
+    var link_upload_files = './upload-files.html'
+    var link_feature_status_lab = './feature-status-lab.html'
+    var link_upload_scripts_lab = './upload-scripts-lab.html'
+    var link_feature_status_fac = './feature-status-fac.html'
+    var link_upload_scripts_fac = './upload-scripts-fac.html'
+    var link_predictive_feature_metrics = './predictive-feature-metrics.html'
+    var link_create_feature_store = './create-feature-store.html'
+    var link_batch_mangement_lab = './batch-management-lab.html'
+    var link_batch_mangement_fac = './batch-management-fac.html'
 
 block link
 
 .side-bar
     .menu
-        .menu__item
-            a.menu__link( title="Dashboard" 
-                          class=( path === 'dashboard' ? active_class : '' ) 
-                          href=link_dashboard
-                          )
-                i.fas.fa-tachometer-alt.menu__icon
-                .menu__label Dashboard
+        // .menu__item
+        //     a.menu__link( title="Dashboard" 
+        //                   class=( path === 'dashboard' ? active_class : '' ) 
+        //                   href=link_dashboard
+        //                   )
+        //         i.fas.fa-tachometer-alt.menu__icon
+        //         .menu__label Dashboard
 
         .menu__group.menu__group--expand
             .menu__title
                     span.menu__heading Exploratory
                     i.menu__group__icon.fas.fa-angle-up
                     i.menu__group__icon.fas.fa-angle-down
+
+            .menu__item
+                a.menu__link( title="Stacks" 
+                              class=( path === 'stacks' ? active_class : '' ) 
+                              href=link_stacks
+                              )
+                    i.fas.fa-layer-group.menu__icon
+                    .menu__label Stacks
+
             .menu__item
                 a.menu__link( title="Browse Files" 
                               class=( path === 'browse-files' ? active_class : '' ) 

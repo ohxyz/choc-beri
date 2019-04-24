@@ -22,7 +22,7 @@
 @import "./code-feedback";
 @import "./login";
 @import "./logo";
-@import "./dashboard";
+@import "./stacks";
 
 // Uncomment following import when copied to choc_beri_apps_ui
 // @import "./OVERRIDES";
@@ -60,7 +60,6 @@
     src: local("");
 }
 
-
 html, body {
     
     margin: 0;
@@ -80,7 +79,7 @@ html, body {
     height: 100vh;
     color: #333333;
 
-    @media screen and ( max-width: 980px ) {
+    @media screen and ( max-width: 1024px ) {
 
         @include mobile-view;
     }
