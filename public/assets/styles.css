@@ -243,6 +243,7 @@ html .noUi-connect {
 }
 .__link__:hover {
   text-decoration: underline;
+  color: #bb247f;
 }
 
 .__batch {
@@ -2015,6 +2016,8 @@ body .uploading__info {
 }
 .__stack-item__header .__stack-name {
   flex-grow: 1;
+  word-break: break-all;
+  margin-right: 10px;
 }
 .__stack-item__header .__stack-name__icon {
   font-size: 16px;

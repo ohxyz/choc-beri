@@ -61,6 +61,8 @@
         .__stack-name {
 
             flex-grow: 1;
+            word-break: break-all;
+            margin-right: 10px;
 
             &__icon {
 

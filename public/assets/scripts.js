@@ -86,14 +86,42 @@ $( document )
 
 /* Feature status - toggle auto-refresh  **********************************************************/
 
+    var autoRefreshActiveClass = 'auto-refresh--enable';
+
+    if( sessionStorage.getItem( 'autoReload' ) === 'yes' ) {
+
+        $( '.auto-refresh' ).addClass( autoRefreshActiveClass );
+    }
+
     $( '.auto-refresh' ).click( function () {
 
-        $( this ).toggleClass( 'auto-refresh--enable' );
+        var $this = $( this );
+
+        if ( $this.hasClass( autoRefreshActiveClass ) ) {
+
+            $this.removeClass( autoRefreshActiveClass );
+            sessionStorage.setItem( 'autoReload', 'no' );
+
+        }
+        else {
+
+            $this.addClass( autoRefreshActiveClass );
+            sessionStorage.setItem( 'autoReload', 'yes' );
+        }
     } );
+
+    setInterval( function() {
+
+        if( sessionStorage.getItem('autoReload') === 'yes') {
+            
+            location.reload();
+        }
+
+    }, 5000 );
 
 /* Dashboard - Create env *************************************************************************/
     
-    $( '#create-env-button' ).click( function () { 
+    $( '#create-stack-button' ).click( function () { 
 
         var header = "Stack creation successful";
         var content = `Stack ID : arn:aws:cloudformation:ap-southeast-2:510000124683:stack/d00-choc-beri-d/5d2438f0-5b5a-11e9-9aac-0aefa55feeec`
