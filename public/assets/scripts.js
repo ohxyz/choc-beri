@@ -48,16 +48,17 @@
 
 /* Global jQuery AJAX handler *********************************************************************/
 
-$( document )
-    .ajaxStart( function() {
-    
-        $( 'body' ).css( 'cursor', 'progress' );
-    } )
-    .ajaxComplete( function () {
+    $( document )
+        .ajaxStart( function() {
 
-        $( 'body' ).css( 'cursor', 'auto' );
-    } ) ;
+            $( 'body' ).addClass( '__body--loading' );
 
+        } )
+        .ajaxComplete( function () {
+
+            $( 'body' ).removeClass( '__body--loading' );
+            
+        } ) ;
 
 /* Toggle menu items - Accodion style *************************************************************/
 

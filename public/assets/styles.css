@@ -1,3 +1,17 @@
+.__title__ {
+  color: #aaaaaa;
+  font-weight: 500;
+}
+
+.__link__ {
+  color: #bb247f;
+  cursor: pointer;
+}
+.__link__:hover {
+  text-decoration: underline;
+  color: #bb247f;
+}
+
 html body ::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.1);
   margin: 0;
@@ -93,93 +107,6 @@ html .noUi-connect {
   color: #666666;
 }
 
-.side-bar {
-  grid-row: 2;
-  grid-column: 1;
-  background-color: #104472;
-  overflow-y: auto;
-}
-
-.side-bar .menu {
-  padding: 24px 0;
-  bottom: 0;
-}
-.side-bar .menu__title {
-  padding: 8px 20px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-}
-.side-bar .menu__title:hover {
-  color: #e5e5e5;
-}
-.side-bar .menu__group .fa-angle-up:before {
-  display: none;
-}
-.side-bar .menu__group .fa-angle-down:before {
-  display: block;
-}
-.side-bar .menu__group .menu__item {
-  display: none;
-}
-.side-bar .menu__group--expand .menu__item {
-  display: block;
-}
-.side-bar .menu__group--expand .fa-angle-up:before {
-  display: block;
-}
-.side-bar .menu__group--expand .fa-angle-down:before {
-  display: none;
-}
-.side-bar .menu__group__icon {
-  font-size: 12px;
-  position: absolute;
-  right: 20px;
-  top: 12px;
-}
-.side-bar .menu__label {
-  margin-left: 20px;
-}
-.side-bar .menu__link {
-  padding: 12px 24px;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  display: flex;
-}
-.side-bar .menu__link:hover {
-  background-color: #386991;
-}
-.side-bar .menu__link--active {
-  background-color: #386991;
-  border-left: 3px solid #d36c00;
-  padding-left: 21px;
-}
-.side-bar .menu__icon {
-  font-size: 16px;
-  width: 20px;
-  text-align: center;
-}
-
-.mobile-menu__button {
-  position: absolute;
-  right: -54px;
-  top: 0;
-  bottom: 0;
-  width: 54px;
-  background-color: #d6258f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 1;
-}
-.mobile-menu__icon {
-  font-size: 24px;
-  color: white;
-}
-
 .validate-button {
   background-color: #03a9f4;
   color: white;
@@ -232,18 +159,435 @@ html .noUi-connect {
   opacity: 0.8;
 }
 
-.__title__ {
-  color: #aaaaaa;
+.editor__title {
+  color: #666666;
   font-weight: 500;
+  margin-bottom: 5px;
+}
+.editor__bar {
+  margin-top: 10px;
+}
+.editor__functions {
+  display: flex;
+  justify-content: flex-end;
+}
+.editor__icon {
+  color: #999999;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  background: #ededed;
+  border-radius: 100px;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.editor__icon--decrease-font-size {
+  font-size: 9px;
+  padding-left: 9px;
+  padding-top: 9px;
+}
+.editor__icon:hover {
+  color: white;
+  background-color: #d83e9b;
+}
+.editor__main {
+  width: 100%;
+  height: 98%;
+  border-radius: 2px;
 }
 
-.__link__ {
-  color: #bb247f;
-  cursor: pointer;
+.tag {
+  background: #f5f5f5;
+  padding: 4px 8px;
+  color: #404040;
+  border-radius: 2px;
+  font-size: 13px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
 }
-.__link__:hover {
-  text-decoration: underline;
-  color: #bb247f;
+.tag__icon {
+  margin-top: 1px;
+  margin-right: 10px;
+  text-align: center;
+}
+.tag--feature {
+  display: inline-block;
+}
+
+.logo {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  background-color: #bb247f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo__link {
+  font-family: "Willy Wonka";
+  font-size: 35px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+  margin-top: 5px;
+}
+.logo__link:hover {
+  color: white;
+}
+
+.code-feedback {
+  background-color: #eeeeee;
+  min-height: 80px;
+  padding: 9px 13px;
+  border-radius: 2px;
+  font-weight: 500;
+  display: flex;
+  font-size: 12px;
+}
+.code-feedback__icon {
+  flex-basis: 24px;
+  margin-top: 1px;
+  font-size: 14px;
+}
+.code-feedback--success {
+  color: #167a1a;
+  background-color: #edf3e4;
+  border: 1px solid #cdeda9;
+}
+.code-feedback--error {
+  color: #d82121;
+  background-color: #fff4f4;
+  border: 1px solid #f4c7c7;
+}
+
+/**
+ * Contains overrides of Sematic UI comonents
+ *
+ * NOTE: Check modal component at modals.scss
+ */
+.ui.table {
+  border-radius: 2px;
+}
+.ui.table td {
+  word-break: break-all;
+}
+.ui.message {
+  border-radius: 2px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.ui.message i {
+  margin-right: 16px;
+  font-size: 16px;
+}
+.ui.red.message {
+  background-color: #fff5f4;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: #e72214;
+}
+.ui.button {
+  font-family: "Proxima Nova", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.ui.button i {
+  margin-right: 8px;
+}
+.ui.labeled.input > .label {
+  border: 1px solid #d6d6d6;
+  color: #999999;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.ui.checkbox label {
+  color: #666666;
+}
+.ui.checkbox label:before {
+  background-color: #fbfbfb;
+  border-radius: 2px;
+}
+.ui.form .field > label {
+  color: #666666;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.ui.form .field .selection.dropdown {
+  border-radius: 2px;
+}
+.ui.form .field .selection.dropdown.active {
+  background-color: white;
+}
+.ui.form .field .selection.dropdown .menu {
+  border-radius: 2px;
+}
+.ui.input input {
+  font-size: 13px;
+  border-radius: 2px;
+}
+.ui.input input:focus {
+  border-radius: 2px;
+}
+.ui.input textarea {
+  background-color: white;
+  border-radius: 2px;
+}
+.ui.input textarea:focus {
+  border-radius: 2px;
+}
+.ui .multiple.dropdown > .label {
+  font-size: 13px;
+  background-color: #eeeeee;
+  border-radius: 2px;
+  word-break: break-all;
+  border: none;
+  box-shadow: none;
+  font-weight: normal;
+  color: black;
+}
+
+.ui.form input:not([type]),
+.ui.form input[type=date],
+.ui.form input[type=datetime-local],
+.ui.form input[type=email],
+.ui.form input[type=file],
+.ui.form input[type=number],
+.ui.form input[type=password],
+.ui.form input[type=search],
+.ui.form input[type=tel],
+.ui.form input[type=text],
+.ui.form input[type=time],
+.ui.form input[type=url],
+.ui.button,
+.ui.list .list > .item .header,
+.ui.list > .item .header {
+  border-radius: 2px;
+  width: auto;
+}
+.ui.form input:not([type]):focus,
+.ui.form input[type=date]:focus,
+.ui.form input[type=datetime-local]:focus,
+.ui.form input[type=email]:focus,
+.ui.form input[type=file]:focus,
+.ui.form input[type=number]:focus,
+.ui.form input[type=password]:focus,
+.ui.form input[type=search]:focus,
+.ui.form input[type=tel]:focus,
+.ui.form input[type=text]:focus,
+.ui.form input[type=time]:focus,
+.ui.form input[type=url]:focus,
+.ui.button:focus,
+.ui.list .list > .item .header:focus,
+.ui.list > .item .header:focus {
+  border-radius: 2px;
+}
+
+.ui.table thead tr:first-child > th:first-child {
+  border-radius: 0;
+}
+
+.ui.table thead tr:first-child > th:last-child {
+  border-radius: 0;
+}
+
+.ui.form .field.error .input,
+.ui.form .field.error label,
+.ui.form .fields.error .field .input,
+.ui.form .fields.error .field label {
+  color: #666666;
+}
+
+.ui.attached.error.message, .ui.error.message {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  color: #ba1e12;
+  background-color: #fff4f4;
+  border: 1px solid #f4c7c7;
+}
+
+.ui.form .field.error input:not([type]), .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=email], .ui.form .field.error input[type=file], .ui.form .field.error input[type=number], .ui.form .field.error input[type=password], .ui.form .field.error input[type=search], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=text], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error select, .ui.form .field.error textarea, .ui.form .fields.error .field input:not([type]), .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=file], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field select, .ui.form .fields.error .field textarea {
+  border-color: #f4c7c7;
+}
+.ui.form .field.error input:not([type])::placeholder, .ui.form .field.error input[type=date]::placeholder, .ui.form .field.error input[type=datetime-local]::placeholder, .ui.form .field.error input[type=email]::placeholder, .ui.form .field.error input[type=file]::placeholder, .ui.form .field.error input[type=number]::placeholder, .ui.form .field.error input[type=password]::placeholder, .ui.form .field.error input[type=search]::placeholder, .ui.form .field.error input[type=tel]::placeholder, .ui.form .field.error input[type=text]::placeholder, .ui.form .field.error input[type=time]::placeholder, .ui.form .field.error input[type=url]::placeholder, .ui.form .field.error select::placeholder, .ui.form .field.error textarea::placeholder, .ui.form .fields.error .field input:not([type])::placeholder, .ui.form .fields.error .field input[type=date]::placeholder, .ui.form .fields.error .field input[type=datetime-local]::placeholder, .ui.form .fields.error .field input[type=email]::placeholder, .ui.form .fields.error .field input[type=file]::placeholder, .ui.form .fields.error .field input[type=number]::placeholder, .ui.form .fields.error .field input[type=password]::placeholder, .ui.form .fields.error .field input[type=search]::placeholder, .ui.form .fields.error .field input[type=tel]::placeholder, .ui.form .fields.error .field input[type=text]::placeholder, .ui.form .fields.error .field input[type=time]::placeholder, .ui.form .fields.error .field input[type=url]::placeholder, .ui.form .fields.error .field select::placeholder, .ui.form .fields.error .field textarea::placeholder {
+  color: #ba1e12;
+}
+
+.ui.form .field.error .ui.dropdown, .ui.form .fields.error .field .ui.dropdown {
+  border-color: #f4c7c7 !important;
+}
+
+/* Also contains content overriding Semantic Modal */
+.ui.modal {
+  border-radius: 2px;
+}
+.ui.modal > .icon:first-child + *, .ui.modal > :first-child:not(.icon) {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.ui.modal pre {
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 10px;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow: auto;
+  word-break: break-all;
+  font-size: 13px;
+  border: 1px #e8e8e8 solid;
+}
+.ui.modal .job-id {
+  display: flex;
+}
+.ui.modal .job-id__content {
+  margin-left: 10px;
+  margin-top: 5px;
+  display: inline-block;
+}
+.ui.modal .step i {
+  font-size: 32px;
+  margin-top: 12px;
+}
+.ui.modal .step .content .title {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.87);
+}
+.ui.modal .step.active i {
+  color: #4183c4;
+}
+.ui.modal .step.active .title {
+  color: #4183c4;
+  background-color: transparent;
+}
+.ui.modal .step.disabled .content .title {
+  background-color: transparent;
+  color: #aaaaaa;
+}
+.ui.modal .header {
+  color: white;
+  background-color: #bb247f;
+  border-bottom: none;
+  padding: 18px 25px;
+  text-transform: uppercase;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.ui.modal .header i {
+  margin-right: 18px;
+  font-size: 25px;
+}
+.ui.modal .content {
+  padding: 25px 25px 10px 25px;
+}
+.ui.modal .content__main {
+  margin-bottom: 10px;
+}
+.ui.modal .content__sub {
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.3;
+  line-height: 1;
+}
+.ui.modal .content .row {
+  margin-bottom: 15px;
+}
+.ui.modal .content .row__title {
+  margin-bottom: 10px;
+}
+.ui.modal .content .row__content {
+  margin-bottom: 10px;
+}
+.ui.modal .content .text {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+.ui.modal .content .a-title {
+  display: flex;
+  background-color: #0e8bee;
+  width: 120px;
+  color: white;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  word-break: break-all;
+  line-height: 1.1;
+}
+.ui.modal .content .a-title__icon {
+  width: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+.ui.modal > .actions {
+  border-top: none;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: transparent;
+}
+.ui.modal > .actions > .button {
+  margin-right: 0;
+  font-family: "Proxima Nova";
+}
+.ui.modal.basic .actions > .button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85);
+}
+.ui.modal.basic .actions > .button:hover {
+  color: white;
+  border-color: white;
+}
+.ui.modal.modal.basic {
+  text-align: center;
+}
+.ui.modal.modal.basic .header {
+  font-size: 20px;
+  padding: 10px;
+}
+.ui.modal.modal.basic .header i {
+  display: block;
+  font-size: 120px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+}
+.ui.modal.modal.basic .header em {
+  padding: 0px 10px;
+  font-size: 120%;
+}
+.ui.modal.modal.basic .header .heading {
+  color: rgba(255, 255, 255, 0.95);
+}
+.ui.modal.modal.basic .content {
+  padding: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.ui.modal.modal.basic.modal--success .header i {
+  color: #38a538;
+}
+.ui.modal.modal.basic.modal--create-job-success .header i {
+  color: #38a538;
+}
+.ui.modal.modal.basic.modal--create-job-success .content {
+  font-size: 14px;
+  font-style: italic;
+  opacity: 0.3;
+  line-height: 1;
+}
+.ui.modal.modal.basic.modal--create-job-wait .header i {
+  color: #e0b022;
+}
+.ui.modal.modal.basic.modal--error .header i {
+  color: #be342a;
+}
+.ui.modal.modal--validate-success .actions {
+  border-top: none;
+  background-color: transparent;
+  padding: 0 25px 25px 25px;
 }
 
 .__batch {
@@ -282,7 +626,9 @@ html .noUi-connect {
   display: inline-block;
 }
 .__batch__status--built {
-  background-color: #39a739;
+  color: #39a739;
+  border: 1px solid #39a739;
+  background-color: white;
 }
 .__batch__drawing {
   position: relative;
@@ -620,6 +966,93 @@ html .noUi-connect {
 }
 .__g--paused.__g--glooping .__g__status {
   fill: #ea67bc;
+}
+
+.side-bar {
+  grid-row: 2;
+  grid-column: 1;
+  background-color: #104472;
+  overflow-y: auto;
+}
+
+.side-bar .menu {
+  padding: 24px 0;
+  bottom: 0;
+}
+.side-bar .menu__title {
+  padding: 8px 20px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.side-bar .menu__title:hover {
+  color: #e5e5e5;
+}
+.side-bar .menu__group .fa-angle-up:before {
+  display: none;
+}
+.side-bar .menu__group .fa-angle-down:before {
+  display: block;
+}
+.side-bar .menu__group .menu__item {
+  display: none;
+}
+.side-bar .menu__group--expand .menu__item {
+  display: block;
+}
+.side-bar .menu__group--expand .fa-angle-up:before {
+  display: block;
+}
+.side-bar .menu__group--expand .fa-angle-down:before {
+  display: none;
+}
+.side-bar .menu__group__icon {
+  font-size: 12px;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+.side-bar .menu__label {
+  margin-left: 20px;
+}
+.side-bar .menu__link {
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  display: flex;
+}
+.side-bar .menu__link:hover {
+  background-color: #386991;
+}
+.side-bar .menu__link--active {
+  background-color: #386991;
+  border-left: 3px solid #d36c00;
+  padding-left: 21px;
+}
+.side-bar .menu__icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.mobile-menu__button {
+  position: absolute;
+  right: -54px;
+  top: 0;
+  bottom: 0;
+  width: 54px;
+  background-color: #d6258f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+.mobile-menu__icon {
+  font-size: 24px;
+  color: white;
 }
 
 /* Include Semantic UI content */
@@ -1417,417 +1850,6 @@ body .uploading__info {
   font-family: "Proxima Nova";
 }
 
-/**
- * Contains overrides of Sematic UI comonents
- *
- * NOTE: Check modal component at modals.scss
- */
-.ui.table {
-  border-radius: 2px;
-}
-.ui.table td {
-  word-break: break-all;
-}
-.ui.message {
-  border-radius: 2px;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-}
-.ui.message i {
-  margin-right: 16px;
-  font-size: 16px;
-}
-.ui.red.message {
-  background-color: #fff5f4;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  color: #e72214;
-}
-.ui.button {
-  font-family: "Proxima Nova", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  border-radius: 2px;
-  font-weight: 500;
-}
-.ui.button i {
-  margin-right: 8px;
-}
-.ui.labeled.input > .label {
-  border: 1px solid #d6d6d6;
-  color: #999999;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-.ui.checkbox label {
-  color: #666666;
-}
-.ui.checkbox label:before {
-  background-color: #fbfbfb;
-  border-radius: 2px;
-}
-.ui.form .field > label {
-  color: #666666;
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-.ui.form .field .selection.dropdown {
-  border-radius: 2px;
-}
-.ui.form .field .selection.dropdown.active {
-  background-color: white;
-}
-.ui.form .field .selection.dropdown .menu {
-  border-radius: 2px;
-}
-.ui.input input {
-  font-size: 13px;
-  border-radius: 2px;
-}
-.ui.input input:focus {
-  border-radius: 2px;
-}
-.ui.input textarea {
-  background-color: white;
-  border-radius: 2px;
-}
-.ui.input textarea:focus {
-  border-radius: 2px;
-}
-.ui .multiple.dropdown > .label {
-  font-size: 13px;
-  background-color: #eeeeee;
-  border-radius: 2px;
-  word-break: break-all;
-  border: none;
-  box-shadow: none;
-  font-weight: normal;
-  color: black;
-}
-
-.ui.form input:not([type]),
-.ui.form input[type=date],
-.ui.form input[type=datetime-local],
-.ui.form input[type=email],
-.ui.form input[type=file],
-.ui.form input[type=number],
-.ui.form input[type=password],
-.ui.form input[type=search],
-.ui.form input[type=tel],
-.ui.form input[type=text],
-.ui.form input[type=time],
-.ui.form input[type=url],
-.ui.button,
-.ui.list .list > .item .header,
-.ui.list > .item .header {
-  border-radius: 2px;
-  width: auto;
-}
-.ui.form input:not([type]):focus,
-.ui.form input[type=date]:focus,
-.ui.form input[type=datetime-local]:focus,
-.ui.form input[type=email]:focus,
-.ui.form input[type=file]:focus,
-.ui.form input[type=number]:focus,
-.ui.form input[type=password]:focus,
-.ui.form input[type=search]:focus,
-.ui.form input[type=tel]:focus,
-.ui.form input[type=text]:focus,
-.ui.form input[type=time]:focus,
-.ui.form input[type=url]:focus,
-.ui.button:focus,
-.ui.list .list > .item .header:focus,
-.ui.list > .item .header:focus {
-  border-radius: 2px;
-}
-
-.ui.table thead tr:first-child > th:first-child {
-  border-radius: 0;
-}
-
-.ui.table thead tr:first-child > th:last-child {
-  border-radius: 0;
-}
-
-.ui.form .field.error .input,
-.ui.form .field.error label,
-.ui.form .fields.error .field .input,
-.ui.form .fields.error .field label {
-  color: #666666;
-}
-
-.ui.attached.error.message, .ui.error.message {
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  color: #ba1e12;
-  background-color: #fff4f4;
-  border: 1px solid #f4c7c7;
-}
-
-.ui.form .field.error input:not([type]), .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=email], .ui.form .field.error input[type=file], .ui.form .field.error input[type=number], .ui.form .field.error input[type=password], .ui.form .field.error input[type=search], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=text], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error select, .ui.form .field.error textarea, .ui.form .fields.error .field input:not([type]), .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=file], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field select, .ui.form .fields.error .field textarea {
-  border-color: #f4c7c7;
-}
-.ui.form .field.error input:not([type])::placeholder, .ui.form .field.error input[type=date]::placeholder, .ui.form .field.error input[type=datetime-local]::placeholder, .ui.form .field.error input[type=email]::placeholder, .ui.form .field.error input[type=file]::placeholder, .ui.form .field.error input[type=number]::placeholder, .ui.form .field.error input[type=password]::placeholder, .ui.form .field.error input[type=search]::placeholder, .ui.form .field.error input[type=tel]::placeholder, .ui.form .field.error input[type=text]::placeholder, .ui.form .field.error input[type=time]::placeholder, .ui.form .field.error input[type=url]::placeholder, .ui.form .field.error select::placeholder, .ui.form .field.error textarea::placeholder, .ui.form .fields.error .field input:not([type])::placeholder, .ui.form .fields.error .field input[type=date]::placeholder, .ui.form .fields.error .field input[type=datetime-local]::placeholder, .ui.form .fields.error .field input[type=email]::placeholder, .ui.form .fields.error .field input[type=file]::placeholder, .ui.form .fields.error .field input[type=number]::placeholder, .ui.form .fields.error .field input[type=password]::placeholder, .ui.form .fields.error .field input[type=search]::placeholder, .ui.form .fields.error .field input[type=tel]::placeholder, .ui.form .fields.error .field input[type=text]::placeholder, .ui.form .fields.error .field input[type=time]::placeholder, .ui.form .fields.error .field input[type=url]::placeholder, .ui.form .fields.error .field select::placeholder, .ui.form .fields.error .field textarea::placeholder {
-  color: #ba1e12;
-}
-
-.ui.form .field.error .ui.dropdown, .ui.form .fields.error .field .ui.dropdown {
-  border-color: #f4c7c7 !important;
-}
-
-.editor__title {
-  color: #666666;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-.editor__bar {
-  margin-top: 10px;
-}
-.editor__functions {
-  display: flex;
-  justify-content: flex-end;
-}
-.editor__icon {
-  color: #999999;
-  font-size: 14px;
-  cursor: pointer;
-  margin-left: 10px;
-  width: 25px;
-  height: 25px;
-  background: #ededed;
-  border-radius: 100px;
-  padding-left: 6px;
-  padding-top: 6px;
-}
-.editor__icon--decrease-font-size {
-  font-size: 9px;
-  padding-left: 9px;
-  padding-top: 9px;
-}
-.editor__icon:hover {
-  color: white;
-  background-color: #d83e9b;
-}
-.editor__main {
-  width: 100%;
-  height: 98%;
-  border-radius: 2px;
-}
-
-/* Also contains content overriding Semantic Modal */
-.ui.modal {
-  border-radius: 2px;
-}
-.ui.modal > .icon:first-child + *, .ui.modal > :first-child:not(.icon) {
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
-.ui.modal pre {
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 10px;
-  white-space: pre-wrap;
-  max-height: 400px;
-  overflow: auto;
-  word-break: break-all;
-  font-size: 13px;
-  border: 1px #e8e8e8 solid;
-}
-.ui.modal .job-id {
-  display: flex;
-}
-.ui.modal .job-id__content {
-  margin-left: 10px;
-  margin-top: 5px;
-  display: inline-block;
-}
-.ui.modal .step i {
-  font-size: 32px;
-  margin-top: 12px;
-}
-.ui.modal .step .content .title {
-  background-color: transparent;
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.modal .step.active i {
-  color: #4183c4;
-}
-.ui.modal .step.active .title {
-  color: #4183c4;
-  background-color: transparent;
-}
-.ui.modal .step.disabled .content .title {
-  background-color: transparent;
-  color: #aaaaaa;
-}
-.ui.modal .header {
-  color: white;
-  background-color: #bb247f;
-  border-bottom: none;
-  padding: 18px 25px;
-  text-transform: uppercase;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
-.ui.modal .header i {
-  margin-right: 18px;
-  font-size: 25px;
-}
-.ui.modal .content {
-  padding: 25px 25px 10px 25px;
-}
-.ui.modal .content__main {
-  margin-bottom: 10px;
-}
-.ui.modal .content__sub {
-  font-size: 14px;
-  font-style: italic;
-  opacity: 0.3;
-  line-height: 1;
-}
-.ui.modal .content .row {
-  margin-bottom: 15px;
-}
-.ui.modal .content .row__title {
-  margin-bottom: 10px;
-}
-.ui.modal .content .row__content {
-  margin-bottom: 10px;
-}
-.ui.modal .content .text {
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-.ui.modal .content .a-title {
-  display: flex;
-  background-color: #0e8bee;
-  width: 120px;
-  color: white;
-  margin-right: 10px;
-  padding: 6px 12px;
-  border-radius: 2px;
-  margin-bottom: 10px;
-  font-size: 13px;
-  word-break: break-all;
-  line-height: 1.1;
-}
-.ui.modal .content .a-title__icon {
-  width: 20px;
-  margin-right: 10px;
-  text-align: center;
-}
-.ui.modal > .actions {
-  border-top: none;
-  padding-left: 25px;
-  padding-right: 25px;
-  background: transparent;
-}
-.ui.modal > .actions > .button {
-  margin-right: 0;
-  font-family: "Proxima Nova";
-}
-.ui.modal.basic .actions > .button {
-  background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  color: rgba(255, 255, 255, 0.85);
-}
-.ui.modal.basic .actions > .button:hover {
-  color: white;
-  border-color: white;
-}
-.ui.modal.modal.basic {
-  text-align: center;
-}
-.ui.modal.modal.basic .header {
-  font-size: 20px;
-  padding: 10px;
-}
-.ui.modal.modal.basic .header i {
-  display: block;
-  font-size: 120px;
-  margin-bottom: 20px;
-  margin-left: 0;
-  margin-right: 0;
-  text-align: center;
-}
-.ui.modal.modal.basic .header em {
-  padding: 0px 10px;
-  font-size: 120%;
-}
-.ui.modal.modal.basic .header .heading {
-  color: rgba(255, 255, 255, 0.95);
-}
-.ui.modal.modal.basic .content {
-  padding: 20px;
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
-}
-.ui.modal.modal.basic.modal--success .header i {
-  color: #38a538;
-}
-.ui.modal.modal.basic.modal--create-job-success .header i {
-  color: #38a538;
-}
-.ui.modal.modal.basic.modal--create-job-success .content {
-  font-size: 14px;
-  font-style: italic;
-  opacity: 0.3;
-  line-height: 1;
-}
-.ui.modal.modal.basic.modal--create-job-wait .header i {
-  color: #e0b022;
-}
-.ui.modal.modal.basic.modal--error .header i {
-  color: #be342a;
-}
-.ui.modal.modal--validate-success .actions {
-  border-top: none;
-  background-color: transparent;
-  padding: 0 25px 25px 25px;
-}
-
-.tag {
-  background: #f5f5f5;
-  padding: 4px 8px;
-  color: #404040;
-  border-radius: 2px;
-  font-size: 13px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  display: flex;
-}
-.tag__icon {
-  margin-top: 1px;
-  margin-right: 10px;
-  text-align: center;
-}
-.tag--feature {
-  display: inline-block;
-}
-
-.code-feedback {
-  background-color: #eeeeee;
-  min-height: 80px;
-  padding: 9px 13px;
-  border-radius: 2px;
-  font-weight: 500;
-  display: flex;
-  font-size: 12px;
-}
-.code-feedback__icon {
-  flex-basis: 24px;
-  margin-top: 1px;
-  font-size: 14px;
-}
-.code-feedback--success {
-  color: #167a1a;
-  background-color: #edf3e4;
-  border: 1px solid #cdeda9;
-}
-.code-feedback--error {
-  color: #d82121;
-  background-color: #fff4f4;
-  border: 1px solid #f4c7c7;
-}
-
 .login {
   display: flex;
   flex-direction: column;
@@ -1954,26 +1976,6 @@ body .uploading__info {
   color: white;
 }
 
-.logo {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-  background-color: #bb247f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.logo__link {
-  font-family: "Willy Wonka";
-  font-size: 35px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.95);
-  margin-top: 5px;
-}
-.logo__link:hover {
-  color: white;
-}
-
 .__stacks {
   height: 100%;
   overflow-y: auto;
@@ -2013,11 +2015,13 @@ body .uploading__info {
 .__stack-item__header {
   margin-bottom: 10px;
   display: flex;
+  align-items: flex-start;
 }
 .__stack-item__header .__stack-name {
   flex-grow: 1;
   word-break: break-all;
   margin-right: 10px;
+  display: flex;
 }
 .__stack-item__header .__stack-name__icon {
   font-size: 16px;
@@ -2027,6 +2031,7 @@ body .uploading__info {
 .__stack-item__header .__stack-name__content {
   font-weight: 500;
   color: #bb5a38;
+  max-width: 200px;
 }
 .__stack-item__header .__delete-stack {
   padding: 4px 8px;
@@ -2034,6 +2039,7 @@ body .uploading__info {
   border-radius: 4px;
   color: #999999;
   transform: skewY(-2deg);
+  margin-right: 0;
 }
 .__stack-item__header .__delete-stack:hover {
   background-color: #ff2b2b;
@@ -2042,11 +2048,12 @@ body .uploading__info {
 .__stack-item__row {
   display: flex;
   margin-bottom: 10px;
+  align-items: center;
 }
 .__stack-item__title {
   padding: 4px 12px;
   background-color: #e4e4e4;
-  border-radius: 4px;
+  border-radius: 2px;
   margin-right: 15px;
   min-width: 120px;
   flex-basis: 120px;
@@ -2068,6 +2075,29 @@ body .uploading__info {
 .__stack-item__content {
   font-size: 13px;
   margin-top: 4px;
+}
+.__stack-item__status {
+  padding: 3px 6px;
+  font-size: 12px;
+  margin-top: 0;
+  border-radius: 2px;
+  border: 1px solid #eeeeee;
+}
+.__stack-item__status--built {
+  color: #39a739;
+  border-color: #39a739;
+}
+.__stack-item__status--building {
+  color: #6bca00;
+  border-color: #6bca00;
+}
+.__stack-item__status--failed {
+  color: #da1204;
+  border-color: #da1204;
+}
+.__stack-item__status--deleting {
+  color: #333333;
+  border-color: #333333;
 }
 
 .__create-stack__header {
@@ -2126,6 +2156,10 @@ html, body {
   padding: 0;
   line-height: 1.25;
   font-family: "Proxima Nova", Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.__body--loading {
+  cursor: progress;
 }
 
 .container {

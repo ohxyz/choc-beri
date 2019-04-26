@@ -1,27 +1,27 @@
 @import "./variables";
+@import "./globals";
 @import "./scrollbar";
 @import "./slider";
 @import "./strip";
 @import "./splitter";
-@import "./side-bar";
 @import "./validate-button";
 @import "./auto-refresh";
-@import "./globals";
+@import "./ace-editor";
+@import "./tag";
+@import "./logo";
+@import "./code-feedback";
+@import "./override-semantic";
+@import "./modals";
 
 @import "./batch-management";
+@import "./side-bar";
 @import "./browse-files";
 @import "./upload-files";
 @import "./feature-status";
 @import "./create-feature-store";
 @import "./upload-scripts";
 @import "./upload-scripts-mojo";
-@import "./override-semantic";
-@import "./ace-editor";
-@import "./modals";
-@import "./tag";
-@import "./code-feedback";
 @import "./login";
-@import "./logo";
 @import "./stacks";
 
 // Uncomment following import when copied to choc_beri_apps_ui
@@ -67,6 +67,11 @@ html, body {
     // Includes styles in the modals created by Semantic UI
     line-height: 1.25;
     font-family: $font-family;
+}
+
+.__body--loading {
+
+    cursor: progress;
 }
 
 .container {

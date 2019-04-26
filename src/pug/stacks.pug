@@ -26,7 +26,7 @@ block main
                             .__stack-item__header
                                 .__stack-name
                                     i.__stack-name__icon.fas.fa-layer-group
-                                    span.__stack-name__content d00-choc-beri-1
+                                    span.__stack-name__content d00-choc-beri-first
                                 .__delete-stack.ui.button
                                     i.__delete-stack__icon.fas.fa-trash-alt
                                     span.__delete-stack__content Delete
@@ -46,7 +46,7 @@ block main
                                 .__stack-item__title
                                     i.__stack-item__title-icon.fas.fa-battery-half
                                     span.__stack-item__title-content Status
-                                .__stack-item__content
+                                .__stack-item__content.__stack-item__status.__stack-item__status--built
                                     | Built
                             .__stack-item__row
                                 .__stack-item__title
@@ -79,8 +79,8 @@ block main
                                 .__stack-item__title
                                     i.__stack-item__title-icon.fas.fa-battery-half
                                     span.__stack-item__title-content Status
-                                .__stack-item__content
-                                    | Built
+                                .__stack-item__content.__stack-item__status.__stack-item__status--building
+                                    | Building
                             .__stack-item__row
                                 .__stack-item__title
                                     i.__stack-item__title-icon.fas.fa-external-link-alt
@@ -112,14 +112,35 @@ block main
                                 .__stack-item__title
                                     i.__stack-item__title-icon.fas.fa-battery-half
                                     span.__stack-item__title-content Status
-                                .__stack-item__content
-                                    | Built
+                                .__stack-item__content.__stack-item__status.__stack-item__status--failed
+                                    | Failed
+
+                        .__stack-item
+                            .__stack-item__header
+                                .__stack-name
+                                    i.__stack-name__icon.fas.fa-layer-group
+                                    span.__stack-name__content d00-choc-beri-This-is-a-long-stack-name-that-has-ID-7430165871937291743941014814730
+                                .__delete-stack.ui.button
+                                    i.__delete-stack__icon.fas.fa-trash-alt
+                                    span.__delete-stack__content Delete
                             .__stack-item__row
                                 .__stack-item__title
-                                    i.__stack-item__title-icon.fas.fa-external-link-alt
-                                    span.__stack-item__title-content ZEPPLIN
-                                .__stack-item__content.__link__
-                                    | Link
+                                    i.__stack-item__title-icon.far.fa-calendar-plus
+                                    span.__stack-item__title-content Created at
+                                .__stack-item__content
+                                    | 2019-02-19T01:54:38.241Z
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.far.fa-envelope
+                                    span.__stack-item__title-content Owner
+                                .__stack-item__content
+                                    | Abhishek.Das@team.telstra.com
+                            .__stack-item__row
+                                .__stack-item__title
+                                    i.__stack-item__title-icon.fas.fa-battery-half
+                                    span.__stack-item__title-content Status
+                                .__stack-item__content.__stack-item__status.__stack-item__status--deleting
+                                    | Deleting
 
 
             .splitter
