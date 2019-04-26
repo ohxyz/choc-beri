@@ -1,4 +1,4 @@
-var batches = {
+var dummyBatch1 = {
    "0":{
       "featureStores":{
          "mobile":{

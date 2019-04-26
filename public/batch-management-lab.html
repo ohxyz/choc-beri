@@ -88,7 +88,7 @@
     <div class="top-bar"><span class="user__name">Oh Xyz</span><a class="user__profile" href="./">
         <div class="user__avatar"><i class="fas fa-user-circle"></i></div></a><a class="logout" href="./login.html"><i class="top-bar__icon fas fa-door-closed"></i><i class="top-bar__icon fas fa-door-open"></i></a></div>
     <div class="main">
-      <div class="main__header">
+      <div class="main__header" data-zone="lab">
         <div class="main__zone main__zone--lab">
           <div class="zone-icon i fas fa-flask"></div>
           <div class="zone-name">Laboratory</div>
@@ -101,7 +101,7 @@
           <div class="__batch__row">
             <div class="__batch__heading">Last 5 Daily Batch Runs</div>
             <div class="__batch__content">
-              <div id="__batch__daily-chart"></div>
+              <div class="__batch__daily-chart" id="__batch__daily-chart"></div>
             </div>
           </div>
           <div class="__batch__row">
@@ -178,54 +178,6 @@
         <div class="__batch__details">
           <div class="__batch__header">
             <div class="__batch__heading">Batch Details</div><span class="auto-refresh"><i class="auto-refresh__icon fas fa-toggle-off"></i><i class="auto-refresh__icon fas fa-toggle-on"></i><span class="auto-refresh__title">Auto Refresh</span></span>
-          </div>
-          <div class="__batch__row">
-            <div class="__batch__title">Batch Status</div>
-            <div class="__batch__content"> 
-              <div class="__batch__status __batch__status--built">Complete</div>
-            </div>
-          </div>
-          <div class="__batch__row">
-            <div class="__batch__title">Batch ID</div>
-            <div class="__batch__content"> 
-              <div class="__batch__id">D20190329T1800</div>
-            </div>
-          </div>
-          <div class="__batch__row">
-            <div class="__batch__title">Total Stages</div>
-            <div class="__batch__content">
-               3</div>
-          </div>
-          <div class="__batch__row">
-            <div class="__batch__title">Feature Stores</div>
-            <div class="__batch__content">
-              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">fixedservice</span></div>
-              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">mobile</span></div>
-              <div class="__feature-store"><i class="__feature-store__icon fas fa-shopping-cart"></i><span class="__feature-store__name">services</span></div>
-            </div>
-          </div>
-          <div class="__batch__row">
-            <div class="__batch__title">Execution Details</div>
-            <div class="__batch__content">
-              <div class="__excution__list">
-                <div class="__execution__item">
-                  <div class="__execution__title"> <i class="__execution__icon fas fa-stopwatch"></i><span class="__execution__name">Start at</span></div>
-                  <div class="__execution__description">2019-03-29T18:52:03.861Z</div>
-                </div>
-                <div class="__execution__item">
-                  <div class="__execution__title"> <i class="__execution__icon fas fa-flag-checkered"></i><span class="__execution__name">End at</span></div>
-                  <div class="__execution__description">2019-03-29T18:52:03.861Z</div>
-                </div>
-                <div class="__execution__item">
-                  <div class="__execution__title"> <i class="__execution__icon fas fa-running"></i><span class="__execution__name">Runtime (ms)</span></div>
-                  <div class="__execution__description">3741987320 ms</div>
-                </div>
-                <div class="__execution__item">
-                  <div class="__execution__title"> <i class="__execution__icon fas fa-walking"></i><span class="__execution__name">Runtime (min)</span></div>
-                  <div class="__execution__description">123 mins 26 secs</div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

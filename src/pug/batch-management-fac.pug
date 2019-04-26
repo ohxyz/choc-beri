@@ -4,7 +4,7 @@ block link
     - var path = 'batch-management-fac'
     
 block main
-    .main__header
+    .main__header(data-zone="fac")
         .main__zone.main__zone--fac
             .zone-icon.i.fas.fa-city
             .zone-name Factory
@@ -13,6 +13,129 @@ block main
             span Batch Management - Fac
             span /
             a(href="/") Choc-BERI
-    .__jobs
-        .jobs__chart
-        
+    .main__content.__batch
+        .__batch__history
+            .__batch__row
+                .__batch__heading Last 5 Daily Batch Runs
+                .__batch__content
+                    #__batch__daily-chart
+
+            .__batch__row
+                .__batch__heading Nightly Batch Metrics
+                .__batch__content
+                    .__batch__daily-table
+                        table.ui.table
+                            thead
+                                tr 
+                                    th Date
+                                    th ID
+                                    th Status
+                            tbody
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+                                tr 
+                                    td(data-label="Batch Date") Sun Mar 31 2019 05:00:00 GMT+1100
+                                    td(data-label="Batch ID") D20190330T1800
+                                    td(data-label="Status" ) Built
+        .__batch__drawing
+            .__batch__filter
+                .ui.floating.dropdown
+                    i.fas.fa-filter
+                    sapn.text Filter Batches
+                    .menu
+                        .ui.icon.search.input
+                          i.search.icon
+                          input(type="text" placeholder="Search...")
+                        .scrolling.menu
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+                          .item D20190330T1800
+            .__batch__operations
+                .__operation
+                    i.__operation__icon.fas.fa-redo
+                    span.__operation__name Re-run
+                .__operation
+                    i.__operation__icon.far.fa-pause-circle
+                    span.__operation__name Pause
+                .__operation
+                    i.__operation__icon.far.fa-play-circle
+                    span.__operation__name Resume
+            svg#__batch__circles
+
+        .__batch__details
+            .__batch__header
+                .__batch__heading Batch Details
+                span.auto-refresh
+                    i.auto-refresh__icon.fas.fa-toggle-off
+                    i.auto-refresh__icon.fas.fa-toggle-on
+                    span.auto-refresh__title Auto Refresh
+            .__batch__summary
+                .__batch__row
+                    .__batch__title Batch Status
+                    .__batch__content 
+                        .__batch__status.__batch__status--built Complete
+                .__batch__row
+                    .__batch__title Batch ID
+                    .__batch__content 
+                        .__batch__id D20190329T1800
+                .__batch__row
+                    .__batch__title Total Stages
+                    .__batch__content 
+                        | 3
+                .__batch__row
+                    .__batch__title Feature Stores
+                    .__batch__content
+                        .__feature-store
+                            i.__feature-store__icon.fas.fa-shopping-cart
+                            span.__feature-store__name fixedservice
+                        .__feature-store
+                            i.__feature-store__icon.fas.fa-shopping-cart
+                            span.__feature-store__name mobile
+                        .__feature-store
+                            i.__feature-store__icon.fas.fa-shopping-cart
+                            span.__feature-store__name services
+                .__batch__row
+                    .__batch__title Execution Details
+                    .__batch__content
+                        .__excution__list
+                            .__execution__item
+                                .__execution__title 
+                                    i.__execution__icon.fas.fa-stopwatch
+                                    span.__execution__name Start at
+                                .__execution__description 2019-03-29T18:52:03.861Z
+                            .__execution__item
+                                .__execution__title 
+                                    i.__execution__icon.fas.fa-flag-checkered
+                                    span.__execution__name End at
+                                .__execution__description 2019-03-29T18:52:03.861Z
+                            .__execution__item
+                                .__execution__title 
+                                    i.__execution__icon.fas.fa-running
+                                    span.__execution__name Runtime (ms)
+                                .__execution__description 3741987320 ms
+                            .__execution__item
+                                .__execution__title 
+                                    i.__execution__icon.fas.fa-walking
+                                    span.__execution__name Runtime (min)
+                                .__execution__description 123 mins 26 secs
+    
+    script(src="./assets/batches.js")
+    script(src="./assets/batch-mgmt.js")

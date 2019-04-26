@@ -278,6 +278,7 @@ html, body {
 
         height: calc(100% - #{$main-header-height});
         padding: 25px 30px;
+        overflow: auto;
     }
 }
 

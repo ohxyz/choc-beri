@@ -17,7 +17,7 @@
         &__title {
 
             font-size: 13px;
-            color: #6d6d6d;
+            color: #b3744b;
             font-weight: 500;
             margin-bottom: 5px;
 
@@ -31,7 +31,7 @@
 
         &__heading {
 
-             color: #bb5a38;
+             color: #ab5031;
              font-weight: 500;
              margin-bottom: 10px;
         }
@@ -57,6 +57,11 @@
                 border: 1px solid #39a739;
                 background-color: white;
             }
+        }
+
+        &__daily-chart {
+
+            height: 200px;
         }
 
     &__drawing {

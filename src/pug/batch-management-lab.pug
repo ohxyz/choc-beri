@@ -4,7 +4,7 @@ block link
     - var path = 'batch-management-lab'
     
 block main
-    .main__header
+    .main__header(data-zone="lab")
         .main__zone.main__zone--lab
             .zone-icon.i.fas.fa-flask
             .zone-name Laboratory
@@ -18,7 +18,7 @@ block main
             .__batch__row
                 .__batch__heading Last 5 Daily Batch Runs
                 .__batch__content
-                    #__batch__daily-chart
+                    #__batch__daily-chart.__batch__daily-chart
 
             .__batch__row
                 .__batch__heading Nightly Batch Metrics
@@ -87,54 +87,7 @@ block main
                     i.auto-refresh__icon.fas.fa-toggle-off
                     i.auto-refresh__icon.fas.fa-toggle-on
                     span.auto-refresh__title Auto Refresh
-            .__batch__row
-                .__batch__title Batch Status
-                .__batch__content 
-                    .__batch__status.__batch__status--built Complete
-            .__batch__row
-                .__batch__title Batch ID
-                .__batch__content 
-                    .__batch__id D20190329T1800
-            .__batch__row
-                .__batch__title Total Stages
-                .__batch__content 
-                    | 3
-            .__batch__row
-                .__batch__title Feature Stores
-                .__batch__content
-                    .__feature-store
-                        i.__feature-store__icon.fas.fa-shopping-cart
-                        span.__feature-store__name fixedservice
-                    .__feature-store
-                        i.__feature-store__icon.fas.fa-shopping-cart
-                        span.__feature-store__name mobile
-                    .__feature-store
-                        i.__feature-store__icon.fas.fa-shopping-cart
-                        span.__feature-store__name services
-            .__batch__row
-                .__batch__title Execution Details
-                .__batch__content
-                    .__excution__list
-                        .__execution__item
-                            .__execution__title 
-                                i.__execution__icon.fas.fa-stopwatch
-                                span.__execution__name Start at
-                            .__execution__description 2019-03-29T18:52:03.861Z
-                        .__execution__item
-                            .__execution__title 
-                                i.__execution__icon.fas.fa-flag-checkered
-                                span.__execution__name End at
-                            .__execution__description 2019-03-29T18:52:03.861Z
-                        .__execution__item
-                            .__execution__title 
-                                i.__execution__icon.fas.fa-running
-                                span.__execution__name Runtime (ms)
-                            .__execution__description 3741987320 ms
-                        .__execution__item
-                            .__execution__title 
-                                i.__execution__icon.fas.fa-walking
-                                span.__execution__name Runtime (min)
-                            .__execution__description 123 mins 26 secs
-
+                    
     script(src="./assets/batches.js")
     script(src="./assets/batch-mgmt.js")
+

@@ -16,7 +16,16 @@
     var zone = $( '.main__header' ).data( 'zone' );
     var user = { admin: true } // Required to be integrated user profile
     var env = $container.data( 'env' );
-    
+
+    window.globals = Object.assign( {}, window.globals, {
+
+        $container,
+        $main,
+        zone,
+        user,
+        env
+    } );
+
     var dummyValidatedResult = {
 
       "dataSources": {
@@ -366,8 +375,6 @@
     }
 
     function $createFeaturePanel( fn, f ) {
-
-        console.log( 'Panel', f );
 
         var featureName = fn;
 

@@ -1,19 +1,7 @@
 console.log( 'Batch MGMT' );
+console.log( 'batch', dummyBatch1 );
 
-console.log( 'batches', batches );
-
-var data = {
-
-    name: 'a',
-    type: 'base',
-    children: [
-        { name: 'a1', value: 10, children: [ { name: 'a11', value: 3 } ] },
-        { name: 'a2', value: 20 },
-        { name: 'a3', value: 30 },
-    ]
-};
-
-var b = {
+var dummyCircles = {
 
     type: 'base',
     children: [
@@ -51,9 +39,15 @@ var b = {
                 { featureStore: 'services', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'unknown' }, 
         ] },
     ]
+}    
+
+if ( $( '.container' ).data( 'env' ) === 'dev' 
+        && $( '.main__header' ).data( 'zone' ) === 'lab' ) {
+
+    $( '.__batch__details' ).append( $createBatchSummary( dummyBatch1.batch) );
 }
 
-var root = d3.hierarchy( b ).sum( d => {
+var root = d3.hierarchy( dummyCircles ).sum( d => {
 
     return d._size + 1;
 } );
@@ -224,7 +218,7 @@ $( '#__batch__circles' )
 
             var x = rectOfJob.x + rectOfJob.width + 20;
             var y = rectOfJob.y + rectOfJob.height / 2 - 150 ;
-            var job = createJobObject( dummyJob, dummyJobDetails );
+            var job = makeObjectOfJob( dummyJob, dummyJobDetails );
             var $tooltip = $createJobTooltip( job );
             
             $jobDetails = $tooltip
@@ -301,7 +295,7 @@ var dummyJobDetails = {
    "ScannedCount":11
 }
 
-function createJobObject( jobOfBatch, jobDetails ){
+function makeObjectOfJob( jobOfBatch, jobDetails ){
 
     if ( !( jobOfBatch && jobDetails && jobDetails.Items && jobDetails.Items.length >= 1 ) ) {
 
@@ -321,6 +315,7 @@ function createJobObject( jobOfBatch, jobDetails ){
 
     return job;
 }
+
 
 function $createJobTooltip( job ) {
 
@@ -371,6 +366,80 @@ function $createJobTooltip( job ) {
     return $template;
 }
 
+function $createBatchSummary( batch ) {
+
+    var $tmpl = $( `
+      <div class="__batch__summary">
+        <div class="__batch__row">
+          <div class="__batch__title">Batch Status</div>
+          <div class="__batch__content"> 
+            <div class="__batch__status __batch__status--${batch.status.state}">${ batch.status.state }</div>
+          </div>
+        </div>
+        <div class="__batch__row">
+          <div class="__batch__title">Batch ID (Execution Date)</div>
+          <div class="__batch__content"> 
+            <div class="__batch__id">${batch.executionDate}</div>
+          </div>
+        </div>
+        <div class="__batch__row">
+          <div class="__batch__title">Total Jobs</div>
+          <div class="__batch__content">${batch.jobs.length}</div>
+        </div>
+        <div class="__batch__row">
+          <div class="__batch__title">Feature Stores</div>
+          <div class="__batch__content">
+          ${
+              batch.featureStores.map( fs => `
+
+                  <div class="__feature-store">
+                    <i class="__feature-store__icon fas fa-shopping-cart"></i>
+                    <span class="__feature-store__name">${fs}</span>
+                  </div>
+
+              ` ).join( '' )
+          }
+          </div>
+        </div>
+        <div class="__batch__row">
+          <div class="__batch__title">Execution Details</div>
+          <div class="__batch__content">
+            <div class="__excution__list">
+              <div class="__execution__item">
+                <div class="__execution__title">
+                  <i class="__execution__icon fas fa-stopwatch"></i>
+                  <span class="__execution__name">Start at</span></div>
+                <div class="__execution__description">${batch.time.start}</div>
+              </div>
+              <div class="__execution__item">
+                <div class="__execution__title">
+                  <i class="__execution__icon fas fa-flag-checkered"></i>
+                  <span class="__execution__name">End at</span></div>
+                <div class="__execution__description">${batch.time.end}</div>
+              </div>
+              <div class="__execution__item">
+                <div class="__execution__title">
+                  <i class="__execution__icon fas fa-running"></i>
+                  <span class="__execution__name">Runtime (ms)</span></div>
+                <div class="__execution__description">${ Intl.NumberFormat().format(batch.time.run) } ms</div>
+              </div>
+              <div class="__execution__item">
+                <div class="__execution__title">
+                  <i class="__execution__icon fas fa-walking"></i>
+                  <span class="__execution__name">Runtime (min)</span>
+                </div>
+                <div class="__execution__description">${ shortenTime( batch.time.run ) }</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ` );
+
+    return $tmpl;
+}
+
+
 function shortenTime( milliseconds ) {
 
     var seconds = ( milliseconds / 1000 ).toFixed();
@@ -387,10 +456,12 @@ function shortenTime( milliseconds ) {
     }
 }
 
+
 function shortenId( id ) {
 
     return id.slice( 0,3 ) + '...' + id.slice( -3 );
 }
+
 
 function shortenStatusText( status ) {
 
@@ -399,6 +470,7 @@ function shortenStatusText( status ) {
 
     return status;
 }
+
 
 function createCircle( attrs = {} ) {
 
@@ -413,6 +485,7 @@ function createCircle( attrs = {} ) {
 
     return circle;
 }
+
 
 function createText( content = '', attrs = {} ) {
 
