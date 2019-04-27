@@ -176,6 +176,171 @@
 
         }
 
+        &__stages {
+
+            margin-top: 60px;
+
+        }
+            .__stage {
+
+                margin-bottom: 15px;
+                border-radius: 2px;
+
+                &__header {
+
+                    display: flex;
+                    margin-bottom: 10px;
+
+                    .__item {
+
+                        margin-right: 20px;
+
+                        &--stage {
+
+                            .__item__content {
+
+                                background-color: #999999;
+                                color: white;
+                            }
+                        }
+
+                        &__label {
+
+                            font-size: 12px;
+                            font-weight: 500;
+                            color: #999999;
+                            margin-right: 5px;
+                        }
+
+                        &__content {
+
+                            font-size: 12px;
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 100px;
+                            color: #555555;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: #eaeaea;
+
+                        }
+                    }
+                }
+
+
+                &__content {
+
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+
+                }
+                    &__circle {
+
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 1000px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                        font-size: 13px;
+
+                        @mixin coloring( $color ) {
+
+                            background-color: $color;
+                            color: white;
+                        }
+
+                        &--glooping {
+
+                            background-color: white;
+                            border: 1px #eeeeee solid;
+                            width: 100px;
+                            height: 100px;
+                        }
+
+                        &--built {
+
+                            $color: #329632;
+
+                            border: 1px solid $color;
+                            color: $color;
+                            background-color: white;
+                        }
+
+                        &--building {
+
+                            $color: #6bca00;
+                            @include coloring($color);
+                        }
+
+                        &--errored {
+
+                            $color: #ff3224;
+                            @include coloring($color);
+                        }
+
+                        &--failed {
+
+                            $color: #da1204;
+                            @include coloring($color);
+                        }
+
+                        &--waiting {
+
+                            $color: #349ccc;
+                            @include coloring($color);
+                        }
+
+                        &--aborted {
+
+                            $color: #f7407b;
+                            @include coloring($color);
+                        }
+
+                        &--promoted {
+
+                            $color: #ff9800;
+                            @include coloring($color);
+                        }
+
+                        &--promoting {
+
+                            $color: #ffc822;
+                            @include coloring($color);
+                        }
+
+                        &--decommissioning {
+
+                            $color: #6374ce;
+                            @include coloring($color);
+                        }
+
+                        &--decommissioned {
+                            
+                            $color: #41509e;
+                            @include coloring($color);
+                        }
+
+                        &--paused {
+
+                            $color: #ea67bc;
+                            @include coloring($color);
+                        }
+                    }
+
+                        &__runtime {
+
+                            font-style: italic;
+                            font-size: 13px;
+                        }
+            }
+
+
     &__details {
 
         flex-basis: 300px;
