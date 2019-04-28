@@ -10,7 +10,7 @@ var dummyCircles = {
 
                 { jobId: '15538177824356391', type: 'job', _size: 10, runtime: `1'23"`, status: 'built' },
                 { featureStore: 'mobile', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'built' }, 
-                { jobId: '15537490165215569', type: 'job', _size: 8, runtime: `4'56"`, status: 'waiting' },
+                { jobId: '15535557007171934', type: 'job', _size: 8, runtime: `4'56"`, status: 'waiting' },
                 { featureStore: 'fixedservice', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'errored' }, 
                 { featureStore: 'services', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'building' }, 
         ] },
@@ -18,12 +18,12 @@ var dummyCircles = {
         { stage: '1', type: 'stage', children: [
 
                 { jobId: '15538178472230601', type: 'job', _size: 1, runtime: `1'16"`, status: 'built' },
-                { jobId: '15537490165215569', type: 'job', _size: 2, runtime: `2'16"`, status: 'failed' },
-                { jobId: '15537490165215569', type: 'job', _size: 3, runtime: `3'16"`, status: 'errored' },
+                { jobId: '15535557007171934', type: 'job', _size: 2, runtime: `2'16"`, status: 'failed' },
+                { jobId: '15535557007171934', type: 'job', _size: 3, runtime: `3'16"`, status: 'errored' },
                 { featureStore: 'fixedservice', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'failed' }, 
-                { jobId: '15537490165215569', type: 'job', _size: 4, runtime: `4'16"`, status: 'building' }, 
-                { jobId: '15537490165215569', type: 'job', _size: 8, runtime: `5'16"`, status: 'waiting' },
-                { jobId: '15537490165215569', type: 'job', _size: 15, runtime: `6'16"`, status: 'aborted' },
+                { jobId: '15535557007171934', type: 'job', _size: 4, runtime: `4'16"`, status: 'building' }, 
+                { jobId: '15535557007171934', type: 'job', _size: 8, runtime: `5'16"`, status: 'waiting' },
+                { jobId: '15535557007171934', type: 'job', _size: 15, runtime: `6'16"`, status: 'aborted' },
                 { featureStore: 'mobile', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'waiting' }, 
                 { featureStore: 'services', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'paused' }, 
 
@@ -32,10 +32,10 @@ var dummyCircles = {
         { stage: '2', type: 'stage', children: [
                 { jobId: '15535557007171934', type: 'job', _size: 1, runtime: `7'16"`, status: 'paused' },
                 { jobId: '38740494881083431', type: 'job', _size: 3, runtime: `8'16"`, status: 'promoting' },
-                { jobId: '15537490165215569', type: 'job', _size: 5, runtime: `9'16"`, status: 'promoted' },
+                { jobId: '15535557007171934', type: 'job', _size: 5, runtime: `9'16"`, status: 'promoted' },
                 { jobId: '58749174104841739', type: 'job', _size: 6, runtime: `10'16"`, status: 'decommissioning'},
                 { jobId: '58749174104841739', type: 'job', _size: 7, runtime: `11'16"`, status: 'decommissioned' }, 
-                { jobId: '15537490165215569', type: 'job', _size: 8, runtime: `12'16"`, status: 'built'},
+                { jobId: '15535557007171934', type: 'job', _size: 8, runtime: `12'16"`, status: 'built'},
                 { featureStore: 'services', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'unknown' }, 
         ] },
     ]
@@ -83,7 +83,7 @@ var dummyJobDetails = {
                }
             }
          },
-         "jobID":"15537490165215569",
+         "jobID":"15535557007171934",
          "features":{
             "SubscriberID":{
                "featureName":"SubscriberID",
@@ -118,7 +118,7 @@ if ( $( '.container' ).data( 'env' ) === 'dev' ) {
         $( '.__batch__details' ).append( $createBatchSummary( dummyBatch1.batch) );
         $( '.__batch__drawing' ).append( $createCirclesByStage( dummyCircles.children ) );
 
-        resizeCircles( $( '.__stage__circle--job' ) );
+        applyToAllCircles( $( '.__stage__circle--job' ) );
     }
     else if ( zone === 'fac' ) {
 
@@ -161,6 +161,7 @@ $( document ).click( function ( event ) {
 function $createCirclesByStage( stages ) {
 
     var $batchStages = $( '<div class="__batch__stages">' );
+    var isResized = false;
 
     for ( var eachStage of stages ) {
 
@@ -169,15 +170,11 @@ function $createCirclesByStage( stages ) {
         $batchStages.append( $strip );
     }
 
-    $( '.__batch__drawing' ).click( function ( event ) { 
-
-        if ( $jobTooltip ) {
-
-            $jobTooltip.remove();
-        }
+    $( '.__batch__drawing' ).dblclick( function ( event ) { 
 
         var $target = $( event.target );
         var $circle = $target.closest( '.__stage__circle--job' );
+
         var parsedJob = $circle.data( 'job' );
 
         if ( !parsedJob ) {
@@ -187,19 +184,82 @@ function $createCirclesByStage( stages ) {
 
         if ( $circle.length >= 1 ) {
 
-            var job = makeObjectOfJob( dummyJob, parsedJob );
-            var rectOfJob = $circle.get(0).getBoundingClientRect();
-            var x = rectOfJob.x + rectOfJob.width + 20;
-            var y = rectOfJob.y + rectOfJob.height / 2 - 150 ;
-
-            $jobTooltip = $createJobTooltip( job )
-                            .css( { position: 'absolute', left: x, top: y } )
-                            .appendTo( 'body' );
+            restoreAllCircles( $circle );
+            toggleCircleStyles( $circle );
         }
 
     } );
 
     return $batchStages;
+}
+
+function popupJobDetails( elem, job ) {
+
+    var rectOfJob = elem.getBoundingClientRect();
+    var x = rectOfJob.x + rectOfJob.width + 20;
+    var y = rectOfJob.y + rectOfJob.height / 2 - 150 ;
+
+    $jobTooltip = $createJobTooltip( job )
+                    .css( { position: 'absolute', left: x, top: y } )
+                    .appendTo( 'body' );
+}
+
+function restoreAllCircles( $exclude ) {
+
+    $( '.__stage__circle' ).each( function ( index, circle ) {
+
+        var $circle = $( circle );
+
+        if ( $circle.is( $exclude ) ) {
+            
+            return;
+        }
+
+        var originalSize = circle.getAttribute( 'data-original-size' );
+
+        if ( originalSize ) {
+
+            restoreCircle( $circle, originalSize );
+        }
+    } )
+}
+
+function toggleCircleStyles( $circle, styles = { width: '250px', height: '250px' } ) {
+
+    var originalSize = $circle.data( 'original-size' );
+    var currentWidth = $circle.get(0).offsetWidth;
+
+    if ( currentWidth === originalSize ) {
+
+        enlargeCircle( $circle, styles );
+    }
+    else {
+
+        restoreCircle( $circle, originalSize );
+    }
+}
+
+function enlargeCircle( $circle, styles ) {
+
+    $( '.__job__basic', $circle ).fadeOut( 300 );
+
+    $circle.animate( styles, 300, function() {
+
+        $( '.__job__more', $circle ).fadeIn();
+    } );
+
+}
+
+function restoreCircle( $circle, size ) {
+
+    $circle.css( 'opacity', 1 );
+
+    $( '.__job__more', $circle ).fadeOut( 300 );
+
+    $circle.animate( { width: size, height: size }, 300, function () { 
+
+        $( '.__job__basic', $circle ).fadeIn( 300 );
+    } );
 }
 
 function $createStageStrip( stage ) {
@@ -208,8 +268,7 @@ function $createStageStrip( stage ) {
         <div class="__stage">
             <div class="__stage__header">
                 <div class="__item __item--stage">
-                    <span class="__item__label">STAGE</span>
-                    <span class="__item__content">${stage.stage}</span>
+                    <span class="__item__content">STAGE ${stage.stage}</span>
                 </div>
                 <div class="__item">
                     <span class="__item__label">JOBS</span>
@@ -221,28 +280,34 @@ function $createStageStrip( stage ) {
                 </div>
             </div>
             <div class="__stage__content">
+
             ${
                 stage.children.map( child => {
 
                     if ( child.type === 'job' ) {
 
                         return `
-                            <div class="__stage__circle __stage__circle--job __stage__circle--${child.status}" data-job-id="${child.jobId}">
-                                <div class="__job-id" title="${child.jobId}">${ shortenId(child.jobId) }</div>
-                                <div class="__stage__runtime">
-                                    <span>${ child.runtime }(<span class="__stage__count-of-features">0</span>)</span>
+                            <div class="__stage__circle __stage__circle--job __job __stage__circle--${child.status}" data-job-id="${child.jobId}">
+                                <div class="__job__basic">
+                                    <div class="__job__id" title="${child.jobId}">${ shortenId(child.jobId) }</div>
+                                    <div class="__job__runtime">
+                                        <span>${ child.runtime }(<span class="__stage__count-of-features">0</span>)</span>
+                                    </div>
+                                    <div class="__job__status">${ shortenStatusText(child.status) }</div>
                                 </div>
-                                <div class="__stage__status">${ shortenStatusText(child.status) }</div>
+                                <div class="__job__more">
+                                    
+                                </div>
                             </div>
                         `;
                     }
                     else if ( child.type === 'glooping' ) {
 
                         return `
-                            <div class="__stage__circle __stage__circle--glooping">
-                                <div class="__stage__feature-store">${ child.featureStore }</div>
-                                <div class="__stage__runtime">${ child.runtime }</div>
-                                <div class="__stage__status">${ child.status }</div>
+                            <div class="__stage__circle __stage__circle--glooping __glooping ">
+                                <div class="__glooping__feature-store">${ child.featureStore }</div>
+                                <div class="__glooping__runtime">${ child.runtime }</div>
+                                <div class="__glooping__status">${ child.status }</div>
                             </div>
                         `;
                     }
@@ -250,7 +315,8 @@ function $createStageStrip( stage ) {
                     return '';
 
                 } ).join( '' )
-        }
+
+            }
             </div>
         </div>
     ` );
@@ -259,40 +325,80 @@ function $createStageStrip( stage ) {
 }
 
 
-function resizeCircles( $circles ) {
+function applyToAllCircles( $circles ) {
 
     $circles.each( function ( index, circle ) {
 
         relateJobToCircle( { 
 
             circle: circle,
-            jobContainer: dummyJobDetails,
+            jobDetails: dummyJobDetails,
         } );
-
     } );
 }
 
 
-function relateJobToCircle( { circle, jobContainer, ratio = 0.1 } ) {
+function relateJobToCircle( { circle, jobDetails, ratio = 0.2 } ) {
 
     var jobId = circle.getAttribute( 'data-job-id' );
-    var job = jobContainer.Items[0];
+    var job = makeObjectOfJob( dummyJob, jobDetails );
 
     if ( job.jobID === jobId ) {
 
         var width = circle.offsetWidth;
-        var countOfFeatures = Object.keys( job.features ).length;
-        var length = width * ( 1 + countOfFeatures * 0.1 );
+        var countOfFeatures = job.features.length;
+        var length = width * ( 1 + countOfFeatures * ratio );
         
-        circle.setAttribute( 'data-job', JSON.stringify( jobContainer ) );
+        circle.setAttribute( 'data-job', JSON.stringify( job ) );
 
         $( '.__stage__count-of-features', circle ).text( countOfFeatures );
 
         circle.style.width = length + 'px';
         circle.style.height = length + 'px';
+        circle.setAttribute( 'data-original-size', length );
+
+        $( '.__job__more', circle ).append( $createJobDetails( job ) );
+
+    }
+    else {
+
+        circle.setAttribute( 'data-original-size', circle.offsetWidth );
     }
 }
 
+function $createJobDetails( job ) {
+
+    var $tmpl = $( `
+        <div class="__job__details">
+            <div class="__job__row __detail">
+                <div class="__detail__content">Job ID : ${job.jobID}</div>
+            </div>
+            <div class="__job__row __detail">
+                <div class="__detail__content">Runtime : ${ shortenTime(job.time.run) }</div>
+            </div>
+            <div class="__job__row __detail">
+                <div class="__detail__content">Status : ${ job.status.state }</div>
+            </div>
+            <div class="__job__row __detail">
+                <div class="__detail__content">
+                    <div class="__detail__list">
+                    ${ job.features.map( feature => `
+                        
+                        <div class="__detail__item">
+                            <div class="__feature">
+                                <i class="__feature__icon far fa-star"></i>
+                                <span class="__feature__name">${feature}</span>
+                            </div>
+                        </div>` ).join( '' )
+                    }
+                    </div>
+                </div>
+            </div>
+        </div>
+    `);
+
+    return $tmpl;
+}
 
 function createSvgBatchCircles( batchHierarchy, containerSelector ) {
 
@@ -484,28 +590,28 @@ function makeObjectOfJob( jobOfBatch, jobDetails ){
 function $createJobTooltip( job ) {
 
     var $template = $( `
-        <div class="__job">
-            <div class="__job__header"></div>
-            <div class="__job__content">
-                <div class="__job__row">
+        <div class="__job-tooltip">
+            <div class="__job-tooltip__header"></div>
+            <div class="__job-tooltip__content">
+                <div class="__job-tooltip__row">
                     <div class="__detail">
                         <div class="__detail__title">Job ID</div>
                         <div class="__detail__content">${job.jobID}</div>
                     </div>
                 </div>
-                <div class="__job__row">
+                <div class="__job-tooltip__row">
                     <div class="__detail">
                         <div class="__detail__title">Time Elapsed</div>
                         <div class="__detail__content">${ shortenTime(job.time.run) }</div>
                     </div>
                 </div>
-                <div class="__job__row">
+                <div class="__job-tooltip__row">
                     <div class="__detail">
                         <div class="__detail__title">Status</div>
                         <div class="__detail__content">${ cap(job.status.state) }</div>
                     </div>
                 </div>
-                <div class="__job__row">
+                <div class="__job-tooltip__row">
                     <div class="__detail">
                         <div class="__detail__title">Features</div>
                         <div class="__detail__content">
@@ -666,4 +772,3 @@ function createSvgText( content = '', attrs = {} ) {
 
     return text;
 }
-

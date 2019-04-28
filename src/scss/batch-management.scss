@@ -199,8 +199,13 @@
 
                             .__item__content {
 
-                                background-color: #999999;
-                                color: white;
+                                background-color: white;
+                                color: #666666;
+                                border: 1px solid #999999;
+                                border-radius: 2px;
+                                width: auto;
+                                padding: 2px 4px;
+                                transform: skewY(-3deg);
                             }
                         }
 
@@ -228,7 +233,6 @@
                     }
                 }
 
-
                 &__content {
 
                     display: flex;
@@ -249,11 +253,55 @@
                         margin-bottom: 10px;
                         font-size: 13px;
 
+                        .__job {
+
+                            &__basic {
+
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                                &__runtime {
+
+                                    font-style: italic;
+                                    font-size: 13px;
+                                }
+
+                            &__more {
+
+                                display: none;
+
+                                .__detail {
+
+                                    &__list {
+
+                                        overflow: auto;
+                                        max-height: 80px;
+                                        margin-top: 8px;
+                                    }
+
+                                    &__title {
+
+                                        margin-bottom: 2px;
+                                    }
+
+                                     &__content {
+
+                                    }
+                                }
+                            }
+
+
+                        }
+
                         @mixin coloring( $color ) {
 
                             background-color: $color;
                             color: white;
                         }
+
 
                         &--glooping {
 
@@ -332,12 +380,6 @@
                             @include coloring($color);
                         }
                     }
-
-                        &__runtime {
-
-                            font-style: italic;
-                            font-size: 13px;
-                        }
             }
 
 
@@ -441,7 +483,7 @@
     }
 }
 
-.__job {
+.__job-tooltip {
 
     // Variables
     $background-color: rgba( 255, 255, 255, 0.95 );

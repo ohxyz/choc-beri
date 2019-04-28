@@ -731,8 +731,13 @@ html .noUi-connect {
   margin-right: 20px;
 }
 .__batch .__stage__header .__item--stage .__item__content {
-  background-color: #999999;
-  color: white;
+  background-color: white;
+  color: #666666;
+  border: 1px solid #999999;
+  border-radius: 2px;
+  width: auto;
+  padding: 2px 4px;
+  transform: skewY(-3deg);
 }
 .__batch .__stage__header .__item__label {
   font-size: 12px;
@@ -767,6 +772,27 @@ html .noUi-connect {
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 13px;
+}
+.__batch .__stage__circle .__job__basic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.__batch .__stage__circle .__job__runtime {
+  font-style: italic;
+  font-size: 13px;
+}
+.__batch .__stage__circle .__job__more {
+  display: none;
+}
+.__batch .__stage__circle .__job__more .__detail__list {
+  overflow: auto;
+  max-height: 80px;
+  margin-top: 8px;
+}
+.__batch .__stage__circle .__job__more .__detail__title {
+  margin-bottom: 2px;
 }
 .__batch .__stage__circle--glooping {
   background-color: white;
@@ -818,10 +844,6 @@ html .noUi-connect {
 .__batch .__stage__circle--paused {
   background-color: #ea67bc;
   color: white;
-}
-.__batch .__stage__runtime {
-  font-style: italic;
-  font-size: 13px;
 }
 .__batch__details {
   flex-basis: 300px;
@@ -895,7 +917,7 @@ html .noUi-connect {
   font-weight: 500;
 }
 
-.__job {
+.__job-tooltip {
   min-width: 200px;
   min-height: 200px;
   max-width: 220px;
@@ -906,7 +928,7 @@ html .noUi-connect {
   font-size: 13px;
   color: #292929;
 }
-.__job:before {
+.__job-tooltip:before {
   display: block;
   position: absolute;
   border-top: 10px solid transparent;
@@ -916,10 +938,10 @@ html .noUi-connect {
   top: 142px;
   left: -10px;
 }
-.__job__row {
+.__job-tooltip__row {
   margin-bottom: 10px;
 }
-.__job .__detail__title {
+.__job-tooltip .__detail__title {
   color: #ef6b3d;
   margin-bottom: 3px;
   font-weight: 500;
