@@ -610,7 +610,7 @@ html .noUi-connect {
 }
 .__batch__title {
   font-size: 13px;
-  color: #b3744b;
+  color: #999999;
   font-weight: 500;
   margin-bottom: 5px;
 }
@@ -625,17 +625,21 @@ html .noUi-connect {
 }
 .__batch__status {
   padding: 3px 6px;
-  background-color: #999999;
-  color: white;
+  background-color: white;
+  color: #666666;
   border-radius: 2px;
   font-size: 13px;
   font-weight: 500;
   display: inline-block;
+  border: 1px solid #666666;
 }
 .__batch__status--built {
   color: #39a739;
-  border: 1px solid #39a739;
-  background-color: white;
+  border-color: #39a739;
+}
+.__batch__status--errored {
+  color: #ff3224;
+  border-color: #ff3224;
 }
 .__batch__daily-chart {
   height: 200px;
@@ -799,6 +803,9 @@ html .noUi-connect {
   border: 1px #eeeeee solid;
   width: 100px;
   height: 100px;
+}
+.__batch .__stage__circle--glooping .__glooping__runtime {
+  font-style: italic;
 }
 .__batch .__stage__circle--built {
   border: 1px solid #329632;

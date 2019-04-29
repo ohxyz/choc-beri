@@ -17,7 +17,7 @@
         &__title {
 
             font-size: 13px;
-            color: #b3744b;
+            color: #999999;
             font-weight: 500;
             margin-bottom: 5px;
 
@@ -44,18 +44,24 @@
         &__status {
 
             padding: 3px 6px;
-            background-color: #999999;
-            color: white;
+            background-color: white;
+            color: #666666;
             border-radius: 2px;
             font-size: 13px;
             font-weight: 500;
             display: inline-block;
+            border: 1px solid #666666;
 
             &--built {
 
-                color: #39a739;
-                border: 1px solid #39a739;
-                background-color: white;
+                color: $built;
+                border-color: $built;
+            }
+
+            &--errored {
+
+                color: $errored;
+                border-color: $errored;
             }
         }
 
@@ -309,6 +315,11 @@
                             border: 1px #eeeeee solid;
                             width: 100px;
                             height: 100px;
+
+                            .__glooping__runtime {
+
+                                font-style: italic;
+                            }
                         }
 
                         &--built {

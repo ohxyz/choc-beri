@@ -98,7 +98,7 @@
 
     var autoRefreshActiveClass = 'auto-refresh--enable';
 
-    if( sessionStorage.getItem( 'autoReload' ) === 'yes' ) {
+    if( sessionStorage.getItem( 'autoReload' ) === 'true' ) {
 
         $( '.auto-refresh' ).addClass( autoRefreshActiveClass );
     }
@@ -110,19 +110,19 @@
         if ( $this.hasClass( autoRefreshActiveClass ) ) {
 
             $this.removeClass( autoRefreshActiveClass );
-            sessionStorage.setItem( 'autoReload', 'no' );
+            sessionStorage.setItem( 'autoReload', 'false' );
 
         }
         else {
 
             $this.addClass( autoRefreshActiveClass );
-            sessionStorage.setItem( 'autoReload', 'yes' );
+            sessionStorage.setItem( 'autoReload', 'true' );
         }
     } );
 
     setInterval( function() {
 
-        if( sessionStorage.getItem('autoReload') === 'yes') {
+        if( sessionStorage.getItem('autoReload') === 'true' ) {
             
             location.reload();
         }
@@ -1310,51 +1310,6 @@
             } );
 
             return slider;
-        }
-    }
-
-/* Batch management *******************************************************************************/
-
-/* Google charts **********************************************************************************/
-
-    if ( env === 'dev' ) {
-
-        google.charts.load('current', { 'packages': [ 'corechart', 'line'] });
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = google.visualization.arrayToDataTable( [
-
-              [ 'Date(UTC)', 'BATCH STATUS'],
-              [ '12/01/19',  1, ],
-              [ '13/01/19',  0, ],
-              [ '14/01/19',  1, ],
-              [ '15/01/19',  0, ],
-              [ '16/01/19',  1, ]
-            ] );
-
-            var options = {
-
-                backgroundColor: '#fbfbfb',
-                fontSize: 10,
-                legend: { 
-                    position: 'top'
-                },
-                curveType: 'function',
-                chartArea: { width: '80%' },
-                series: {
-                    0: { 
-                        color: '#aaaaaa',
-                        lineWidth: 1
-                    }
-                }
-            };
-
-            var container = document.getElementById( '__batch__daily-chart' );
-            var chart = new google.visualization.LineChart( container );
-
-            chart.draw( data, options );
         }
     }
     

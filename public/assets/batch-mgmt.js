@@ -39,7 +39,9 @@ var dummyCircles = {
                 { featureStore: 'services', type: 'glooping', _size: 3, runtime: `4'56"`, status: 'unknown' }, 
         ] },
     ]
-}    
+}
+
+console.log( 'dummyCircles', dummyCircles )
 
 var dummyJob = {
 
@@ -107,18 +109,66 @@ var dummyJobDetails = {
    "ScannedCount":11
 }
 
+
+
 /* Main *******************************************************************************************/
 
 if ( $( '.container' ).data( 'env' ) === 'dev' ) {
 
+
+    /* Google charts ******************************************************************************/
+
+    google.charts.load('current', { 'packages': [ 'corechart', 'line'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable( [
+
+          [ 'Date(UTC)', 'BATCH STATUS'],
+          [ '12/01/19',  1, ],
+          [ '13/01/19',  0, ],
+          [ '14/01/19',  1, ],
+          [ '15/01/19',  0, ],
+          [ '16/01/19',  1, ]
+        ] );
+
+        var options = {
+
+            backgroundColor: '#fbfbfb',
+            fontSize: 10,
+            legend: { 
+                position: 'top'
+            },
+            curveType: 'function',
+            chartArea: { width: '80%' },
+            series: {
+                0: { 
+                    color: '#aaaaaa',
+                    lineWidth: 1
+                }
+            }
+        };
+
+        var container = document.getElementById( '__batch__daily-chart' );
+        var chart = new google.visualization.LineChart( container );
+
+        chart.draw( data, options );
+    }
+
+    /* Circles ************************************************************************************/
+    
+
+    var stages = makeStages( dummyBatch1 );
     var zone = $( '.main__header' ).data( 'zone' );
 
     if ( zone === 'lab' ) {
 
-        $( '.__batch__details' ).append( $createBatchSummary( dummyBatch1.batch) );
-        $( '.__batch__drawing' ).append( $createCirclesByStage( dummyCircles.children ) );
+        $( '.__batch__details' ).append( $createBatchSummary( dummyBatch1 ) );
+        // $( '.__batch__drawing' ).append( $createCirclesByStage( dummyCircles.children ) );
+        $( '.__batch__drawing' ).append( $createCirclesByStage( stages ) );
 
-        applyToAllCircles( $( '.__stage__circle--job' ) );
+        // applyToAllCircles( $( '.__stage__circle--job' ) );
     }
     else if ( zone === 'fac' ) {
 
@@ -157,6 +207,72 @@ $( document ).click( function ( event ) {
 
 
 /* Functions **************************************************************************************/
+
+function makeStages( batchContainer ) {
+
+    var stages = [ undefined ];
+    var jobIds = [];
+
+    for ( var key in batchContainer ) {
+
+        var item = batchContainer[ key ];
+
+        if ( item.jobID && item.type === 'job' ) {
+
+            jobIds.push( item.jobID );
+        }
+    }
+
+    for ( var jobId of jobIds ) {
+
+        var job = batchContainer[ jobId ];
+
+        if ( job ) {
+
+            var stageOfJob = job.stage;
+            var jobObject = {
+
+                jobId: jobId,
+                type: 'job',
+                runtime: shortenTime( job.time.run ),
+                status: job.status.state
+            }
+            
+            if ( stages[ stageOfJob ] && Array.isArray( stages[ stageOfJob ].children ) ) {
+
+                stages[ stageOfJob ].children.push( jobObject )
+            }
+            else {
+
+                var stage = {
+                    
+                    stage: stageOfJob, 
+                    type: 'stage', 
+                    children: [ jobObject ]
+                }
+
+                var featureStores  = batchContainer[ stageOfJob ].featureStores;
+
+                for ( var fs in featureStores ) {
+
+                    var glooping = {
+
+                        featureStore: fs,
+                        type: 'glooping',
+                        runtime: shortenTime( featureStores[ fs ].time.run ),
+                        status: featureStores[ fs ].status.state
+                    };
+
+                    stage.children.push( glooping );
+                }
+
+                stages[ stageOfJob ] = stage;
+            }
+        }
+    }
+
+    return stages;
+}
 
 function $createCirclesByStage( stages ) {
 
@@ -241,9 +357,11 @@ function toggleCircleStyles( $circle, styles = { width: '250px', height: '250px'
 
 function enlargeCircle( $circle, styles ) {
 
-    $( '.__job__basic', $circle ).fadeOut( 300 );
+    var delay = 300;
 
-    $circle.animate( styles, 300, function() {
+    $( '.__job__basic', $circle ).fadeOut( delay );
+
+    $circle.animate( styles, delay, function() {
 
         $( '.__job__more', $circle ).fadeIn();
     } );
@@ -252,13 +370,15 @@ function enlargeCircle( $circle, styles ) {
 
 function restoreCircle( $circle, size ) {
 
+    var delay = 300;
+
     $circle.css( 'opacity', 1 );
 
-    $( '.__job__more', $circle ).fadeOut( 300 );
+    $( '.__job__more', $circle ).fadeOut( delay );
 
-    $circle.animate( { width: size, height: size }, 300, function () { 
+    $circle.animate( { width: size, height: size }, delay, function () { 
 
-        $( '.__job__basic', $circle ).fadeIn( 300 );
+        $( '.__job__basic', $circle ).fadeIn( delay );
     } );
 }
 
@@ -636,7 +756,23 @@ function $createJobTooltip( job ) {
     return $template;
 }
 
-function $createBatchSummary( batch ) {
+function $createBatchSummary( batchContainer ) {
+
+    var totalStages = 0;
+    var batch = batchContainer.batch;
+
+    for ( var i = 0; i < 100; i ++ ) {
+
+        if ( batchContainer[ i ] ) {
+
+            i ++;
+            totalStages = i;
+        }
+        else {
+
+            break;
+        }
+    }
 
     var $tmpl = $( `
       <div class="__batch__summary">
@@ -651,6 +787,10 @@ function $createBatchSummary( batch ) {
           <div class="__batch__content"> 
             <div class="__batch__id">${batch.executionDate}</div>
           </div>
+        </div>
+        <div class="__batch__row">
+          <div class="__batch__title">Total Stages</div>
+          <div class="__batch__content">${totalStages}</div>
         </div>
         <div class="__batch__row">
           <div class="__batch__title">Total Jobs</div>
@@ -740,7 +880,6 @@ function shortenStatusText( status ) {
 
     return status;
 }
-
 
 function createSvgCircle( attrs = {} ) {
 
