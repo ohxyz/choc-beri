@@ -704,6 +704,17 @@ html .noUi-connect {
   top: 0;
   right: 0;
 }
+.__batch__operations--disabled.__batch__operations .__operation {
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+.__batch__operations--disabled.__batch__operations .__operation__name {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.__batch__operations--disabled.__batch__operations .__operation__name:hover {
+  text-decoration: none;
+}
 .__batch__operations .__operation {
   color: #c33189;
   cursor: pointer;
@@ -739,8 +750,7 @@ html .noUi-connect {
   color: #666666;
   border: 1px solid #999999;
   border-radius: 2px;
-  width: auto;
-  padding: 2px 4px;
+  width: 60px;
   transform: skewY(-3deg);
 }
 .__batch .__stage__header .__item__label {
@@ -905,6 +915,7 @@ html .noUi-connect {
 }
 .__feature__name {
   word-break: break-all;
+  max-width: 150px;
 }
 
 .__feature-store {

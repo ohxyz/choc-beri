@@ -156,6 +156,26 @@
             top: 0;
             right: 0;
 
+            &--disabled.__batch__operations {
+
+                .__operation {
+
+                    color: #aaaaaa;
+                    cursor: not-allowed;
+                    
+                    &__name {
+
+                        cursor: not-allowed;
+                        pointer-events: none;
+
+                        &:hover {
+
+                            text-decoration: none;
+                        };
+                    }
+                }
+            }
+
             .__operation {
 
                 color: $link-color;
@@ -209,8 +229,7 @@
                                 color: #666666;
                                 border: 1px solid #999999;
                                 border-radius: 2px;
-                                width: auto;
-                                padding: 2px 4px;
+                                width: 60px;
                                 transform: skewY(-3deg);
                             }
                         }
@@ -469,6 +488,7 @@
     &__name {
 
         word-break: break-all;
+        max-width: 150px;
     }
 }
 

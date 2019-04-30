@@ -165,10 +165,10 @@ if ( $( '.container' ).data( 'env' ) === 'dev' ) {
     if ( zone === 'lab' ) {
 
         $( '.__batch__details' ).append( $createBatchSummary( dummyBatch1 ) );
-        // $( '.__batch__drawing' ).append( $createCirclesByStage( dummyCircles.children ) );
-        $( '.__batch__drawing' ).append( $createCirclesByStage( stages ) );
+        $( '.__batch__drawing' ).append( $createCirclesByStage( dummyCircles.children ) );
+        // $( '.__batch__drawing' ).append( $createCirclesByStage( stages ) );
 
-        // applyToAllCircles( $( '.__stage__circle--job' ) );
+        applyToAllCircles( $( '.__stage__circle--job' ) );
     }
     else if ( zone === 'fac' ) {
 
