@@ -19,9 +19,12 @@
 .__message__ {
 
     color: #aaaaaa;
+    line-height: 1.25;
+    display: flex;
 
     &icon {
 
         margin-right: 10px;
+        line-height: 1.25;
     }
 }

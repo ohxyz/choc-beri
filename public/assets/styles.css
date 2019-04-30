@@ -14,9 +14,12 @@
 
 .__message__ {
   color: #aaaaaa;
+  line-height: 1.25;
+  display: flex;
 }
 .__message__icon {
   margin-right: 10px;
+  line-height: 1.25;
 }
 
 html body ::-webkit-scrollbar-track {
@@ -731,7 +734,7 @@ html .noUi-connect {
 .__batch__operations .__operation__name:hover {
   text-decoration: underline;
 }
-.__batch__stages {
+.__batch__workflow {
   margin-top: 60px;
 }
 .__batch .__stage {
