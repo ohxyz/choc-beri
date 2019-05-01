@@ -243,6 +243,18 @@ html .noUi-connect {
 .logo__link:hover {
   color: white;
 }
+.logo__label {
+  position: absolute;
+  background-color: white;
+  font-weight: bold;
+  padding: 0 2px;
+  color: #bb247f;
+  border-radius: 2px;
+  font-size: 10px;
+  top: 8px;
+  left: 185px;
+  transform: skewY(-3deg);
+}
 
 .code-feedback {
   background-color: #eeeeee;

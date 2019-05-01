@@ -21,6 +21,19 @@
 
             color: white;
         }
+    }
 
+    &__label {
+
+        position: absolute;
+        background-color: white;
+        font-weight: bold;
+        padding: 0 2px;
+        color: $main-color;
+        border-radius: 2px;
+        font-size: 10px;
+        top: 8px;
+        left: 185px;
+        transform: skewY(-3deg);
     }
 }
