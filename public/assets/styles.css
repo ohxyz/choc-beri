@@ -162,9 +162,6 @@ html .noUi-connect {
   font-size: 18px;
   margin-right: 10px;
 }
-.auto-refresh__title {
-  font-weight: 500;
-}
 .auto-refresh:hover {
   opacity: 0.8;
 }
@@ -820,48 +817,61 @@ html .noUi-connect {
 .__batch .__stage__circle--glooping .__glooping__runtime {
   font-style: italic;
 }
-.__batch .__stage__circle--built {
+.__batch .__stage__circle--glooping.__stage__circle--building {
+  animation-duration: 10s;
+  animation-name: paint;
+  animation-iteration-count: infinite;
+}
+@keyframes paint {
+  0%, 30%, 70%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+.__batch .__stage__circle--built.__stage__circle--job {
   border: 1px solid #329632;
   color: #329632;
   background-color: white;
 }
-.__batch .__stage__circle--building {
+.__batch .__stage__circle--building.__stage__circle--job {
   background-color: #6bca00;
   color: white;
 }
-.__batch .__stage__circle--errored {
+.__batch .__stage__circle--errored.__stage__circle--job {
   background-color: #ff3224;
   color: white;
 }
-.__batch .__stage__circle--failed {
+.__batch .__stage__circle--failed.__stage__circle--job {
   background-color: #da1204;
   color: white;
 }
-.__batch .__stage__circle--waiting {
+.__batch .__stage__circle--waiting.__stage__circle--job {
   background-color: #349ccc;
   color: white;
 }
-.__batch .__stage__circle--aborted {
+.__batch .__stage__circle--aborted.__stage__circle--job {
   background-color: #f7407b;
   color: white;
 }
-.__batch .__stage__circle--promoted {
+.__batch .__stage__circle--promoted.__stage__circle--job {
   background-color: #ff9800;
   color: white;
 }
-.__batch .__stage__circle--promoting {
+.__batch .__stage__circle--promoting.__stage__circle--job {
   background-color: #ffc822;
   color: white;
 }
-.__batch .__stage__circle--decommissioning {
+.__batch .__stage__circle--decommissioning.__stage__circle--job {
   background-color: #6374ce;
   color: white;
 }
-.__batch .__stage__circle--decommissioned {
+.__batch .__stage__circle--decommissioned.__stage__circle--job {
   background-color: #41509e;
   color: white;
 }
-.__batch .__stage__circle--paused {
+.__batch .__stage__circle--paused.__stage__circle--job {
   background-color: #ea67bc;
   color: white;
 }

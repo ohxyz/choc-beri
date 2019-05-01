@@ -41,8 +41,6 @@ var dummyCircles = {
     ]
 }
 
-console.log( 'dummyCircles', dummyCircles )
-
 var dummyJob = {
 
     executionDate: "D20190329T1800",
@@ -424,7 +422,7 @@ function $createStageStrip( stage ) {
                     else if ( child.type === 'glooping' ) {
 
                         return `
-                            <div class="__stage__circle __stage__circle--glooping __glooping ">
+                            <div class="__stage__circle __stage__circle--glooping __stage__circle--${child.status} __glooping ">
                                 <div class="__glooping__feature-store">${ child.featureStore }</div>
                                 <div class="__glooping__runtime">${ child.runtime }</div>
                                 <div class="__glooping__status">${ child.status }</div>

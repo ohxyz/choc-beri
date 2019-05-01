@@ -338,13 +338,34 @@
                                 width: 100px;
                                 height: 100px;
 
+
                                 .__glooping__runtime {
 
                                     font-style: italic;
                                 }
+
+                                &.__stage__circle--building {
+
+                                    animation-duration: 10s;
+                                    animation-name: paint;
+                                    animation-iteration-count: infinite;
+
+                                    @keyframes paint {
+
+                                        0%, 30%, 70%, 100% {
+                                            
+                                            opacity: 1;
+                                        }
+
+                                        50% {
+                                            
+                                            opacity: 0.1;
+                                        }
+                                    }
+                                }
                             }
 
-                            &--built {
+                            &--built.__stage__circle--job {
 
                                 $color: #329632;
 
@@ -353,61 +374,61 @@
                                 background-color: white;
                             }
 
-                            &--building {
+                            &--building.__stage__circle--job {
 
                                 $color: #6bca00;
                                 @include coloring($color);
                             }
 
-                            &--errored {
+                            &--errored.__stage__circle--job {
 
                                 $color: #ff3224;
                                 @include coloring($color);
                             }
 
-                            &--failed {
+                            &--failed.__stage__circle--job {
 
                                 $color: #da1204;
                                 @include coloring($color);
                             }
 
-                            &--waiting {
+                            &--waiting.__stage__circle--job {
 
                                 $color: #349ccc;
                                 @include coloring($color);
                             }
 
-                            &--aborted {
+                            &--aborted.__stage__circle--job {
 
                                 $color: #f7407b;
                                 @include coloring($color);
                             }
 
-                            &--promoted {
+                            &--promoted.__stage__circle--job {
 
                                 $color: #ff9800;
                                 @include coloring($color);
                             }
 
-                            &--promoting {
+                            &--promoting.__stage__circle--job {
 
                                 $color: #ffc822;
                                 @include coloring($color);
                             }
 
-                            &--decommissioning {
+                            &--decommissioning.__stage__circle--job {
 
                                 $color: #6374ce;
                                 @include coloring($color);
                             }
 
-                            &--decommissioned {
+                            &--decommissioned.__stage__circle--job {
                                 
                                 $color: #41509e;
                                 @include coloring($color);
                             }
 
-                            &--paused {
+                            &--paused.__stage__circle--job {
 
                                 $color: #ea67bc;
                                 @include coloring($color);
