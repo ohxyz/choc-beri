@@ -659,6 +659,7 @@ html .noUi-connect {
 .__batch__drawing {
   position: relative;
   flex-basis: 800px;
+  flex-grow: 1;
 }
 .__batch__filter {
   position: absolute;
@@ -889,8 +890,7 @@ html .noUi-connect {
 }
 .__batch__details {
   flex-basis: 300px;
-  flex-grow: 1;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 .__batch__header {
   display: flex;
