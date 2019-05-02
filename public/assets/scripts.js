@@ -973,7 +973,7 @@
 /* Upload script LAB - Script language, cadences, etc *********************************************/
 
     if ( env === 'dev' ) {
-
+     
         var $scriptLanguages = $( '.__multi-cadence__lang .strip__item' );
         var $cadenceContainer = $( '.__multi-cadence__cadence' );
         var $blockContainer = $( '.__multi-cadence__block' );
@@ -983,18 +983,14 @@
 
         handleStripItemClick( $scriptLanguages, function ( $selected ) {
 
-            if ( env === 'dev' ) {
+            var $contentOfCadences = $( '.strip__content', $cadenceContainer );
 
-                var $contentOfCadences = $( '.strip__content', $cadenceContainer );
+            $contentOfCadences.empty();
+            resetUploadScripts( $blockContainer );
 
-                $contentOfCadences.empty();
-                resetUploadScripts( $blockContainer );
+            scriptName = $selected.text().toLowerCase();  
+            $contentOfCadences.append( $renderCadences );
 
-                scriptName = $selected.text().toLowerCase();
-
-                // Replace with AJAX code in Prod    
-                $contentOfCadences.append( $renderCadences );
-            } 
         } );
 
         function resetUploadScripts( $container ) {
@@ -1012,13 +1008,16 @@
 
         function handleStripItemClick( $stripItems, handleClick ) {
 
-            var $itemSelected = $( this );
-            var activeClass = 'strip__item--active';
+            $stripItems.click( function () { 
 
-            $stripItems.removeClass( activeClass );
-            $itemSelected.addClass( activeClass );
+                var $itemSelected = $( this );
+                var activeClass = 'strip__item--active';
 
-            handleClick( $itemSelected );
+                $stripItems.removeClass( activeClass );
+                $itemSelected.addClass( activeClass );
+
+                handleClick( $itemSelected );
+            } );
 
             if ( isFirstTime ) {
 
@@ -1064,26 +1063,22 @@
 
             handleStripItemClick( $items, function () {
 
-                // Following code is ONLY used for UI desgin in `new-layout` folder.
+                $( '.upload-scripts' ).each( function ( index, container ) {
 
-                if ( env === 'dev' ) {
+                    var $container = $( container );
+                    var activeClassNameOfUploadScript = 'upload-scripts--active';
 
-                    $( '.upload-scripts' ).each( function ( index, container ) {
+                    if ( scriptName === $container.data( 'script' ) ) {
 
-                        var $container = $( container );
-                        var activeClassNameOfUploadScript = 'upload-scripts--active';
+                        $container.addClass( activeClassNameOfUploadScript );
+                    }
+                    else {
 
-                        if ( scriptName === $container.data( 'script' ) ) {
+                        $container.removeClass( activeClassNameOfUploadScript );
+                    }
 
-                            $container.addClass( activeClassNameOfUploadScript );
-                        }
-                        else {
+                } );
 
-                            $container.removeClass( activeClassNameOfUploadScript );
-                        }
-
-                    } );
-                }
             } );
 
             isFirstTime = false;
