@@ -1,0 +1,17 @@
+extends _layout.pug
+
+block link
+    - var path = 'playground'
+
+block main
+    .main__header
+        .main__title Welcome to Choc-BERI
+        .main__breadcrumb
+            span Playground 1
+            span /
+            a(href="/") Choc-BERI
+    .main__content.main__content--upload-scripts.__playground
+        .__multi-cadence
+
+block before-body
+    script(src="./assets/multi-cadence.js")

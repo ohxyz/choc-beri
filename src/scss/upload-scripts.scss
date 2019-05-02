@@ -3,10 +3,14 @@
     padding: 20px 0;
     overflow: auto;
 
-    .__vehicle {
+    .__multi-cadence {
 
-        display: flex;
-        padding: 0 30px;
+        &__content {
+
+            display: flex;
+            padding: 0 30px;
+
+        }
 
         .strip {
 

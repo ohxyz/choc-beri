@@ -971,46 +971,46 @@
     } )
 
 /* Upload script LAB - Script language, cadences, etc *********************************************/
-     
-    var $scriptLanguages = $( '.__vehicle__lang .strip__item' );
-    var $cadenceContainer = $( '.__vehicle__cadence' );
-    var $blockContainer = $( '.__vehicle__block' );
-    var scriptName = '';
-    var $uploadScripts = $( '.upload-scripts' );
-    var isFirstTime = true;
 
-    handleStripItemClick( $scriptLanguages, function ( $selected ) {
+    if ( env === 'dev' ) {
 
-        if ( env === 'dev' ) {
+        var $scriptLanguages = $( '.__multi-cadence__lang .strip__item' );
+        var $cadenceContainer = $( '.__multi-cadence__cadence' );
+        var $blockContainer = $( '.__multi-cadence__block' );
+        var scriptName = '';
+        var $uploadScripts = $( '.upload-scripts' );
+        var isFirstTime = true;
 
-            var $contentOfCadences = $( '.strip__content', $cadenceContainer );
+        handleStripItemClick( $scriptLanguages, function ( $selected ) {
 
-            $contentOfCadences.empty();
-            resetUploadScripts( $blockContainer );
+            if ( env === 'dev' ) {
 
-            scriptName = $selected.text().toLowerCase();
+                var $contentOfCadences = $( '.strip__content', $cadenceContainer );
 
-            // Replace with AJAX code in Prod    
-            $contentOfCadences.append( $renderCadences );
-        } 
-    } );
+                $contentOfCadences.empty();
+                resetUploadScripts( $blockContainer );
 
-    function resetUploadScripts( $container ) {
+                scriptName = $selected.text().toLowerCase();
 
-        var $contentOfBlocks = $( '.strip__content', $container );
-        
-        $contentOfBlocks.empty();
-        $contentOfBlocks.append( '<i class="__vehicle__icon fas fa-question">' );
+                // Replace with AJAX code in Prod    
+                $contentOfCadences.append( $renderCadences );
+            } 
+        } );
 
-        if ( env === 'dev' ) {
+        function resetUploadScripts( $container ) {
 
-            $( '.upload-scripts' ).removeClass( 'upload-scripts--active' );
+            var $contentOfBlocks = $( '.strip__content', $container );
+            
+            $contentOfBlocks.empty();
+            $contentOfBlocks.append( '<i class="__multi-cadence__icon fas fa-question">' );
+
+            if ( env === 'dev' ) {
+
+                $( '.upload-scripts' ).removeClass( 'upload-scripts--active' );
+            }
         }
-    }
 
-    function handleStripItemClick( $stripItems, handleClick ) {
-
-        $stripItems.click( function () { 
+        function handleStripItemClick( $stripItems, handleClick ) {
 
             var $itemSelected = $( this );
             var activeClass = 'strip__item--active';
@@ -1019,75 +1019,75 @@
             $itemSelected.addClass( activeClass );
 
             handleClick( $itemSelected );
-        } );
 
-        if ( isFirstTime ) {
+            if ( isFirstTime ) {
 
-            $stripItems.eq( 0 ).click();
+                $stripItems.eq( 0 ).click();
+            }
+
         }
 
-    }
+        function $renderCadences() {
 
-    function $renderCadences() {
+            var $template = $( `
 
-        var $template = $( `
+                <div class="strip__content">
+                    <span class="strip__item">5 mins</span>
+                    <span class="strip__item">1 hr</span>
+                    <span class="strip__item">24 hrs</span>
+                </div>
+            `);
 
-            <div class="strip__content">
-                <span class="strip__item">5 mins</span>
-                <span class="strip__item">1 hr</span>
-                <span class="strip__item">24 hrs</span>
-            </div>
-        `);
+            var $cadences = $( '.strip__item', $template );
 
-        var $cadences = $( '.strip__item', $template );
+            handleStripItemClick( $cadences, function () { 
 
-        handleStripItemClick( $cadences, function () { 
+                resetUploadScripts( $blockContainer );
+                $renderBlocks();
+            } );
 
-            resetUploadScripts( $blockContainer );
-            $renderBlocks();
-        } );
+            return $template;
+        }
 
-        return $template;
-    }
+        function $renderBlocks() {
 
-    function $renderBlocks() {
+            var $template = $( `
+                <div class="strip__content">
+                    <span class="strip__item">Single</span>
+                    <span class="strip__item">Multiple</span>
+                </div>
+            `);
 
-        var $template = $( `
-            <div class="strip__content">
-                <span class="strip__item">Single</span>
-                <span class="strip__item">Multiple</span>
-            </div>
-        `);
+            var $items = $( '.strip__item', $template );
 
-        var $items = $( '.strip__item', $template );
+            $( '.strip__content', $blockContainer ).replaceWith( $template );
 
-        $( '.strip__content', $blockContainer ).replaceWith( $template );
+            handleStripItemClick( $items, function () {
 
-        handleStripItemClick( $items, function () {
+                // Following code is ONLY used for UI desgin in `new-layout` folder.
 
-            // Following code is ONLY used for UI desgin in `new-layout` folder.
+                if ( env === 'dev' ) {
 
-            if ( env === 'dev' ) {
+                    $( '.upload-scripts' ).each( function ( index, container ) {
 
-                $( '.upload-scripts' ).each( function ( index, container ) {
+                        var $container = $( container );
+                        var activeClassNameOfUploadScript = 'upload-scripts--active';
 
-                    var $container = $( container );
-                    var activeClassNameOfUploadScript = 'upload-scripts--active';
+                        if ( scriptName === $container.data( 'script' ) ) {
 
-                    if ( scriptName === $container.data( 'script' ) ) {
+                            $container.addClass( activeClassNameOfUploadScript );
+                        }
+                        else {
 
-                        $container.addClass( activeClassNameOfUploadScript );
-                    }
-                    else {
+                            $container.removeClass( activeClassNameOfUploadScript );
+                        }
 
-                        $container.removeClass( activeClassNameOfUploadScript );
-                    }
+                    } );
+                }
+            } );
 
-                } );
-            }
-        } );
-
-        isFirstTime = false;
+            isFirstTime = false;
+        }
     }
 
 /* Upload script - Mojo ***************************************************************************/

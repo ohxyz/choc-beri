@@ -1855,21 +1855,21 @@ body .uploading__info {
   padding: 20px 0;
   overflow: auto;
 }
-.main .main__content--upload-scripts .__vehicle {
+.main .main__content--upload-scripts .__multi-cadence__content {
   display: flex;
   padding: 0 30px;
 }
-.main .main__content--upload-scripts .__vehicle .strip {
+.main .main__content--upload-scripts .__multi-cadence .strip {
   padding: 0;
   margin-right: 15px;
 }
-.main .main__content--upload-scripts .__vehicle .strip__title {
+.main .main__content--upload-scripts .__multi-cadence .strip__title {
   font-size: 12px;
 }
-.main .main__content--upload-scripts .__vehicle__icon {
+.main .main__content--upload-scripts .__multi-cadence__icon {
   color: #bb5a38;
 }
-.main .main__content--upload-scripts .__vehicle__block .strip__item--active {
+.main .main__content--upload-scripts .__multi-cadence__block .strip__item--active {
   background-color: #bb247f;
   border-color: #bb247f;
 }

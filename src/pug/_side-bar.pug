@@ -14,6 +14,8 @@
     var link_batch_mangement_lab = './batch-management-lab.html'
     var link_batch_mangement_fac = './batch-management-fac.html'
 
+    var link_playground = './playground.html'
+
 block link
 
 .side-bar
@@ -128,6 +130,20 @@ block link
                               href=link_create_feature_store )
                     i.fas.fa-cart-plus.menu__icon
                     .menu__label Create Feature Store
+
+        .menu__group.menu__group--expand
+            .menu__title                
+                span.menu__heading Playgrounds
+                i.menu__group__icon.fas.fa-angle-up
+                i.menu__group__icon.fas.fa-angle-down
+
+            .menu__item
+                a.menu__link( title="Playground 1" 
+                               class=( path === 'playground' ? active_class : '' ) 
+                               href=link_playground )
+                    i.fas.fa-flask.menu__icon
+                    .menu__label Playground 1
+
             
         // .menu__group.menu__group--expand
         //     .menu__title                
