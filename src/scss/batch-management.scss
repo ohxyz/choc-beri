@@ -74,6 +74,7 @@
 
         position: relative;
         flex-basis: 800px;
+        flex-grow: 1;
     }
 
         &__filter {
@@ -440,8 +441,7 @@
     &__details {
 
         flex-basis: 300px;
-        flex-grow: 1;
-        margin-left: 30px;
+        margin-left: 40px;
     }
 
         &__header {
