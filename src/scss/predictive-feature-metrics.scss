@@ -1,0 +1,69 @@
+
+.__feature-filter {
+
+    .fas {
+
+        color: $main-color;
+        width: 20px;
+    }
+}
+
+.__metrics {
+    
+    display: flex;
+    margin-top: 20px;
+
+    &__title {
+
+        width: 120px;
+        font-weight: 500;
+        color: #ab5031;
+    }
+
+}
+
+// Override google charts
+.main__content--predictive {
+
+    .google-visualization-controls-label {
+
+        color: #ab5031;
+        font-weight: 500;
+        width: 110px;
+    }
+
+    .google-visualization-controls-rangefilter-thumblabel {
+
+        font-weight: 500;
+        width: 40px;
+        text-align: center;
+        display: inline-block;
+        color: $main-color;
+    }
+
+    .google-visualization-controls-slider-horizontal {
+
+        border: none;
+        background-color: #cdcdcd;
+        height: 6px;
+        border-radius: 2px;
+
+        .google-visualization-controls-slider-thumb {
+
+            border-radius: 100px;
+            width: 26px;
+            height: 26px;
+            top: -10px;
+            background-color: white;
+
+            border: 1px solid #d9d9d9;
+        }
+
+        .google-visualization-controls-slider-handle {
+
+            background-color: #c24590;
+            opacity: 1;
+            height: 6px;
+        }
+    }
+}

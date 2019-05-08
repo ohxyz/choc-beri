@@ -366,6 +366,14 @@ html .noUi-connect {
   font-weight: normal;
   color: black;
 }
+.ui .ui.checkbox input:checked ~ .box:after,
+.ui .ui.checkbox input:checked ~ label:after {
+  color: #c47154;
+}
+.ui .ui.radio.checkbox input:checked ~ .box:after,
+.ui .ui.radio.checkbox input:checked ~ label:after {
+  background-color: #c47154;
+}
 
 .ui.form input:not([type]),
 .ui.form input[type=date],
@@ -435,6 +443,36 @@ html .noUi-connect {
 
 .ui.form .field.error .ui.dropdown, .ui.form .fields.error .field .ui.dropdown {
   border-color: #f4c7c7 !important;
+}
+
+.ui.dropdown > .text {
+  color: #c33189;
+  font-weight: 500;
+}
+.ui.dropdown > .text:hover {
+  text-decoration: underline;
+}
+
+.ui.floating.dropdown .menu {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
+}
+.ui.floating.dropdown .menu .scrolling.menu {
+  background-color: transparent;
+  border-top: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.ui.floating.dropdown .menu .scrolling.menu .item {
+  color: #292929;
+  font-size: 13px;
 }
 
 /* Also contains content overriding Semantic Modal */
@@ -1937,14 +1975,6 @@ body .uploading__info {
 .main .main__content--upload-scripts .upload-scripts .field-group__icon:hover {
   color: #0a868c;
 }
-.main .main__content--upload-scripts .ui.checkbox input:checked ~ .box:after,
-.main .main__content--upload-scripts .ui.checkbox input:checked ~ label:after {
-  color: #c47154;
-}
-.main .main__content--upload-scripts .ui.radio.checkbox input:checked ~ .box:after,
-.main .main__content--upload-scripts .ui.radio.checkbox input:checked ~ label:after {
-  background-color: #c47154;
-}
 
 .main .main__content--upload-scripts .upload-scripts {
   display: flex;
@@ -2308,6 +2338,53 @@ body .uploading__info {
 }
 .__create-stack__icon {
   margin-right: 10px;
+}
+
+.__feature-filter .fas {
+  color: #bb247f;
+  width: 20px;
+}
+
+.__metrics {
+  display: flex;
+  margin-top: 20px;
+}
+.__metrics__title {
+  width: 120px;
+  font-weight: 500;
+  color: #ab5031;
+}
+
+.main__content--predictive .google-visualization-controls-label {
+  color: #ab5031;
+  font-weight: 500;
+  width: 110px;
+}
+.main__content--predictive .google-visualization-controls-rangefilter-thumblabel {
+  font-weight: 500;
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+  color: #bb247f;
+}
+.main__content--predictive .google-visualization-controls-slider-horizontal {
+  border: none;
+  background-color: #cdcdcd;
+  height: 6px;
+  border-radius: 2px;
+}
+.main__content--predictive .google-visualization-controls-slider-horizontal .google-visualization-controls-slider-thumb {
+  border-radius: 100px;
+  width: 26px;
+  height: 26px;
+  top: -10px;
+  background-color: white;
+  border: 1px solid #d9d9d9;
+}
+.main__content--predictive .google-visualization-controls-slider-horizontal .google-visualization-controls-slider-handle {
+  background-color: #c24590;
+  opacity: 1;
+  height: 6px;
 }
 
 @font-face {

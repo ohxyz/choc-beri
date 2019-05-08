@@ -36,7 +36,7 @@
           <div class="menu__title"><span class="menu__heading">Exploratory</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
           <div class="menu__item"><a class="menu__link" title="Stacks" href="./stacks.html"><i class="fas fa-layer-group menu__icon"></i>
               <div class="menu__label">Stacks</div></a></div>
-          <div class="menu__item"><a class="menu__link menu__link--active" title="Browse Files" href="./browse-files.html"><i class="fas fa-folder-open menu__icon"></i>
+          <div class="menu__item"><a class="menu__link" title="Browse Files" href="./browse-files.html"><i class="fas fa-folder-open menu__icon"></i>
               <div class="menu__label">Browse Files</div></a></div>
           <div class="menu__item"><a class="menu__link" title="Upload Files" href="./upload-files.html"><i class="fas fa-file-upload menu__icon"></i>
               <div class="menu__label">Upload Files</div></a></div>
@@ -61,7 +61,7 @@
         </div>
         <div class="menu__group menu__group--expand">
           <div class="menu__title"> <span class="menu__heading">Feature</span><i class="menu__group__icon fas fa-angle-up"></i><i class="menu__group__icon fas fa-angle-down"></i></div>
-          <div class="menu__item"><a class="menu__link" title="Predictive Feature Metrics" href="./predictive-feature-metrics.html"><i class="fas fa-chart-line menu__icon"></i>
+          <div class="menu__item"><a class="menu__link menu__link--active" title="Predictive Feature Metrics" href="./predictive-feature-metrics.html"><i class="fas fa-chart-line menu__icon"></i>
               <div class="menu__label">Predictive Feature Metrics</div></a></div>
           <div class="menu__item"><a class="menu__link" title="Create Feature Store" href="./create-feature-store.html"><i class="fas fa-cart-plus menu__icon"></i>
               <div class="menu__label">Create Feature Store</div></a></div>
@@ -94,97 +94,58 @@
         <div class="user__avatar"><i class="fas fa-user-circle"></i></div></a><a class="logout" href="./login.html"><i class="top-bar__icon fas fa-door-closed"></i><i class="top-bar__icon fas fa-door-open"></i></a></div>
     <div class="main">
       <div class="main__header">
-        <div class="main__zone main__zone--exp">
-          <div class="zone-icon i far fa-map"></div>
-          <div class="zone-name">Exploratory</div>
-        </div>
-        <div class="main__title">Explorer environment files</div>
-        <div class="main__breadcrumb"><span>Browse Files</span><span>/</span><a href="/">Choc-BERI</a></div>
+        <div class="main__title">Welcome to Choc-BERI</div>
+        <div class="main__breadcrumb"><span>Predictive Feature Metrics</span><span>/</span><a href="/">Choc-BERI</a></div>
       </div>
-      <div class="main__content main__content--browse-files">
-        <div class="file-browser">
-          <div class="file-browser__header">
-            <div class="file-browser__title">BROWSE FILES</div>
+      <div class="main__content main__content--predictive">
+        <div class="__feature-filter">
+          <div class="ui floating dropdown"><i class="fas fa-filter"></i><span class="text">Filter Features</span>
+            <div class="menu">
+              <div class="ui icon search input"><i class="search icon"></i>
+                <input placeholder="Search ..." type="text">
+              </div>
+              <div class="scrolling menu">
+                <div class="item">Feature A</div>
+                <div class="item">Feature B</div>
+                <div class="item">Feature C</div>
+              </div>
+            </div>
           </div>
-          <div class="file-browser__content">
-            <div class="ui list"> 
-              <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon"></i>
-                <div class="content"> 
-                  <div class="header">src</div>
-                  <div class="description">Source files for project</div>
-                  <div class="list"> 
-                    <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon item__icon"></i>
-                      <div class="content"> 
-                        <div class="header">site</div>
-                        <div class="description">Your sites theme</div>
-                      </div>
-                    </div>
-                    <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon"></i>
-                      <div class="content"> 
-                        <div class="header">themes</div>
-                        <div class="description">Packaged theme files</div>
-                        <div class="list"> 
-                          <div class="item item--folder"><i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon"></i>
-                            <div class="content"> 
-                              <div class="header">default</div>
-                              <div class="description">Default packaged theme</div>
-                            </div>
-                          </div>
-                          <div class="item item--file"><i class="item__icon far fa-file"></i>
-                            <div class="content"> 
-                              <div class="header"> <a>my_theme.theme</a></div>
-                              <div class="description"><span class="last-modified"><span class="last-modified__title">last modified</span><span class="last-modified__content">2018-10-01 05:17:08</span></span><span class="file-size"><span class="file-size__title">size</span><span class="file-size__content">43.5kb</span></span></div>
-                            </div>
-                          </div>
-                          <div class="item item--file"><i class="item__icon far fa-file"></i>
-                            <div class="content"> 
-                              <div class="header"> <a>GBM_model_python_1535419454879_92.zip</a></div>
-                              <div class="description"><span class="last-modified"><span class="last-modified__title">last modified</span><span class="last-modified__content">Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)</span></span><span class="file-size"><span class="file-size__title">size</span><span class="file-size__content">43.5kb</span></span></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item item--file"><i class="item__icon far fa-file"></i>
-                      <div class="content"> 
-                        <div class="header"> <a>theme.config</a></div>
-                        <div class="description"><span class="last-modified"><span class="last-modified__title">last modified</span><span class="last-modified__content">Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)</span></span><span class="file-size"><span class="file-size__title">size</span><span class="file-size__content">43.5kb</span></span></div>
-                      </div>
-                    </div>
+        </div>
+        <div class="__metrics">
+          <div class="__metrics__title">Metrics</div>
+          <div class="__metrics__content">
+            <div class="ui form" id="metrics">
+              <div class="inline fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="metrics" id="f1">
+                    <label for="f1">f1</label>
                   </div>
                 </div>
-              </div>
-              <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon"></i>
-                <div class="content"> 
-                  <div class="header">dist</div>
-                  <div class="description">Compiled CSS and JS files</div>
-                  <div class="list"> 
-                    <div class="item item--folder"> <i class="item__icon far fa-folder"></i><i class="item__icon far fa-folder-open"></i><i class="item__icon dropdown icon"></i>
-                      <div class="content"> 
-                        <div class="header">components</div>
-                        <div class="description">Individual component CSS and JS</div>
-                      </div>
-                    </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="metrics" id="accuracy">
+                    <label for="accuracy">accuracy                  </label>
                   </div>
                 </div>
-              </div>
-              <div class="item item--file"><i class="item__icon far fa-file"></i>
-                <div class="content"> 
-                  <div class="header"> <a>semantic.json</a></div>
-                  <div class="description"><span class="last-modified"><span class="last-modified__title">last modified</span><span class="last-modified__content">Mon Oct 01 2018 15:17:08 GMT+1000 (GMT+10:00)</span></span><span class="file-size"><span class="file-size__title">size</span><span class="file-size__content">43.5kb</span></span></div>
-                </div>
-              </div>
-              <div class="item item--file"><i class="item__icon far fa-file"></i>
-                <div class="content"> 
-                  <div class="header"> <a>example_folder_2/old stuff/madrid_2001.csv</a></div>
-                  <div class="description"><span class="last-modified"><span class="last-modified__title">last modified</span><span class="last-modified__content">2018-10-01 05:17:08</span></span><span class="file-size"><span class="file-size__title">size</span><span class="file-size__content">43.5kb</span></span></div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="metrics" id="auc">
+                    <label for="auc">auc</label>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div id="dashboard_div" style="margin-top:0px">
+          <div id="filter_div"></div>
+          <div id="chart_div" style="margin-top:10px"></div>
+        </div>
       </div>
     </div>
   </div>
   <script src="./assets/scripts.js"></script>
+  <script src="./assets/predictive.js"></script>
 </body>
