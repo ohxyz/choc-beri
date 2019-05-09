@@ -1,6 +1,3 @@
-console.log( 'Batch MGMT' );
-console.log( 'batch', dummyBatch1 );
-
 var dummyCircles = {
 
     type: 'base',
