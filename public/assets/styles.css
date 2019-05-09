@@ -445,36 +445,6 @@ html .noUi-connect {
   border-color: #f4c7c7 !important;
 }
 
-.ui.dropdown > .text {
-  color: #c33189;
-  font-weight: 500;
-}
-.ui.dropdown > .text:hover {
-  text-decoration: underline;
-}
-
-.ui.floating.dropdown .menu {
-  border: none;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
-  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
-  border-radius: 10px !important;
-}
-.ui.floating.dropdown .menu .scrolling.menu {
-  background-color: transparent;
-  border-top: none;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-  border-bottom-left-radius: 10px !important;
-  border-bottom-right-radius: 10px !important;
-}
-.ui.floating.dropdown .menu .scrolling.menu .item {
-  color: #292929;
-  font-size: 13px;
-}
-
 /* Also contains content overriding Semantic Modal */
 .ui.modal {
   border-radius: 2px;
@@ -2355,36 +2325,33 @@ body .uploading__info {
   color: #ab5031;
 }
 
-.main__content--predictive .google-visualization-controls-label {
-  color: #ab5031;
+.main__content--predictive .ui.dropdown > .text {
+  color: #c33189;
   font-weight: 500;
-  width: 110px;
 }
-.main__content--predictive .google-visualization-controls-rangefilter-thumblabel {
-  font-weight: 500;
-  width: 40px;
-  text-align: center;
-  display: inline-block;
-  color: #bb247f;
+.main__content--predictive .ui.dropdown > .text:hover {
+  text-decoration: underline;
 }
-.main__content--predictive .google-visualization-controls-slider-horizontal {
+.main__content--predictive .ui.floating.dropdown .menu {
   border: none;
-  background-color: #cdcdcd;
-  height: 6px;
-  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
 }
-.main__content--predictive .google-visualization-controls-slider-horizontal .google-visualization-controls-slider-thumb {
-  border-radius: 100px;
-  width: 26px;
-  height: 26px;
-  top: -10px;
-  background-color: white;
-  border: 1px solid #d9d9d9;
+.main__content--predictive .ui.floating.dropdown .menu .scrolling.menu {
+  background-color: transparent;
+  border-top: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
-.main__content--predictive .google-visualization-controls-slider-horizontal .google-visualization-controls-slider-handle {
-  background-color: #c24590;
-  opacity: 1;
-  height: 6px;
+.main__content--predictive .ui.floating.dropdown .menu .scrolling.menu .item {
+  color: #292929;
+  font-size: 13px;
 }
 
 @font-face {
