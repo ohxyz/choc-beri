@@ -130,6 +130,19 @@
         font-weight: normal;
         color: black;
     }
+
+    .ui.checkbox input:checked~.box:after, 
+    .ui.checkbox input:checked~label:after {
+
+        color: #c47154;
+    }
+
+    .ui.radio.checkbox input:checked~.box:after, 
+    .ui.radio.checkbox input:checked~label:after {
+
+        background-color: #c47154;
+    }
+
 }
 
 
@@ -199,3 +212,6 @@
 
     border-color: #f4c7c7 !important;
 }
+
+
+

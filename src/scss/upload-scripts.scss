@@ -157,17 +157,4 @@
             }
         }
     }
-
-    .ui.checkbox input:checked~.box:after, 
-    .ui.checkbox input:checked~label:after {
-
-        color: #c47154;
-    }
-
-    .ui.radio.checkbox input:checked~.box:after, 
-    .ui.radio.checkbox input:checked~label:after {
-
-        background-color: #c47154;
-    }
-
 }

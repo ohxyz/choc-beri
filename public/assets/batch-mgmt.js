@@ -130,7 +130,7 @@ if ( $( '.container' ).data( 'env' ) === 'dev' ) {
 
         var options = {
 
-            backgroundColor: '#fbfbfb',
+            backgroundColor: '#ffffff',
             fontSize: 10,
             legend: { 
                 position: 'top'

@@ -367,6 +367,14 @@ html .noUi-connect {
   font-weight: normal;
   color: black;
 }
+.ui .ui.checkbox input:checked ~ .box:after,
+.ui .ui.checkbox input:checked ~ label:after {
+  color: #c47154;
+}
+.ui .ui.radio.checkbox input:checked ~ .box:after,
+.ui .ui.radio.checkbox input:checked ~ label:after {
+  background-color: #c47154;
+}
 
 .ui.form input:not([type]),
 .ui.form input[type=date],
@@ -710,7 +718,7 @@ html .noUi-connect {
 }
 .__batch__daily-table .ui.table tr td {
   border-top: none;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   color: #333333;
 }
 .__batch__operations {
@@ -1000,7 +1008,7 @@ html .noUi-connect {
   font-weight: 500;
 }
 .__g--base .__g__circle {
-  fill: #f5f5f5;
+  fill: #f8f8f8;
 }
 .__g--stage .__g__circle {
   fill: #e2e2e2;
@@ -1743,7 +1751,7 @@ body .uploading__info {
 }
 .main .feature-status {
   flex-basis: 24%;
-  border: 1px solid #eaeaea;
+  border: 1px solid #d9d9d9;
   border-radius: 2px;
   margin: 5px;
   background: white;
@@ -1937,14 +1945,6 @@ body .uploading__info {
 }
 .main .main__content--upload-scripts .upload-scripts .field-group__icon:hover {
   color: #0a868c;
-}
-.main .main__content--upload-scripts .ui.checkbox input:checked ~ .box:after,
-.main .main__content--upload-scripts .ui.checkbox input:checked ~ label:after {
-  color: #c47154;
-}
-.main .main__content--upload-scripts .ui.radio.checkbox input:checked ~ .box:after,
-.main .main__content--upload-scripts .ui.radio.checkbox input:checked ~ label:after {
-  background-color: #c47154;
 }
 
 .main .main__content--upload-scripts .upload-scripts {
@@ -2311,6 +2311,50 @@ body .uploading__info {
   margin-right: 10px;
 }
 
+.__feature-filter .fas {
+  color: #bb247f;
+  width: 20px;
+}
+
+.__metrics {
+  display: flex;
+  margin-top: 20px;
+}
+.__metrics__title {
+  width: 120px;
+  font-weight: 500;
+  color: #ab5031;
+}
+
+.main__content--predictive .ui.dropdown > .text {
+  color: #c33189;
+  font-weight: 500;
+}
+.main__content--predictive .ui.dropdown > .text:hover {
+  text-decoration: underline;
+}
+.main__content--predictive .ui.floating.dropdown .menu {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
+}
+.main__content--predictive .ui.floating.dropdown .menu .scrolling.menu {
+  background-color: transparent;
+  border-top: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+.main__content--predictive .ui.floating.dropdown .menu .scrolling.menu .item {
+  color: #292929;
+  font-size: 13px;
+}
+
 @font-face {
   font-family: "Willy Wonka";
   src: url("./fonts/Willy Wonka.ttf") format("truetype");
@@ -2453,7 +2497,6 @@ html, body {
 .main {
   grid-column: 2;
   grid-row: 2;
-  background-color: #fbfbfb;
   overflow: hidden;
 }
 .main__zone {

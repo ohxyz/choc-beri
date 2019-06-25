@@ -1,6 +1,6 @@
 var globals = { featureLanguage: '', cadence: '', blockName: '' };
 
-var blockDetails = [
+var dummyBlockDetails = [
 
     { blockName: 'mojo_lab_step', language: 'mojo', zone: 'lab', supportedCadences: [ '1440' ] },
     { blockName: 'mojo_fac_step', language: 'mojo', zone: 'fac', supportedCadences: [ '1440', '5', '60' ] },
@@ -18,21 +18,44 @@ var blockDetails = [
     { blockName: 'pySpark_fac_step', language: 'pySpark', zone: 'fac', supportedCadences: [ '60' ] },
 ];
 
-var blockDetailsOfLab = blockDetails.filter( item => item.zone === 'lab' );
-var blockDetailsOfFac = blockDetails.filter( item => item.zone === 'fac' );
+var dummyEventSources = [
+
+    { "cadence": "0005", "subscriptionID": "item_5_1" },
+    { "cadence": "0005", "subscriptionID": "item_5_2" },
+    { "cadence": "1440", "subscriptionID": "item_1440_1" },
+    { "cadence": "0060", "subscriptionID": "item_60_1" },
+    { "cadence": "0005", "subscriptionID": "item_5_3" },
+    { "cadence": "0060", "subscriptionID": "item_60_1" }
+];
+
+var blockDetailsOfLab = dummyBlockDetails.filter( item => item.zone === 'lab' );
+var blockDetailsOfFac = dummyBlockDetails.filter( item => item.zone === 'fac' );
 
 console.log( 'lab', blockDetailsOfLab, 'fac', blockDetailsOfFac )
 
 var $multiCadenceContainer = $createMultiCadenceContainer();
-var $languageContent = $createLanguageContent( blockDetailsOfLab, function ( lang ) { 
+var $languageContent = $createLanguageContent( 
 
-    console.log( lang );
-} );
+    blockDetailsOfLab,
+
+    function ( lang ) { 
+
+        console.log( lang );
+    },
+
+    function ( cadence ) {
+
+        var $es = $createEventSourceDropdown( dummyEventSources, cadence );
+        $( '.__event-source' ).html( $es );
+
+        $es.hide().fadeIn();
+    }
+);
 
 $( '.__multi-cadence' ).append( $multiCadenceContainer );
 $( '.__multi-cadence__lang .strip__content', $multiCadenceContainer ).html( $languageContent );
 
-function getQuestionMark() {
+function generateQuestionMark() {
 
     return `<i class="__multi-cadence__icon fas fa-question"></i>`
 }
@@ -58,14 +81,44 @@ function $createMultiCadenceContainer() {
             <div class="__multi-cadence__block strip">
                 <div class="strip__title">BLOCK</div>
                 <div class="strip__content">
-
+                    ${ generateQuestionMark() }
                 </div>
             </div>
         </div>
    ` );
 }
 
-function $createLanguageContent( blocks, handleClick ) {
+
+function $createEventSourceDropdown( eventSources, cadence='' ) {
+
+    var filteredSources = eventSources.filter( s => parseInt(s.cadence) === parseInt(cadence) );
+
+    var items = filteredSources.map( s => `
+
+        <div class="item" data-value="${s.subscriptionID}">${s.subscriptionID}</div>
+
+    ` ).join( '' );
+
+    var $container = $( `
+
+        <div class="field">
+            <label class="field__title" for="event-sources">Event Sources</label>
+            <div class="field__content ui fluid search dropdown selection multiple">
+                <input id="event-sources" type="hidden" name="event-sources">
+                <i class="dropdown icon"></i>
+                <div class="default text">Event Sources</div>
+                <div class="menu">
+                    ${ items }
+                </div>
+            </div>
+        </div>
+    ` );
+
+    $( '.dropdown', $container ).dropdown();
+    return $container;
+}
+
+function $createLanguageContent( blocks, onClick, onCadenceClick ) {
 
     var $container = $( `<div class="__language">` );
     var languages = [];
@@ -97,12 +150,12 @@ function $createLanguageContent( blocks, handleClick ) {
             globals.cadence = '';
             globals.blockName = '';
 
-            var $cadenceContent = $createCadenceContent( blocks, lang );
+            var $cadenceContent = $createCadenceContent( blocks, lang, onCadenceClick );
 
             $( '.__multi-cadence__cadence .strip__content' ).html( $cadenceContent );
-            $( '.__multi-cadence__block .strip__content' ).html( getQuestionMark() );
+            $( '.__multi-cadence__block .strip__content' ).html( generateQuestionMark() );
 
-            handleClick( lang );
+            onClick( lang );
 
         } )
     }
@@ -111,7 +164,7 @@ function $createLanguageContent( blocks, handleClick ) {
 }
 
 
-function $createCadenceContent( blocks, language ) {
+function $createCadenceContent( blocks, language, onClick ) {
 
     var $container = $( `<div class="__cadence">` );
     var cadences = [];
@@ -148,6 +201,8 @@ function $createCadenceContent( blocks, language ) {
 
                         $( '.__multi-cadence__block .strip__content' ).html( $blockContent );
 
+                        onClick( cadence );
+
                     } );
                 }
             }
@@ -156,7 +211,6 @@ function $createCadenceContent( blocks, language ) {
 
     return $container;
 }
-
 
 function $createBlockContent( blocks, language, cadence ) {
 

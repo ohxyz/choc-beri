@@ -1,0 +1,49 @@
+extends _layout.pug
+
+block link
+    - var path = 'predictive-feature-metrics'
+    
+block main
+    .main__header
+        .main__title Welcome to Choc-BERI
+        .main__breadcrumb
+            span Predictive Feature Metrics
+            span /
+            a(href="/") Choc-BERI
+    .main__content.main__content--predictive
+        .__feature-filter
+            .ui.floating.dropdown
+                i.fas.fa-filter
+                span.text Filter Features
+                .menu
+                    .ui.icon.search.input
+                        i.search.icon
+                        input(placeholder='Search ...', type='text')
+                    .scrolling.menu
+                        .item Feature A
+                        .item Feature B
+                        .item Feature C
+
+        .__metrics
+            .__metrics__title Metrics
+            .__metrics__content
+                .ui.form(id='metrics')
+                    .inline.fields
+                        .field
+                            .ui.radio.checkbox
+                                input(type='radio', name='metrics', id="f1")
+                                label(for="f1") f1
+                        .field
+                            .ui.radio.checkbox
+                                input(type='radio', name='metrics', id="accuracy")
+                                label(for="accuracy") accuracy                  
+                        .field
+                            .ui.radio.checkbox
+                                input(type='radio', name='metrics', id="auc")
+                                label(for="auc") auc
+        #dashboard_div(style="margin-top:0px")
+            #filter_div
+            #chart_div(style="margin-top:10px")
+
+block before-body
+    script(src="./assets/predictive.js")
