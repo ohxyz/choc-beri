@@ -1498,7 +1498,7 @@ body .uploading__info {
   min-width: 350px;
   max-width: 500px;
   position: relative;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   overflow: auto;
 }
 .main__content--feature-status .feature-panel__header {
