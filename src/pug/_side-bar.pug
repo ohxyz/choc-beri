@@ -109,29 +109,8 @@ block link
                 i.menu__group__icon.fas.fa-angle-down
 
             .menu__item
-                a.menu__link( title="Predictive Feature Metrics" 
-                              class=( path === 'predictive-feature-metrics' ? active_class : '' ) 
-                              href=link_predictive_feature_metrics
-                              )
-                    i.fas.fa-chart-line.menu__icon
-                    .menu__label Predictive Feature Metrics
-            
-            .menu__item
                 a.menu__link( title="Create Feature Store" 
                               class=( path === 'create-feature-store' ? active_class : '' ) 
                               href=link_create_feature_store )
                     i.fas.fa-cart-plus.menu__icon
                     .menu__label Create Feature Store
-
-        .menu__group.menu__group--expand
-            .menu__title                
-                span.menu__heading Playgrounds
-                i.menu__group__icon.fas.fa-angle-up
-                i.menu__group__icon.fas.fa-angle-down
-
-            .menu__item
-                a.menu__link( title="Playground 1" 
-                               class=( path === 'playground' ? active_class : '' ) 
-                               href=link_playground )
-                    i.fas.fa-flask.menu__icon
-                    .menu__label Playground 1
