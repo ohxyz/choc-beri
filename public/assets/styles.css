@@ -717,7 +717,7 @@ html .noUi-connect {
 }
 .__batch__daily-table .ui.table tr td {
   border-top: none;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   color: #333333;
 }
 .__batch__operations {
@@ -1007,7 +1007,7 @@ html .noUi-connect {
   font-weight: 500;
 }
 .__g--base .__g__circle {
-  fill: #f5f5f5;
+  fill: #f8f8f8;
 }
 .__g--stage .__g__circle {
   fill: #e2e2e2;
@@ -1750,7 +1750,7 @@ body .uploading__info {
 }
 .main .feature-status {
   flex-basis: 24%;
-  border: 1px solid #eaeaea;
+  border: 1px solid #d9d9d9;
   border-radius: 2px;
   margin: 5px;
   background: white;
@@ -2496,7 +2496,6 @@ html, body {
 .main {
   grid-column: 2;
   grid-row: 2;
-  background-color: #fbfbfb;
   overflow: hidden;
 }
 .main__zone {
